@@ -8,7 +8,7 @@ course at Data Science Retreat.
 
 [Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
 
-### Literature
+### Literature covered in course
 
 Minh et. al (2013) Playing Atari with Deep Reinforcement Learning
 https://arxiv.org/pdf/1312.5602.pdf
@@ -19,11 +19,23 @@ http://www.nature.com/nature/journal/v518/n7540/full/nature14236.html?foxtrotcal
 Silver et. al (2016) Mastering the game of Go with deep neural networks and tree search
 https://www.nature.com/nature/journal/v529/n7587/full/nature16961.html
 
-### Textbooks & courses
-Reinforcement Learning: An Introduction - Sutton & Barto
+### Important reinforcement learning literature (not an exhaustive list)
+Silver et. al (2014) Deterministic Policy Gradient Algorithms
+http://proceedings.mlr.press/v32/silver14.pdf
+
+Schaul et.al (2015) Prioritized Experience Replay
+https://arxiv.org/abs/1511.05952
+
+Minh et. al (2016) Asynchronous Methods for Deep Reinforcement Learning
+https://arxiv.org/pdf/1602.01783v2.pdf
+
+Schulman et. al (2016) High-Dimensional Continuous Control Using Generalized Advantage Estimation
+https://arxiv.org/abs/1506.02438
+
+Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)
 http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf
 
-RL Course by David Silver
+### RL Course by David Silver
 Slides
 http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
 

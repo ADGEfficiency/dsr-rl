@@ -1,4 +1,4 @@
-# DSR_RL
+# DSR reinforcement learning course
 Reinforcement learning course at Data Science Retreat
 
 Purpose of this repo is to hold course materials for the reinforcement learning

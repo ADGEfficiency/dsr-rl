@@ -4,6 +4,8 @@ Reinforcement learning course at Data Science Retreat
 Purpose of this repo is to hold course materials for the reinforcement learning
 course at Data Science Retreat.
 
+I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).
+
 ## Course materials
 
 [Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)

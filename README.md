@@ -6,7 +6,7 @@ course at Data Science Retreat.
 
 ## Course materials
 
-Current course slides
+[Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
 
 ### Literature
 

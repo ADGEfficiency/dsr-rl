@@ -1,5 +1,5 @@
 # Data Science Retreat Reinforcement Learning Course
-Reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
+Reinforcement Learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
 
 Purpose of this repo is to hold course materials for the reinforcement learning
 course at Data Science Retreat.

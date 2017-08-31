@@ -6,9 +6,9 @@ course at Data Science Retreat.
 
 I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).
 
-Course materials
+### Course materials
 
-### [Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
+[Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
 
 ### Literature covered in course
 

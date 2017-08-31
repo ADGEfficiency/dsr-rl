@@ -6,7 +6,7 @@ course at Data Science Retreat.
 
 I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).
 
-### Course materials - [latest course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
+### Course materials - [latest course slides](https://drive.google.com/file/d/0B2vdnHcGPgnHQUxOTU14WjEyMFU/view?usp=sharing)
 
 ### Literature covered in course
 
@@ -31,6 +31,10 @@ https://arxiv.org/pdf/1602.01783v2.pdf
 
 Schulman et. al (2016) High-Dimensional Continuous Control Using Generalized Advantage Estimation
 https://arxiv.org/abs/1506.02438
+
+Bellemare et. al (2017) A Distributional Perspective on Reinforcement Learning
+https://arxiv.org/abs/1707.06887
+https://deepmind.com/blog/going-beyond-average-reinforcement-learning/
 
 ### Classic reinforcement learning literature (not an exhaustive list)
 Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)

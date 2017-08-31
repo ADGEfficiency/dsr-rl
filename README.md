@@ -6,9 +6,9 @@ course at Data Science Retreat.
 
 I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).
 
-## Course materials
+Course materials
 
-[Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
+### [Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
 
 ### Literature covered in course
 
@@ -21,7 +21,7 @@ http://www.nature.com/nature/journal/v518/n7540/full/nature14236.html?foxtrotcal
 Silver et. al (2016) Mastering the game of Go with deep neural networks and tree search
 https://www.nature.com/nature/journal/v529/n7587/full/nature16961.html
 
-### Important reinforcement learning literature (not an exhaustive list)
+### Important recent reinforcement learning literature (not an exhaustive list)
 Silver et. al (2014) Deterministic Policy Gradient Algorithms
 http://proceedings.mlr.press/v32/silver14.pdf
 
@@ -36,6 +36,10 @@ https://arxiv.org/abs/1506.02438
 
 Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)
 http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf
+
+### Classic reinforcement learning literature (not an exhaustive list)
+Williams (1992) Simple statistical gradient-following algorithms for connectionist reinforcement learning
+http://www-anw.cs.umass.edu/~barto/courses/cs687/williams92simple.pdf
 
 ### RL Course by David Silver
 Slides

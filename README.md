@@ -8,7 +8,7 @@ I write about energy & machine learning at [adgefficiency.com](http://adgefficie
 
 ### Course materials
 
-[Current course slides](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
+[Latest course slides.](https://github.com/ADGEfficiency/DSR_RL/blob/master/latest_course_notes.pptx)
 
 ### Literature covered in course
 
@@ -34,10 +34,10 @@ https://arxiv.org/pdf/1602.01783v2.pdf
 Schulman et. al (2016) High-Dimensional Continuous Control Using Generalized Advantage Estimation
 https://arxiv.org/abs/1506.02438
 
+### Classic reinforcement learning literature (not an exhaustive list)
 Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)
 http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf
 
-### Classic reinforcement learning literature (not an exhaustive list)
 Williams (1992) Simple statistical gradient-following algorithms for connectionist reinforcement learning
 http://www-anw.cs.umass.edu/~barto/courses/cs687/williams92simple.pdf
 

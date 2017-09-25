@@ -19,7 +19,7 @@ http://www.nature.com/nature/journal/v518/n7540/full/nature14236.html?foxtrotcal
 Silver et. al (2016) Mastering the game of Go with deep neural networks and tree search
 https://www.nature.com/nature/journal/v529/n7587/full/nature16961.html
 
-### Important recent reinforcement learning literature (not an exhaustive list)
+### Recent reinforcement learning literature (not an exhaustive list)
 Silver et. al (2014) Deterministic Policy Gradient Algorithms
 http://proceedings.mlr.press/v32/silver14.pdf
 
@@ -35,6 +35,9 @@ https://arxiv.org/abs/1506.02438
 Bellemare et. al (2017) A Distributional Perspective on Reinforcement Learning
 https://arxiv.org/abs/1707.06887
 https://deepmind.com/blog/going-beyond-average-reinforcement-learning/
+
+Li (2017) Deep Reinforcement Learning: An Overview
+https://arxiv.org/pdf/1701.07274.pdf
 
 ### Classic reinforcement learning literature (not an exhaustive list)
 Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)

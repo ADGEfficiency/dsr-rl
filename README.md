@@ -1,12 +1,10 @@
 # Data Science Retreat Reinforcement Learning Course
-Reinforcement Learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
+Reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
 
 Purpose of this repo is to hold course materials for the reinforcement learning
 course at Data Science Retreat.
 
 I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).
-
-### Course materials - [latest course slides](https://drive.google.com/file/d/0B2vdnHcGPgnHQUxOTU14WjEyMFU/view?usp=sharing)
 
 ### Literature covered in course
 

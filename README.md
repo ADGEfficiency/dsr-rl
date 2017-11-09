@@ -1,9 +1,9 @@
 # Data Science Retreat Reinforcement Learning Course
 
-Purpose of this repo is to hold course materials for the reinforcement learning
+Course materials for the reinforcement learning
 course at [Data Science Retreat.](https://www.datascienceretreat.com/).
 
-I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).
+This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@aadgefficiency.com). I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).  I also maintain the energy focused reinforcement learning framework [energy_py.](https://github.com/ADGEfficiency/energy_py)
 
 ### Literature covered in course
 

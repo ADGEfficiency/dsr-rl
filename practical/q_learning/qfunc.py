@@ -6,10 +6,13 @@ class Qfunc(object):
     args
         config (dict)
             input_shape (tuple)
+            layers (list)
             output_shape (tuple)
-            weights (list)
+        wt_init (function) tf function used to initialize weights
+        b_init (function) tf function used to initialize the biases
+
     methods
-        make_graph()
+        make_graph(**config)
 
     attributes
 
@@ -26,10 +29,17 @@ class Qfunc(object):
     def __init__(self, config):
         self.make_graph(**config)
 
-    def make_graph(self, input_shape, output_shape, layers):
+    def make_graph(self, 
+                   input_shape, 
+                   output_shape, 
+                   layers,
+                   w_init=tf.truncated_normal,
+                   b_init=tf.zeros):
 
-        weight_init = tf.truncated_normal
-        bias_init = tf.zeros
+        print('making tf graph')
+        print('input shape {}'.format(input_shape))
+        print('output shape {}'.format(output_shape))
+        print('layers {}'.format(layers))
 
         with tf.variable_scope('DQN'):
 
@@ -42,23 +52,23 @@ class Qfunc(object):
                                          name='target')
 
             with tf.variable_scope('input_layer'):
-                w1 = tf.Variable(weight_init([*input_shape, layers[0]]))
-                b1 = tf.Variable(bias_init(layers[0]))
+                w1 = tf.Variable(w_init([*input_shape, layers[0]]))
+                b1 = tf.Variable(b_init(layers[0]))
 
                 layer = tf.add(tf.matmul(self.observation, w1), b1)
                 layer = tf.nn.relu(layer)
 
             for i, nodes in enumerate(layers[1:], 1):
                 with tf.variable_scope('hidden_layer'.format(i)):
-                    w = tf.Variable(weight_init(*[layers[i-1], nodes]))
-                    b = tf.Variable(bias_init(*layers[i]))
+                    w = tf.Variable(w_init([layers[i-1], nodes]))
+                    b = tf.Variable(b_init(nodes))
 
                     layer = tf.add(tf.matmul(layer, w), b)
                     layer = tf.nn.relu(layer)
 
             with tf.variable_scope('output_layer'):
-                wout = tf.Variable(weight_init([*nodes, *output_shape]))
-                bout = tf.Variable(bias_init(*output_shape))
+                wout = tf.Variable(w_init([nodes, *output_shape]))
+                bout = tf.Variable(b_init(*output_shape))
                 self.q_values = tf.add(tf.matmul(layer, wout), bout)
 
             self.max_q = tf.reduce_max(self.q_values, axis=1, name='max_Q')

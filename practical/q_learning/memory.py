@@ -9,7 +9,7 @@ Experience = namedtuple('experience', ['observation',
                                        'next_observation',
                                        'terminal'])
 
-class Memory(object):
+class ReplayMemory(object):
     """
 
     """

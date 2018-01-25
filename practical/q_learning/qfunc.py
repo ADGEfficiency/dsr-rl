@@ -76,9 +76,11 @@ class Qfunc(object):
 
         #  the action the agent took - ie the action that is being trained
         #  the Bellman target is for this action
-        #  this is the integer index of the action!
-        self.action = tf.placeholder(tf.int32,
-                                      shape=(None, 1),
+        #  an array of shape (batch_size, num_actions)
+        #  zero for all except the action being trained
+        #  REWRITE TODO
+        self.action = tf.placeholder(tf.int32, 
+                                      shape=(None, 2),
                                       name='action')
         
         #  the target is for the action being trained
@@ -110,23 +112,33 @@ class Qfunc(object):
             #  no activation function on the output layer (i.e. linear)
             self.q_values = tf.add(tf.matmul(layer, wout), bout)
 
-        #  code has been tested up to here!!!! TODO
-        self.max_q = tf.reduce_max(self.q_values, axis=1, name='max_q')
+        max_q = tf.reduce_max(self.q_values, axis=1, name='max_q')
+        self.max_q = tf.reshape(max_q, (-1, 1))
         self.optimal_action_idx = tf.argmax(self.q_values, axis=1)
+
         net_summary = ([tf.summary.histogram('observation', self.observation),
-                        tf.summary.histogram('q_values', self.q_values),
-                        tf.summary.scalar('maximum_q', self.max_q),
-                        tf.summary.scalar('opt_act_index', self.optimal_action_idx)])
+                          tf.summary.histogram('input_weights', w1),
+                          tf.summary.histogram('input_bias', b1),
+                          tf.summary.histogram('output_weights', wout),
+                          tf.summary.histogram('output_bias', bout),
+                        tf.summary.tensor_summary('q_values', self.q_values),
+                       tf.summary.tensor_summary('max_q', self.max_q)])
 
         self.net_summary = tf.summary.merge(net_summary)
 
-        self.error = tf.square(tf.subtract(self.target, self.q_values))
-        self.loss = tf.reduce_sum(self.error, name='loss')
+        #  index out Q(s,a) for the action being trained
+        q_value = tf.gather_nd(self.q_values, self.action, name='q_value')
+        self.q_value = tf.reshape(q_value, (-1, 1))
+        self.error = self.target - self.q_value 
+        self.loss = tf.losses.huber_loss(self.target, self.q_value) 
+
         optimizer = tf.train.AdamOptimizer(learning_rate)
         self.train_op = optimizer.minimize(self.loss)
 
-        train_summary = ([tf.summary.histogram('input_weights', w1),
-                          tf.summary.histogram('output_weights', wout),
+        #  averages across the batch (ie a scalar to represent the whole batch)
+        average_q_val = tf.reduce_mean(self.q_value)
+        train_summary = ([tf.summary.histogram('target', self.target),
+                          tf.summary.scalar('avg_batch_q_value', average_q_val),
                           tf.summary.histogram('error', self.error),
                           tf.summary.scalar('loss', self.loss)])
 

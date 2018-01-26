@@ -19,27 +19,38 @@ class Agent(object):
 
     All calls to tensorflow are wrapped into methods.
 
-
+    Support for environments is currently manually configured.
     """
-    def __init__(self, env, discount, tau, sess, total_steps):
+    def __init__(self, env, discount, tau, sess, total_steps, batch_size, **kwargs):
         self.env = env
         self.discount = discount
         self.tau = tau
         self.sess = sess
+        self.batch_size = batch_size
+
         self.epsilon_getter = EpsilonDecayer(decay_length=total_steps/2)
-        self.target_update_freq = int(total_steps) / 10 
+        self.target_update_freq = int(total_steps) / 10
 
         #  the counter is stepped up every time we act or learn
         self.counter = 0
-        self.logger = make_logger('./logs', 'info')
+        self.logger = make_logger('./results/logs.txt', 'info')
 
-        if type(env.action_space) == gym.spaces.discrete.Discrete:
+        if repr(env) == '<TimeLimit<CartPoleEnv<CartPole-v1>>>':
+            obs_space_shape = env.observation_space.shape
             #  the shape of the gym Discrete space is the number of actions
             #  not the shape of a single action array
-            obs_space_shape = env.observation_space.shape
+            #  create a tuple to specify the action space
             action_space_shape = (1,)
             #  a list of all possible actions
             self.actions = [act for act in range(env.action_space.n)]
+
+        elif repr(env) == '<TimeLimit<PendulumEnv<Pendulum-v0>>>':
+            obs_space_shape = env.observation_space.shape
+            action_space_shape = env.action_space.shape
+            self.actions = np.linspace(env.action_space.low,
+                                       env.action_space.high,
+                                       num=20,
+                                       endpoint=True)
         else:
             raise ValueError('Environment not supported')
 
@@ -47,31 +58,38 @@ class Agent(object):
                                    action_space_shape,
                                    size=int(total_steps/3))
 
-        config = {'input_shape': env.observation_space.shape,
-                  'output_shape': (len(self.actions),),
-                  'layers': (10, 10, 10),
-                  'learning_rate': 0.0001}
+        model_config = {'input_shape': obs_space_shape,
+                        'output_shape': (len(self.actions),)}
+
+        config_keys = ['layers', 'learning_rate']
+        for key, value in config_keys.items():
+            model_config[key] = value
 
         #  the two approximations of Q(s,a)
         #  use the same config dictionary for both
-        self.online = Qfunc(config, scope='online')
-        self.target = Qfunc(config, scope='target')
+        self.online = Qfunc(model_config, scope='online')
+        self.target = Qfunc(model_config, scope='target')
 
         #  set up the operations to copy the online network parameters to
         #  the target network
         self.update_ops = []
         for online, target in zip(self.online.params, self.target.params):
             logging.debug('copying {} to {}'.format(online.name, target.name))
-            operation = target.assign(online) 
+            operation = target.assign(online)
             self.update_ops.append(operation)
+
         # self.observation_processor = Normalizer(obs_space_shape[0])
         self.target_processor = Normalizer(1)
-        
-        self.acting_writer = tf.summary.FileWriter('./tensorboard/acting', 
+
+        self.acting_writer = tf.summary.FileWriter('./results/acting',
                                                    graph=self.sess.graph)
 
-        self.learning_writer = tf.summary.FileWriter('./tensorboard/learning', 
+        self.learning_writer = tf.summary.FileWriter('./results/learning',
                                                      graph=self.sess.graph)
+
+        self.sess.run(tf.global_variable_initializer())
+
+        self.update_target_network()
 
     def __repr__(self): return '<class DQN Agent>'
 
@@ -145,8 +163,10 @@ class Agent(object):
 
         Relies on the sorted lists of tf.Variables kept in each Qfunc object
         """
+        #  really shouldn't need to log twice...
+        logging.debug('updating target net at LC {}'.format(self.counter))
+        logging.info('updating target net at LC {}'.format(self.counter))
         return self.sess.run(self.update_ops)
-
 
     def act(self, observation):
         """
@@ -167,28 +187,26 @@ class Agent(object):
         else:
             action = self.predict_online(observation)
             logging.debug('acting optimally action is {}'.format(action))
-            
+
         logging.debug('epsilon is {}'.format(epsilon))
 
         epsilon_sum = tf.Summary(value=[tf.Summary.Value(tag='epsilon', simple_value=epsilon)])
         self.acting_writer.add_summary(epsilon_sum, self.counter)
         self.acting_writer.flush()
 
-        return action 
+        return action
 
-    def learn(self, batch):
+    def learn(self):
         """
         Our agents attempt to make sense of the world.
 
         A batch sampled using experience replay is used to train the online
         network using targets from the target network.
 
-        args
-            batch (dict)
-
         returns
             train_info (dict)
         """
+        batch = self.memory.get_batch(self.batch_size)
         observations = batch['observations']
         actions = batch['actions']
         rewards = batch['rewards']
@@ -203,7 +221,7 @@ class Agent(object):
         #  creating a target for Q(s,a) using the Bellman equation
         rewards = rewards.reshape(rewards.shape[0], 1)
         target = rewards + self.discount * next_obs_q
-        
+
         #target = self.target_processor.transform(target) 
         #  observations = self.observation_processor.transform(observations)
 
@@ -227,7 +245,7 @@ class Agent(object):
                      self.online.action: indicies,
                      self.online.target: target}
 
-        net_sum, q_vals, q_val, loss, train_op, train_sum = self.sess.run(fetches, feed_dict) 
+        net_sum, q_vals, q_val, loss, train_op, train_sum = self.sess.run(fetches, feed_dict)
 
         logging.debug('learning - observations {}'.format(observations))
 
@@ -247,8 +265,6 @@ class Agent(object):
         self.learning_writer.add_summary(train_sum, self.counter)
 
         if self.counter % self.target_update_freq == 0:
-            logging.debug('updating target net at LC {}'.format(self.counter))
-            logging.info('updating target net at LC {}'.format(self.counter))
             self.update_target_network()
 
         return {'loss': loss}
@@ -315,4 +331,3 @@ class EpsilonDecayer(object):
     @epsilon.setter
     def epsilon(self, value):
         self._epsilon = float(value)
-

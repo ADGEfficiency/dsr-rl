@@ -2,55 +2,60 @@ import gym
 import tensorflow as tf
 
 from agent import Agent
+from utils import save_args
 
-
-envs = ['Pendulum-v0', 'CartPole-v1']
-env = gym.make(envs[1])
-
-BATCH_SIZE = 32  #  low for debug (should be 64)
-DISCOUNT = 0.9
-TAU =  0.5
-total_steps = 500000
 
 with tf.Session() as sess:
-    agent = Agent(env, DISCOUNT, TAU, sess, total_steps)
 
-    sess.run(tf.global_variables_initializer())
-    agent.update_target_network()
-    rl_writer = tf.summary.FileWriter('./tensorboard/rl')
+    config = {'env': env,
+              'env_repr': repr(env),
+              'discount': 0.9,
+              'tau': 0.5,  #  not being used
+              'sess': sess,
+              'total_steps': 500000,
+              'batch_size': 64,
+              'layers': (10, 10, 10),
+              'learning_rate': 0.0001}
+
     global_rewards = []
-    global_step = 0
-    episode = 0
+    global_step, episode = 0, 0
 
-    while global_step < total_steps:
-        observation = env.reset()
+    envs = ['Pendulum-v0', 'CartPole-v1']
+    env = gym.make(envs[0])
+    agent = Agent(**config)
+
+    rl_writer = tf.summary.FileWriter('./results/rl')
+    save_args(config, 'results/args.txt')
+
+    while global_step < config['total_steps']:
+        episode += 1
         done = False
-        rewards = []
-        actions = []
+        rewards, actions = [], []
+
+        observation = env.reset()
+
         while not done:
-            global_step += 1 
+            global_step += 1
+
             action = agent.act(observation)
             next_observation, reward, done, info = env.step(action)
-
             agent.memory.remember(observation, action, reward, next_observation, done)
+            train_info = agent.learn()
 
-            rewards.append(reward)    
+            rewards.append(reward)
             actions.append(action)
-            batch = agent.memory.get_batch(BATCH_SIZE)
-            train_info = agent.learn(batch)
             observation = next_observation
 
-        episode += 1
-        global_rewards.append(sum(rewards))
-
-        print('ep {} reward {} lifetime avg {}'.format(episode, 
-                                                       global_rewards[-1],
-                        sum(global_rewards) / len(global_rewards)))
-
-
         ep_rew = sum(rewards)
+        global_rewards.append(ep_rew)
+        avg_reward = sum(global_rewards) / len(global_rewards)
+
+        logging.info('step {} ep {} reward {} lifetime avg {0:.2f}'.format(global_step,
+                                                               episode,
+                                                               ep_rew,
+                                                               avg_reward))
 
         summary = tf.Summary(value=[tf.Summary.Value(tag='episode_reward',
                                                      simple_value=ep_rew)])
-        rl_writer.add_summary(summary, episode) 
+        rl_writer.add_summary(summary, episode)
         rl_writer.flush()

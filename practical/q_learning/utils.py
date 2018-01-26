@@ -1,3 +1,4 @@
+import csv
 import logging
 import logging.config
 
@@ -32,6 +33,17 @@ def make_logger(log_path='logs.txt', log_status='info'):
                              'propagate': True}}})
 
     return logger
+
+    
+def save_args(dictionary, path):
+    """
+
+    """
+    with open(path, 'w') as outfile:
+        writer = csv.writer(outfile)
+
+        for k, v in dictionary.items():
+            writer.writerow([k]+[v])
 
 
 class Timer(object):

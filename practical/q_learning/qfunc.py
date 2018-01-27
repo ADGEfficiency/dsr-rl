@@ -3,13 +3,15 @@ import tensorflow as tf
 
 class Qfunc(object):
     """
+    Approximation of the action-value function Q(s,a) using a feedforward
+    neural network built in TensorFlow.
 
     args
-        config (dict) used to build tf machinery.  see make_graph for args
+        model_config (dict) used to build tf machinery.  see make_graph for args
         scope (str)
 
     methods
-        make_graph(**config)
+        make_graph(**model_config)
 
     attributes
         observation
@@ -20,25 +22,22 @@ class Qfunc(object):
         error
         loss
         train_op
-        net_summary
-        train_summary
+        acting_summary
+        learning_summary
     """
-    def __init__(self, config, scope):
-        self.config = config
+    def __init__(self, model_config, scope):
         self.scope = scope
 
         with tf.variable_scope(scope):
-            self.make_graph(**config)
+            self.make_graph(**model_config)
 
-        #  parameters for this model
+        #  tensorflow variables for this model
+        #  weights and biases of the neural network 
         params = [p for p in tf.trainable_variables()
                   if p.name.startswith(scope)]
 
-        #  save a sorted copy to iterate over later
+        #  sort parameters list by the variable name 
         self.params = sorted(params, key=lambda var: var.name)
-
-        print('params are {}'.format(self.params))
-        print('params are {}'.format(len(self.params)))
 
     def __repr__(self): return '<Q(s,a) {} network>'.format(self.scope)
 
@@ -115,24 +114,17 @@ class Qfunc(object):
             self.q_values = tf.add(tf.matmul(layer, wout), bout)
 
         with tf.variable_scope('argmax'):
+            #  ops for selecting optimal action
             max_q = tf.reduce_max(self.q_values, axis=1, name='max_q')
             self.max_q = tf.reshape(max_q, (-1, 1))
-            self.optimal_action_idx = tf.argmax(self.q_values, axis=1)
-
-        net_summary = ([tf.summary.histogram('observation', self.observation),
-                        tf.summary.histogram('input_weights', w1),
-                        tf.summary.histogram('input_bias', b1),
-                        tf.summary.histogram('output_weights', wout),
-                        tf.summary.histogram('output_bias', bout),
-                        tf.summary.tensor_summary('q_values', self.q_values),
-                        tf.summary.tensor_summary('max_q', self.max_q)])
-
-        self.net_summary = tf.summary.merge(net_summary)
+            self.optimal_action_idx = tf.argmax(self.q_values, axis=1,
+                                                name='optimal_action_idx')
 
         with tf.variable_scope('learning'):
             #  index out Q(s,a) for the action being trained
             q_value = tf.gather_nd(self.q_values, self.action, name='q_value')
             self.q_value = tf.reshape(q_value, (-1, 1))
+
             self.error = self.target - self.q_value
             self.loss = tf.losses.huber_loss(self.target, self.q_value)
 
@@ -141,9 +133,23 @@ class Qfunc(object):
 
         #  averages across the batch (ie a scalar to represent the whole batch)
         average_q_val = tf.reduce_mean(self.q_value)
-        train_summary = ([tf.summary.histogram('target', self.target),
-                          tf.summary.scalar('avg_batch_q_value', average_q_val),
-                          tf.summary.histogram('error', self.error),
-                          tf.summary.scalar('loss', self.loss)])
 
-        self.train_summary = tf.summary.merge(train_summary)
+        acting_sum = [tf.summary.histogram('observation_act', self.observation),
+                      tf.summary.histogram('input_weights', w1),
+                      tf.summary.histogram('input_bias', b1),
+                      tf.summary.histogram('output_weights', wout),
+                      tf.summary.histogram('output_bias', bout),
+                      tf.summary.histogram('q_values', self.q_values),
+                      tf.summary.histogram('max_q', self.max_q)]
+
+        self.acting_summary = tf.summary.merge(acting_sum)
+
+        learn_sum = [tf.summary.histogram('observation_learn', self.observation),
+                     tf.summary.histogram('q_values', self.q_values),
+                     tf.summary.histogram('max_q', self.max_q),
+                     tf.summary.histogram('target', self.target),
+                     tf.summary.scalar('avg_batch_q_value', average_q_val),
+                     tf.summary.histogram('error', self.error),
+                     tf.summary.scalar('loss', self.loss)]
+
+        self.learning_summary = tf.summary.merge(learn_sum)

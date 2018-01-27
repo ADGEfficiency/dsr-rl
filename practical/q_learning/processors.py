@@ -18,7 +18,10 @@ class Processor(object):
     def __init__(self, length, use_history):
         self.length = length
         self.use_history = use_history
-        
+
+    def __call__(self, batch):
+        return self.transform(batch)
+
     def transform(self, batch):
         """
         Preprocesses array into 2 dimensions.

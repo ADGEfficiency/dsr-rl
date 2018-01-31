@@ -118,7 +118,7 @@ class Agent(object):
     def remember(self, observation, action, reward, next_observation, done):
         if hasattr(self, 'observation_processor'):
             observation = self.observation_processor(observation)
-            next_observation = self.observation_processosr(next_observation)
+            next_observation = self.observation_processor(next_observation)
 
         return self.memory.remember(observation, action, reward,
                                     next_observation, done)
@@ -134,7 +134,10 @@ class Agent(object):
         returns
             max_q (np.array) shape = (batch_size, 1)
         """
-        fetches = [self.target.q_values, self.target.max_q, self.target.acting_summary]
+        fetches = [self.target.q_values,
+                   self.target.max_q,
+                   self.target.acting_summary]
+
         feed_dict = {self.target.observation: observations}
 
         q_vals, max_q, summary = self.sess.run(fetches, feed_dict)
@@ -196,7 +199,9 @@ class Agent(object):
 
     def act(self, observation):
         """
-        Acting according to epsilon greedy policy
+        Our agent attempts to manipulate the world.
+
+        Acting according to epsilon greedy policy.
 
         args
             observation (np.array)
@@ -215,7 +220,6 @@ class Agent(object):
             action = self.predict_online(observation)
             logging.debug('acting optimally action is {}'.format(action))
 
-
         epsilon_sum = tf.Summary(value=[tf.Summary.Value(tag='epsilon', simple_value=epsilon)])
         self.acting_writer.add_summary(epsilon_sum, self.counter)
         self.acting_writer.flush()
@@ -225,7 +229,7 @@ class Agent(object):
 
     def learn(self):
         """
-        Our agents attempt to make sense of the world.
+        Our agent attempts to make sense of the world.
 
         A batch sampled using experience replay is used to train the online
         network using targets from the target network.

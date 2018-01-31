@@ -2,6 +2,8 @@ import numpy as np
 import tensorflow as tf
 from qfunc import Qfunc
 
+epsilon = 1e-5
+
 config = {'input_shape': (2,),
           'layers': (4,8),
           'output_shape':(8,),
@@ -17,6 +19,7 @@ def relu(x): return x * (x > 0)
 
 def test_network():
     input = np.random.uniform(size=input_shape)
+    action = np.array([0, 1]).reshape(1, 2)
     win = weight((*input_shape, layers[0]))
     bin = bias(layers[0])
     preact_in = np.matmul(input, win) + bin
@@ -53,29 +56,28 @@ def test_network():
     with tf.Session() as sess:
         q = Qfunc(config, scope='test')
         sess.run(tf.global_variables_initializer())
-        feed_dict = {q.observation: input.reshape(1, *input_shape)}
+        feed_dict = {q.observation: input.reshape(1, *input_shape),
+                     q.action: action} 
 
         q_vals = sess.run(q.q_values, feed_dict)
 
-        assert q_vals[0].all() == out[0].all()
+        diffs = q_vals - out
+        assert np.less(diffs, epsilon).all()
 
         max_q = sess.run(q.max_q, feed_dict)
-        print(max_q)
-        print(np.max(out))
-        assert max_q == np.max(out)
+        assert max_q - np.max(out) < epsilon
 
         opt_act_idx = sess.run(q.optimal_action_idx, feed_dict)
         assert opt_act_idx == np.argmax(out)
 
         target = np.ones((1,1))
-        feed_dict[q.action] = np.array([0,2]).reshape(1,2)
+        feed_dict[q.action] = action
         feed_dict[q.target] = target
         tf_error = sess.run(q.error, feed_dict)
 
-        q_val = out[feed_dict[q.action]]
-        error = np.square(np.subtract(target, q_val))
-        print(tf_error, error)
-
+        q_val = out[action[0][1]] #  TODO this is a bit hacky!
+        error = target - q_val
+        assert tf_error - error < epsilon
 
 if __name__ == '__main__':
     test_network()

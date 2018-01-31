@@ -32,11 +32,11 @@ class Qfunc(object):
             self.make_graph(**model_config)
 
         #  tensorflow variables for this model
-        #  weights and biases of the neural network 
+        #  weights and biases of the neural network
         params = [p for p in tf.trainable_variables()
                   if p.name.startswith(scope)]
 
-        #  sort parameters list by the variable name 
+        #  sort parameters list by the variable name
         self.params = sorted(params, key=lambda var: var.name)
 
     def __repr__(self): return '<Q(s,a) {} network>'.format(self.scope)

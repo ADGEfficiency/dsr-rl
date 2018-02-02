@@ -4,7 +4,9 @@ import tensorflow as tf
 
 #  two tuples define the shape of the input and output to the network
 #  these are essentially the lengths of the numpy arrays
-input_shape = (4,)
+input_shape =(4,)
+input_nodes= (4,)
+hidden_layer_shape= (8,)
 output_shape = (4,)
 
 #  tensorflow uses placeholders to feed data into the network
@@ -22,16 +24,33 @@ network_input = tf.placeholder(tf.float32, shape=(None, *input_shape), name='inp
 #  variable wth a tensorflow function
 #  note how we unpack the shape tuples into the varible initializer
 weights = tf.Variable(tf.random_normal([*input_shape,
-                                        *output_shape]))
+                                        *input_nodes]))
 
 #  use a similar pattern for biases - note we only need the output shape
 #  the output shape is essentially the number of nodes in the network
-bias = tf.Variable(tf.random_normal([*output_shape]))
+bias = tf.Variable(tf.random_normal([*input_nodes]))
 
 #  now we form the network layer using the weights and biases
 pre_activation = tf.add(tf.matmul(network_input, weights), bias)
-network_output = tf.nn.relu(pre_activation)
-#  we can now predictio from out network using the out operation
+input_layer_output = tf.nn.relu(pre_activation)
+
+#  now we create a hidden layer
+#  note how we can write over the weights and biases variables defined
+#  above.  this is becuase the tensorflow graph is constructed independent
+#  of these variables
+weights = tf.Variable(tf.random_normal([*input_nodes, *hidden_layer_shape]))
+bias = tf.Variable(tf.random_normal([*hidden_layer_shape]))
+pre_activation = tf.add(tf.matmul(input_layer_output, weights), bias)
+hidden_layer_output = tf.nn.relu(pre_activation)
+
+#  and the output layer
+#  note the lack of an activation function
+#  this allows the net to output negative numbers - handy in regression
+weights = tf.Variable(tf.random_normal([*hidden_layer_shape, *output_shape]))
+bias = tf.Variable(tf.random_normal([*output_shape]))
+network_output = tf.add(tf.matmul(hidden_layer_output, weights), bias)
+
+#  we can now prediction from out network using the out operation
 #  the machinery for learning is below
 
 #  to train we need some sort of target or y_train variable
@@ -94,7 +113,7 @@ with tf.Session() as sess:
     #  lets do some training
     #  here we do 10000 batches of training
     #  but we are sending in the entire dataset as the batch
-    for train_step in range(10000):
+    for train_step in range(100000):
         #  now we run the tensorflow graph
         #  the graph is run by calling the .run method on the session
         #  the run method takes two inputs:
@@ -112,7 +131,6 @@ with tf.Session() as sess:
         #   note that we feed in multiple samples
         feed_dict = {network_input: inputs,
                      target: targets}
-        print(train_step)
         #  finally we run the session using the fetches and feed_dict
         loss_value, _, summary = sess.run(fetches, feed_dict)
         #  the operation to add the summary to the tensorboard output file
@@ -120,7 +138,7 @@ with tf.Session() as sess:
         print('step {} loss {}'.format(train_step, loss_value))
 
     #  generate a test set 
-    test_in, test_out = generate_data(1)
+    test_in, test_out = generate_data(5)
 
     #  here we get predictions from our network - we don't train
     pred = sess.run(network_output, {network_input: test_in})

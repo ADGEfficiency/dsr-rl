@@ -86,16 +86,7 @@ class Agent(object):
 
         #  set up the operations to copy the online network parameters to
         #  the target network
-        with tf.variable_scope('update_target_network'):
-            self.update_ops = []
-            for online, target in zip(self.online.params, self.target.params):
-                logging.debug('copying {} to {}'.format(online.name,
-                                                        target.name))
-                val = tf.add(tf.multiply(online, self.tau),
-                             tf.multiply(target, 1 - self.tau))
-
-                operation = target.assign(val)
-                self.update_ops.append(operation)
+        self.update_ops = self.make_target_net_update_ops()
 
         if process_observation:
             self.observation_processor = Normalizer(obs_space_shape[0])
@@ -115,7 +106,37 @@ class Agent(object):
 
     def __repr__(self): return '<class DQN Agent>'
 
+    def make_target_net_update_ops(self):
+        """
+        Creates the Tensorflow operations to update the target network.
+
+        The two lists of Tensorflow Variables (one for the online net, one
+        for the target net) are iterated over together and new weights
+        are assigned to the target network
+        """
+        with tf.variable_scope('update_target_network'):
+            update_ops = []
+            for online, target in zip(self.online.params, self.target.params):
+                logging.debug('copying {} to {}'.format(online.name,
+                                                        target.name))
+                val = tf.add(tf.multiply(online, self.tau),
+                             tf.multiply(target, 1 - self.tau))
+
+                operation = target.assign(val)
+                update_ops.append(operation)
+        return update_ops
+
     def remember(self, observation, action, reward, next_observation, done):
+        """
+        Store experience in the agent's memory.
+
+        args
+            observation (np.array)
+            action (np.array)
+            reward (np.array)
+            next_observation (np.array)
+            done (np.array)
+        """
         if hasattr(self, 'observation_processor'):
             observation = self.observation_processor(observation)
             next_observation = self.observation_processor(next_observation)
@@ -132,7 +153,7 @@ class Agent(object):
             observations (np.array)
 
         returns
-            max_q (np.array) shape = (batch_size, 1)
+            max_q (np.array) shape=(batch_size, 1)
         """
         fetches = [self.target.q_values,
                    self.target.max_q,

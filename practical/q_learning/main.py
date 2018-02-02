@@ -10,7 +10,12 @@ LOGGER = make_logger('./results/logs.txt', 'info')
 
 
 def experiment(config):
+    """
+    A function that runs an experiment.
 
+    args
+        config (dict) hyperparameters and experiment setup
+    """
     with tf.Session() as sess:
 
         envs = ['Pendulum-v0', 'CartPole-v1']
@@ -62,7 +67,8 @@ def experiment(config):
                                                          simple_value=avg_reward)])
             rl_writer.add_summary(avg_sum, episode)
             rl_writer.flush()
-
+ 
+    return config
 
 if __name__ == '__main__':
 
@@ -76,3 +82,5 @@ if __name__ == '__main__':
                    'memory_fraction': 0.25,
                    'process_observation': False,
                    'process_target': False}
+
+    output = experiment(config_dict)

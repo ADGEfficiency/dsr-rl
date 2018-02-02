@@ -81,8 +81,8 @@ class Qfunc(object):
         #  [0, 1] = first batch sample, second action
         #  [4, 0] = 5th sample, first action
         self.action = tf.placeholder(tf.int32,
-                                      shape=(None, 2),
-                                      name='action')
+                                     shape=(None, 2),
+                                     name='action')
 
         #  the target is for the action being trained
         #  shape = (batch_size, 1)

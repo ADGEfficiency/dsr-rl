@@ -41,6 +41,8 @@ def experiment(config):
 
             while not done:
                 global_step += 1
+                if episode % 20:
+                    env.render()
 
                 action = agent.act(observation)
                 next_observation, reward, done, info = env.step(action)
@@ -74,9 +76,9 @@ if __name__ == '__main__':
 
     config_dict = {'discount': 0.9,
                    'tau': 0.001,
-                   'total_steps': 45000,
+                   'total_steps': 100000,
                    'batch_size': 64,
-                   'layers': (64, 64, 64),
+                   'layers': (6, 6, 6, 6),
                    'learning_rate': 0.001,
                    'epsilon_decay_fraction': 0.5,
                    'memory_fraction': 0.25,

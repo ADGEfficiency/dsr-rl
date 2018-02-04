@@ -67,6 +67,11 @@ class Agent(object):
                                        env.action_space.high,
                                        num=20,
                                        endpoint=True).tolist()
+
+        elif repr(env) == '<TimeLimit<MountainCarEnv<MountainCar-v0>>>':
+            obs_space_shape = env.observation_space.shape
+            self.action_space_shape = (1,)
+            self.actions = [act for act in range(env.action_space.n)]
         else:
             raise ValueError('Environment not supported')
 

@@ -26,23 +26,6 @@ I also maintain the energy focused reinforcement learning framework [energy_py.]
 [Bellemare et. al (2017) A Distributional Perspective on Reinforcement Learning](https://arxiv.org/abs/1707.06887
 https://deepmind.com/blog/going-beyond-average-reinforcement-learning/)
 
-
-### Videos & lectures
-[The Long-term of AI & Temporal-Difference Learning (Richard Sutton - DeepMind)](https://www.youtube.com/watch?v=EeMCEQa85tw)
-
-[Deep Reinforcement Learning (John Schulman - OpenAI) -  policy gradients](https://www.youtube.com/watch?v=PtAIh9KSnjo)
-
-[Deep Reinforcement Learning and Real World Challenges (Raia Hadsell - DeepMind)](https://www.youtube.com/watch?v=0e_uGa7ic74)
-
-[Deep Reinforcement Learning in TensorFlow (Danijar Hafner - Stanford)](http://web.stanford.edu/class/cs20si/lectures/slides_14.pdf)
-
-[2017 NIPS David Silver Keynote - AlphaZero](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
-
-### Blog posts
-[Deep Reinforcement Learning: Pong from Pixels (Andrej Karpathy - Open AI / Tesla) - policy gradients](http://karpathy.github.io/2016/05/31/rl/)
-
-[Deep Deterministic Policy Gradients in TensorFlow](http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html)
-
 ### Reccomended next steps
 
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/pdf/1701.07274.pdf)
@@ -71,3 +54,20 @@ https://deepmind.com/blog/going-beyond-average-reinforcement-learning/)
 [Lecture 9 - Exploration and Exploitation](https://www.youtube.com/watch?v=sGuiWX07sKw)
 
 [Lecture 10 - Classic Games](https://www.youtube.com/watch?v=kZ_AUmFcZtk)
+
+### Videos & lectures
+[The Long-term of AI & Temporal-Difference Learning (Richard Sutton - DeepMind)](https://www.youtube.com/watch?v=EeMCEQa85tw)
+
+[Deep Reinforcement Learning (John Schulman - OpenAI) -  policy gradients](https://www.youtube.com/watch?v=PtAIh9KSnjo)
+
+[Deep Reinforcement Learning and Real World Challenges (Raia Hadsell - DeepMind)](https://www.youtube.com/watch?v=0e_uGa7ic74)
+
+[Deep Reinforcement Learning in TensorFlow (Danijar Hafner - Stanford)](http://web.stanford.edu/class/cs20si/lectures/slides_14.pdf)
+
+[2017 NIPS David Silver Keynote - AlphaZero](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
+
+### Blog posts
+[Deep Reinforcement Learning: Pong from Pixels (Andrej Karpathy - Open AI / Tesla) - policy gradients](http://karpathy.github.io/2016/05/31/rl/)
+
+[Deep Deterministic Policy Gradients in TensorFlow](http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html)
+

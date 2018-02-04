@@ -18,8 +18,8 @@ def experiment(config):
     """
     with tf.Session() as sess:
 
-        envs = ['Pendulum-v0', 'CartPole-v1']
-        env = gym.make(envs[1])
+        envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
+        env = gym.make(envs[2])
 
         global_rewards = []
         global_step, episode = 0, 0
@@ -41,9 +41,8 @@ def experiment(config):
 
             while not done:
                 global_step += 1
-                if episode % 20:
+                if episode % 10 == 0:
                     env.render()
-
                 action = agent.act(observation)
                 next_observation, reward, done, info = env.step(action)
                 agent.remember(observation, action, reward, next_observation, done)
@@ -51,7 +50,6 @@ def experiment(config):
 
                 rewards.append(reward)
                 actions.append(action)
-
                 observation = next_observation
 
             ep_rew = sum(rewards)
@@ -74,13 +72,13 @@ def experiment(config):
 
 if __name__ == '__main__':
 
-    config_dict = {'discount': 0.9,
+    config_dict = {'discount': 0.999,
                    'tau': 0.001,
-                   'total_steps': 100000,
+                   'total_steps': 200000,
                    'batch_size': 64,
-                   'layers': (6, 6, 6, 6),
+                   'layers': (100, 100),
                    'learning_rate': 0.001,
-                   'epsilon_decay_fraction': 0.5,
+                   'epsilon_decay_fraction': 0.7,
                    'memory_fraction': 0.25,
                    'process_observation': False,
                    'process_target': False}

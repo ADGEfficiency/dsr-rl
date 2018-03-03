@@ -98,16 +98,14 @@ The ideas behind this practical are:
 ---
 
 ### Nomenclature
-|-------------------|
-|s     | state      |
-|s'    | next state |
 
 |symbol|variable  |
 |------|----------|
 |$$s$$ |state     |
 |$$s'$$|next state|
-
-$$a$$ action
+|$$a$$ |action    |
+|$$r$$ |reward    |
+|$$G_t$$ | discounted return after time $$t$$|
 
 $$r$$ reward
 

@@ -187,9 +187,8 @@ approximations or bootstrapping tend to introduce bias
 
 biased away from an optimal agent / policy
 
----
 ---?image=_assets/variance_bias.png&size=contain
----
+
 ### Bootstrapping
 
 Doing something on your own - i.e. funding a startup with your own capital
@@ -211,6 +210,10 @@ $$ Q(s,a) = r + \gamma Q(s', a') $$
 ### Lookup tables
 
 ![lookup](_assets/lookup_table.png)
+
+---
+
+### Lookup tables
 
 ***Advantages***
 Stability - each estimate is independent of every other estimate
@@ -259,11 +262,11 @@ Difficult to train
 
 ### iid
 
-Fundamental assumption in statistical learning
+Fundamental assumption in statistical learning\
 
-independent and identically distributed
+independent and identically distributed\
 
-In statistical learning one always assumes the training set is independently drawn from a fixed distribution
+In statistical learning one always assumes the training set is independently drawn from a fixed distribution\
 
 ---
 
@@ -275,7 +278,6 @@ Modern reinforcement learning trains neural networks using batches of samples
 
 i.e. 128 samples, batch size=64
 -> two forward & backward passes across net
-
 
 ---
 

@@ -144,3 +144,46 @@ $$ R(r|s,a) $$  reward recieved from a state & action
 
 $$ a \sim \pi (s|a) $$
 
+
+---
+
+### Variance & bias in supervised learning
+Model generalization error = <span style="color:blue">bias + variance + noise</span>
+
+**Variance**
+
+error from sensitivity to noise in data set
+
+model sees patterns that aren’t there -> overfitting
+
+**Bias**
+
+error from assumptions in the learning algorithm
+
+model can miss relevant patterns -> underfitting
+
+---
+
+### Variance & bias in reinforcement learning
+
+**Variance**
+
+deviation from expected value
+
+how consistent is my model / sampling
+
+can often be dealt with by sampling more
+
+high variance = sample inefficient
+
+**Bias**
+
+expected deviation vs true value
+
+how close to the truth is my model
+
+approximations or bootstrapping tend to introduce bias
+
+biased away from an optimal agent / policy
+
+

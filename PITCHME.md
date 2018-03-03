@@ -113,7 +113,7 @@ The ideas behind this practical are:
 
 |symbol|variable  |
 |------|----------|
-|$$ a ~ \pi(s)$$ | sampling action from a stochastic policy |
+|$$ a \sim \pi(s)$$ | sampling action from a stochastic policy |
 |$$ a = \pi(s)$$ | determinstic policy |
 |$$ \pi^\star $$ | optimal policy |
 |$$ V_t\pi (s)$$| value function |

@@ -133,11 +133,14 @@ $$ \mathbb{E}[f(x)] = \sum p(x) \cdot f(x) $$
 
 ### Conditionals
 
-Probability of one thing given another
+**Probability of one thing given another**
+
 
 $$ P(s',r|s,a) $$  probability of next state and reward for a given state & action
 
+
 $$ R(r|s,a) $$  reward recieved from a state & action
+
 
 $$ a \sim \pi (s|a) $$
 

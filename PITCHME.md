@@ -6,7 +6,7 @@ Adam Green
 
 ---
 
-## Course Materials
+### Course Materials
 
 All course materials are in the GitHub repo DSR_RL.
 
@@ -17,18 +17,17 @@ The materials are
 
 ---
 
-## Agenda
+### Agenda
 
-### Today
-#### Morning
+***today - morning***
 one - background & terminology
 two - introduction to reinforcement learning
 three - value functions
 
-#### Afternoon
+***today - afternoon***
 DQN practical
 
-## Tomorrow
+***tomorrow - morning***
 four - improvements to DQN
 five - policy gradients
 six - practical concerns
@@ -36,18 +35,19 @@ seven - a quick look at the state of the art
 
 ---
 
-## About Me
+### About Me
 
 **Education** 
-B.Eng Chemical Engineering, MSc Advanced Process Design for Energy
+2006 - 2011 B.Eng Chemical Engineering, MSc Advanced Process Design for Energy
 
 **Experience**  
 2011 - 2016 Energy Engineer at ENGIE UK
+
 2017 - current Energy Data Scientist at Tempus Energy
 
 ---
 
-## Today
+### Today
 
 RL is a vast topic, worthy of a lifetime of study!  
 
@@ -57,6 +57,9 @@ If you want to really grasp RL, you will need to study it on your own!
 
 These notes are designed as a future reference, to be looked back over when you dive deeper into the topic.
 
+---
+
+### Where to start
 For those interested in learning more, any of these are a good place to start
 - [Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in
   progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
@@ -65,21 +68,27 @@ For those interested in learning more, any of these are a good place to start
 
 ---
 
-## Today - Practical
+### Today - Practical
 
 The practical we will do this afternoon is to play with a working DQN (Deep Q-Network) agent on the Open AI Cartpole
 environment.
 
-The idea behind this practical is that in industry you won't be handed a set of notebooks to shift-enter through!  
+The ideas behind this practical are:
+- in industry you won't be handed a set of notebooks to shift-enter through
 
-You will likely be given an existing code base and be expected to figure out how it works.  This is also useful when
-trying to figure out how open source GitHub projects work.
+- you will likely be given an existing code base and be expected to figure out how it works
 
-Playing with a working system also allows you to play around with hyperparameters and see the effects.
+- this skill is also useful for understanding open source projects
 
-The agent is built using TensorFlow and we will be using TensorBoard for visualizing results.
+- using a working system allows you to understand the effect of hyperparameters
+
+- the agent is built using TensorFlow and we will be using TensorBoard for visualizing results
 
 ---
 
+## one
+### nomenclature & definitions
+### background and terminology
 
+---
 

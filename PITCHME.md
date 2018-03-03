@@ -99,18 +99,12 @@ The ideas behind this practical are:
 
 ### Nomenclature
 
-|symbol|variable  |
-|------|----------|
+|symbol|variable  | symbol   |  variable |
+|------|----------|----------|-----------|
 |$$s$$ |state     |
 |$$s'$$|next state|
 |$$a$$ |action    |
 |$$r$$ |reward    |
 |$$G_t$$ | discounted return after time $$t$$|
-
-$$r$$ reward
-
-$$G_t$$ discounted return after time t
-
-$$gamma$$ discount factor [0, 1)
-
-$$a ~ pi(s)$$
+|$$gamma$$ |  discount factor [0, 1) |
+|$$a ~ pi(s)$$ | sampling action $$a$$ from a stochastic policy |

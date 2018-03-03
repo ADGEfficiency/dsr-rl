@@ -105,6 +105,6 @@ The ideas behind this practical are:
 |$$s'$$|next state|
 |$$a$$ |action    |
 |$$r$$ |reward    |
-|$$G_t$$ | discounted return after time $$t$$|
+|$$G_t$$ | discounted return after time t|
 |$$gamma$$ |  discount factor [0, 1) |
-|$$a ~ pi(s)$$ | sampling action $$a$$ from a stochastic policy |
+|$$a ~ pi(s)$$ | sampling action from a stochastic policy |

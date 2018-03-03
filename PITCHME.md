@@ -99,9 +99,8 @@ The ideas behind this practical are:
 
 ### Nomenclature
 
-$$s$$state
-
-$$s'$$ next state
+|$$s$$|state|
+|$$s'$$|next state|
 
 $$a$$ action
 

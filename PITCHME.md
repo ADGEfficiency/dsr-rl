@@ -101,10 +101,9 @@ The ideas behind this practical are:
 
 |symbol|variable  | symbol   |  variable |
 |------|----------|----------|-----------|
-|$$s$$ |state     |
-|$$s'$$|next state|
-|$$a$$ |action    |
+|$$s$$ |state     |$$a ~ pi(s)$$ | sampling action from a stochastic policy |
+|$$s'$$|next state|$$a = pi(s)$$ | determinstic policy
+|$$a$$ |action    |$$pi^\star $$ |
 |$$r$$ |reward    |
 |$$G_t$$ | discounted return after time t|
 |$$\gamma$$ |  discount factor [0, 1) |
-|$$a ~ pi(s)$$ | sampling action from a stochastic policy |

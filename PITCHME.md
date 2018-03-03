@@ -101,4 +101,8 @@ The ideas behind this practical are:
 
 $$s$$ state
 
-$$s^'$$ next state
+$$s'$$ next state
+
+$$a$$ action
+
+$$r$$ reward

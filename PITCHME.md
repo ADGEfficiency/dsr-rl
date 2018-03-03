@@ -188,7 +188,7 @@ approximations or bootstrapping tend to introduce bias
 biased away from an optimal agent / policy
 
 ---
-![variance_bias](_assets/variance_bias.png)
+---?image=_assets/variance_bias.png&size=contain
 ---
 ### Bootstrapping
 

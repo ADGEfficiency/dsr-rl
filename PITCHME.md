@@ -20,14 +20,17 @@ The materials are
 ### Agenda
 
 ***today - morning***
+
 one - background & terminology
 two - introduction to reinforcement learning
 three - value functions
 
 ***today - afternoon***
+
 DQN practical
 
 ***tomorrow - morning***
+
 four - improvements to DQN
 five - policy gradients
 six - practical concerns
@@ -38,9 +41,11 @@ seven - a quick look at the state of the art
 ### About Me
 
 **Education** 
+
 2006 - 2011 B.Eng Chemical Engineering, MSc Advanced Process Design for Energy
 
 **Experience**  
+
 2011 - 2016 Energy Engineer at ENGIE UK
 
 2017 - current Energy Data Scientist at Tempus Energy
@@ -92,3 +97,8 @@ The ideas behind this practical are:
 
 ---
 
+### Nomenclature
+
+$$/s$$ state
+
+$$/s'$$ next state

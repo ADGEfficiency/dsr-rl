@@ -101,6 +101,8 @@ The ideas behind this practical are:
 |s     | state      |
 |s'    | next state |
 
+|symbol|variable  |
+|------|----------|
 |$$s$$ |state     |
 |$$s'$$|next state|
 

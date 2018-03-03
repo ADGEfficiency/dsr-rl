@@ -119,4 +119,25 @@ The ideas behind this practical are:
 |$$ V_t\pi (s)$$| value function |
 |$$ Q_t\pi (s,a)$$| value function |
 |$$ \theta , w $$ | function parameters (i.e. weights) |
-|$$ \mathbb{E} f(x)] $$  | expectation of f(x) |
+|$$ \mathbb{E}[f(x)] $$  | expectation of f(x) |
+
+---
+
+### Definitions
+
+#### Expectation
+
+Weighted average of all possible values - i.e. the mean
+
+$$ \mathbb{E}[f(x)] = \sum p(x) \cdot f(x) $$
+
+#### Conditionals
+
+Probability of one thing given another
+
+$$ P(s',r|s,a) $$  probability of next state and reward for a given state & action
+
+$$ R(r|s,a) $$  reward recieved from a state & action
+
+$$ a \textasciitilde \pi (s|a) $$
+

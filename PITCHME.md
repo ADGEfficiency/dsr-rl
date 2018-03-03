@@ -203,4 +203,7 @@ Using a function to improve / estimate itself
 
 The Bellman Equation is bootstrapped equation
 
-$$ V(s) = r + /gamma V(s') $$
+$$ V(s) = r + \gamma V(s') $$
+
+$$ Q(s,a) = r + \gamma V(s', a') $$
+

@@ -119,4 +119,4 @@ The ideas behind this practical are:
 |$$ V_t\pi (s)$$| value function |
 |$$ Q_t\pi (s,a)$$| value function |
 |$$ \theta , w $$ | function parameters (i.e. weights) |
-|$$ \E [f(x)] $$  | expectation of f(x) |
+|$$ \E f(x)] $$  | expectation of f(x) |

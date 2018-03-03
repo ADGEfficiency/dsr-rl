@@ -149,7 +149,7 @@ $$ a \sim \pi (s|a) $$
 ---
 
 ### Variance & bias in supervised learning
-Model generalization error = <span style="color:blue">bias + variance + noise</span>
+Model generalization error = <span style="color:red">bias + variance + noise</span>
 
 **Variance**
 
@@ -187,4 +187,20 @@ approximations or bootstrapping tend to introduce bias
 
 biased away from an optimal agent / policy
 
+---
 
+### Variance & bias in reinforcement learning
+
+![variance_bias](_assets/variance_bias.png)
+
+---
+
+### Bootstrapping
+
+Doing something on your own - i.e. funding a startup with your own capital
+
+Using a function to improve / estimate itself
+
+The Bellman Equation is bootstrapped equation
+
+$$ V(s) = r + /gamma V(s') $$

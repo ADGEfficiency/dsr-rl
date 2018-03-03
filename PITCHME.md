@@ -139,5 +139,5 @@ $$ P(s',r|s,a) $$  probability of next state and reward for a given state & acti
 
 $$ R(r|s,a) $$  reward recieved from a state & action
 
-$$ a \textasciitilde \pi (s|a) $$
+$$ a \sim \pi (s|a) $$
 

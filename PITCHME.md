@@ -189,8 +189,6 @@ biased away from an optimal agent / policy
 
 ---
 
-### Variance & bias in reinforcement learning
-
 ![variance_bias](_assets/variance_bias.png)
 
 ---

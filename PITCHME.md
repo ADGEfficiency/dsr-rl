@@ -116,6 +116,7 @@ The ideas behind this practical are:
 |$$ a ~ \pi(s)$$ | sampling action from a stochastic policy |
 |$$ a = \pi(s)$$ | determinstic policy |
 |$$ \pi^\star $$ | optimal policy |
-|$$ V_t$\pi (s)$$| value function |
-|$$ Q_t$\pi (s,a)$$| value function |
-
+|$$ V_t\pi (s)$$| value function |
+|$$ Q_t\pi (s,a)$$| value function |
+|$$ \theta , w $$ | function parameters (i.e. weights) |
+|$$ \E [f(x)] $$  | expectation of f(x) |

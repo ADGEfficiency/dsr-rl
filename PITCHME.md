@@ -224,7 +224,7 @@ Curse of dimensionality - high dimensional state/action spaces means lots of ent
 
 ### Linear functions
 
-$$ V(s) = 3s_1 + 4_s2 $$
+$$ V(s) = 3s_1 + 4s_2 $$
 
 **Advantages**
 Less parameters than a table
@@ -287,3 +287,7 @@ Batches train faster – weights are updated more often for each epoch
 
 The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 
+---
+
+
+![batch_norm](_assets/batch_norm_lit.png)

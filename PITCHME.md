@@ -188,11 +188,8 @@ approximations or bootstrapping tend to introduce bias
 biased away from an optimal agent / policy
 
 ---
-
 ![variance_bias](_assets/variance_bias.png)
-
 ---
-
 ### Bootstrapping
 
 Doing something on your own - i.e. funding a startup with your own capital
@@ -203,11 +200,90 @@ The Bellman Equation is bootstrapped equation
 
 $$ V(s) = r + \gamma V(s') $$
 
-$$ Q(s,a) = r + \gamma V(s', a') $$
+$$ Q(s,a) = r + \gamma Q(s', a') $$
+
+---
+### Function approximation
+
+![func_approx](_assets/func_approx.png)
+
+---
+### Lookup tables
+
+![lookup](_assets/lookup_table.png)
+
+***Advantages***
+Stability - each estimate is independent of every other estimate
+
+***Disadvantages***
+No sharing of knowledge between similar states/actions
+
+Curse of dimensionality - high dimensional state/action spaces means lots of entries
 
 ---
 
-### Function approximation
+### Linear functions
+
+$$ V(s) = 3s_1 + 4_s2 $$
+
+**Advantages**
+Less parameters than a table
+
+Can generalize across states
+
+**Disadvantages**
+
+The real world is often non-linear
+
+---
+
+###  Non-linear functions
+
+![non_linear](_assets/non_linear.png)
+
+***Advantages***
+
+Model complex dynamics
+
+Convolution for vision
+
+Recurrency for memory / temporal dependencies
+
+***Disadvantages***
+
+Instability
+
+Difficult to train
+
+---
+
+### iid
+
+Fundamental assumption in statistical learning
+
+independent and identically distributed
+
+In statistical learning one always assumes the training set is independently drawn from a fixed distribution
+
+---
+
+### Batch size
+
+Modern reinforcement learning trains neural networks using batches of samples
+
+1 epoch = 1 pass over all samples
+
+i.e. 128 samples, batch size=64
+-> two forward & backward passes across net
 
 
+---
+
+###  Batch size
+
+Smaller batch sizes = less memory on GPU
+
+Batches train faster – weights are updated more often for each epoch
+
+The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 

@@ -141,6 +141,7 @@ $$ P(s',r|s,a) $$  probability of next state and reward for a given state & acti
 
 $$ R(r|s,a) $$  reward recieved from a state & action
 
+Sampling an action from a stochastic policy conditioned on being in state $$s$$
 
 $$ a \sim \pi (s|a) $$
 

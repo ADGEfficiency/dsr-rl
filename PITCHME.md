@@ -287,7 +287,5 @@ Batches train faster – weights are updated more often for each epoch
 
 The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 
----
+---?image=_assets/batch_norm_lit.png&size=contain
 
-
-![batch_norm](_assets/batch_norm_lit.png)

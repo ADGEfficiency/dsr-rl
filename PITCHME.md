@@ -123,15 +123,15 @@ The ideas behind this practical are:
 
 ---
 
-### Definitions
-
-#### Expectation
+### Expectation
 
 Weighted average of all possible values - i.e. the mean
 
 $$ \mathbb{E}[f(x)] = \sum p(x) \cdot f(x) $$
 
-#### Conditionals
+---
+
+### Conditionals
 
 Probability of one thing given another
 

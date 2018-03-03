@@ -207,3 +207,9 @@ $$ V(s) = r + \gamma V(s') $$
 
 $$ Q(s,a) = r + \gamma V(s', a') $$
 
+---
+
+### Function approximation
+
+
+

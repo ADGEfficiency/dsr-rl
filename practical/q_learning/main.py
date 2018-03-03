@@ -18,8 +18,8 @@ def experiment(config):
     """
     with tf.Session() as sess:
 
-        envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
-        env = gym.make(envs[2])
+        envs = ['Pendulum-v0', 'CartPole-v1', 'MountainCar-v0']
+        env = gym.make(envs[1])
 
         global_rewards = []
         global_step, episode = 0, 0
@@ -72,14 +72,14 @@ def experiment(config):
 
 if __name__ == '__main__':
 
-    config_dict = {'discount': 0.999,
+    config_dict = {'discount': 0.97,
                    'tau': 0.001,
-                   'total_steps': 200000,
-                   'batch_size': 64,
-                   'layers': (100, 100),
-                   'learning_rate': 0.001,
-                   'epsilon_decay_fraction': 0.7,
-                   'memory_fraction': 0.25,
+                   'total_steps': 500000,
+                   'batch_size': 32,
+                   'layers': (50, 50),
+                   'learning_rate': 0.0001,
+                   'epsilon_decay_fraction': 0.3,
+                   'memory_fraction': 0.4,
                    'process_observation': False,
                    'process_target': False}
 

@@ -13,8 +13,8 @@
   font-size: 24px
 }
 
-/* font size for ### markdown headers */
-.reveal h3 {
+/* font size for markdown headers */
+.reveal h1 h2 h3 h4 {
   font-size: 80px
 }
 

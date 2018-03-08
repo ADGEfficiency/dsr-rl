@@ -41,7 +41,9 @@ seven - a quick look at the state of the art
 
 **Education**
 
-2006 - 2011 B.Eng Chemical Engineering, MSc Advanced Process Design for Energy
+2006 - 2011 B.Eng Chemical Engineering
+
+2011 - 2012 MSc Advanced Process Design for Energy
 
 **Experience**  
 
@@ -186,7 +188,11 @@ approximations or bootstrapping tend to introduce bias
 
 biased away from an optimal agent / policy
 
----?image=_assets/variance_bias.png&size=contain
+---
+
+![func_approx](_assets/variance_bias.png)
+
+---
 
 ### Bootstrapping
 

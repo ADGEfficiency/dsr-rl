@@ -7,14 +7,14 @@ Adam Green
 ---
 
 ### Course Materials
-
+.small[
 All course materials are in the GitHub repo DSR_RL.
 
 The materials are
 - lecture notes hosted on GitPages at
 - a collection of useful literature at
 - practical work, consisting of a collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
-
+]
 ---
 
 ### Agenda
@@ -40,7 +40,7 @@ seven - a quick look at the state of the art
 
 ### About Me
 
-**Education** 
+**Education**
 
 2006 - 2011 B.Eng Chemical Engineering, MSc Advanced Process Design for Energy
 
@@ -262,11 +262,11 @@ Difficult to train
 
 ### iid
 
-Fundamental assumption in statistical learning\
+Fundamental assumption in statistical learning
 
-independent and identically distributed\
+independent and identically distributed
 
-In statistical learning one always assumes the training set is independently drawn from a fixed distribution\
+In statistical learning one always assumes the training set is independently drawn from a fixed distribution
 
 ---
 
@@ -290,4 +290,3 @@ Batches train faster – weights are updated more often for each epoch
 The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 
 ---?image=_assets/batch_norm_lit.png&size=contain
-

@@ -2,3 +2,4 @@ mathjax : TeX-MML-AM_HTMLorMML-full
 
 theme-override : _assets/PITCHME.css
 
+.small { font-size: 70% }

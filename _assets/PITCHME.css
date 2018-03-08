@@ -4,5 +4,9 @@
 }
 
 .reveal {
-  font-size: 12px
+  font-size: 24px
+}
+
+.reveal h1 {
+  font-size: 32px
 }

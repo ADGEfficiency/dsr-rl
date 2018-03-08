@@ -7,7 +7,7 @@ Adam Green
 ---
 
 ### Course Materials
-.small[All course materials are in the GitHub repo DSR_RL.]
+All course materials are in the GitHub repo DSR_RL.
 
 The materials are
 - lecture notes hosted on GitPages at

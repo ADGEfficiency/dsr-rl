@@ -138,7 +138,7 @@ probability of next state and reward for a given state & action
 
 $$ P(s',r|s,a) $$  
 
-reward recieved from a state & action
+reward received from a state & action
 
 $$ R(r|s,a) $$  
 
@@ -188,11 +188,7 @@ approximations or bootstrapping tend to introduce bias
 
 biased away from an optimal agent / policy
 
----
-
-![func_approx](_assets/variance_bias.png)
-
----
+---?image=assets/variance_bias.png&size=auto 90%
 
 ### Bootstrapping
 
@@ -209,12 +205,12 @@ $$ Q(s,a) = r + \gamma Q(s', a') $$
 ---
 ### Function approximation
 
-![func_approx](_assets/func_approx.png)
+![func_approx](assets/func_approx.png)
 
 ---
 ### Lookup tables
 
-![lookup](_assets/lookup_table.png)
+![lookup](assets/lookup_table.png)
 
 ---
 
@@ -247,7 +243,7 @@ The real world is often non-linear
 
 ###  Non-linear functions
 
-![non_linear](_assets/non_linear.png)
+![non_linear](assets/non_linear.png)
 
 ***Advantages***
 
@@ -294,4 +290,4 @@ Batches train faster – weights are updated more often for each epoch
 
 The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 
----?image=_assets/batch_norm_lit.png&size=contain
+---?image=assets/batch_norm_lit.png&size=contain

@@ -187,9 +187,9 @@ how close to the truth is my model
 approximations or bootstrapping tend to introduce bias
 
 biased away from an optimal agent / policy
-
+---
 ---?image=assets/variance_bias.png&size=auto 90%
-
+---
 ### Bootstrapping
 
 Doing something on your own - i.e. funding a startup with your own capital

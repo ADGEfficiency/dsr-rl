@@ -18,6 +18,9 @@
   font-size: 80px
 }
 
+.reveal table, th, td {
+  font-size: 24px
+}
 /* adjust body text left */
 .reveal .slides p {
     text-align: left;

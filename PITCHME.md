@@ -213,6 +213,9 @@ $$ Q(s,a) = r + \gamma Q(s', a') $$
 
 ---?image=assets/lookup_table.png&size=auto 90%
 
+---
+### Lookup tables
+
 ***Advantages***
 Stability - each estimate is independent of every other estimate
 
@@ -240,7 +243,11 @@ The real world is often non-linear
 
 ###  Non-linear functions
 
-![non_linear](assets/non_linear.png)
+---?image=assets/non_linear.png&size=auto
+
+---
+
+###  Non-linear functions
 
 ***Advantages***
 

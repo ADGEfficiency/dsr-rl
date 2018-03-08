@@ -206,16 +206,12 @@ $$ Q(s,a) = r + \gamma Q(s', a') $$
 ---
 ### Function approximation
 
-![func_approx](assets/func_approx.png)
+---?image=assets/func_approx.png&size=auto 90%
 
 ---
 ### Lookup tables
 
-![lookup](assets/lookup_table.png)
-
----
-
-### Lookup tables
+---?image=assets/lookup_table.png&size=auto 90%
 
 ***Advantages***
 Stability - each estimate is independent of every other estimate

@@ -134,13 +134,15 @@ $$ \mathbb{E}[f(x)] = \sum p(x) \cdot f(x) $$
 
 **Probability of one thing given another**
 
+probability of next state and reward for a given state & action
 
-$$ P(s',r|s,a) $$  probability of next state and reward for a given state & action
+$$ P(s',r|s,a) $$  
 
+reward recieved from a state & action
 
-$$ R(r|s,a) $$  reward recieved from a state & action
+$$ R(r|s,a) $$  
 
-Sampling an action from a stochastic policy conditioned on being in state $$s$$
+Sampling an action from a stochastic policy conditioned on being in state s
 
 $$ a \sim \pi (s|a) $$
 

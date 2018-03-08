@@ -3,18 +3,22 @@
   box-shadow: none;
 }
 
+/* font size for body */
 .reveal p {
   font-size: 24px
 }
 
-.reveal h {
+/* font size for links */
+.reveal a {
   font-size: 24px
 }
 
+/* font size for ### markdown headers */
 .reveal h3 {
   font-size: 80px
 }
 
+/* adjust body text left */
 .reveal .slides p {
     text-align: left;
 }

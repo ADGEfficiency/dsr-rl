@@ -7,6 +7,14 @@
   font-size: 24px
 }
 
-.reveal h1 {
+.reveal h3 {
   font-size: 100px
+}
+
+.reveal .slides {
+    text-align: left;
+}
+.reveal .slides section>* {
+    margin-left: 0;
+    margin-right: 0;
 }

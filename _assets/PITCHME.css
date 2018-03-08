@@ -4,14 +4,14 @@
 }
 
 .reveal p {
-  font-size: 120px
+  font-size: 32px
 }
 
 .reveal h3 {
   font-size: 80px
 }
 
-.reveal .slides {
+.reveal .slides p {
     text-align: left;
 }
 .reveal .slides section>* {

@@ -99,7 +99,7 @@ The ideas behind this practical are:
 ---
 
 ### Nomenclature
-
+<div id="right">
 |symbol|variable  |
 |------|----------|
 |$$s$$ |state     |
@@ -108,7 +108,7 @@ The ideas behind this practical are:
 |$$r$$ |reward    |
 |$$G_t$$ | discounted return after time t|
 |$$\gamma$$ |  discount factor [0, 1) |
-
+</div>
 ---
 ### Nomenclature
 

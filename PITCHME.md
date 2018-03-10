@@ -841,7 +841,7 @@ But we don’t know this function
 
 Imagine we were given the optimal value function $Q_*(s,a)$
 
-We are in state $s$, and our set of actions $\mathcal{A} = {a_1, a_2, a_3}$
+We are in state $s$, and our set of actions $\mathcal{A} = \{a_1, a_2, a_3\}$
 
 We can use our optimal value function to calculate the optimal expected discounted return for each action
 

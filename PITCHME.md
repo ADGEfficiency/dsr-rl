@@ -815,11 +815,11 @@ Can use discount = 1 for
 
 **Value function**
 
-$ V_\pi(s) = \mathbb{E}_{\pi}[G_t|s_t]] $
+$ V_\pi(s) = \mathcal{E}_{\pi}[G_t|s_t]] $
 
 $ V_\pi(s) $
 
-$$ V_\pi(s) $$
+$$ V_\pi(s) = $$
 
 Expected return when in state $s$, following policy $\pi$
 

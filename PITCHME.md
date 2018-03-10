@@ -797,6 +797,7 @@ Can use discount = 1 for
 ## three
 ### introduction to value functions 
 ### Bellman Equation 
+### approximation methods
 ---
 # Value function
 
@@ -828,17 +829,190 @@ Expected return when in state $s$, taking action $a$, following policy $\pi$
 ### Value functions are oracles
 
 Value functions are predictions of the future 
-- prediction of return
-- prediction of future expected discounted reward
+- they are expectations
+- predict expected future discounted reward
 - always conditioned on a policy
 
 But we don’t know this function 
 - agent must learn it 
+$$V(s_2) = 0$$
 - once we learn it – how will it help us to act?
 ---
-### Generating a policy from a value function
+### Generating the optimal policy from the optimal value function
 
-Imagine we were given the optimal policy $\pi^*$ 
+Imagine we were given the optimal value function $Q_*(s,a)$
+
+We are in state $s$, and our set of actions $\mathcal{A} = {a_1, a_2, a_3}$
+
+We can use our optimal value function to calculate the optimal expected discounted return for each action
+
+We then select the action with the largest Q(s,a) by $\argmax_a Q(s,a)$
+
+Set of actions 
+This is known as a *greedy policy*
+
+---
+### Generating the optimal policy from the optimal value function
+
+```
+def greedy_policy(state):
+    q_values = value_function.predict(state)
+
+    action = np.argmax(q_values)
+
+    return action
+```
+---
+### Policy approximation versus policy improvement
+
+We can see that having a good approximation of the optimal value function helps us to improve our policy
+
+These are two distinct steps
+1 - improving the predictive power of our value function (to predict return)
+2 - improving the policy - i.e. improving the actions that we take
+
+These two steps are done sequentially in a process known as **policy iteration**
+- approximate our policy (i.e. $V_{\pi}(s)$)
+- improve our policy by being greedy
+- approximate our new better policy
+- act greedy 
+...
+
+
+A similar by slightly difference process is **value iteration**, where we combine the policy approximation and
+improvement steps by using a maximization over all possible next states in the update
+
+$$ V_{k+1}(s) = max_a /sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')] $$ 
+$$V(s_2) = 0$$
+
+---
+### Generalized policy iteration
+GPI = the general idea of letting policy evaluation and improvement processes interact  
+
+Policy iteration = sequence of approximating value function then making policy greedy wrt value function
+
+Value iteration = single iteration of policy evaluation done inbetween each policy improvement
+
+Both of these can achieve the same result - stabilizing when a policy has been found that is greedy wrt it's own value
+function
+
+---
+### Value function approximation
+
+To approximate a value function we can use one of the methods we looked at in the first section
+- lookup table
+- linear function
+- non-linear function
+
+Linear functions are appropriate with some agents or environments
+
+Modern reinforcement learning is based on using deep neural networks - commonly convolution 
+
+---
+### Richard Bellman
+
+![fig](assets/images/section_1/func_approx.png)
+
+Invented dynamic programming in 1953 
+
+*[On the naming of dynamic programminging](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
+> I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying
+
+x
+Also introduced the curse of dimensionality - number of states $\mathcal{S}$ increases exponentially with the number of
+state variables
+
+---
+$$V(s_2) = 0$$
+###  Bellman Equation
+
+Bellman's contribution is remembered by the Bellman Equation
+
+$$ G_{\pi}(s) = r + \gamma G_{\pi}(s') $$
+
+The Bellman equation relates the expected discounted return of the current state to the discounted value of the next
+state
+
+---
+### Bellman Equation
+
+The Bellman equation is a recursive definition - i.e. it is bootstrapped
+
+We can apply it to value functions
+
+$$ V_{\pi}(s) = r + \gamma V_{\pi}(s') $$
+$$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
+
+---
+### How does the Bellman Equation help us learn?
+
+In supervised learning you train a neural network by minimizing the difference between the network output and the
+correct target for that sample
+
+In order to improve our approximation of a value function (i.e. a neural network) we need to create a target for each
+sample of experience
+
+We can then improve our approximation by minimizing a loss function
+
+$$ loss = target - approximation $$
+
+For an experience sample of $(s, a, r, s')$
+$$ loss = r + Q(s',a) - Q(s,a) $$
+
+This is also known as the **temporal difference error**
+
+---
+## break
+
+---
+## three
+### introduction to value functions 
+$$V(s_2) = 0$$
+### Bellman Equation 
+### Approximation methods
+---
+### Approximation methods
+
+We are going to look at three different methods for approximation
+
+1 - dynamic programming
+2 - Monte Carlo
+3 - temporal difference
+
+Policy improvement can be done by either policy iteration or value iteration for all of these different approximation
+methods
+
+---
+### Dynamic programming
+
+Imagine you had a perfect environment model
+
+i.e. you know both the state transition function $$ P(s'|s,a) and the reward transition function $$ R(r|s,a,s') $$  
+
+Can we use our perfect environment model for value function approximation?
+
+---
+
+![fig](assets/images/section_3/dp_1.png)
+
+Note that the probabilities here depend both on the environment and the policy
+
+---
+### Dynamic programming backup
+
+We can perform iterative backups of the expected return for each state
+
+The return for all terminal states is zero
+
+$$V(s_2) = 0$$
+$$V(s_4) = 0$$
+
+
+
+
+
+
+
 
 
 

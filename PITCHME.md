@@ -819,6 +819,8 @@ $ V_{\pi} $
 
 $ V_{\pi}(s) = E $
 
+$ V_{\pi}(s) = E_{\pi} $
+
 $ V_{\pi} (s) = E_{\pi} [G_t|s_t] $
 
 Expected return when in state $s$, following policy $\pi$

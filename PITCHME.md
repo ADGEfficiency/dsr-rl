@@ -871,13 +871,14 @@ These are two distinct steps
 1 - improving the predictive power of our value function (to predict return)
 2 - improving the policy - i.e. improving the actions that we take
 
+---
+### Policy & value iteration
 These two steps are done sequentially in a process known as **policy iteration**
 - approximate our policy (i.e. $V_{\pi}(s)$)
 - improve our policy by being greedy
 - approximate our new better policy
 - act greedy 
 ...
-
 
 A similar by slightly difference process is **value iteration**, where we combine the policy approximation and
 improvement steps by using a maximization over all possible next states in the update

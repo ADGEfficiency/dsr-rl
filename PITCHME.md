@@ -425,9 +425,10 @@ RL is all about **decision making**.
 
 ###  Biological inspiration
 
+*Sutton & Barto - Reinforcment Learning: An Introduction*
 >Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems (Sutton & Barto)
 
-Mnih et al (2015)
+*Mnih et. al (2015) Human-level control through deep reinforcement learning*
 >Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex (Mnih et. al 2015)
 
 Habit formation

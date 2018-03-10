@@ -5,12 +5,17 @@
 
 /* font size for body */
 .reveal p {
-  font-size: 24px
+  font-size: 28
 }
 
 /* font size for links */
 .reveal a {
-  font-size: 24px
+  font-size: 28
+}
+
+/* font size for unordered lists */
+.reveal ol {
+  font-size: 28
 }
 
 /* font size for markdown headers */

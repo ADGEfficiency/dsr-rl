@@ -884,7 +884,7 @@ These two steps are done sequentially in a process known as **policy iteration**
 A similar by slightly difference process is **value iteration**, where we combine the policy approximation and
 improvement steps by using a maximization over all possible next states in the update
 
-V_{k+1}(s) = max_a \sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')]
+$$V_{k+1}(s) = max_a \sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')]$$
 
 ---
 ### Generalized policy iteration

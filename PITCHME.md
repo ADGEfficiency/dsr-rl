@@ -16,9 +16,7 @@ The materials are
 - lecture notes hosted on GitPages
 - a collection of useful machine learning & reinforcement learning literature
 - practical work, consisting of a collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
-
 ---
-
 ### Agenda
 
 ***today - morning***
@@ -634,7 +632,7 @@ action = agent.act(state)
 
 reward, next_state = env.step(action)
 ```
-
+---
 ### Environment
 
 Can be real or virtual - modern RL makes heavy use of virtual environments to generate lots of experience
@@ -841,9 +839,11 @@ $Q_\pi(s,a)$
 
 ## how good is this action
 ---
+### Value functions
 
+Value function
 
-
+$V_\pi(s) = $
 
 
 

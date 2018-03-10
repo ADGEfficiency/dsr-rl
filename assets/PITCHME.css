@@ -3,24 +3,22 @@
   box-shadow: none;
 }
 
-/* font size for body */
-.reveal p {
-  font-size: 28
-}
-
-/* font size for links */
-.reveal a {
-  font-size: 28
-}
-
-/* font size for unordered lists */
-.reveal ol {
+/* font size for body, links & lists */
+.reveal p a ul ol li dl {
   font-size: 28
 }
 
 /* font size for markdown headers */
-.reveal h1 h2 h3 h4 {
-  font-size: 80px
+.reveal h1 {
+  font-size: 42px
+}
+
+.reveal h2 {
+  font-size: 38
+}
+
+.reveal h3 h4 {
+  font-size: 32
 }
 
 .reveal table, th, td {

@@ -338,7 +338,7 @@ Our data now has a mean of 0, and a variance of 1
 
 Normalization = min/max scaling
 
-$$ \phi(x) = \frac{x - xmin}{xmax-xmin}
+$$ \phi(x) = \frac{x - xmin}{xmax-xmin} $$
 
 Our data is now within a range of 0 to 1
 
@@ -426,14 +426,15 @@ RL is all about **decision making**.
 ###  Biological inspiration
 
 *Sutton & Barto - Reinforcment Learning: An Introduction*
->Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems (Sutton & Barto)
+>Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems 
 
 *Mnih et. al (2015) Human-level control through deep reinforcement learning*
->Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex (Mnih et. al 2015)
+>Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
 
 Habit formation
 
 Cue -> Routine -> Reward
+
 State -> Action -> Reward
 
 ---
@@ -722,7 +723,7 @@ Do you agree with this?
 
 A policy is rules to select actions
 
-$pi(s)
+$pi(s)$
 $\pi(s,a,/theta)$
 $\pi_\theta(s|a)$
 
@@ -770,7 +771,7 @@ Goal of our agent is to maximize reward
 
 Return ($G_t$) is the total discounted future reward
 
-$$G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}
+$$G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1}$$
 
 ` return = reward + discount * reward + discount^2 * reward ...`
 
@@ -811,14 +812,33 @@ Can use discount = 1 for
 ---
 ### Value functions
 
-Value function
+**Value function**
 
-$V_\pi(s) = \sum_{k=0}^\infty \gamma^{k+t+1} = \mathbb{E}[G_t|s_t]] $  
+$V_\pi(s) = \mathbb{E}_{\pi}[G_t|s_t]] $
 
+Expected return when in state $s$, following policy $\pi$
 
+Action-value function
 
+$Q_\pi(s,a) = \mathbb{E}_{\pi}[G_t|s_t]] $
 
+Expected return when in state $s$, taking action $a$, following policy $\pi$
 
+---
+### Value functions are oracles
+
+Value functions are predictions of the future 
+- prediction of return
+- prediction of future expected discounted reward
+- always conditioned on a policy
+
+But we don’t know this function 
+- agent must learn it 
+- once we learn it – how will it help us to act?
+---
+### Generating a policy from a value function
+
+Imagine we were given the optimal policy $\pi^*$ 
 
 
 

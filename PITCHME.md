@@ -835,7 +835,6 @@ Value functions are predictions of the future
 
 But we don’t know this function 
 - agent must learn it 
-$$V(s_2) = 0$$
 - once we learn it – how will it help us to act?
 ---
 ### Generating the optimal policy from the optimal value function
@@ -878,14 +877,12 @@ These two steps are done sequentially in a process known as **policy iteration**
 - improve our policy by being greedy
 - approximate our new better policy
 - act greedy 
-...
 
 A similar by slightly difference process is **value iteration**, where we combine the policy approximation and
 improvement steps by using a maximization over all possible next states in the update
 
 $$ V_{k+1}(s) = max_a /sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')] $$ 
 
-$$V(s_2) = 0$$
 
 ---
 ### Generalized policy iteration

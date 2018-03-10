@@ -816,8 +816,9 @@ Can use discount = 1 for
 **Value function**
 
 $ V_{\pi} $
+$ V_{\pi}(s) $
 
-$ V_{\pi}(s) = E G_{t}$
+$ V_{\pi}(s) = E G_{t} $
 
 $ V_{\pi}(s) = E_{\pi} $
 

@@ -815,13 +815,13 @@ Can use discount = 1 for
 
 **Value function**
 
-$V_\pi(s) = \mathbb{E}_{\pi}[G_t|s_t]] $
+$$ V_\pi(s) = \mathbb{E}_{\pi}[G_t|s_t]] $$
 
 Expected return when in state $s$, following policy $\pi$
 
 Action-value function
 
-$Q_\pi(s,a) = \mathbb{E}_{\pi}[G_t|s_t]] $
+$$ Q_\pi(s,a) = \mathbb{E}_{\pi}[G_t|s_t]] $$
 
 Expected return when in state $s$, taking action $a$, following policy $\pi$
 
@@ -967,7 +967,6 @@ This is also known as the **temporal difference error**
 ---
 ## three
 ### introduction to value functions 
-$$V(s_2) = 0$$
 ### Bellman Equation 
 ### Approximation methods
 ---
@@ -987,7 +986,7 @@ methods
 
 Imagine you had a perfect environment model
 
-i.e. you know both the state transition function $$ P(s'|s,a) and the reward transition function $$ R(r|s,a,s') $$  
+i.e. you know both the state transition function $ P(s'|s,a) $ and the reward transition function $ R(r|s,a,s') $  
 
 Can we use our perfect environment model for value function approximation?
 
@@ -1005,15 +1004,46 @@ We can perform iterative backups of the expected return for each state
 The return for all terminal states is zero
 
 $$V(s_2) = 0$$
+
 $$V(s_4) = 0$$
 
+We can then express the value functions for the remaining two states
 
+$$V(s_3) = P_{34}[r_{34} + \gamma V(s_4)$$
 
+$$V(s_3) = 1 * [5 + 0.9 * 0] = 5 $$
 
+$$V(s_1) = P_{12}[r_{12} + \gamma V(s_2) + P_{13}[r_{13} + \gammaV(s_3)]$$
 
+$$V(s_1) = 0.5 * [1 + 0.9 * 0] + 0.5 * [2 + 0.9 * 5] = 3.75 $$
 
+---
+### Dynamic programming
 
+![fig](assets/images/section_3/dp_1.png)
 
+Our value function approximation depends on
+- our policy (what actions we pick)
+- the environment (where our actions take us and what rewards we get)
+- our current estimate of $V(s')$
 
+A dynamic programming update is expensive - our new estimate $V(s)$ depends on the value of all other states (even if
+the probability is zero)
 
+Asynchronous dynamic programming addresses this by updating states in an arbitrary order
 
+---
+### Dynamic programming summary
+
+Requries a perfect environment model - we don't need to sample experience at all (i.ewe don't ever actually take
+actions)
+
+Bootstrapped - we use the recursive Bellman Equation to update our value function
+
+Limited utility in practice but they provide an essential foundation for understanding reinforcement learning - all RL
+can be thought of as attempts to achieve what DP can but without a model and with less computation
+
+---
+### Monte Carlo
+
+**No model** we learn from actual experience (i.e. our sequences of $(s,a,r,s')$

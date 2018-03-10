@@ -846,7 +846,7 @@ We are in state $s$, and our set of actions $\mathcal{A} = {a_1, a_2, a_3}$
 
 We can use our optimal value function to calculate the optimal expected discounted return for each action
 
-We then select the action with the largest Q(s,a) by $\argmax_a Q(s,a)$
+We then select the action with the largest $Q(s,a)$ - ie take the $\underset{x}{\arg\max}$
 
 Set of actions 
 This is known as a *greedy policy*

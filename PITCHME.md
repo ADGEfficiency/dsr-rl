@@ -1062,7 +1062,7 @@ Estimate the value of a state by averaging the true discounted return observed a
 
 As we run more episodes, our estimate should converge to the true expectation
 
-Low bias & high variance - why?\
+Low bias & high variance - why?
 
 ---
 ### Bias & variance of Monte Carlo
@@ -1074,3 +1074,40 @@ High variance
 Low bias
 - we are using actual experience
 - no chance for a bootstrapped function to mislead 
+
+---
+### Monte Carlo algorithm
+
+Algorithm for a lookup table based Monte Carlo approximation
+
+![fig](assets/images/section_3/mc_1.png)
+
+---
+###  Interesting feature of Monte Carlo
+
+Computational expense of estimating the value of state $s$ is independent of the number of states $\mathcal{S}$ 
+
+This is because we use experienced state transitions
+
+![fig](assets/images/section_3/mc_2.png)
+
+---
+### Monte Carlo
+
+Learn from **actual experience** – no environment model
+
+**No bootstrapping** – use true discounted returns
+
+**Episodic problems only** – no learning online
+
+High variance, low bias
+
+---
+### Temporal difference 
+
+Learn from **actual experience** – no environment model
+
+**Bootstrap** – learn online
+
+Episodic & non-episodic problems
+

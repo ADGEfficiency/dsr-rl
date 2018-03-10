@@ -919,7 +919,6 @@ Invented dynamic programming in 1953
 *[On the naming of dynamic programminging](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
 > I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying
 
-x
 Also introduced the curse of dimensionality - number of states $\mathcal{S}$ increases exponentially with the number of
 state variables
 
@@ -941,6 +940,7 @@ The Bellman equation is a recursive definition - i.e. it is bootstrapped
 We can apply it to value functions
 
 $$ V_{\pi}(s) = r + \gamma V_{\pi}(s') $$
+
 $$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
 
 ---

@@ -61,16 +61,15 @@ Energy Data Scientist at Tempus Energy
 Taught this course over six times
 
 ---
+### Goals for today and tomorrow
 
-### Goals for today
+Introduction you to the concepts, ideas and terminology of reinforcement learning
 
-Introduction you to the concepts, ideas and terminology in RL
+Guidance on reinforcement learning project ideas
 
-If you want to really grasp RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
+To learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
 
-These notes are designed to be both
-- a set of slides for lectures
-- a future reference to help you learn
+These notes are designed to be both a set of slides for **lectures** and a **future reference** to help you learn
 
 ---
 
@@ -89,10 +88,11 @@ For those interested in learning more, any of these are a good place to start
 
 ### Nomenclature
 
-[Thomas & Okal (2016) A Notation for Markov Decision Processes] (https://arxiv.org/pdf/1512.09075.pdf)  maybe put the screenshot in here
+[Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)  maybe put the screenshot in here
 
-|symbol|variable  |
-|------|----------|
+|symbol | variable  | symbol | variable | 
+|symbol | variable  |
+|-------|-----------|--------|---------|
 |$s$ |state     |
 |$s'$|next state|
 |$a$ |action    |
@@ -102,7 +102,6 @@ For those interested in learning more, any of these are a good place to start
 ---
 ### Nomenclature
 
-|symbol|variable  |
 |------|----------|
 |$ a \sim \pi(s) $  | sampling action from a stochastic policy |
 |$ a = \pi(s)$ | determinstic policy |
@@ -426,7 +425,10 @@ RL is all about **decision making**.
 
 ###  Biological inspiration
 
-Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex (Mnih et. al 2015)
+>Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems (Sutton & Barto)
+
+Mnih et al (2015)
+>Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex (Mnih et. al 2015)
 
 Habit formation
 
@@ -755,47 +757,6 @@ Sample vs. distributional model
 
 Model can be used to simulate trajectories for **planning**
 ---
-
-
-
-
-
-
-
-MDP
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Today - Practical
-
-The practical we will do this afternoon is to play with a working DQN (Deep Q-Network) agent on the Open AI Cartpole
-environment.
-
-The ideas behind this practical are:
-- in industry you won't be handed a set of notebooks to shift-enter through
-
-- you will likely be given an existing code base and be expected to figure out how it works
-
-- this skill is also useful for understanding open source projects
-
-- using a working system allows you to understand the effect of hyperparameters
-
-- the agent is built using TensorFlow and we will be using TensorBoard for visualizing results
-
----
 ---?image=assets/images/section2/learn_plan_act.png&size=auto 80%
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
@@ -804,7 +765,7 @@ The ideas behind this practical are:
 
 ### Return
 
-Goal of our agent is to maximize total future discounted reward
+Goal of our agent is to maximize reward
 
 Return ($G_t$) is the total discounted future reward
 
@@ -837,13 +798,13 @@ Can use discount = 1 for
 ---
 # Value function
 
-$V_\pi(s)$
+<center>$V_\pi(s)$</center>
 
 ## how good is this state
 
 # Action-value function
 
-$Q_\pi(s,a)$
+<center>$Q_\pi(s,a)$</center>
 
 ## how good is this action
 ---
@@ -851,9 +812,7 @@ $Q_\pi(s,a)$
 
 Value function
 
-
-$V_\pi(s) = $
-
+$V_\pi(s) = \sum_{k=0}^\infty \gamma^{k+t+1} = \mathbb{E}[G_t|s_t]] $  
 
 
 
@@ -863,100 +822,3 @@ $V_\pi(s) = $
 
 
 
-
----
-TODO the picture of the literature
-
----
-
-### Prioritized Experience Replay
-
-Naive experience replay randomly samples batches of experience for learning.  This random sampling means we learn from experience at the same frequency as they are experienced
-
-Some samples of experience are more useful for learning than others
-
-We can measure how useful experience was by the temporal difference error
-
-$$ td_error = Q(s,a) - r + \gamma Q(s', a)$$
-
----
-
-### Prioritized Experience Replay
-
-Non-random sampling introduces two problems
-
-1 - loss of diversity - we will only sample from high TD error experiences
-
-2 - introduce bias - non-independent sampling
-
-Schaul et. al (2016) solves these problems by:
-
-1 - correct the loss of diversity by making the prioritization stochastic
-
-2 - correct the bias using importance sampling
-
----
-
-### Importance Sampling
-
-Not a sampling method - it's a method of Monte Carlo approximation
-
-https://www.youtube.com/watch?v=S3LAOZxGcnk
-
-Monte Carlo approximates using the sample mean, assuming that the sampling distribution (x<sub>p</sub>) is the same as
-the true distribution (x~p)
-
-$$ \mathbb{E}[f(x)] = 1/n \sum f(xi) $$
-
-Could we use infomation about another distribution (q) to learn the distribution of p
-
-i.e. correct for the fact that we are using another distribution
-
----
-
-### Importance Sampling
-
-The importance weight function:
-$$ w(x) = p(x) / q(x) $$
-
-$$ \mathbb{E}[f(x)] = 1/n \sum f(xi) w(xi) $$
-
-This is an unbiased approximation, and can also be lower variance than using the sample distribution p
-
-
-
-
-
-
-
-
-
-
-
-
-###  Deep Reinforcement Learning Doesn't Work Yet  
-
-Blog post - [Deep Reinforcment Learning Doesn't Work Yet](https://www.alexirpan.com/2018/02/14/rl-hard.html)
-
-State of the art reinforcement learning is **sample inefficient** - we need lots of experience to learn
-
-Tackling any problem where we don't have access to a simulator remain beyond modern RL
-
-**Domain specific algorithms often work faster & better**.  This is especially true if you have access to a good environment model to plan with
-
-Requirement of a reward function - or the requirement to design one
-
-Results can be unstable and hard to produce (this applies to a lot of scientific literature).  Different random seeds can lead to dramatically different results
-
-Andrej Karpathy (when he was at OpenAI)
->>[Supervised learning] wants to work. Even if you screw something up you’ll usually get something non-random back. RL must be forced to work. If you screw something up or don’t tune something well enough you’re exceedingly likely to get a policy that is even worse than random. And even if it’s all well tuned you’ll get a bad policy 30% of the time, just because.
-
-Still immature in real world production systems - examples are rare
-
-Requirements and/or nice to haves for learning
-- easy to generate experience
-- simple problem
-- ability to introduce self play
-- well defined rewards and dense
-
-RL solution doesn’t have to achieve a global optima, as long as its local optima is better than the human baseline

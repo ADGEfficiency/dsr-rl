@@ -884,7 +884,6 @@ These two steps are done sequentially in a process known as **policy iteration**
 A similar by slightly difference process is **value iteration**, where we combine the policy approximation and
 improvement steps by using a maximization over all possible next states in the update
 
-
 ---
 ### Generalized policy iteration
 GPI = the general idea of letting policy evaluation and improvement processes interact  

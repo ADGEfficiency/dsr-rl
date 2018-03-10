@@ -284,10 +284,6 @@ Modern reinforcement learning trains neural networks using batches of samples
 i.e. 128 samples, batch size=64
 -> two forward & backward passes across net
 
----
-
-###  Batch size
-
 Smaller batch sizes = less memory on GPU
 
 Batches train faster – weights are updated more often for each epoch
@@ -295,3 +291,41 @@ Batches train faster – weights are updated more often for each epoch
 The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 
 ---?image=assets/batch_norm_lit.png&size=auto 80%
+
+
+
+
+
+
+
+
+
+
+---
+TODO the picture of the literature
+
+---
+
+### Prioritized Experience Replay
+
+Naive experience replay randomly samples batches of experience for learning.  This random sampling means we learn from experience at the same frequency as they are experienced
+
+Some samples of experience are more useful for learning than others
+
+We can measure how useful experience was by the temporal difference error
+
+$$ td_error = Q(s,a) - r + \gamma Q(s', a)$$
+
+---
+
+### Prioritized Experience Replay
+
+Non-random sampling introduces two problems
+
+1 - loss of diversity - we will only sample from high TD error experiences
+
+2 - introduce bias - non-independent sampling
+
+Correct the loss of diversity by making the prioritization stochastic
+
+Correct the bias using importance sampling

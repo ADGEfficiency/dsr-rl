@@ -875,7 +875,7 @@ These are two distinct steps
 ---
 ### Policy & value iteration
 
-$$V_{k+1}(s)=\max_a \sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')]$$
+$$ V_{k+1}(s)=\max_a \sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')] $$
 
 These two steps are done sequentially in a process known as **policy iteration**
 - approximate our policy (i.e. $V_{\pi}(s)$)

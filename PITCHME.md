@@ -817,7 +817,7 @@ Can use discount = 1 for
 
 $ V_{\pi} $
 
-$ V_{\pi}(s) = \mathbb{E} _{\pi} $
+$ V_{\pi}(s) = E[G_t | s_t] $ 
 
 $ V_{\pi}(s) = \mathbb{E}_{\pi} $
 

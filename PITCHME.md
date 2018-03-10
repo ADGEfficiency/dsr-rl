@@ -817,7 +817,7 @@ Can use discount = 1 for
 
 $ V_{\pi} $
 
-$ V_{\pi}(s) = \mathbb{E} $
+$ V_{\pi}(s) = \mathbb{e} $
 
 $ V_{\pi}(s) = \mathbb{E}_{\pi} $
 

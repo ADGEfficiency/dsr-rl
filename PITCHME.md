@@ -846,7 +846,7 @@ We are in state $s$, and our set of actions $\mathcal{A} = {a_1, a_2, a_3}$
 
 We can use our optimal value function to calculate the optimal expected discounted return for each action
 
-We then select the action with the largest $Q(s,a)$ - ie take the $\underset{x}{\arg\max}$
+We then select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{\arg\max} Q(s,a)$
 
 Set of actions 
 This is known as a *greedy policy*
@@ -883,6 +883,7 @@ A similar by slightly difference process is **value iteration**, where we combin
 improvement steps by using a maximization over all possible next states in the update
 
 $$ V_{k+1}(s) = max_a /sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')] $$ 
+
 $$V(s_2) = 0$$
 
 ---

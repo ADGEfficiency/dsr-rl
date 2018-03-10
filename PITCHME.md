@@ -815,13 +815,13 @@ Can use discount = 1 for
 
 **Value function**
 
-$ V_\pi(s) = E_{\pi}[G_t|s_t]] $
+$ V_{\pi} (s) = E_{\pi} [G_t|s_t] $
 
 Expected return when in state $s$, following policy $\pi$
 
 Action-value function
 
-$$ Q_\pi(s,a) = E_{\pi}[G_t|s_t]] $$
+$$ Q_{\pi} (s,a) = E_{\pi} [G_t|s_t] $$
 
 Expected return when in state $s$, taking action $a$, following policy $\pi$
 
@@ -1036,15 +1036,41 @@ Asynchronous dynamic programming addresses this by updating states in an arbitra
 ---
 ### Dynamic programming summary
 
-Requries a perfect environment model - we don't need to sample experience at all (i.ewe don't ever actually take
+Requries a **perfect environment model** - we don't need to sample experience at all (i.ewe don't ever actually take
 actions)
 
-Bootstrapped - we use the recursive Bellman Equation to update our value function
+**Bootstrapped** - we use the recursive Bellman Equation to update our value function
 
-Limited utility in practice but they provide an essential foundation for understanding reinforcement learning - all RL
+Limited utility in practice but they provide an **essential foundation** for understanding reinforcement learning - all RL
 can be thought of as attempts to achieve what DP can but without a model and with less computation
 
 ---
 ### Monte Carlo
 
-**No model** we learn from actual experience (i.e. our sequences of $(s,a,r,s')$
+Monte Carlo methods = finding the expected value of a function of a random variable
+
+**No model** - we learn from actual experience (i.e. our sequences of $(s,a,r,s')$
+
+**No boostrapping** - we take the average of the true discounted return
+
+**Episodic only** - because we need to calcuate the true discounted return
+
+---
+### Monte Carlo approximation
+
+Estimate the value of a state by averaging the true discounted return observed after each visit to that state
+
+As we run more episodes, our estimate should converge to the true expectation
+
+Low bias & high variance - why?\
+
+---
+### Bias & variance of Monte Carlo
+
+High variance
+- we need to sample enough episodes for our averages to converge
+- can be a lot for stochastic or path dependent environments
+
+Low bias
+- we are using actual experience
+- no chance for a bootstrapped function to mislead 

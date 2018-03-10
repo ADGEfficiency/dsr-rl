@@ -819,7 +819,7 @@ $ V_\pi(s) = \mathcal{E}_{\pi}[G_t|s_t]] $
 
 $ V_\pi(s) $
 
-$$ V_\pi(s) = $$
+$$ V_\pi(s) = \mathcal{E} $$
 
 Expected return when in state $s$, following policy $\pi$
 

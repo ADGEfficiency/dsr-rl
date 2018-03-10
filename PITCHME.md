@@ -817,9 +817,9 @@ Can use discount = 1 for
 
 $ V_{\pi} $
 
-$ V_{\pi}(s) $
+$ V_{\pi}(s) = \mathbb{E} $
 
-$ V_{\pi}(s) = E_{\pi} $
+$ V_{\pi}(s) = \mathbb{E}_{\pi} $
 
 $ V_{\pi}(s) = E G_{t} $
 

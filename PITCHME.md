@@ -815,13 +815,13 @@ Can use discount = 1 for
 
 **Value function**
 
-$ V_{\pi}(s) = \mathbb{E}[G_t | s_t] $ 
+$ V_{\pi}(s) = \amsbb{E}[G_t | s_t] $ 
 
 Expected return when in state $s$, following policy $\pi$
 
 Action-value function
 
-$ Q_{\pi}(s,a) = \mathbb{E}[G_t | s_t] $ 
+$ Q_{\pi}(s,a) = \mathbb{E}[G_t | s_t, a_t] $ 
 
 Expected return when in state $s$, taking action $a$, following policy $\pi$
 

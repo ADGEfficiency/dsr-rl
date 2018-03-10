@@ -923,7 +923,6 @@ Also introduced the curse of dimensionality - number of states $\mathcal{S}$ inc
 state variables
 
 ---
-$$V(s_2) = 0$$
 ###  Bellman Equation
 
 Bellman's contribution is remembered by the Bellman Equation

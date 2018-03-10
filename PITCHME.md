@@ -10,47 +10,55 @@
 ## [adgefficiency.com](http://adgefficiency.com)
 ---
 ### Course Materials
-All course materials are in the GitHub repo DSR_RL.
+[All course materials are in the GitHub repo dsr_rl](https://github.com/ADGEfficiency/dsr_rl)
 
-The materials are
 - lecture notes hosted on GitPages
 - a collection of useful machine learning & reinforcement learning literature
 - practical work, consisting of a collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
 ---
 ### Agenda
 
-***today - morning***
+**today - morning**
 
 one - background & terminology
+
 two - introduction to reinforcement learning
+
 three - value functions
 
-***today - afternoon***
+**today - afternoon**
 
 DQN practical
 
-***tomorrow - morning***
+**tomorrow - morning**
 
 four - improvements to DQN
+
 five - policy gradients
+
 six - practical concerns
+
 seven - a quick look at the state of the art
 
+**tomorrow - afternoon**
 ---
-
 ### About Me
 
 **Education**
 
-2006 - 2011 B.Eng Chemical Engineering
+B.Eng Chemical Engineering
 
-2011 - 2012 MSc Advanced Process Design for Energy
+MSc Advanced Process Design for Energy
+
+DSR Batch 9
 
 **Experience**  
 
-2011 - 2016 Energy Engineer at ENGIE UK
+Energy Engineer at ENGIE UK
 
-2017 - current Energy Data Scientist at Tempus Energy
+Energy Data Scientist at Tempus Energy
+
+Taught this course over six times
 
 ---
 
@@ -842,6 +850,7 @@ $Q_\pi(s,a)$
 ### Value functions
 
 Value function
+
 
 $V_\pi(s) = $
 

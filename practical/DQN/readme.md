@@ -1,3 +1,4 @@
+
 ## Setup
 
 I reccomend setting up a virtual Python environment to use for the practical.  This is optional - you can use your system Python.  This is however considered bad practice.

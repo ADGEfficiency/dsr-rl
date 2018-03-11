@@ -818,7 +818,7 @@ Can use discount = 1 for
 
 **Value function**
 
-$ V_{\pi}(s) = {\mathbb{E}}_{\pi}[G_t | s_t] $ 
+$ V_{\pi}(s) = \mathcal{E}[G_t | s_t] $ 
 
 Expected return when in state $s$, following policy $\pi$
 
@@ -1416,30 +1416,138 @@ Provides a mechanism where value functions can be efficiently updated through in
 
 Second innovation behind DQN
 
+Parameterize two separate neural networks (identical structure) - two sets of weights $\theta$ and $\theta^{-}$
 
+![fig](assets/images/section_3/target_net.png)
 
+Original Atari work copied the online network weights to the target network every 10k - 100k steps.  Modern methods use
+a small factor $\tau$ to smoothly update weights at each step
 
+---
+### Target network
 
+Changing value of one action changes value of all actions & similar states - bigger networks less prone (less aliasing)
+ 
+Stable training - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
 
+Reduces the correlation between the target used to train the network and the current network approximation 
 
+---
+### Stability techniques
 
+![fig](assets/images/section_3/stability.png)
 
+*Minh – Deep Q-Networks – Deep RL Bootcamp 2017*
 
+---
+### DQN algorithm
 
+![fig](assets/images/section_3/DQN_algo.png)
 
+---
+### Timeline
 
+1989 - Q-Learning (Watkins)
+1992 - Experience replay (Lin)
+...
+2013 - DQN
+2015 - DQN
+2015 - Prioritized experience replay
+2016 - Double DQN (DDQN)
+2016 - A3C
+2017 - Distributional Q-Learning
 
+We will cover these improvements and more powerful algorithms tomorrow
 
+---
+## Lunch
 
+---
 
+### Practical
 
+The practical we will do this afternoon is to play with a working DQN (Deep Q-Network) agent on the Open AI Cartpole environment.
 
+The ideas behind this practical are:
+- in industry you won't be handed a set of notebooks to shift-enter through
 
+- you will likely be given an existing code base and be expected to figure out how it works
 
+- this skill is also useful for understanding open source projects
 
+- using a working system allows you to understand the effect of hyperparameters
 
+---
+###  CartPole
 
+![fig](assets/images/practical/cartpole.png)
 
+Environment with two actions - push left or push right
+
+Reward is +1 for each timestep the cartpole stays balanced
+
+Episode ends when the cartpole falls over
+
+---
+## four
+### prioritized experience replay
+### DDQN
+### Rainbow
+
+---
+### Prioritized Experience Replay
+
+Naive experience replay randomly samples batches of experience for learning.  This random sampling means we learn from experience at the same frequency as they are experienced
+
+Some samples of experience are more useful for learning than others
+
+We can measure how useful experience was by the temporal difference error
+
+$$ td_error = Q(s,a) - r + \gamma Q(s', a)$$
+
+---
+
+### Prioritized Experience Replay
+
+Non-random sampling introduces two problems
+
+1 - loss of diversity - we will only sample from high TD error experiences
+
+2 - introduce bias - non-independent sampling
+
+Schaul et. al (2016) solves these problems by:
+
+1 - correct the loss of diversity by making the prioritization stochastic
+
+2 - correct the bias using importance sampling
+
+---
+
+### Importance Sampling
+
+Not a sampling method - it's a method of Monte Carlo approximation
+
+https://www.youtube.com/watch?v=S3LAOZxGcnk
+
+Monte Carlo approximates using the sample mean, assuming that the sampling distribution (x<sub>p</sub>) is the same as
+the true distribution (x~p)
+
+$$ \mathbb{E}[f(x)] = 1/n \sum f(xi) $$
+
+Could we use infomation about another distribution (q) to learn the distribution of p
+
+i.e. correct for the fact that we are using another distribution
+
+---
+
+### Importance Sampling
+
+The importance weight function:
+$$ w(x) = p(x) / q(x) $$
+
+$$ \mathbb{E}[f(x)] = 1/n \sum f(xi) w(xi) $$
+
+This is an unbiased approximation, and can also be lower variance than using the sample distribution p
 
 
 

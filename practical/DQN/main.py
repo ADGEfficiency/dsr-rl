@@ -18,7 +18,7 @@ def experiment(config):
     """
     with tf.Session() as sess:
 
-        envs = ['Pendulum-v0', 'CartPole-v1', 'MountainCar-v0']
+        envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
         env = gym.make(envs[1])
 
         global_rewards = []

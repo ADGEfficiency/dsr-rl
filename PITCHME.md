@@ -864,6 +864,7 @@ def greedy_policy(state):
 
     return action
 ```
+
 ---
 ### Policy approximation versus policy improvement
 
@@ -1265,16 +1266,31 @@ def epsilon_greedy_policy():
 ```
 
 $\epsilon$ is decayed during experiments as our approximation of $Q_*(s,a)$ improves
+---
+### Exploration strageties
+
+Alternative policies include Boltzmann (i.e. a softmax) with temperature being annealed as learning progresses
+
+More advanced is a Bayesian Neural Network - a network that maintains distributions over weights -> distribution over actions.  This can also be performed using dropout to simulate a probabilistic network
+
+[Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
+
+---
+DQN trained on CartPole
+
+![fig](assets/images/section_3/action_selection_exploration.png)
+
+[Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
 
 ---
 ### Problems with Q-learning
-
 
 One issue is correlations in our dataset (the list of experience tuples)
 
 Another issue is that small changes to weights or $Q(s,a)$ estimates can change the policy drastically
 
 $$Q(s_1, a_1) = 10 $$
+
 $$Q(s_1, a_2) = 11 $$
 
 For the Q values above we would select action $a_1$ in state $s_1$
@@ -1495,18 +1511,25 @@ Episode ends when the cartpole falls over
 ### Rainbow
 
 ---
+### Experience replay
+
+![fig](assets/images/section_3/exp_replay.png)
+
+---?image=assets/images/section4/schaul_2015.png&size=auto 80%
+
 ### Prioritized Experience Replay
 
 Naive experience replay randomly samples batches of experience for learning.  This random sampling means we learn from experience at the same frequency as they are experienced
 
 Some samples of experience are more useful for learning than others
 
-We can measure how useful experience was by the temporal difference error
+We can measure how useful experience by the temporal difference error
 
-$$ td_error = Q(s,a) - r + \gamma Q(s', a)$$
+$$ td_error = r + \gamma Q(s', a) - Q(s,a) $$
+
+TD error measures suprise - this transition gave a higher or lower reward than expected
 
 ---
-
 ### Prioritized Experience Replay
 
 Non-random sampling introduces two problems
@@ -1522,8 +1545,20 @@ Schaul et. al (2016) solves these problems by:
 2 - correct the bias using importance sampling
 
 ---
+### Stochastic prioritization
 
-### Importance Sampling
+Noisy rewards can make the TD error signal less useful
+
+$p_i$ is the priority for transition $i$ ($i > 0$)
+
+$$ \frac{p_{i}^{\alpha}}{\sum_{k}p_{k}^{\alpha}} $$
+
+$\alpha = 0 $ -> uniform random sampling
+
+Schaul suggets alpha $~ 0.6 - 0.7$
+
+---
+### Importance sampling
 
 Not a sampling method - it's a method of Monte Carlo approximation
 
@@ -1540,23 +1575,42 @@ i.e. correct for the fact that we are using another distribution
 
 ---
 
-### Importance Sampling
+### Importance sampling
 
 The importance weight function:
 $$ w(x) = p(x) / q(x) $$
 
 $$ \mathbb{E}[f(x)] = 1/n \sum f(xi) w(xi) $$
 
-This is an unbiased approximation, and can also be lower variance than using the sample distribution p
+This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$
 
+---
+### Importance sampling in prioritized experience replay
 
+$$ \omega_i = \Big(  \frac{1}{N} \cdot \frac{1}{P(i)} \Big^\beta $$
 
+Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale the update (ie the update to the neural network weights) downwards
 
+$\beta$ is a parameter that is increased over the course of an experiment (0.4 or 0.5 up to 1.0)
 
+---
+### Prioritized experience replay
 
+All new transitions are stored at maximum priority - to ensure replay at least oncec
 
+Sampling is commonly done using binary heaps to efficiently search for high prioritiy transitions and to calculate sums
+and minimums
 
+---?image=assets/images/section4/sumtree_test.png&size=auto 80%
 
+---
+## four
+### prioritized experience replay
+### DDQN
+### Rainbow
+
+---
+### DDQN
 
 
 

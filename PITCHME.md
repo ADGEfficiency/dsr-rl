@@ -818,7 +818,7 @@ Can use discount = 1 for
 
 **Value function**
 
-$ V_{\pi}(s) = \mathbb{E}[G_t | s_t] $ 
+$ V_{\pi}(s) = {\mathbb{E}}_{\pi}[G_t | s_t] $ 
 
 Expected return when in state $s$, following policy $\pi$
 
@@ -1320,41 +1320,129 @@ Divergence is an emergent phenomenon
 ---
 
 ### DQN
+
+This section covers two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
+
 Prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
 
 Attempts to use complex, non-linear function approximators (i.e. neural networks) all failed - learning was unstable and would often diverge
 
-Then DeepMind came along...
-
 ---
 ### DQN
 
-DQN = Deep Q-Network
+In 2013 a small London startup published a paper where an agent based on Q-Learning was able to reach a superhuman level of performance in _ Atari games
 
-In 2013
+In 2014 Google purchased DeepMind for around £400M
 
+This is for a company with no product, no revenue, no customers and a few world class employees
 
+---?image=assets/images/section3/2013_atari.png&size=auto 80%
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+---?image=assets/images/section3/2015_atari.png&size=auto 80%
 
 ---
-### DQN
+### Significance
 
-DQN = Deep Q-Network
+**End to end deep reinforcement learning**
 
-Q-Learning with experience replay and a target network
+Learning from high dimensional input - raw pixels
+
+Ability to **generalize**
+
+Same algorithm, network strucutre and hyperparameters
+
+Two key innovations behind the success of the DeepMind Atari work
+
+1 - experience replay (Lin 1993)
+
+2 - target network
+
+---
+### Reinforcement learning to play Atari
+
+**State**
+
+Last four screens concatenated together
+
+Allows infomation about movement
+
+Grey scale, cropped & normalized
+
+**Reward**
+
+Game score
+
+Clipped to [-1, +1]
+
+**Actions**
+
+Joystick buttons (a discrete action space)
+
+---?image=assets/images/section3/atari_results.png&size=auto 80%
+
+---?image=assets/images/section3/atari_func.png&size=auto 80%
+
+---?image=assets/images/section3/atari_sea.png&size=auto 80%
+
+---
+### Experience replay
+
+![fig](assets/images/section_3/exp_replay.png)
+
+---
+### Experience replay
+
+Experience replay helps to deal with our non-iid dataset (i.e. correlations between samples of experience)
+
+Makes our sampling more independent
+
+Data efficiency - we can learn from experience multiple times
+
+Allows seeding of the memory with human expert experience
+
+---
+### Biological basis for experience replay
+
+Hippocampus may support an experience replay process in the brain
+
+Time compressed reactivation of recently experienced trajectories during offline periods
+
+Provides a mechanism where value functions can be efficiently updated through interactions with the basal ganglia
+
+*Mnih et. al (2015)*
+
+---
+### Target network
+
+Second innovation behind DQN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

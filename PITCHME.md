@@ -798,7 +798,10 @@ Can use discount = 1 for
 ### introduction to value functions 
 ### Bellman Equation 
 ### approximation methods
+### SARSA & Q-Learning
+### DQN
 ---
+
 # Value function
 
 <center>$V_\pi(s)$</center>
@@ -970,6 +973,8 @@ This is also known as the **temporal difference error**
 ### introduction to value functions 
 ### Bellman Equation 
 ### Approximation methods
+### SARSA & Q-Learning
+### DQN
 ---
 ### Approximation methods
 
@@ -1110,4 +1115,252 @@ Learn from **actual experience** – no environment model
 **Bootstrap** – learn online
 
 Episodic & non-episodic problems
+
+---
+### Temporal difference
+
+Use the Bellman Equation to approximate $V(s)$ using $V(s')$ (like dynammic programming)
+
+Sample from experienced trajectories (like Monte Carlo)
+
+Update rule for a lookup table based TD(0) approximation
+![fig](assets/images/section_3/td_1.png)
+
+---
+### Temporal difference backup
+
+![fig](assets/images/section_3/td_2.png)
+
+$$ V(s_1) \leftarrow V(s_1) + \alpha [ r_{23} + \gamma V(s_3) - V(s_1) ] $$
+
+---
+### TD(0) algorithm
+
+![fig](assets/images/section_3/td_2.png)
+
+*Li (2017)*
+
+---
+### Linking together 
+
+Temporal difference and Monte Carlo exist on two extremes of the same scale
+
+![fig](assets/images/section_3/bias_var.png)
+
+---
+
+![fig](assets/images/section_3/unified_view.png)
+
+[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
+
+---
+
+![fig](assets/images/section_3/effect_bootstrap.png)
+
+[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
+
+---
+### Recap
+
+![fig](assets/images/section_3/recap.png)
+
+Sutton & Barto - Reinforcement Learning: An Introduction
+
+---
+## three
+### introduction to value functions 
+### Bellman Equation 
+### approximation methods
+### SARSA & Q-Learning
+### DQN
+---
+
+### SARSA & Q-Learning
+
+SARSA & Q-Learning are both based on the action-value function $Q(s,a)$
+
+Why might we want to learn $Q(s,a)$ rather than $V(s)$?
+
+Imagine a simple MDP
+
+$$ (\mathcal{S} = \{s_1, s_2, s_3\} $$
+
+$$ (\mathcal{A} = \{a_1, a_2\} $$
+
+Our agent finds itself in state $s_2$
+
+We use our value function $V(s)$ to calculate 
+
+$V(s_1) = 10$
+$V(s_2) = 5$
+$V(s_3) = 20$
+
+Which action should we take?  
+
+### $V(s)$ versus $Q(s,a)$ 
+
+$V(s)$ tells us how good a state is
+
+$Q(s,a)$ tells us how good an **action** is
+
+### SARSA
+
+SARSA is an on-policy approximation method
+
+We learn $Q(s,a)$ by using every element from our experience tuple $(s,a,r,s')$ 
+
+And also $a'$ - the next action selected by our agent
+
+$$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma Q(s', a') - Q(s,a)] $$
+
+SARSA is on-policy because we are forced to learn about the action $a'$ that our agent choose to take after reaching
+$s'$
+
+### Q-Learning
+
+Q-Learning is an off-policy control method
+
+We learn $Q(s,a)$ by using every element from our experience tuple $(s,a,r,s')$
+
+We don't need to know what action our agent took next (i.e. $a'$) - instead we take the **maximum over all possible actions**
+
+This allows us to learn the optimal value function while following a sub-optimal policy!
+
+$$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$
+
+---
+### SARSA & Q-Learning
+
+![fig](assets/images/section_3/sarsa_ql.png)
+
+---
+### Q-Learning
+
+Selecting optimal actions in Q-Learning can be done by an $\argmax$ across the action space
+
+$$action = \underset{a}{\argmax}Q(s,a)$$
+
+The $\argmax$ limits Q-Learning to **discrete action spaces only**
+
+Acting in Q-Learning is also deterministic - we will always pick the action our $Q(s,a)$ approximation thinks is good
+
+How then do we explore the environment?
+
+---
+### $\epsilon$-greedy exploration
+
+One stragety to explore in Q-Learning is known as the epsilon-greedy policy
+
+```
+def epsilon_greedy_policy():
+    if np.random.rand() < epsilon:
+        #  act randomly
+        action = np.random.uniform(action_space)
+
+    else:
+        #  act greedy
+        action = np.argmax(Q_values)
+
+    return action
+```
+
+$\epsilon$ is decayed during experiments as our approximation of $Q_*(s,a)$ improves
+
+---
+### Problems with Q-learning
+
+
+One issue is correlations in our dataset (the list of experience tuples)
+
+Another issue is that small changes to weights or $Q(s,a)$ estimates can change the policy drastically
+
+$$Q(s_1, a_1) = 10 $$
+$$Q(s_1, a_2) = 11 $$
+
+For the Q values above we would select action $a_1$ in state $s_1$
+
+Then we do some learning and our estimates change
+
+$$Q(s_1, a_1) = 12 $$
+$$Q(s_1, a_2) = 11 $$
+
+Now our policy is completely different!  
+
+For the Q values above we would select action $a_1$ in state $s_1$
+
+---
+### Deadly triad
+
+Sutton & Barto discuss the concept of the **deadly triad** - three mechanisms that docombine to produce instability and
+divergence
+
+1 - off-policy learning - to learn about the optimal policy while following an exploratory policy
+
+2 - function approximation - for scalability and generalization
+
+3 - bootstrapping - computational & sample efficiency
+
+---
+### Deadly triad
+
+It's not clear which of the three cause instability
+- dynamic programming can diverge with function approximation (so even on-policy learing can diverge)
+- prediction can diverge
+- linear functions can be unstable
+
+Divergence is an emergent phenomenon
+
+---
+## three
+### introduction to value functions 
+### Bellman Equation 
+### approximation methods
+### SARSA & Q-Learning
+### DQN
+---
+
+### DQN
+Prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
+
+Attempts to use complex, non-linear function approximators (i.e. neural networks) all failed - learning was unstable and would often diverge
+
+Then DeepMind came along...
+
+---
+### DQN
+
+DQN = Deep Q-Network
+
+In 2013
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+### DQN
+
+DQN = Deep Q-Network
+
+Q-Learning with experience replay and a target network
+
+
+
+
+
+
+
+
 

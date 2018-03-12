@@ -108,7 +108,7 @@ For those interested in learning more, any of these are a good place to start
 |$ \pi^\star $ | optimal policy |
 |$ V_t\pi (s)$| value function |
 |$ Q_t\pi (s,a)$| value function |
-|$ \theta , w $ | function parameters (i.e. weights) |
+|$ \theta , \omega $ | function parameters (i.e. weights) |
 |$ \mathbb{E}[f(x)] $  | expectation of f(x) |
 
 ---
@@ -1461,16 +1461,27 @@ Reduces the correlation between the target used to train the network and the cur
 ![fig](assets/images/section_3/DQN_algo.png)
 
 ---
+### Huber Loss
+
+![fig](assets/images/section_3/huber_loss.png)
+
+---
 ### Timeline
 
 1989 - Q-Learning (Watkins)
+
 1992 - Experience replay (Lin)
+
 ...
+
 2013 - DQN
+
 2015 - DQN
+
 2015 - Prioritized experience replay
+
 2016 - Double DQN (DDQN)
-2016 - A3C
+
 2017 - Distributional Q-Learning
 
 We will cover these improvements and more powerful algorithms tomorrow
@@ -1610,7 +1621,61 @@ and minimums
 ### Rainbow
 
 ---
+
+
+
 ### DDQN
+
+DDQN = Double Deep Q-Network
+
+First introducued in a tabular setting in 2010, then reintroduced in the content of DQN in 2016
+
+DDQN aims to overcome the *maximization bias* that occurs due to the max operator in Q-Learning
+
+---
+### Maximization bias
+
+Imagine a state where $Q(s,a) = 0$ for all $a$
+
+Our estimates of the value of this state are normally distributed above and below 0
+
+![fig](assets/images/section_4/max_bias.png)
+
+---
+### Double Q-Learning
+
+2010 paper parameterizes two networks $Q^A$ and $Q^B$
+
+Actions are taken by averaging the estimates of both Q functions
+
+Learning is done by selecting the optimal action for one function, but using the estimated value for the other function
+
+![fig](assets/images/section_4/2010_ddqn.png)
+
+---
+### DDQN
+
+In 2016 an updated paper on Double Q-Learning was published
+
+The DDQN modification to DQN is simpler than the 2010 modification
+
+*Original DQN target*
+$$ r + \gamma \underset{a}{\max} Q(s,a,\theta) $$
+
+*DDQN target*
+$$ r + \gamma Q(s', \underset{a}{\argmax}Q(s',a)) $$ 
+
+We select the optimal action according to our online network, but we use the Q value as estimated by the target network
+
+
+
+
+
+
+
+
+
+
 
 
 

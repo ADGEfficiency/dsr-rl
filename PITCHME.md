@@ -1621,8 +1621,8 @@ and minimums
 ### Rainbow
 
 ---
-
-
+![fig](assets/images/section_4/2015_DDQN.png)
+---
 
 ### DDQN
 
@@ -1667,8 +1667,9 @@ $$ r + \gamma Q(s', \underset{a}{\argmax}Q(s',a)) $$
 
 We select the optimal action according to our online network, but we use the Q value as estimated by the target network
 
+---
 
-
+![fig](assets/images/section_4/2015_DDQN_results.png)
 
 
 

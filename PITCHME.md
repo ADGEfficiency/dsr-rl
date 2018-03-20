@@ -1,7 +1,3 @@
----?image=assets/images/section2/learn_plan_act.png&size=auto 80%
-
-![fig](assets/images/section_1/func_approx.png)
-
 ---
 # a glance at reinforcement learning
 
@@ -13,8 +9,8 @@
 [All course materials are in the GitHub repo dsr_rl](https://github.com/ADGEfficiency/dsr_rl)
 
 - lecture notes hosted on GitPages
-- a collection of useful machine learning & reinforcement learning literature
-- practical work, consisting of a collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
+- useful machine learning & reinforcement learning literature
+- practical work - collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
 ---
 ### Agenda
 
@@ -58,26 +54,29 @@ Energy Engineer at ENGIE UK
 
 Energy Data Scientist at Tempus Energy
 
-Taught this course over six times
-
 ---
 ### Goals for today and tomorrow
 
-Introduction you to the concepts, ideas and terminology of reinforcement learning
+Introduction to **concepts, ideas and terminology** of reinforcement learning
+
+Familiarity with important literature
 
 Guidance on reinforcement learning project ideas
 
-To learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
+---
+### Goals for today and tomorrow
+To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
 
 These notes are designed to be both a set of slides for **lectures** and a **future reference** to help you learn
 
 ---
-
 ### Where to start
-For those interested in learning more, any of these are a good place to start
+
 - [Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in
   progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
+
 - [David Silver's 10 lecture series on YouTube](https://www.youtube.com/watch?v=2pWv7GOvuf0)
+
 - [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
 
 ---
@@ -88,11 +87,12 @@ For those interested in learning more, any of these are a good place to start
 
 ### Nomenclature
 
-[Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)  maybe put the screenshot in here
+Nomenclature in RL can be somewhat inconsistent - often quite different for value function methods versus policy gradient methods
 
-|symbol | variable  | symbol | variable | 
+Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
+
 |symbol | variable  |
-|-------|-----------|--------|---------|
+|---|---|
 |$s$ |state     |
 |$s'$|next state|
 |$a$ |action    |
@@ -102,7 +102,8 @@ For those interested in learning more, any of these are a good place to start
 ---
 ### Nomenclature
 
-|------|----------|
+|symbol | variable  |
+|---|---|
 |$ a \sim \pi(s) $  | sampling action from a stochastic policy |
 |$ a = \pi(s)$ | determinstic policy |
 |$ \pi^\star $ | optimal policy |
@@ -112,12 +113,15 @@ For those interested in learning more, any of these are a good place to start
 |$ \mathbb{E}[f(x)] $  | expectation of f(x) |
 
 ---
-
 ### Expectation
 
-Weighted average of all possible values - i.e. the mean
+Weighted average of all possible values
 
-$$ \mathbb{E}[f(x)] = \sum p(x) \cdot f(x) $$
+The mean
+
+$$ \E [f(x)] = \sum p(x) \cdot f(x) $$
+
+The important thing
 
 ---
 

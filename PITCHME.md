@@ -206,7 +206,9 @@ Bootstrapping can introduce bias - the agent has a chance to fool itself
 ### Lookup tables
 A system with two dimensions in the state variable
 
-`state = np.array([temperature, pressure])`
+```
+state = np.array([temperature, pressure])
+```
 
 |state |temperature | pressure | estimate |
 |---|

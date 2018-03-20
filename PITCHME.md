@@ -162,7 +162,7 @@ missing relevant patterns -> underfitting
 ---
 ### Variance & bias in RL 
 
-**Variance** - deviation from expected value
+**Variance** = deviation from expected value
 
 how consistent is my model / sampling
 
@@ -170,7 +170,7 @@ can often be dealt with by sampling more
 
 high variance = sample inefficient
 
-**Bias** expected deviation vs true value
+**Bias** = expected deviation vs true value
 
 how close to the truth is my model
 
@@ -183,7 +183,9 @@ biased away from an optimal agent / policy
 ---
 ### Bootstrapping
 
-Doing something on your own - i.e. funding a startup with your own capital
+Doing something on your own 
+
+ i.e. funding a startup with your own capital
 
 Using a function to improve / estimate itself
 
@@ -192,6 +194,8 @@ The Bellman Equation is bootstrapped equation
 $$ V(s) = r + \gamma V(s') $$
 
 $$ Q(s,a) = r + \gamma Q(s', a') $$
+
+Bootstrapping can introduce bias - the agent has a chance to fool itself 
 
 ---
 ### Function approximation
@@ -210,6 +214,9 @@ A system with two dimensions in the state variable
 |1   |low   |high   |safe   |
 |2  |high   |low   |safe   |
 |3   |low   |low   |very safe   |
+
+---
+### Lookup tables
 
 ***Advantages***
 

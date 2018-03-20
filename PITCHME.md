@@ -121,6 +121,8 @@ The mean
 
 $$ \E [f(x)] = \sum p(x) \cdot f(x) $$
 
+$$ \mathbb{E} $$
+
 The important thing
 
 ---

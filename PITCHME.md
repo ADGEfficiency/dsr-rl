@@ -123,6 +123,10 @@ $$ \E [f(x)] = \sum p(x) \cdot f(x) $$
 
 $$ \mathbb{E} $$
 
+$$ {\mathbb E} $$
+
+$$ \mathbf{E} $$
+
 The important thing
 
 ---

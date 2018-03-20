@@ -220,18 +220,17 @@ state = np.array([temperature, pressure])
 ---
 ### Lookup tables
 
-***Advantages***
+**Advantages**
 
 Stability - each estimate is independent of every other estimate
 
-***Disadvantages***
+**Disadvantages**
 
 No sharing of knowledge between similar states/actions
 
 Curse of dimensionality - high dimensional state/action spaces means lots of entries
 
 ---
-
 ### Linear functions
 
 $$ V(s) = 3s_1 + 4s_2 $$
@@ -250,7 +249,7 @@ The real world is often non-linear
 
 ###  Non-linear functions
 
-![fig](assets/non_linear.png)
+Most commonly neural networks
 
 ***Advantages***
 
@@ -267,31 +266,28 @@ Instability
 Difficult to train
 
 ---
-
 ### iid
 
 Fundamental assumption in statistical learning
 
-Independent and identically distributed
+**Independent and identically distributed**
 
 In statistical learning one always assumes the training set is independently drawn from a fixed distribution
 
 ---
-
 ### A few things about training neural networks
 
-1 - Learning rate
+1. Learning rate
 
-2 - Batch size
+2. Batch size
 
-3 - Scaling / preprocessing
+3. Scaling / preprocessing
 
 Does anyone know what these are?
 
 How do they affect each other?
 
 ---
-
 ### Learning rate
 
 Controls the strength of weight updates performed by the optimizer (SGD, RMSprop, ADAM etc)
@@ -300,8 +296,9 @@ Small learning rate = slow training
 
 High learning rate = overshoot or divergence
 
----
+Learning rate is the most important hyperparameter - you should always intentionally set it
 
+---
 ### Batch size
 
 Modern reinforcement learning trains neural networks using batches of samples
@@ -311,6 +308,9 @@ Modern reinforcement learning trains neural networks using batches of samples
 i.e. 128 samples, batch size=64
 -> two forward & backward passes across net
 
+---
+### Batch size
+
 Smaller batch sizes = less memory on GPU
 
 Batches train faster – weights are updated more often for each epoch
@@ -318,29 +318,26 @@ Batches train faster – weights are updated more often for each epoch
 The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
 
 ---
-
 ### Learning rate & batch sizes
 
 Bigger batch size = larger learning rate
 
 This is because a larger batch size gives a more accurate estimation of the gradient
 
+![lr_batch](assets/images/section_1/lr_batch.png)
+
 https://miguel-data-sc.github.io/2017-11-05-first/
-
-![lr_batch](assets/lr_batch.png)
-
-
 ---
 
 ### Scaling aka pre-processing
 
-Neural networks don't like numbers on different scales.  Improperly scaled inputs or targets can cause issues with exploding gradients
+Neural networks don't like numbers on different scales.  Improperly scaled inputs or targets can cause issues with gradients
 
 Anything that touches a neural network needs to be within a reasonable range
 
 Standardization = removing mean & scale by unit variance
 
-$$ \phi(x) = x - \frac{\mu(x)}{\sigma $$}
+$$ \phi(x) = x - \frac{\mu(x)}{\sigma} $$
 
 Our data now has a mean of 0, and a variance of 1
 

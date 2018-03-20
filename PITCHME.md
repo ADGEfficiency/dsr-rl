@@ -110,7 +110,7 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ V_t\pi (s)$| value function |
 |$ Q_t\pi (s,a)$| value function |
 |$ \theta , \omega $ | function parameters (i.e. weights) |
-|$ \mathbb{E}[f(x)] $  | expectation of f(x) |
+|$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 
 ---
 ### Expectation
@@ -119,15 +119,11 @@ Weighted average of all possible values
 
 The mean
 
-$$ \E [f(x)] = \sum p(x) \cdot f(x) $$
+$$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
-$$ \mathbb{E} $$
+The important thing about expectations is that they **allow us to approximate by sampling**
 
-$$ {\mathbb E} $$
-
-$$ \mathbf{E} $$
-
-The important thing
+i.e. if we want to approximate the average time it takes us to get to work, we can measure how long it takes us for a week and get an approximation
 
 ---
 

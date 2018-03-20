@@ -113,20 +113,19 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 
 ---
-### Expectation
+### Expectations
 
-Weighted average of all possible values
-
-The mean
+Weighted average of all possible values i.e. the mean
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
 The important thing about expectations is that they **allow us to approximate by sampling**
 
-i.e. if we want to approximate the average time it takes us to get to work, we can measure how long it takes us for a week and get an approximation
+i.e. if we want to approximate the average time it takes us to get to work 
+
+we can measure how long it takes us for a week and get an approximation by averaging each of those days
 
 ---
-
 ### Conditionals
 
 **Probability of one thing given another**
@@ -143,31 +142,27 @@ Sampling an action from a stochastic policy conditioned on being in state s
 
 $$ a \sim \pi (s|a) $$
 
-
 ---
-
 ### Variance & bias in supervised learning
+
 Model generalization error = <span style="color:red">bias + variance + noise</span>
 
 **Variance**
 
 error from sensitivity to noise in data set
 
-model sees patterns that aren’t there -> overfitting
+seeing patterns that aren’t there -> overfitting
 
 **Bias**
 
 error from assumptions in the learning algorithm
 
-model can miss relevant patterns -> underfitting
+missing relevant patterns -> underfitting
 
 ---
+### Variance & bias in RL 
 
-### Variance & bias in reinforcement learning
-
-**Variance**
-
-deviation from expected value
+**Variance** - deviation from expected value
 
 how consistent is my model / sampling
 
@@ -175,9 +170,7 @@ can often be dealt with by sampling more
 
 high variance = sample inefficient
 
-**Bias**
-
-expected deviation vs true value
+**Bias** expected deviation vs true value
 
 how close to the truth is my model
 

@@ -1671,6 +1671,194 @@ We select the optimal action according to our online network, but we use the Q v
 
 ![fig](assets/images/section_4/2015_DDQN_results.png)
 
+---
+
+TODO MORE ON DDQN!!!
+
+---
+
+
+---
+## five - policy gradients & Actor-Critic
+### motivations for policy gradients
+### introduction 
+### the score function
+### REINFORCE
+
+---
+
+---?image=assets/images/section5/intro.png&size=auto 80%
+
+### Policy gradients
+
+Previously we looked at generating a policy from a value function (i.e. $\argmax$ across the action space)
+
+In policy gradients we **parameterize a policy directly**
+
+$$ \pi(a_t|s_t;\theta) $$
+
+---
+### John Schulan - Berkley, Open AI
+
+TODO VIDEO
+
+---
+### Motivations for policy gradients
+
+Stochastic policies
+
+High dimensional or continuous action spaces
+
+Optimize what we care about directly
+
+Stability
+
+---
+### Motivation - stochastic policies
+
+![fig](assets/images/section_5/rock_paper.png)
+
+A determinstic policy (i.e. always rock) is eaisly exploited
+
+A stochastic policy also gets us exploration built into the policy, that can be learned and controlled by the agent
+
+---
+### Motivation - high dimensional action spaces
+
+Q-Learning requires a discrete action space to argmax across
+
+Lets imagine controlling a robot arm in three dimensions in the range [0, 90] degrees
+
+This corresponds to approx. 750,000 actions a Q-Learner would need to argmax across
+
+
+---?image=assets/images/section5/disc_cont_act.png&size=auto 80%
+
+### Motivation - optimize return directly
+
+When learning value functions our optimizer is working towards improving the predictive accuracy of the value function
+
+i.e. our gradients point in the direction of predicting return
+
+This isn't what we really care about - we care about maximizing return
+
+---
+### Motivation - optimize return directly
+
+Policy methods optimize return directly
+
+Changing weights according to the gradient that maximizes future reward
+
+Aligning gradients with our objective (and hopefully a business objective)
+
+Can be easier to just select an action – rather than quantify return
+
+---?image=assets/images/section5/motivation_simple.png&size=auto 80%
+
+## five - policy gradients & Actor-Critic
+### motivations for policy gradients
+### introduction 
+### the score function
+### REINFORCE
+
+---
+### Parameterizing policies
+
+The type of policy you parameterize depends on the **action space**
+
+![fig](assets/images/section_5/discrete_policy.png)
+
+---
+### Parameterizing policies
+
+The type of policy you parameterize depends on the **action space**
+
+![fig](assets/images/section_5/cont_policy.png)
+
+---
+### Policy gradients without equations
+
+We have a parameterized policy
+- i.e. a neural network that outputs a distribution over actions
+
+How do we improve it? (i.e. how do we learn?) 
+- change parameters to take actions that get more reward
+- change parameters to favour probable actions
+
+Reward function is not known
+- but we can calculate the *gradient of the expectation of reward*
+
+---
+### Policy gradients with a few equations
+
+Imagine we have a policy $\pi(a_t|s_t;\theta)$, which is a **probability distribution over actions**
+
+How do we improve it?  
+- change parameters to take actions that get more reward
+- change parameters to favour probable actions
+
+Reward function is not known
+- but we can calculate the *gradient of the expectation of reward*
+
+$$\nabla_{\theta} \E[G_t] = \E[\nabla_{\theta} \log \pi(a|s) \cdot G_t]$$
+
+Where does this strange equation come from?
+
+---
+### The score function in statistics
+
+The **score function** comes from using the log-likelihood ratio trick
+
+The score function allows us to get the gradient of a function by taking an expectattion
+
+Expectataions are averages - meaning that we can use sample based methods to approximate them
+
+$$\nabla_{\theta} \E[f(x)] = \E[\nabla_{\theta} \log P(x) \cdot f(x)]$$
+
+---
+### Deriving the score function
+
+![fig](assets/images/section_5/score_derivation.png)
+
+http://karpathy.github.io/2016/05/31/rl/
+
+---
+### The score function in reinforcement learning
+
+$$\nabla_{\theta} \E[f(x)] = \E[\nabla_{\theta} \log P(x) \cdot f(x)]$$
+
+$$\nabla_{\theta} \E[G_t] = \E_{\pi_{\theta}}[\nabla_{\theta} \log \pi(a_t|s_t;\theta) \cdot G_t]$$
+
+The gradient of our return wrt our policy parameters = the expectation of the gradient of the policy wrt it's parameters * the return
+
+The key here is that the RHS is an expectation.  We can estimate it by sampling
+
+The expectation is made up of thing we can sample
+- we can sample from our policy (i.e. we can get the probability of actions in certain states)
+- we can sample the return (from experience)
+
+---
+### Training a policy
+
+We use the score function to get the gradient, then follow the gradient 
+
+gradient 
+
+=
+
+log(probability of action) * return
+
+=
+
+log(policy) * return
+
+--- 
+### Policy gradient intuition
+
+
+
+
+
 
 
 

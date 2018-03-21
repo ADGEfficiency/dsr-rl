@@ -745,6 +745,10 @@ Policy can be
 ---
 ### On versus off policy learning
 
+On policy = evaluate or improve policy that we use to make decisions
+
+Off policy = evaluate or improve one policy while using another to make decisions
+
 ![fig](assets/images/section_1/on_off_policy.png)
 ---
 ### Environment model
@@ -907,6 +911,9 @@ Value iteration = single iteration of policy evaluation done inbetween each poli
 Both of these can achieve the same result - stabilizing when a policy has been found that is greedy wrt it's own value
 function
 
+GPI = value function approximates the policy, then we improve the policy wrt this improved value function, which
+improves the policy
+
 ---
 ### Value function approximation
 
@@ -1062,6 +1069,9 @@ Monte Carlo methods = finding the expected value of a function of a random varia
 
 **No model** - we learn from actual experience (i.e. our sequences of $(s,a,r,s')$
 
+We can also learn from **simulated experience** - we don't need to know the whole proability
+distribution - just be able to generate sample tracjectories
+
 **No boostrapping** - we take the average of the true discounted return
 
 **Episodic only** - because we need to calcuate the true discounted return
@@ -1105,11 +1115,13 @@ This is because we use experienced state transitions
 ---
 ### Monte Carlo
 
-Learn from **actual experience** – no environment model
+Learn from **actual or simulated experience** – no environment model
 
 **No bootstrapping** – use true discounted returns
 
 **Episodic problems only** – no learning online
+
+Ability to **focus** on interesting states and ignore others
 
 High variance, low bias
 

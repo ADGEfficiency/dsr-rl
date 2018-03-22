@@ -914,6 +914,8 @@ function
 GPI = value function approximates the policy, then we improve the policy wrt this improved value function, which
 improves the policy
 
+Idea is that the approximate policy and value functions interact in a way that both move towards their optimal values - this is one souce of non-stationary learning in RL
+
 ---
 ### Value function approximation
 
@@ -997,8 +999,11 @@ We are going to look at three different methods for approximation
 2 - Monte Carlo
 3 - temporal difference
 
-Policy improvement can be done by either policy iteration or value iteration for all of these different approximation
-methods
+Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
+
+What these methods are doing is creating targets
+
+$$ loss = target - predicted_value $$
 
 ---
 ### Dynamic programming
@@ -1054,8 +1059,9 @@ Asynchronous dynamic programming addresses this by updating states in an arbitra
 ---
 ### Dynamic programming summary
 
-Requries a **perfect environment model** - we don't need to sample experience at all (i.ewe don't ever actually take
-actions)
+Requries a **perfect environment model** - we don't need to sample experience at all (i.we don't ever actually take actions)
+
+We make **full backups** - the update to the value function is based on the probability distribution over all possible next states
 
 **Bootstrapped** - we use the recursive Bellman Equation to update our value function
 
@@ -1159,6 +1165,51 @@ $$ V(s_1) \leftarrow V(s_1) + \alpha [ r_{23} + \gamma V(s_3) - V(s_1) ] $$
 *Li (2017)*
 
 ---
+### You are the predictor
+
+Example 6.4 from Sutton & Barto
+
+Imagine you observe the following episodes (State Reward, State Reward)
+
+| Episode | Number times observed |
+|---|---|
+|A 0, B 0| 1 |
+|B 1 | 6 |
+|B 0 | 1 |
+
+What are the optimal predictions for $V(A)$ and $V(B)$?
+
+---
+### You are the predictor
+
+$V(B) = 6/8 * 1 + 2/6 * 0 = 3/4$
+
+What about $V(A)$?  
+
+1. We observed that every time we were in $A$ we got $0$ reward and ended up in $B$
+
+Therefore $V(A) = 0 + V(B) = 3/4$
+
+2. We observed a return of $0$ when we saw $A$ - therefore $V(A) = 0$
+
+Which is the Monte Carlo approach, which is the TD approach?
+
+---
+### You are the predictor
+
+Estimating $V(A) = 3/4$ is the answer given by TD(0)
+
+Estimtating $V(A) = 0$ is the answer given by Monte Carlo
+
+The MC method gives us the lowest error on fitting the data (i.e. minimizes MSE)
+
+The TD method gives us the **maximum-likelihood estimate**
+
+The maximum likelihood estimate of a parameter is the parameter value whose probabilty of generating the data is greatest
+
+We take into account the transition probabilities, which gives us the **certanitiy equivilance estimate** - which is the estimate we get when assuming we know the underlying model (rather than approximating it)
+
+---
 ### Linking together 
 
 Temporal difference and Monte Carlo exist on two extremes of the same scale
@@ -1223,7 +1274,7 @@ $Q(s,a)$ tells us how good an **action** is
 
 ### SARSA
 
-SARSA is an on-policy approximation method
+SARSA is an on-policy control method
 
 We learn $Q(s,a)$ by using every element from our experience tuple $(s,a,r,s')$ 
 
@@ -1233,6 +1284,8 @@ $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma Q(s', a') - Q(s,a)] $$
 
 SARSA is on-policy because we are forced to learn about the action $a'$ that our agent choose to take after reaching
 $s'$
+
+We learn about the policy being followed, then improve the policy by being greedy towards our new value function, then learn about the new improved policy etc - this is GPI
 
 ### Q-Learning
 
@@ -1245,6 +1298,8 @@ We don't need to know what action our agent took next (i.e. $a'$) - instead we t
 This allows us to learn the optimal value function while following a sub-optimal policy!
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$
+
+Unlike SARSA, we never try to learn $Q_{\pi}$ - we always try to learn $Q^*$, the optimal policy
 
 ---
 ### SARSA & Q-Learning
@@ -1777,6 +1832,7 @@ Can be easier to just select an action – rather than quantify return
 ### introduction 
 ### the score function
 ### REINFORCE
+### Actor-Critic
 
 ---
 ### Parameterizing policies
@@ -1869,19 +1925,105 @@ log(probability of action) * return
 
 log(policy) * return
 
+Note that the score function limits us to on-policy learning - we need to calculate the log probability of the action taken by the policy
+
 --- 
 ### Policy gradient intuition
 
+$$\E_{\pi_{\theta}}[\nabla_{\theta} \log \pi(a_t|s_t;\theta) \cdot G_t]$$
 
+$\log \pi(a_t|s_t;\theta)$ - how probable was the action we picked
 
+We want to reinforce actions we thought were good
 
+$ G_t $ - how good was that action
 
+We want to reinforce actions that were actually good
 
+---
+### REINFORCE 
 
+We can use different methods to approximate the return $G_t$
 
+One way is to use the Monte Carlo return - i.e. the true sampled discounted return.  This is known as REINFORCE
 
+Using a Monte Carlo approach comes with all the problems we saw earlier
+- high variance
+- no online learning
+- requires episodic environment
 
+How can we get some the advantages of Temporal Difference methods?
 
+---
+### Baseline
+
+We can introduce a baseline function - this reduces variance without introducing bias
+
+$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t)$ - how probable was the action we picked
+
+A natural baseline is the value function - which we parameterize using weights $w$.  This is known as REINFORCE with a baseline
+
+$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w)$ - how probable was the action we picked
+
+This also gives rise to the concept of **advantage**
+
+$$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
+
+The advantage function tells us how much better an action is than the average actionfor that policy & environment dynamics
+
+---
+### Actor-Critic
+
+![fig](assets/images/section_5/ac_sum.png)
+
+---
+### Actor-Critic
+
+Actor-Critic brings together value functions and policy gradients
+
+We parameterize two functions
+1. an **actor** = policy
+2. a **critic** = value function
+
+We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
+
+The direction is given by the temporal difference error
+
+---
+
+![fig](assets/images/section_5/ac_arc.png)
+
+*Sutton & Barto*
+
+---
+### Actor-Critic Algorithm
+
+![fig](assets/images/section_5/ac_algo.png)
+
+---
+### Determinstic Policy Gradient
+
+![fig](assets/images/section_5/dpg_lit.png)
+
+---
+### DPG
+
+Actor Critic
+
+Determinstic policy -> more efficient than stochastic (we only integrate over TODO)
+
+Continuous action spaces
+
+Off-policy learning
+
+Uses experience replay
+
+Uses target networks
+
+---
+### Stochastic vs determinstic policies
+
+Stochastic policy is a probability distribution over actions
 
 
 

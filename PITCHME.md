@@ -908,13 +908,16 @@ Policy iteration = sequence of approximating value function then making policy g
 
 Value iteration = single iteration of policy evaluation done inbetween each policy improvement
 
-Both of these can achieve the same result - stabilizing when a policy has been found that is greedy wrt it's own value
-function
+Both of these can achieve the same result - stabilizing when a policy has been found that is greedy wrt it's own value function
 
-GPI = value function approximates the policy, then we improve the policy wrt this improved value function, which
-improves the policy
+---
+### Generalized policy iteration
+
+GPI = value function approximates the policy, then we improve the policy wrt this improved value function, which improves the policy
 
 Idea is that the approximate policy and value functions interact in a way that both move towards their optimal values - this is one souce of non-stationary learning in RL
+
+![fig](assets/images/section_3/GPI.png)
 
 ---
 ### Value function approximation
@@ -931,7 +934,7 @@ Modern reinforcement learning is based on using deep neural networks - commonly 
 ---
 ### Richard Bellman
 
-![fig](assets/images/section_1/func_approx.png)
+![fig](assets/images/section_3/Bellman.png)
 
 Invented dynamic programming in 1953 
 
@@ -1749,7 +1752,6 @@ TODO MORE ON DDQN!!!
 
 ---
 
-
 ---
 ## five - policy gradients & Actor-Critic
 ### motivations for policy gradients
@@ -2024,6 +2026,188 @@ Uses target networks
 ### Stochastic vs determinstic policies
 
 Stochastic policy is a probability distribution over actions
+
+Actions are selected by sampling from this distribution
+
+$$ \pi_{\theta}(a|s) = P[a|s,\theta] $$
+
+DPG parameterizes a determinstic policy
+$$a = \mu_{\theta}(s) $$
+
+---
+### DPG components
+
+Actor
+- off policy
+- function that maps state to action
+- exploratory
+
+Critic
+- on-policy
+- critic of the current policy
+- estimates $Q(s,a)$
+
+---
+### Gradients
+
+![fig](assets/images/section_5/DPG_grads.png)
+
+Stochastic case integrates over both the state & action spaces
+
+Deterministic case integrates over only the state space - leading to better sample efficiency
+
+---
+### Updating policy weights
+
+![fig](assets/images/section_5/DPG_update.png)
+
+---
+### DPG results
+
+![fig](assets/images/section_5/DPG_results.png)
+
+The difference between stochastic (green) and deterministic (red) increases with the dimensionality of the action space
+
+
+### A3C
+
+![fig](assets/images/section_5/A3C_lit.png)
+
+---
+### A3C
+
+Asynchronous Advantage Actor-Critic 
+- has obsoleted DQN as state of the art
+- works in continuous action spaces
+
+We saw earlier that experience replay is used to make learning more stable & decorrelate updates
+- but can only be used with off-policy learners
+
+---
+### **Asynchronous** Advantage Actor-Critic 
+
+Asynchronous
+- multiple agents learning separately
+- experience of each agent is independent of other agents
+- learning in parallel stabilizes training
+
+- allows use of on-policy learners
+
+- runs on single multi-core CPU
+- learns faster than many GPU methods
+
+---
+### Asynchronous **Advantage** Actor-Critic 
+
+Advantage = the advantage function 
+
+$$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
+
+The advantage tells us how much better an action is than the average action followed by the policy
+
+---
+### A3C algorithm
+
+![fig](assets/images/section_5/A3C_algo.png)
+
+https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
+
+
+### break
+
+
+---
+## six
+### AlphaGo
+### AlphaZero
+
+---
+### AlphaGo
+
+![fig](assets/images/section_6/AG_lit.png)
+
+---
+### AlphaGo Trailer
+
+TODO
+
+---
+### IBM Deep Blue
+
+First defeat of a world chess champion by a machine in 1997
+
+![fig](assets/images/section_6/DeepBlue.png)
+
+---
+### Deep Blue vs AlphaGo
+
+Deep Blue was handcrafted
+-  programmers & chess grandmasters
+
+AlphaGo *learnt*
+-  human moves & self play
+
+AlphaGo evaluated fewer positions 
+-  **width** policy network select states more intelligently
+-  **depth** value function evaluate states more precisely
+
+---
+### Why Go?
+
+Long held as the most challenging classic game for artificial intelligence
+- massive search space
+- more legal positions than atoms in universe
+- difficult to evaluate positions & moves
+- sparse & delayed reward
+
+--- 
+### Components of the AlphaGo agent
+
+Three policy networks $\pi(s)$ 
+- fast rollout policy network – linear function
+- supervised learning policy – 13 layer convolutional NN
+- reinforcement learning policy – 13 layer convolutional NN
+
+One value function $V(s)$
+- convolutional neural network
+
+Combined together using Monte Carlo tree search
+
+---
+### Components of the AlphaGo agent
+
+1. train fast & supervised policy networks
+ predicting human moves
+
+2. train reinforcement learning policy network
+ initialize using supervised network weights
+ self play (align gradient towards winning)
+
+3. train value function
+ use data generated during self play
+
+---
+### Learning
+
+![fig](assets/images/section_6/AG_learning.png)
+
+---
+### Monte Carlo Tree Search
+
+Value & policy networks combined using MCTS
+
+Basic idea = analyse most promising next moves
+
+Planning algorithm
+- simulated (not actual experience)
+- roll out to end of game (a simulated Monte Carlo return)
+
+
+
+
+
+
+
 
 
 

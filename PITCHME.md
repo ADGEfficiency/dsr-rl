@@ -2119,7 +2119,8 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 ---
 ## six
 ### AlphaGo
-### AlphaZero
+### AlphaGo Zero
+### Residual networks
 
 ---
 ### AlphaGo
@@ -2201,6 +2202,195 @@ Basic idea = analyse most promising next moves
 Planning algorithm
 - simulated (not actual experience)
 - roll out to end of game (a simulated Monte Carlo return)
+
+---
+### Monte Carlo Tree Search
+
+1. pick a state to investigate further
+ using measures of state value & visit statistics
+
+2. rollout down from this state
+ use linear fast rollout policy
+
+3. repeat
+
+---
+### Monte Carlo Tree Search
+
+![fig](assets/images/section_6/MCTS_one.png)
+
+---
+### Monte Carlo Tree Search in AlphaGo
+
+![fig](assets/images/section_6/MCTS_two.png)
+
+---
+### Monte Carlo Tree Search in AlphaGo
+
+![fig](assets/images/section_6/MCTS_AG_one.png)
+
+---
+### Monte Carlo Tree Search in AlphaGo
+
+![fig](assets/images/section_6/MCTS_AG_two.png)
+
+---
+### Monte Carlo Tree Search in AlphaGo
+
+![fig](assets/images/section_6/MCTS_AG_three.png)
+
+---
+### AlphaGo, in context – Andrej Karpathy
+
+Convenient properties of Go
+- fully deterministic
+- fully observed
+- discrete action space
+- access to perfect simulator
+- relatively short episodes 
+- evaluation is clear
+- huge datasets of human play
+- energy consumption (human ≈ 50 W) 1080 ti = 250 W
+
+*https://medium.com/@karpathy/alphago-in-context-c47718cb95a5*
+
+---
+### AlphaGo Zero
+
+![fig](assets/images/section_6/Zero_lit.png)
+
+---
+### Key ideas in AlphaGo Zero
+
+#### Simpler
+
+#### Search
+
+#### Adverserial
+
+#### Machine knowledge only
+
+--- 
+### AlphaGo Zero Results
+
+Training time & performance
+- AG Lee trained over several months
+- AG Zero beat AG Lee 100-0 after 72 hours of training
+
+Computational efficiency
+- AG Lee = distributed w/ 48 TPU
+- AG Zero = single machine w/ 4 TPU
+
+---
+### AlphaGo Zero learning curve
+
+![fig](assets/images/section_6/Zero_learning_curve.png)
+
+---
+### AlphaGo Zero learning curves
+
+![fig](assets/images/section_6/Zero_learning_curves.png)
+
+---
+### AlphaGo Zero innovations
+
+1. learns using only self play
+- no learning from human expert games
+- no feature engineering
+- learn purely from board positions
+
+2. single neural network
+- combine the policy & value networks
+
+3. MCTS only during acting (not during learning)
+
+4. Use of residual networks developed for machine vision
+
+---
+### AlphaGo Zero acting & learning
+
+![fig](assets/images/section_6/Zero_act_learn.png)
+
+---
+### Search in AlphaGo Zero
+
+**Policy evaluation**
+
+Policy is evaluated through self play
+
+This creates high quality training signals - the game result
+
+**Policy improvement**
+
+MCTS is used during acting to create the improved policy
+
+The improved policy generated during acting becomes the target policy during training
+
+[Keynote David Silver NIPS 2017 Deep Reinforcement Learning Symposium AlphaZero
+](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
+
+---
+### Residual networks
+
+![fig](assets/images/section_6/res_lit.png)
+
+Convolutional network with skip connections
+
+Layers are reformulated as residuals of the input
+
+---
+### Residual networks
+
+Trying to learn $ H(x) $ 
+
+Instead of learning $ F(x) = H(x) $ 
+
+We learn the residual $ F(x) = H(x) - x $ 
+
+And can get $ H(x) = F(x) + x $ 
+
+![fig](assets/images/section_6/res_block.png)
+
+---
+### DeepMind AlphaGo AMA
+
+![fig](assets/images/section_6/reddit_AMA.png)
+
+---
+### DeepMind AlphaGo AMA
+
+![fig](assets/images/section_6/reddit_AMA_posts.png)
+
+---
+### break
+
+---
+## seven
+### practical concerns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

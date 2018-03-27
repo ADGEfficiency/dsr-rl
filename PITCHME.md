@@ -11,8 +11,9 @@
 - lecture notes hosted on GitPages
 - useful machine learning & reinforcement learning literature
 - practical work - collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
+
 ---
-### Agenda
+### Agenda - Today
 
 **today - morning**
 
@@ -20,23 +21,31 @@ one - background & terminology
 
 two - introduction to reinforcement learning
 
-three - value functions
+three - value functions & DQN
 
 **today - afternoon**
 
 DQN practical
 
+---
+### Agenda - Tomorrow
+
 **tomorrow - morning**
 
 four - improvements to DQN
 
-five - policy gradients
+five - policy gradients & Actor Critic
 
-six - practical concerns
+six - AlphaGo & AlphaGo Zero 
 
-seven - a quick look at the state of the art
+seven - practical concerns
+
+eight - a quick look at the state of the art
 
 **tomorrow - afternoon**
+
+Misc advice + portfolio projects
+
 ---
 ### About Me
 
@@ -48,7 +57,7 @@ MSc Advanced Process Design for Energy
 
 DSR Batch 9
 
-**Experience**  
+**Industry**  
 
 Energy Engineer at ENGIE UK
 
@@ -61,13 +70,17 @@ Introduction to **concepts, ideas and terminology** of reinforcement learning
 
 Familiarity with important literature
 
+Experience with running reinforcement learning experiments
+
 Guidance on reinforcement learning project ideas
 
 ---
 ### Goals for today and tomorrow
 To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
 
-These notes are designed to be both a set of slides for **lectures** and a **future reference** to help you learn
+These notes are designed to be both 
+- a set of slides for **lectures** 
+- **future reference** to help you learn
 
 ---
 ### Where to start
@@ -91,6 +104,8 @@ Nomenclature in RL can be somewhat inconsistent - often quite different for valu
 
 Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
 
+---
+
 |symbol | variable  |
 |---|---|
 |$s$ |state     |
@@ -99,11 +114,6 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$r$ |reward    |
 |$G_t$ | discounted return after time t|
 |$\gamma$ |  discount factor [0, 1) |
----
-### Nomenclature
-
-|symbol | variable  |
-|---|---|
 |$ a \sim \pi(s) $  | sampling action from a stochastic policy |
 |$ a = \pi(s)$ | determinstic policy |
 |$ \pi^\star $ | optimal policy |
@@ -115,7 +125,9 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 ---
 ### Expectations
 
-Weighted average of all possible values i.e. the mean
+Weighted average of all possible values - i.e. the mean
+
+Expected value = probability * magnitude
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 

@@ -4,13 +4,14 @@
 }
 
 /* font size for body, links & lists */
-.reveal p a ul ol li dl {
-  font-size: 28px;
+.reveal p a ul ol dl {
+  font-size: 24px;
 }
 
 /* remove the bullet points */
 .reveal li {
   list-style-type: None;
+  font-size: 22px;
 }
 
 /* font size for markdown headers */
@@ -23,7 +24,7 @@
 }
 
 .reveal h3 h4 {
-  font-size: 32px;
+  font-size: 30px;
 }
 
 /* set font size and alginment for tables and code */

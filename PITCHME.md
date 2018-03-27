@@ -1591,6 +1591,28 @@ Reward is +1 for each timestep the cartpole stays balanced
 Episode ends when the cartpole falls over
 
 ---
+### Hyperparameters
+
+Hyperparameters are configured using a dictionary
+
+Using dictionaries to setup agents/experiments allows you to eaisly save them to a text file - very handy
+
+What do you think the effect of changing these hyperparameters will be
+
+```
+config_dict = {'discount': 0.97,
+               'tau': 0.001,
+               'total_steps': 500000,
+               'batch_size': 32,
+               'layers': (50, 50),
+               'learning_rate': 0.0001,
+               'epsilon_decay_fraction': 0.3,
+               'memory_fraction': 0.4,
+               'process_observation': False,
+               'process_target': False}
+```
+
+---
 ## four
 ### prioritized experience replay
 ### DDQN
@@ -2368,36 +2390,232 @@ And can get $ H(x) = F(x) + x $
 ## seven
 ### practical concerns
 
+---
+### 
 
 
+---
+### Key Questions
+
+What is the action space
+- what can the agent choose to do
+- does the action change the environment
+- continuous or discrete
+
+What is the reward
+
+It is a complex problem
+- classical optimization techniques such as linear programming or cross entropy may offer a simpler solution
+
+---
+### Preprocessing
+
+As with supervised learning, scaling/processing of inputs and targets for neural networks is key to keep gradients under control
+
+In reinforcement learning we often don't know the true min/max/mean/standard deviation of observations/actions/rewards/returns
+
+DQN clips rewards to the range $[-1, +1]$
+
+More complex methods adapatively normalize targets using statistics collected from history
+
+---
+### Mistakes I've made so far
+
+Normalizing targets - a high initial target that occurs due to the initial weights can skew the normalization for the entire experiment
+
+Doing multiple epochs over a batch
+
+Not keeping batch size the same for experience replay & training
+
+Not setting `next_observation = observation`
+
+Not setting online & target network variables the same at the start of an experiment
+
+---
+### Hyperparameters
+
+**Policy gradients**
+- learning rate
+- clipping of distribution parameters (stochastic PG)
+- noise for exploration (deterministic PG)
+- network structure
+
+**Value function methods**
+- learning rate
+- exploration (i.e. epsilon)
+- updating target network frequency
+- batch size
+- space discretization
+
+---
+
+![fig](assets/images/section_7/nuts_bolts.png)
+
+[John Schulman – Berkley Deep RL Bootcamp 2017](https://www.youtube.com/watch?v=8EcdaCk9KaQ)
+
+---
+### John Schulman advice
+
+Quick experiments on small test problems
+
+Interpret & visualize learning process
+- state visitation, value functions
+
+Make it easier to get learning to happen (initially)
+- input features, reward function design
+
+Always use multiple random seeds
+
+---
+### John Schulman advice
+
+Standardize data
+- if observations in unknown range, estimate running average mean & stdev
+
+Rescale rewards - but don’t shift mean
+
+Standardize prediction targets (i.e. value functions) the same way
+
+---
+### John Schulman advice
+
+Batch size matters
+
+Policy gradient methods – weight initialization matters
+determines initial state visitation (i.e. exploration)
+
+DQN converges slowly
+
+---
+
+![fig](assets/images/section_7/quora_debug.png)
+
+https://www.quora.com/How-can-I-test-if-the-training-process-of-a-reinforcement-learning-algorithm-work-correctly
+
+---
+### Gary Wang advice
+
+Debugging RL algorithms is very hard. Everything runs and you are not sure where the problem is.
+
+Simple environments for testing
+- CartPole for discrete action spaces
+- Pendulum for continuous action spaces
+
+Be careful not to overfit these simple problems
+
+Rescale environment observations if they have known mins & maxs
+
+Rescale/clip reward if very large
+
+Compute useful statistics 
+- explained variance (for seeing if your value functions are overfitting), 
+- computing KL divergence of policy before and after update (a spike in KL usually means degradation of policy)
+- entropy of your policy
+
+Visualize statistics
+- running min, mean, max of episode returns
+- KL of policy update
+- explained variance of value function fitting
+- network gradients
+
+Gradient clipping is helpful - dropout & batchnorm not so much
+
+Simple neural networks
+
+Multiple random seeds
+
+Automate experiments - don't waste time watching them run!
+
+Spend time looking at open source RL packages
+
+---
+### Cool open source RL projects
+
+[gym](https://github.com/openai/gym/tree/master/gym) - Open AI
+
+[baselines](https://github.com/openai/baselines) - Open AI
+
+[rllab](https://github.com/rll/rllab) - Berkley
+
+[Tensorforce](https://github.com/reinforceio/tensorforce) - reinforce.io
+
+There are so many more!
+
+---
+## eight
+### beyond the expectation
 
 
+---
 
+![fig](assets/images/section_7/lit_dist.png)
 
+---
+### Beyond the expectation
 
+All the reinforcement learning today we have seen is about the expectation (mean expected return)
 
+$$Q(s,a) = \mathfb{E}[G_t] = \mathfb{E}[r + \gamma Q(s',a)] $$
 
+In 2017 DeepMind introduced the idea of the value distribution
 
+State of the art results on Atari
 
+---
+### Beyond the expectation
 
+![fig](assets/images/section_7/beyond_ex.png)
 
+The expected value of 7.5 minutes will never occur in reality!
 
+---
 
+![fig](assets/images/section_7/value_dist.png)
 
+*Bellamare et. al 2017*
 
+---
 
+![fig](assets/images/section_7/value_dist_results.png)
 
+*Bellamare et. al 2017*
 
+---
 
+![fig](assets/images/section_7/lit_aux.png)
 
+*https://www.youtube.com/watch?v=mckulxKWyoc*
 
+---
 
+### TODO MORE ON THIS 
 
+---
 
+![fig](assets/images/section_7/aux_results.png)
 
+---
 
+![fig](assets/images/section_7/inverse_rl_lit.png)
 
+---
 
+![fig](assets/images/section_7/inverse_1.png)
 
+*Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 
+---
 
+![fig](assets/images/section_7/inverse_2.png)
+
+*Chelsea Finn – Berkley Deep RL Bootcamp 2017*
+
+---
+
+## thank you
+
+Adam Green
+
+adgefficency.com
+
+adam.green@adgefficiency.com

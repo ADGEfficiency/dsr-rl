@@ -1,9 +1,9 @@
 ---
-# a glance at reinforcement learning
+## a glance at reinforcement learning
 
-## Adam Green
-## [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
-## [adgefficiency.com](http://adgefficiency.com)
+### Adam Green
+### [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
+### [adgefficiency.com](http://adgefficiency.com)
 ---
 ### Course Materials
 

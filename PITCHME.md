@@ -17,7 +17,7 @@
 
 **today - morning**
 
-one - background & terminology
+[one - background & terminology](#section-one)
 
 two - introduction to reinforcement learning
 
@@ -93,7 +93,7 @@ These notes are designed to be both
 - [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
 
 ---
-## one
+## one <a id="section-one"></a>
 ### nomenclature & definitions
 ### background and terminology
 ---
@@ -142,7 +142,7 @@ we can measure how long it takes us for a week and get an approximation by avera
 
 **Probability of one thing given another**
 
-probability of next state and reward for a given state & action
+probability of next state and reward given state & action
 
 $$ P(s'|s,a) $$  
 
@@ -384,7 +384,7 @@ Vanilla batch norm. uses two different methods for normalization for training & 
 Batch renormalization attempts to fix this by using a single algorithm for both training & testing
 
 ---
-## two
+## two <a id="section-two"></a>
 ### introduction to reinforcement learning
 ### four central challenges
 ### Markov Decision Processes
@@ -815,7 +815,7 @@ Can use discount = 1 for
 - when time to solve is irrelevant (i.e. a board game)
 
 ---
-## three
+## three <a id="section-three"></a> 
 ### introduction to value functions 
 ### Bellman Equation 
 ### approximation methods
@@ -1578,7 +1578,7 @@ We will cover these improvements and more powerful algorithms tomorrow
 
 ---
 
-### Practical
+### Practical <a id="section-practical"></a>
 
 The practical we will do this afternoon is to play with a working DQN (Deep Q-Network) agent on the Open AI Cartpole environment.
 
@@ -1625,7 +1625,7 @@ config_dict = {'discount': 0.97,
 ```
 
 ---
-## four
+## four <a id="section-four"></a>
 ### prioritized experience replay
 ### DDQN
 ### Rainbow
@@ -1787,7 +1787,7 @@ TODO MORE ON DDQN!!!
 ---
 
 ---
-## five - policy gradients & Actor-Critic
+## five <a id="section-five"></a>
 ### motivations for policy gradients
 ### introduction 
 ### the score function
@@ -2151,7 +2151,7 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 
 
 ---
-## six
+## six <a id="section-six"></a>
 ### AlphaGo
 ### AlphaGo Zero
 ### Residual networks
@@ -2399,7 +2399,7 @@ And can get $ H(x) = F(x) + x $
 ### break
 
 ---
-## seven
+## seven <a id="section-seven"></a>
 ### practical concerns
 
 ---
@@ -2554,9 +2554,8 @@ Spend time looking at open source RL packages
 There are so many more!
 
 ---
-## eight
+## eight <a id="section-eight"></a>
 ### beyond the expectation
-
 
 ---
 

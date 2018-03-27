@@ -19,28 +19,28 @@
 
 [one - background & terminology](#section-one)
 
-two - introduction to reinforcement learning
+[two - introduction to reinforcement learning](#section-two)
 
-three - value functions & DQN
+[three - value functions & DQN](#section-three)
 
 **today - afternoon**
 
-DQN practical
+[DQN practical](#section-practical)
 
 ---
 ### Agenda - Tomorrow
 
 **tomorrow - morning**
 
-four - improvements to DQN
+[four - improvements to DQN](#section-four)
 
-five - policy gradients & Actor Critic
+[five - policy gradients & Actor Critic](#section-five)
 
-six - AlphaGo & AlphaGo Zero 
+[six - AlphaGo & AlphaGo Zero](#section-six)
 
-seven - practical concerns
+[seven - practical concerns](#section-seven)
 
-eight - a quick look at the state of the art
+[eight - a quick look at the state of the art](#section-eight)
 
 **tomorrow - afternoon**
 

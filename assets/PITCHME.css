@@ -1,3 +1,4 @@
+/* remove the shadows from images */
 .reveal section img {
   border: 0;
   box-shadow: none;
@@ -16,7 +17,7 @@
 }
 
 /* adjust body text left */
-.reveal .slides p {
+.reveal .slides body {
     text-align: left;
 }
 .reveal .slides section>* {

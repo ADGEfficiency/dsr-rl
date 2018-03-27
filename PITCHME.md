@@ -6,6 +6,7 @@
 ## [adgefficiency.com](http://adgefficiency.com)
 ---
 ### Course Materials
+
 [All course materials are in the GitHub repo dsr_rl](https://github.com/ADGEfficiency/dsr_rl)
 
 - lecture notes hosted on GitPages

@@ -9,7 +9,7 @@
   list-style-type: None;
 }
 
-/* set font size and alginment for tables and code */
+/* set alginment for tables and code */
 .reveal table, th, td, code {
   margin-left:auto;
   margin-right:auto;
@@ -17,10 +17,13 @@
 }
 
 /* adjust body text left */
-.reveal .slides body {
+.reveal .slides p {
     text-align: left;
 }
 .reveal .slides section>* {
     margin-left: 0;
     margin-right: 0;
 }
+
+/* set body size */
+

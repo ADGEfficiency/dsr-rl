@@ -6,7 +6,6 @@
 
 /* remove the bullet points */
 .reveal li {
-  list-style-type: None;
   text-align: left;
   font-size: 30px;
 }

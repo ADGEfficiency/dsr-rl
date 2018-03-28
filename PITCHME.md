@@ -322,20 +322,23 @@ i.e. 128 samples, batch size=64
 
 Smaller batch sizes = less memory on GPU
 
-Batches train faster – weights are updated more often for each epoch
+Batches train faster 
+- weights are updated more often for each epoch
 
-The cost of using batches is a less accurate estimate of the gradient - this noise can be useful to escape local minima
-
----
-### Learning rate & batch sizes
+The cost of using batches is a less accurate estimate of the gradient 
+- this noise can be useful to escape local minima
 
 Bigger batch size = larger learning rate
 
 This is because a larger batch size gives a more accurate estimation of the gradient
 
+---
+### Learning rate & batch sizes
+
 ![lr_batch](assets/images/section_1/lr_batch.png)
 
-https://miguel-data-sc.github.io/2017-11-05-first/
+*https://miguel-data-sc.github.io/2017-11-05-first/*
+
 ---
 
 ### Scaling aka pre-processing

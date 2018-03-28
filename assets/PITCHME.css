@@ -12,8 +12,15 @@
   margin-right: 0;
 }
 
-/* unordered and ordered lists */
-.reveal li {
+/* unordered lists */
+.reveal ul {
+  display: block;
+  font-size: 30px;
+}
+
+/* ordered lists */
+.reveal ol {
+  display: block;
   font-size: 30px;
 }
 

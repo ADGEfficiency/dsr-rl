@@ -286,11 +286,11 @@ In statistical learning one always assumes the training set is independently dra
 ---
 ### A few things about training neural networks
 
-1. Learning rate
+**Learning rate
 
-2. Batch size
+Batch size
 
-3. Scaling / preprocessing
+Scaling / preprocessing**
 
 Does anyone know what these are?
 
@@ -340,26 +340,30 @@ This is because a larger batch size gives a more accurate estimation of the grad
 ---
 ### Scaling aka pre-processing
 
-Neural networks don't like numbers on different scales.  Improperly scaled inputs or targets can cause issues with gradients
+Neural networks don't like numbers on different scales  
+
+Improperly scaled inputs or targets can cause issues with gradients
 
 Anything that touches a neural network needs to be within a reasonable range
 
-Standardization = removing mean & scale by unit variance
+---
+### Scaling aka pre-processing
+
+**Standardization** = removing mean & scale by unit variance
 
 $$ \phi(x) = x - \frac{\mu(x)}{\sigma} $$
 
 Our data now has a mean of 0, and a variance of 1
 
-Normalization = min/max scaling
+**Normalization** = min/max scaling
 
-$$ \phi(x) = \frac{x - xmin}{xmax-xmin} $$
+$$ \phi(x) = \frac{x - x_min}{x_max-x_min} $$
 
 Our data is now within a range of 0 to 1
 
----
-
 ---?image=assets/batch_norm_lit.png&size=auto 80%
 
+---
 ### Batch normalization
 
 In supervised learning we can estimate the true mean, variance, min or max of our data from our training set (in RL we don't get this).

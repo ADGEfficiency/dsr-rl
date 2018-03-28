@@ -6,7 +6,6 @@
 
 /* unordered and ordered lists */
 .reveal li ol {
-  list-style-type: 'dash';
   text-align: left;
   font-size: 30px;
 }

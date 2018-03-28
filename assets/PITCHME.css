@@ -21,7 +21,7 @@
 }
 
 /* unordered and ordered lists */
-.reveal li ol {
+.reveal li {
   text-align: left;
   font-size: 30px;
 }

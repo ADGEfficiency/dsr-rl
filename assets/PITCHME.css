@@ -12,6 +12,11 @@
   margin-right: 0;
 }
 
+/* unordered and ordered lists */
+.reveal li {
+  font-size: 30px;
+}
+
 /* set alginment for tables and code */
 .reveal table, code {
   margin-left:auto;
@@ -20,11 +25,4 @@
   font-size: 30px;
 }
 
-/* unordered and ordered lists */
-.reveal li {
-  text-align: left;
-  font-size: 30px;
-  margin-left: 0;
-  margin-right: 0;
-}
 

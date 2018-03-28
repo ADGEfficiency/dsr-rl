@@ -333,11 +333,7 @@ Bigger batch size = larger learning rate
 This is because a larger batch size gives a more accurate estimation of the gradient
 
 ---
-### Learning rate & batch sizes
-
 ![lr_batch](assets/images/section_1/lr_batch.png)
-
-Larger batch size shows a larger optimal learning rate
 
 *https://miguel-data-sc.github.io/2017-11-05-first/*
 

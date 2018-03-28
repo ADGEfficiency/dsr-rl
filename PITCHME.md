@@ -351,7 +351,7 @@ Anything that touches a neural network needs to be within a reasonable range
 
 **Standardization** = removing mean & scale by unit variance
 
-$$ \phi(x) = x - \frac{\mu(x)}{\sigma} $$
+$$ \phi(x) = x - \frac{\mu(x)}{\sigma(x)} $$
 
 Our data now has a mean of 0, and a variance of 1
 

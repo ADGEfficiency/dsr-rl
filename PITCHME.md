@@ -227,13 +227,17 @@ state = np.array([temperature, pressure])
 
 **Advantages**
 
-Stability - each estimate is independent of every other estimate
+Stability
+
+Each estimate is independent of every other estimate
 
 **Disadvantages**
 
 No sharing of knowledge between similar states/actions
 
-Curse of dimensionality - high dimensional state/action spaces means lots of entries
+Curse of dimensionality 
+
+High dimensional state/action spaces means lots of entries
 
 ---
 ### Linear functions
@@ -256,7 +260,7 @@ The real world is often non-linear
 
 Most commonly neural networks
 
-***Advantages***
+**Advantages**
 
 Model complex dynamics
 
@@ -264,7 +268,7 @@ Convolution for vision
 
 Recurrency for memory / temporal dependencies
 
-***Disadvantages***
+**Disadvantages**
 
 Instability
 

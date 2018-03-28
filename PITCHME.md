@@ -79,7 +79,7 @@ Guidance on reinforcement learning project ideas
 ### Goals for today and tomorrow
 To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
 
-These slides are designed as a **future reference**
+These slides are designed as both a **future reference** and slides for today
 
 ---
 ### Where to start
@@ -126,7 +126,7 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 
 Weighted average of all possible values - i.e. the mean
 
-Expected value = probability * magnitude
+`Expected_value = probability * magnitude`
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
@@ -160,34 +160,28 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 
 **Variance**
 
-error from sensitivity to noise in data set
-
-seeing patterns that aren’t there -> overfitting
+- error from sensitivity to noise in data set
+- seeing patterns that aren’t there -> overfitting
 
 **Bias**
 
-error from assumptions in the learning algorithm
-
-missing relevant patterns -> underfitting
+- error from assumptions in the learning algorithm
+- missing relevant patterns -> underfitting
 
 ---
 ### Variance & bias in RL 
 
 **Variance** = deviation from expected value
 
-how consistent is my model / sampling
-
-can often be dealt with by sampling more
-
-high variance = sample inefficient
+- how consistent is my model / sampling
+- can often be dealt with by sampling more
+- high variance = sample inefficient
 
 **Bias** = expected deviation vs true value
 
-how close to the truth is my model
-
-approximations or bootstrapping tend to introduce bias
-
-biased away from an optimal agent / policy
+- how close to the truth is my model
+- approximations or bootstrapping tend to introduce bias
+- biased away from an optimal agent / policy
 
 ---?image=assets/variance_bias.png&size=auto 90%
 
@@ -195,8 +189,7 @@ biased away from an optimal agent / policy
 ### Bootstrapping
 
 Doing something on your own 
-
- i.e. funding a startup with your own capital
+- i.e. funding a startup with your own capital
 
 Using a function to improve / estimate itself
 
@@ -206,7 +199,8 @@ $$ V(s) = r + \gamma V(s') $$
 
 $$ Q(s,a) = r + \gamma Q(s', a') $$
 
-Bootstrapping can introduce bias - the agent has a chance to fool itself 
+Bootstrapping often introduces bias 
+- the agent has a chance to fool itself 
 
 ---
 ### Function approximation

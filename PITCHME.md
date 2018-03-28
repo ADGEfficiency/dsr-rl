@@ -338,7 +338,6 @@ This is because a larger batch size gives a more accurate estimation of the grad
 *https://miguel-data-sc.github.io/2017-11-05-first/*
 
 ---
-
 ### Scaling aka pre-processing
 
 Neural networks don't like numbers on different scales.  Improperly scaled inputs or targets can cause issues with gradients

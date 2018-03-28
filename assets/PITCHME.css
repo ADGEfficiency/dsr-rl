@@ -24,4 +24,7 @@
 .reveal li {
   text-align: left;
   font-size: 30px;
+  margin-left: 0;
+  margin-right: 0;
 }
+

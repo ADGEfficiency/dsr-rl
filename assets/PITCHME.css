@@ -4,11 +4,6 @@
   box-shadow: none;
 }
 
-/* unordered and ordered lists */
-.reveal li ol {
-  text-align: left;
-  font-size: 30px;
-}
 
 /* adjust body text */
 .reveal p {
@@ -23,5 +18,11 @@
   margin-left:auto;
   margin-right:auto;
   text-align:center;
+  font-size: 30px;
+}
+
+/* unordered and ordered lists */
+.reveal li ol {
+  text-align: left;
   font-size: 30px;
 }

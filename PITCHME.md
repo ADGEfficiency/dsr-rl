@@ -79,9 +79,7 @@ Guidance on reinforcement learning project ideas
 ### Goals for today and tomorrow
 To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
 
-These notes are designed to be both 
-- a set of slides for **lectures** 
-- **future reference** to help you learn
+These slides are designed as a **future reference**
 
 ---
 ### Where to start

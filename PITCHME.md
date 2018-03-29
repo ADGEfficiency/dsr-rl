@@ -376,6 +376,7 @@ This reduces sensitivty to weight & bias initialization
 
 It also allows us to use higher learning rates
 
+---
 ### Batch renormalization
 
 Vanilla batch norm. struggles with small or non-iid batches - the mean/variance/min/max estimtates are worse

@@ -357,11 +357,12 @@ Our data now has a mean of 0, and a variance of 1
 
 **Normalization** = min/max scaling
 
-$$ \phi(x) = \frac{x - x_{min} }{ x_{max}-x_{min} } $$
+$$ \phi(x) = \frac{x - x_{min} }{ x_{max} - x_{min}} $$
 
 Our data is now within a range of 0 to 1
 
----?image=assets/section_1/batch_norm_lit.png&size=auto 80%
+---
+![fig](assets/images/section_1/batch_norm_lit.png)
 
 ---
 ### Batch normalization

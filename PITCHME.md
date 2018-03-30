@@ -994,7 +994,7 @@ Also introduced the curse of dimensionality
 
 Bellman's contribution is remembered by the Bellman Equation
 
-$$ G_{\pi}(s) = r + \gamma G\_{\pi}(s') $$
+$$ G\_{\pi}(s) = r + \gamma G\_{\pi}(s') $$
 
 The Bellman equation relates the expected discounted return of the current state to the discounted value of the next
 state
@@ -1003,9 +1003,9 @@ The Bellman equation is a recursive definition - i.e. it is bootstrapped
 
 We can apply it to value functions
 
-$$ V_{\pi}(s) = r + \gamma V\_{\pi}(s') $$
+$$ V\_{\pi}(s) = r + \gamma V\_{\pi}(s') $$
 
-$$ Q_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
+$$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 
 ---
 ### How does the Bellman Equation help us learn?

@@ -478,11 +478,6 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 ![fig](assets/images/section_2/rl_process.png)
 
 ---
-### Data in reinforcement learning
-
-In RL we generate our own data
-
----
 ### Supervised learning versus reinforcement learning
 
 In supervised learning we are limited by our dataset

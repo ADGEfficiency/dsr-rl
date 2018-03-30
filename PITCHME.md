@@ -857,29 +857,30 @@ Can use discount = 1 for
 
 ---
 
-# Value function
+### Value function
 
 <center>$V_\pi(s)$</center>
 
-## how good is this state
+**how good is this state**
 
-# Action-value function
+### Action-value function
 
 <center>$Q_\pi(s,a)$</center>
 
-## how good is this action
+**how good is this action**
+
 ---
 ### Value functions
 
 **Value function**
 
-$ V_{\pi}(s) = \mathcal{E}[G_t | s_t] $ 
+$ V_{\pi}(s) = \mathfb{E}[G_t | s_t] $ 
 
 Expected return when in state $s$, following policy $\pi$
 
 Action-value function
 
-$ Q_{\pi}(s,a) = \mathbb{E}[G_t | s_t, a_t] $ 
+$ Q_{\pi}(s,a) = \mathfb{E}[G_t | s_t, a_t] $ 
 
 Expected return when in state $s$, taking action $a$, following policy $\pi$
 

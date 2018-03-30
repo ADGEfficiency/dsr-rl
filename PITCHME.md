@@ -406,11 +406,13 @@ Vanilla batch norm. uses two different methods for normalization for training & 
 ---
 ###  Also worth knowing about are
 
-Evolutionary methods are better able to deal with sparse error signals and eaisly parallelizable
+**Evolutionary methods** 
+- better able to deal with sparse error signals 
+- eaisly parallelizable
 
-More general optimization methods such as cross entropy method are often reccomended to be tried before you try RL
+More general optimization methods such as **cross entropy method** are often reccomended to be tried before you try RL
 
-Classicial decision making methods such as linear programming are also useful
+Classicial decision making methods such as **linear programming** are also useful
 
 ---
 ###  Applications
@@ -422,33 +424,31 @@ RL is all about **decision making**.
 [*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 
 ---
-
 ###  Biological inspiration
 
-*Sutton & Barto - Reinforcment Learning: An Introduction*
+Sutton & Barto - Reinforcment Learning: An Introduction
 >Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems 
 
-*Mnih et. al (2015) Human-level control through deep reinforcement learning*
+Mnih et. al (2015) Human-level control through deep reinforcement learning
 >Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
 
-Habit formation
+---
+### Habit formation
 
 Cue -> Routine -> Reward
 
 State -> Action -> Reward
 
 ---
-
 ###  Reinforcement learning is not
 
 NOT an alternative method to use instead of a random forest, neural network etc
 
-“I’ll try to solve this problem using a convolutional nn or RL” this is nonsensical
+“I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**
 
-Neural networks (supervised techniques in general) are a tool that reinforcement learners can use
+Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
 
 ---
-
 ###  Deep reinforcement learning
 
 **Deep learning** = neural networks with multiple layers
@@ -462,7 +462,7 @@ Feedforward, convolutional or recurrent neural networks are all used within diff
 
 Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 2015 series
 
-![Video](assets/video/move37.mp4)
+![Video](https://youtu.be/i3lEG6aRGm8?t=1632)
 
 ---
 ## Reinforcement Learning

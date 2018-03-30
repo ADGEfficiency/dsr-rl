@@ -394,13 +394,14 @@ Vanilla batch norm. uses two different methods for normalization for training & 
 ### four central challenges
 ### Markov Decision Processes
 ---
+### Machine learning
 
 ![fig](assets/images/section_2/sl_unsl_rl.png)
 
 ---
 ### Model free reinforcment learning
 
-![fig](assets/section_two/summary.png)
+![fig](assets/images/section_2/summary.png)
 
 ---
 ###  Also worth knowing about are
@@ -416,7 +417,7 @@ Classicial decision making methods such as linear programming are also useful
 
 RL is all about **decision making**.
 
-![fig](assets/section_2/applications_silver.png)
+![fig](assets/images/section_2/applications_silver.png)
 
 [*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 

@@ -508,7 +508,7 @@ $$experience]$$
 $$[(s_0, a_0, r_1, s_1), $$ 
 $$(s_1, a_1, r_2, s_2), $$
 $$...$$
-$$(s_n, a_n, r_{n+1}, s_{n+1})] $$
+$$(s_n, a_n, r_n, s_n)] $$
 
 What should we do with this dataset?
 

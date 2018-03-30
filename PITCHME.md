@@ -983,6 +983,9 @@ Modern reinforcement learning is based on using neural networks
 
 Invented dynamic programming in 1953 
 
+---
+### Richard Bellman
+
 *[On the naming of dynamic programminging](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
 > I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying...
 
@@ -999,7 +1002,7 @@ $$ G\_{\pi}(s) = r + \gamma G\_{\pi}(s') $$
 The Bellman equation relates the expected discounted return of the current state to the discounted value of the next
 state
 
-The Bellman equation is a recursive definition - i.e. it is bootstrapped
+The Bellman equation is a recursive definition - it is bootstrapped
 
 We can apply it to value functions
 
@@ -1010,11 +1013,9 @@ $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 ---
 ### How does the Bellman Equation help us learn?
 
-In supervised learning you train a neural network by minimizing the difference between the network output and the
-correct target for that sample
+In supervised learning you train a neural network by minimizing the difference between the network output and the correct target for that sample
 
-In order to improve our approximation of a value function (i.e. a neural network) we need to create a target for each
-sample of experience
+In order to improve our approximation of a value function (i.e. a neural network) we need to create a target for each sample of experience
 
 We can then improve our approximation by minimizing a loss function
 
@@ -1032,7 +1033,7 @@ This is also known as the **temporal difference error**
 ## three
 ### introduction to value functions 
 ### Bellman Equation 
-### Approximation methods
+### approximation methods
 ### SARSA & Q-Learning
 ### DQN
 ---
@@ -1040,22 +1041,21 @@ This is also known as the **temporal difference error**
 
 We are going to look at three different methods for approximation
 
-1 - dynamic programming
-2 - Monte Carlo
-3 - temporal difference
+1. dynamic programming
+2. Monte Carlo
+3. temporal difference
 
 Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
 
-What these methods are doing is creating targets to learn from
-
-$$ loss = target - predicted_value $$
+What these methods are doing is **creating targets** to learn from
 
 ---
 ### Dynamic programming
 
 Imagine you had a perfect environment model
 
-i.e. you know both the state transition function $ P(s'|s,a) $ and the reward transition function $ R(r|s,a,s') $  
+- the state transition function $ P(s'|s,a) $ 
+- the reward transition function $ R(r|s,a,s') $  
 
 Can we use our perfect environment model for value function approximation?
 
@@ -1078,13 +1078,13 @@ $$V(s_4) = 0$$
 
 We can then express the value functions for the remaining two states
 
-$$V(s_3) = P_{34}[r_{34} + \gamma V(s_4)$$
+$$V(s\_3) = P\_{34}[r\_{34} + \gamma V(s\_4)$$
 
-$$V(s_3) = 1 * [5 + 0.9 * 0] = 5 $$
+$$V(s\_3) = 1 * [5 + 0.9 * 0] = 5 $$
 
-$$V(s_1) = P_{12}[r_{12} + \gamma V(s_2) + P_{13}[r_{13} + \gammaV(s_3)]$$
+$$V(s\_1) = P\_{12}[r\_{12} + \gamma V(s\_2) + P\_{13}[r\_{13} + \gamma V(s\_3)]$$
 
-$$V(s_1) = 0.5 * [1 + 0.9 * 0] + 0.5 * [2 + 0.9 * 5] = 3.75 $$
+$$V(s\_1) = 0.5 * [1 + 0.9 * 0] + 0.5 * [2 + 0.9 * 5] = 3.75 $$
 
 ---
 ### Dynamic programming

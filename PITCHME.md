@@ -462,21 +462,20 @@ Feedforward, convolutional or recurrent neural networks are all used within diff
 
 Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 2015 series
 
-![Video](https://youtu.be/i3lEG6aRGm8?t=1632)
-
 <iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
 ## Reinforcement Learning
 
-###is
+### is
 
 ## learning through action
+
 ---
+![fig](assets/images/section_2/mdp_schema_simple.png)
 
----?image=assets/images/section_2/mdp_schema_simple.png&size=auto 80%
-
----?image=assets/images/section_2/rl_process.png&size=auto 80%
+---
+![fig](assets/images/section_2/rl_process.png)
 
 ---
 ### Data in reinforcement learning

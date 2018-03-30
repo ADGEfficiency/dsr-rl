@@ -637,6 +637,7 @@ Reward transition function $ R(r|s,a,s') $
 Distribution over initial states $d_0$
 
 Discount factor $\gamma$
+
 ---
 ### Object oriented definition of a MDP
 
@@ -654,18 +655,20 @@ action = agent.act(state)
 
 reward, next_state = env.step(action)
 ```
+
 ---
 ### Environment
 
-Can be real or virtual - modern RL makes heavy use of virtual environments to generate lots of experience
+Can be real or virtual 
+- modern RL makes heavy use of virtual environments to generate lots of experience
 
 Each environment has a state space and an action space
+- these spaces can be discrete or continuous
 
-Both of these spaces can be discrete or continuous
-
-Environments can be episodic (terminating at a certain point) or continuous
+Environments can be episodic (terminating at a certain point) or non-episodic (continuous)
 
 The MDP framework unites both in the same way by using the idea of a final absorbing state at the end of episodes
+
 ---
 ### Discretiziation
 
@@ -676,18 +679,22 @@ Too fine -> curse of dimensionality = computational expense
 Discretization requires some prior knowledge
 
 When we discretize we lose the shape of the space
+
 ---
 ### State
 
 Infomation for the agent to *choose next action* and to *learn from*
 
 State is a flexible concept - it's a n-d array
+
 ```
 state = np.array([temperature, pressure])
 
 state = np.array(pixels).reshape(height, width)
 ```
+
 Possible to concactenate sequential samples together to give some idea of the recent trajectory
+
 ---
 ### State versus observation
 
@@ -702,6 +709,7 @@ state = np.array([temperature, pressure])
 
 observation = np.array([temperature + noise])
 ```
+
 ---
 ### Reward
 
@@ -712,6 +720,7 @@ Delayed
 Sparse
 
 A well defined reward signal is often a limit for applications of RL (i.e. autonomous driving - whats the reward?)
+
 ---
 ### Agent
 
@@ -719,7 +728,8 @@ Our agent is the **learner and decision maker**
 
 It's goal is to maximize total discounted reward
 
-An agent always has a policy - even if it's a bad one
+An agent always has a policy - even if it's a bad one (i.e. act randomly)
+
 ---
 ### The reward hypothesis
 
@@ -728,6 +738,7 @@ Maximising return is making an assumption about the nature of our goals
 We are assuming that *goals can be described by the maximization of expected cumulative reward*
 
 Do you agree with this?
+
 ---
 ### Policy $\pi(s)
 
@@ -770,7 +781,7 @@ Possible to do control on or off policy
 ---
 ### Environment model
 
-Our agent can optionally learn an environment model
+Our agent can learn an environment model
 
 Predicts environment response to actions
 - predicts $s,r$ from $s,a$
@@ -778,13 +789,15 @@ Predicts environment response to actions
 ```
 def model(state, action):
 # do stuff
-return next_state, reward
+    return next_state, reward
 ```
 
 Sample vs. distributional model
 
 Model can be used to simulate trajectories for **planning**
+
 ---
+
 ---?image=assets/images/section2/learn_plan_act.png&size=auto 80%
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
@@ -802,6 +815,7 @@ $$G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} 
 ` return = reward + discount * reward + discount^2 * reward ...`
 
 **Why do we discount future rewards?**
+
 ---
 ### Discounting
 
@@ -818,6 +832,7 @@ if our discount rate is $[0,1)$ then we can make the sum of an infinite series f
 Can use discount = 1 for
 - games with tree-like structures (without cycles)
 - when time to solve is irrelevant (i.e. a board game)
+
 ---
 ## three <a id="section-three"></a> 
 ### introduction to value functions 
@@ -879,7 +894,6 @@ We can use our optimal value function to calculate the optimal expected discount
 
 We then select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{\arg\max} Q(s,a)$
 
-Set of actions 
 This is known as a *greedy policy*
 
 ---

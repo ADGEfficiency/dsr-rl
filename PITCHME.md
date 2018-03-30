@@ -617,7 +617,7 @@ Can make prediction or decisions using only the current state
 
 Any additional information about the history of the process will not improve our decision
 
-$$P(s_{t+1}|$$
+$P(s_{t+1}|$
 
 $$P(s_{t+1}|s_{t}, a_{t})$$
 

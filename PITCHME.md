@@ -430,13 +430,20 @@ Evolutionary methods are better able to deal with sparse error signals and eaisl
 
 More general optimization methods such as cross entropy method are often reccomended to be tried before you try RL
 
+Classicial decision making methods such as linear programming are also useful
+
+---
+### Model free reinforcment learning
+
+![fig](assets/section_two/summary.png)
+
 ---
 
 ###  Applications
 
 RL is all about **decision making**.
 
-![lr_batch](assets/applications_silver.png)
+![fig](assets/section_two/applications_silver.png)
 
 [*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 
@@ -575,6 +582,7 @@ Learning changes the data we see
 Exploration changes the data we see
 
 All of these *break the identically distributed assumption* of iid
+
 ---
 ## Reinforcement learning will always break supervised learning assumptions about data quality
 ---
@@ -584,11 +592,12 @@ Which actions give us which reward
 
 Reward signal is often
 
-*delayed*	benefit of action only seen much later  
+*delayed* benefit of action only seen much later  
 
 *sparse* experience with reward = 0
 
 Sometimes we can design a more dense reward signal for a given environment
+
 ---
 ### Sample efficiency
 How quickly a learner learns
@@ -599,6 +608,11 @@ How often we reuse data
 
 How much we squeeze out of data
 - i.e. learn a value function, learn a environment model
+
+Requirement for sample efficiency depends on how expensive it is to generate data
+- cheap data -> less requirement for data efficiency
+- expensive / limited data -> squeeze more out of data
+
 ---
 ### Four challenges
 **exploration vs exploitation**
@@ -756,14 +770,26 @@ Policies can be deterministic or stochastic
 Policy can be
 - parameterized directly (policy gradient methods)
 - generated from a value function (value function methods)
+
+---
+### Prediction versus control
+
+Prediction is about understanding a fixed or given policy
+
+Control is about finding the optimal policy
+- optimal as in maximizes expected future discounted reward
+
 ---
 ### On versus off policy learning
 
-On policy = evaluate or improve policy that we use to make decisions
+On policy = learn about the policy we are using to make decisions 
 
 Off policy = evaluate or improve one policy while using another to make decisions
 
 ![fig](assets/images/section_1/on_off_policy.png)
+
+Possible to do control on or off policy
+
 ---
 ### Environment model
 
@@ -822,6 +848,10 @@ Can use discount = 1 for
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
+---
+
+![fig](assets/section_three/summary_value.png)
+
 ---
 
 # Value function

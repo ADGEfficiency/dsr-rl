@@ -24,12 +24,12 @@
   font-size: 30px;
 }
 
-/* set alginment for tables and code */
-.reveal table, code {
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-  font-size: 30px;
-}
+/* /1* set alginment for tables and code *1/ */
+/* .reveal table, code { */
+/*   margin-left:auto; */
+/*   margin-right:auto; */
+/*   text-align:center; */
+/*   font-size: 30px; */
+/* } */
 
 

@@ -745,7 +745,7 @@ A policy is rules to select actions
 
 $$pi(s)$$
 
-$$\pi(s,a,/theta)$$
+$$\pi(s,a|\theta)$$
 
 $$\pi_\theta(s|a)$$
 
@@ -805,11 +805,11 @@ Model can be used to simulate trajectories for **planning**
 
 ---
 
----?image=assets/images/section2/learn_plan_act.png&size=auto 80%
+---?image=assets/images/section_2/learn_plan_act.png&size=auto 80%
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 
----?image=assets/images/section2/mdp_schema_complex.png&size=auto 80%
+---?image=assets/images/section_2/mdp_schema_complex.png&size=auto 80%
 
 ### Return
 

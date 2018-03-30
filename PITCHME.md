@@ -500,15 +500,15 @@ It's not clear what we should do with this data - no implicit target
 
 Experience (aka a transition) $(s,a,r,s')$
 
-$$[experience,
-experience,
-experience,
-...
-experience]$$
+$$[experience,$$
+$$experience,$$
+$$experience,$$
+$$...$$
+$$experience]$$
 
 The dataset we generate is a sequence of experience
 
-$$[(s_0, a_0, r_1, s_1)]$$
+$$[(s_0, a_0, r_1, s_1), (s_1, a_1, r_2, s_2), ]$$
 
 ---
 ### Reinforcement learning dataset

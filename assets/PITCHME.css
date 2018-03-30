@@ -31,8 +31,8 @@
   font-size: 30px;
 }
 
-/* tables and code */
-.reveal table, code {
+/* tables */
+.reveal table {
   margin-left:auto;
   margin-right:auto;
   text-align:center;
@@ -40,4 +40,10 @@
   box-shadow: none;
 }
 
-
+/* tables */
+.reveal code {
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 30px;
+  box-shadow: none;
+}

@@ -513,7 +513,7 @@ $$(s_n, a_n, r_n, s_n)] $$
 What should we do with this dataset?
 
 ---
-### Four central challenges in reinforcement learning
+### Four central challenges 
 
 one - exploration vs exploitation
 
@@ -522,14 +522,18 @@ two - data quality
 three - credit assignment
 
 four - sample efficiency
+
 ---
 ### Exploration vs exploitation
 Do I go to the restaurant in Berlin I think is best – or do  I try something new?
 
-Exploration  = finding information
-Exploitation = using information
+- exploration = finding information
+- exploitation = using information
 
 Agent needs to balance between the two
+- we don't want to waste time exploring poor quality states
+- we don't want to miss high quality states
+
 ---
 ### Exploration vs exploitation
 
@@ -538,8 +542,10 @@ How stationary are the environment state transition and reward functions?  How s
 Design of reward signal vs. exploration required
 
 Algorithm does care about the time step
- too small = rewards are delayed = credit assignment harder
- ---
+- too small = rewards are delayed = credit assignment harder
+- too large = coarser control 
+
+---
 ### Data Quality
 
 All the samples collected on a given episode are correlated (along the state trajectory)

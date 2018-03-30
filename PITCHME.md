@@ -642,7 +642,7 @@ Two objects - the agent and Environment
 
 Three signals - state, action & reward
 
-```
+```python
 class Agent
 class Environment
 

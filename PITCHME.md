@@ -767,7 +767,6 @@ Prediction is about understanding a fixed or given policy
 Control is about finding the optimal policy
 - optimal as in maximizes expected future discounted reward
 
----
 ### On versus off policy learning
 
 On policy 
@@ -776,9 +775,10 @@ On policy
 Off policy 
 - evaluate or improve one policy while using another to make decisions
 
-![fig](assets/images/section_2/on_off_policy.png)
+Possible to do control on or off policy - using general policy iteration
 
-Possible to do control on or off policy
+---
+![fig](assets/images/section_2/on_off_policy.png)
 
 ---
 ### Environment model

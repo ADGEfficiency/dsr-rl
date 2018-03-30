@@ -742,9 +742,11 @@ Do you agree with this?
 
 A policy is rules to select actions
 
-$pi(s)$
-$\pi(s,a,/theta)$
-$\pi_\theta(s|a)$
+$$pi(s)$$
+
+$$\pi(s,a,/theta)$$
+
+$$\pi_\theta(s|a)$$
 
 Example policies
 - act randomly
@@ -768,11 +770,13 @@ Control is about finding the optimal policy
 ---
 ### On versus off policy learning
 
-On policy = learn about the policy we are using to make decisions 
+On policy 
+- learn about the policy we are using to make decisions 
 
-Off policy = evaluate or improve one policy while using another to make decisions
+Off policy 
+- evaluate or improve one policy while using another to make decisions
 
-![fig](assets/images/section_1/on_off_policy.png)
+![fig](assets/images/section_2/on_off_policy.png)
 
 Possible to do control on or off policy
 

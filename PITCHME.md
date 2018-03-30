@@ -361,7 +361,7 @@ $$ \phi(x) = \frac{x - x_min}{x_max-x_min} $$
 
 Our data is now within a range of 0 to 1
 
----?image=assets/batch_norm_lit.png&size=auto 80%
+---?image=assets/section_1/batch_norm_lit.png&size=auto 80%
 
 ---
 ### Batch normalization

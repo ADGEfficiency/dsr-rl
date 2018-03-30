@@ -1080,7 +1080,7 @@ We can then express the value functions for the remaining two states
 
 $$V(s\_3) = P\_{34}[r\_{34} + \gamma V(s\_4)$$
 
-$$V(s\_3) = 1 * [5 + 0.9 * 0] = 5 $$
+$$V(s\_3) = 1 \cdot [5 + 0.9 \cdot 0] = 5 $$
 
 $$V(s\_1) = P\_{12}[r\_{12} + \gamma V(s\_2) + P\_{13}[r\_{13} + \gamma V(s\_3)]$$
 

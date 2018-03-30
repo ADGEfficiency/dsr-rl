@@ -617,7 +617,8 @@ Can make prediction or decisions using only the current state
 
 Any additional information about the history of the process will not improve our decision
 
-$$ P(s_{t+1}|s_t,a_t) = P(s_{t+1}|s_t,a_t...s_0,a_0)$$
+$$ P(s_{t+1}|s_{t}, a_{t})$$
+$$= P(s_{t+1}|s_t,a_t...s_0,a_0)$$
 
 ---
 ### Formal definition of a MDP

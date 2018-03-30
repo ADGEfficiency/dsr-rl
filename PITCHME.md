@@ -643,8 +643,9 @@ Two objects - the agent and environment
 Three signals - state, action & reward
 
 ``` python
-class  Agent
-class  Environment
+class Agent
+
+class Environment
 
 state = env.reset()
 

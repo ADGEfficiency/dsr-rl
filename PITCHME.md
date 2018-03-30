@@ -1084,22 +1084,17 @@ $$V(s\_3) = 1 \cdot [5 + 0.9 \cdot 0] = 5 $$
 
 $$V(s\_1) = P\_{12}[r\_{12} + \gamma V(s\_2) + P\_{13}[r\_{13} + \gamma V(s\_3)]$$
 
-$$V(s\_3) = {0.5} \cdot [1 + 0.9 \cdot 0] + {0.5} \cdot [2 + 0.9$$
-
 $$V(s\_1) = 0.5 \cdot [1 + 0.9 \cdot 0] + 0.5 \cdot [2 + 0.9 \cdot 5] = 3.75 $$
 
 ---
 ### Dynamic programming
-
-![fig](assets/images/section_3/dp_1.png)
 
 Our value function approximation depends on
 - our policy (what actions we pick)
 - the environment (where our actions take us and what rewards we get)
 - our current estimate of $V(s')$
 
-A dynamic programming update is expensive - our new estimate $V(s)$ depends on the value of all other states (even if
-the probability is zero)
+A dynamic programming update is expensive - our new estimate $V(s)$ depends on the value of all other states (even if the probability is zero)
 
 Asynchronous dynamic programming addresses this by updating states in an arbitrary order
 

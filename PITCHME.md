@@ -762,10 +762,12 @@ Policy can be
 ---
 ### Prediction versus control
 
-Prediction is about understanding a fixed or given policy
+Prediction 
+- understanding a fixed or given policy
 
-Control is about finding the optimal policy
-- optimal as in maximizes expected future discounted reward
+Control 
+- finding the optimal policy
+- the policy that maximizes expected future discounted reward
 
 ### On versus off policy learning
 

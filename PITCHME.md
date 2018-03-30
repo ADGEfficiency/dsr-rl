@@ -815,7 +815,6 @@ if our discount rate is $[0,1)$ then we can make the sum of an infinite series f
 Can use discount = 1 for
 - games with tree-like structures (without cycles)
 - when time to solve is irrelevant (i.e. a board game)
-
 ---
 ## three <a id="section-three"></a> 
 ### introduction to value functions 
@@ -897,7 +896,7 @@ These are two distinct steps
 
 1 - improving the predictive power of our value function (to predict return)
 
-2 - improving the policy - i.e. improving the actions that we take
+2 - improving the policy - i.e. improving the actions that we take based on our value function
 
 ---
 ### Policy & value iteration
@@ -910,8 +909,7 @@ These two steps are done sequentially in a process known as **policy iteration**
 - approximate our new better policy
 - act greedy 
 
-A similar by slightly difference process is **value iteration**, where we combine the policy approximation and
-improvement steps by using a maximization over all possible next states in the update
+A similar by slightly difference process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the update
 
 
 ---
@@ -1018,7 +1016,7 @@ We are going to look at three different methods for approximation
 
 Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
 
-What these methods are doing is creating targets
+What these methods are doing is creating targets to learn from
 
 $$ loss = target - predicted_value $$
 
@@ -1225,25 +1223,6 @@ The TD method gives us the **maximum-likelihood estimate**
 The maximum likelihood estimate of a parameter is the parameter value whose probabilty of generating the data is greatest
 
 We take into account the transition probabilities, which gives us the **certanitiy equivilance estimate** - which is the estimate we get when assuming we know the underlying model (rather than approximating it)
-
----
-### Linking together 
-
-Temporal difference and Monte Carlo exist on two extremes of the same scale
-
-![fig](assets/images/section_3/bias_var.png)
-
----
-
-![fig](assets/images/section_3/unified_view.png)
-
-[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
-
----
-
-![fig](assets/images/section_3/effect_bootstrap.png)
-
-[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
 
 ---
 ### Recap
@@ -1628,9 +1607,114 @@ config_dict = {'discount': 0.97,
 
 ---
 ## four <a id="section-four"></a>
+### eligibility traces
 ### prioritized experience replay
 ### DDQN
 ### Rainbow
+
+---
+![fig](assets/images/section_4/unified_view.png)
+
+[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
+
+---
+![fig](assets/images/section_4/effect_bootstrap.png)
+
+[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
+
+---
+### Eligibility traces
+
+Eligibility traces are the family of methods between Temporal Difference & Monte Carlo
+
+Eligibility traces allow us to assign TD errors to different states other than the current state
+
+Can be useful with delayed rewards or non-Markov environments
+
+Requires more computation & squeezes more out of data
+
+---
+### The space between TD and MC
+
+Inbetween TD and MC exist a family of methods known as **n-step returns**
+
+![fig](assets/images/section_4/bias_var.png)
+
+All of these methods are for **approximation** - i.e. creating targets to learn from
+
+---
+### The forward and backward view
+
+We can look at eligibility traces from two perspectives
+- the **forward** view
+- the **backward** view
+
+The forward view is helpful for understanding the theory
+
+The backward view we can put into practice
+
+---
+### The forward view
+
+We can decompose our return into **complex backups**
+
+$$R_t = \frac{1}{2} R_{t}^{2} + \frac{1}{2} R_{t}^{4} $$
+
+$$R_t = \frac{1}{2} TD + \frac{1}{2} MC $$
+
+We are looking forward to future returns to creating the return from the current step
+
+We could also use a combination of experience based and model based backups 
+
+![fig](assets/images/section_4/forward_view.png)
+*Sutton & Barto*
+
+---
+### $$TD(\lambda)$$
+
+The family of algorithms between TD and MC is known as $TD(\lambda)$
+
+Weight each return by $\lambda^{n-1}$ and normalize using $(1-\lambda)$
+
+$$ TD(\lambda) = (1-\lambda) \sum_{n-1}^{\infty} \lambda^{n-1} R_t^n $$
+
+$\lambda = 0$ -> TD(0) 
+$\lambda = 1$ -> Monte Carlo
+
+$TD(\lambda)$ and n-step returns are the same thing
+
+---
+### The backward view
+
+The forward view is great - but it's not practical.  It requires knowledge of the future!
+
+The backward view approximates the forward view
+
+It requires an additional variable in our agents memory - the eligibility trace $e_{t}(s)$
+
+At each step we decay the trace according to:
+$$ e_{t}(s) = \gamma \lambda e_{t-1}(s) $$
+
+Unless we visited that state, in which case we accumulate more eligibility:
+$$ e_{t}(s) = \gamma \lambda e_{t-1}(s) + 1 $$
+
+---
+### The backward view
+
+![fig](assets/images/section_4/backward_view.png)
+*Sutton & Barto*
+
+---
+### Traces in a grid world
+
+![fig](assets/images/section_4/traces_grid.png)
+*Sutton & Barto*
+
+One step method would only update the last $Q(s,a)$
+
+n-step method would update all $Q(s,a)$ equally
+
+Eligibility traces updates based on how recently each $Q(s,a)$ was experienced
 
 ---
 ### Experience replay

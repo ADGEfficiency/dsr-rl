@@ -498,26 +498,17 @@ It's not clear what we should do with this data - no implicit target
 ---
 ### Reinforcement learning dataset
 
-Experience (aka a transition) $(s,a,r,s')$
+The dataset we generate is the agent's memory
 
 $$[experience,$$
-$$experience,$$
 $$experience,$$
 $$...$$
 $$experience]$$
 
-The dataset we generate is a sequence of experience
-
-$$[(s_0, a_0, r_1, s_1), (s_1, a_1, r_2, s_2), ]$$
-
----
-### Reinforcement learning dataset
-
-$$[(s_0,a_0,r_1,s_1'),
-(s_1,a_1,r_2,s_2'),
-(s_2,a_2,r_3,s_3'),
-...
-(s_n,a_n,r_{n+1},s_{n+1'})]$$
+$$[(s_0, a_0, r_1, s_1), $$ 
+$$(s_1, a_1, r_2, s_2), $$
+$$...$$
+$$(s_n, a_n, r_{n+1}, s_{n+1})] $$
 
 What should we do with this dataset?
 

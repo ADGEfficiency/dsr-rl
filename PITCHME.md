@@ -838,7 +838,7 @@ Finance - time value of money
 
 Makes return for infinite horizon problems finite
 
-if our discount rate is $[0,1)$ then we can make the sum of an infinite series finite (known as a geometric series)
+If our discount rate is $[0,1)$ then we can make the sum of an infinite series finite (known as a geometric series)
 
 Can use discount = 1 for
 - games with tree-like structures (without cycles)
@@ -846,14 +846,14 @@ Can use discount = 1 for
 
 ---
 ## three <a id="section-three"></a> 
-### introduction to value functions 
+### value functions 
 ### Bellman Equation 
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
 ---
 
-![fig](assets/section_three/summary_value.png)
+![fig](assets/section_3/summary_value.png)
 
 ---
 

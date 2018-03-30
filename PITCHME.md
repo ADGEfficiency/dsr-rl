@@ -540,37 +540,35 @@ Agent needs to balance between the two
 How stationary are the environment state transition and reward functions?  How stochastic is my policy?
 
 Design of reward signal vs. exploration required
-
-Algorithm does care about the time step
+- algorithm does care about the time step
 - too small = rewards are delayed = credit assignment harder
 - too large = coarser control 
 
 ---
 ### Data Quality
 
-All the samples collected on a given episode are correlated (along the state trajectory)
+Remember our two assumptions in iid - independent sampling & identical distribution.  RL breaks both in multiple ways:
 
-This *breaks the iid assumption of independent sampling*
+**Independent sampling**
+- all the samples collected on a given episode are correlated (along the state trajectory)
+- our agent will likely be following a policy that is biased
 
-Environment can be non-stationary
-
-Learning changes the data we see
-Exploration changes the data we see
-
-All of these *break the identically distributed assumption* of iid
+**Identically distributed**
+- learning changes the data distribution
+- exploration changes the data distribution 
+- environment can be non-stationary
 
 ---
 ## Reinforcement learning will always break supervised learning assumptions about data quality
+
 ---
 ###  Credit assignment
 
-Which actions give us which reward
+The reward we see now might not be because of the action we just took
 
 Reward signal is often
-
-*delayed* benefit of action only seen much later  
-
-*sparse* experience with reward = 0
+- *delayed* benefit/penalty of action only seen much later  
+- *sparse* experience with reward = 0
 
 Sometimes we can design a more dense reward signal for a given environment
 
@@ -602,12 +600,14 @@ which action gave me this reward
 
 **sample efficiency**
  learning quickly, squeezing information from data
+
 ---
 ### Markov Decision Processes
 
 Mathematical framework for the reinforcement learning problem
 
 The Markov property is often a requirement to gurantee convergence
+
 ---
 ### Markov property
 
@@ -618,6 +618,7 @@ Can make prediction or decisions using only the current state
 Any additional information about the history of the process will not improve our decision
 
 $$ P(s_{t+1}|s_t,a_t) = P(s_{t+1}|s_t,a_t...s_0,a_0)$$
+
 ---
 ### Formal definition of a MDP
 

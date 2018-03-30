@@ -704,8 +704,6 @@ This then becomes a POMDP - partially observed MDP
 ```python
 state = np.array([temperature, pressure])
 
-state = np.array([temperature, pressure])
-
 observation = np.array([temperature + noise])
 ```
 
@@ -718,7 +716,8 @@ Delayed
 
 Sparse
 
-A well defined reward signal is often a limit for applications of RL (i.e. autonomous driving - whats the reward?)
+A well defined reward signal is often a limit for applications of RL 
+- i.e. autonomous driving - whats the reward?
 
 ---
 ### Agent
@@ -727,7 +726,7 @@ Our agent is the **learner and decision maker**
 
 It's goal is to maximize total discounted reward
 
-An agent always has a policy - even if it's a bad one (i.e. act randomly)
+An agent always has a policy - even if it's a bad one 
 
 ---
 ### The reward hypothesis
@@ -739,7 +738,7 @@ We are assuming that *goals can be described by the maximization of expected cum
 Do you agree with this?
 
 ---
-### Policy $\pi(s)
+### Policy $\pi(s)$
 
 A policy is rules to select actions
 

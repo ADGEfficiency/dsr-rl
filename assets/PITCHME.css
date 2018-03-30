@@ -4,6 +4,13 @@
   box-shadow: none;
 }
 
+/* remove the shadows from quotes  */
+.reveal blockquote {
+  width: 100%;
+  border: 0;
+  box-shadow: none;
+}
+
 /* adjust body text */
 .reveal p {
   text-align: left;

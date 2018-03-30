@@ -361,7 +361,7 @@ Our data now has a mean of 0, and a variance of 1
 
 **Normalization** = min/max scaling
 
-$$ \phi(x) = \frac{x - x\_{min}}{x_{max} - x\_{min}} $$
+$$ \phi(x) = \frac{x - x\_{min}}{x\_{max} - x\_{min}} $$
 
 Our data is now within a range of 0 to 1
 

@@ -346,6 +346,10 @@ Improperly scaled inputs or targets can cause issues with gradients
 
 Anything that touches a neural network needs to be within a reasonable range
 
+In supervised learning we can estimate statistics like min/max/mean from the training set
+
+In reinforcment learning we have no training set!
+
 ---
 ### Scaling aka pre-processing
 
@@ -357,7 +361,7 @@ Our data now has a mean of 0, and a variance of 1
 
 **Normalization** = min/max scaling
 
-$ \phi(x) = x - min / max - min $
+$$ \phi(x) = \frac{x - min}{max - min} $$
 
 Our data is now within a range of 0 to 1
 
@@ -366,8 +370,6 @@ Our data is now within a range of 0 to 1
 
 ---
 ### Batch normalization
-
-In supervised learning we can estimate the true mean, variance, min or max of our data from our training set (in RL we don't get this).
 
 Batch norm. is used in both supervised & reinforcment learning.  It's additional preprocessing of data as it moves between network layers
 
@@ -393,38 +395,14 @@ Vanilla batch norm. uses two different methods for normalization for training & 
 ### Markov Decision Processes
 ---
 
----?image=assets/sl_unsl_rl.png&size=auto 90%
-
-### Reinforcement learning
-
-**one - value function methods**
-
-Parameterize a value function - ie $V(s)$ or $Q(s,a)$
-
-i.e. dynamic programming, SARSA, Q-Learning, DQN, DDQN
-
-**two - policy gradient methods**
-
-Parameterize a policy
-
-i.e. REINFORCE, TRPO, PPO
-
-**three - actor critic methods**
-
-Parameterize both value functions and policies
-
-i.e. DPG, AC2, AC3
-
-**four - model based or planning methods**
-
-A model can be used to plan by simulating tragetories (known as roll outs)
-
-i.e. AlphaGo
-
-This course covers only **model free** reinforcement learning (i.e. the first three)
+![fig](assets/images/section_2/sl_unsl_rl.png)
 
 ---
+### Model free reinforcment learning
 
+![fig](assets/section_two/summary.png)
+
+---
 ###  Also worth knowing about are
 
 Evolutionary methods are better able to deal with sparse error signals and eaisly parallelizable
@@ -434,17 +412,11 @@ More general optimization methods such as cross entropy method are often reccome
 Classicial decision making methods such as linear programming are also useful
 
 ---
-### Model free reinforcment learning
-
-![fig](assets/section_two/summary.png)
-
----
-
 ###  Applications
 
 RL is all about **decision making**.
 
-![fig](assets/section_two/applications_silver.png)
+![fig](assets/section_2/applications_silver.png)
 
 [*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 

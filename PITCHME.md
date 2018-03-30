@@ -911,7 +911,7 @@ This is known as a *greedy policy*
 ---
 ### Generating the optimal policy from the optimal value function
 
-```
+``` python
 def greedy_policy(state):
     q_values = value_function.predict(state)
 
@@ -927,14 +927,14 @@ We can see that having a good approximation of the optimal value function helps 
 
 These are two distinct steps
 
-1 - improving the predictive power of our value function (to predict return)
+1 - improving the predictive power of our value function
 
 2 - improving the policy - i.e. improving the actions that we take based on our value function
 
 ---
 ### Policy & value iteration
 
-$$V_{k+1} (s) = \max_a \sum_{s',r} P(s',r|s,a) [r + \gamma V_k(s')]$$
+$$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
 
 These two steps are done sequentially in a process known as **policy iteration**
 - approximate our policy (i.e. $V_{\pi}(s)$)
@@ -942,7 +942,7 @@ These two steps are done sequentially in a process known as **policy iteration**
 - approximate our new better policy
 - act greedy 
 
-A similar by slightly difference process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the update
+A similar by slightly different process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the update
 
 
 ---
@@ -955,12 +955,12 @@ Value iteration = single iteration of policy evaluation done inbetween each poli
 
 Both of these can achieve the same result - stabilizing when a policy has been found that is greedy wrt it's own value function
 
----
-### Generalized policy iteration
-
 GPI = value function approximates the policy, then we improve the policy wrt this improved value function, which improves the policy
 
 Idea is that the approximate policy and value functions interact in a way that both move towards their optimal values - this is one souce of non-stationary learning in RL
+
+---
+### Generalized policy iteration
 
 ![fig](assets/images/section_3/GPI.png)
 
@@ -974,41 +974,38 @@ To approximate a value function we can use one of the methods we looked at in th
 
 Linear functions are appropriate with some agents or environments
 
-Modern reinforcement learning is based on using deep neural networks - commonly convolution 
+Modern reinforcement learning is based on using neural networks 
 
 ---
 ### Richard Bellman
 
-![fig](assets/images/section_3/Bellman.png)
+![fig](assets/images/section_3/bellman.png)
 
 Invented dynamic programming in 1953 
 
 *[On the naming of dynamic programminging](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
-> I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying
+> I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying...
 
-Also introduced the curse of dimensionality - number of states $\mathcal{S}$ increases exponentially with the number of
-state variables
+Also introduced the curse of dimensionality 
+- number of states $\mathcal{S}$ increases exponentially with number of dimensions in the state
 
 ---
 ###  Bellman Equation
 
 Bellman's contribution is remembered by the Bellman Equation
 
-$$ G_{\pi}(s) = r + \gamma G_{\pi}(s') $$
+$$ G_{\pi}(s) = r + \gamma G\_{\pi}(s') $$
 
 The Bellman equation relates the expected discounted return of the current state to the discounted value of the next
 state
-
----
-### Bellman Equation
 
 The Bellman equation is a recursive definition - i.e. it is bootstrapped
 
 We can apply it to value functions
 
-$$ V_{\pi}(s) = r + \gamma V_{\pi}(s') $$
+$$ V_{\pi}(s) = r + \gamma V\_{\pi}(s') $$
 
-$$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
+$$ Q_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 
 ---
 ### How does the Bellman Equation help us learn?

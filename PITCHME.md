@@ -642,9 +642,9 @@ Two objects - the agent and environment
 
 Three signals - state, action & reward
 
-```python
-class Agent
-class Environment
+``` python
+class  Agent
+class  Environment
 
 state = env.reset()
 
@@ -686,7 +686,7 @@ Infomation for the agent to **choose next action** and to **learn from**
 
 State is a flexible concept - it's a n-d array
 
-```
+``` python
 state = np.array([temperature, pressure])
 
 state = np.array(pixels).reshape(height, width, channels)
@@ -701,7 +701,7 @@ Many problems your agent won't be able to see everything that would help it lear
 
 This then becomes a POMDP - partially observed MDP
 
-```python
+``` python
 state = np.array([temperature, pressure])
 
 observation = np.array([temperature + noise])
@@ -792,7 +792,9 @@ Predicts environment response to actions
 
 ```python
 def model(state, action):
+
 # do stuff
+
     return next_state, reward
 ```
 

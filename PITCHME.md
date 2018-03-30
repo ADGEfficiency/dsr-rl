@@ -357,7 +357,7 @@ Our data now has a mean of 0, and a variance of 1
 
 **Normalization** = min/max scaling
 
-$ x_{max} - x_{min} $
+$ x_{\max} - x_{\min} $
 
 Our data is now within a range of 0 to 1
 

@@ -617,7 +617,7 @@ Can make prediction or decisions using only the current state
 
 Any additional information about the history of the process will not improve our decision
 
-$$ s/_{t+1} s/_{t} $$
+$$ s\_{t+1} s\_{t} $$
 
 $ = P(s_{t+1}|s_t,a_t...s_0,a_0)$
 

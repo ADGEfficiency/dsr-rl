@@ -790,7 +790,7 @@ Our agent can learn an environment model
 Predicts environment response to actions
 - predicts $s,r$ from $s,a$
 
-```
+```python
 def model(state, action):
 # do stuff
     return next_state, reward

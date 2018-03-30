@@ -540,9 +540,11 @@ Design of reward signal vs. exploration required
 - too large = coarser control 
 
 ---
-### Data Quality
+### Data quality
 
-Remember our two assumptions in iid - independent sampling & identical distribution.  RL breaks both in multiple ways:
+Remember our two assumptions in iid - independent sampling & identical distribution.  
+
+RL breaks both in multiple ways:
 
 **Independent sampling**
 - all the samples collected on a given episode are correlated (along the state trajectory)
@@ -562,8 +564,8 @@ Remember our two assumptions in iid - independent sampling & identical distribut
 The reward we see now might not be because of the action we just took
 
 Reward signal is often
-- *delayed* benefit/penalty of action only seen much later  
-- *sparse* experience with reward = 0
+- **delayed** - benefit/penalty of action only seen much later  
+- **sparse** - experience with reward = 0
 
 Sometimes we can design a more dense reward signal for a given environment
 
@@ -612,7 +614,7 @@ Can make prediction or decisions using only the current state
 
 Any additional information about the history of the process will not improve our decision
 
-$$ P(s\_{t+1} | s_t, a_t) = P(s\_{t+1}|s_t,a_t...s_0,a_0)$$
+$$ P(s\_{t+1} | s\_{t}, a\_{t}) = P(s\_{t+1}|s\_t,a\_t...s\_0,a\_0)$$
 
 ---
 ### Formal definition of a MDP

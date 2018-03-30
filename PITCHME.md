@@ -805,11 +805,15 @@ Model can be used to simulate trajectories for **planning**
 
 ---
 
----?image=assets/images/section_2/learn_plan_act.png&size=auto 80%
+![fig](assets/images/section_2/learn_plan_act.png)
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 
----?image=assets/images/section_2/mdp_schema_complex.png&size=auto 80%
+---
+
+![fig](assets/images/section_2/mdp_schema_complex.png)
+
+---
 
 ### Return
 

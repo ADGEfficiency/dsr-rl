@@ -482,9 +482,6 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 
 In RL we generate our own data
 
-Data = the agent's experience $(s,a,r,s')$
-
-It's not clear what we should do with this data - no implicit target
 ---
 ### Supervised learning versus reinforcement learning
 
@@ -493,6 +490,10 @@ In supervised learning we are limited by our dataset
 In reinforcement learning we can generate more data by acting
 
 > Deep RL is popular because it’s the only area in ML where it’s socially acceptable to train on the test set
+
+Data = the agent's experience $(s,a,r,s')$
+
+It's not clear what we should do with this data - no implicit target
 
 ---
 ### Reinforcement learning dataset
@@ -506,6 +507,9 @@ experience,
 experience]$$
 
 The dataset we generate is a sequence of experience
+
+$$[(s_0, a_0, r_1, s_1)]$$
+
 ---
 ### Reinforcement learning dataset
 

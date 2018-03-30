@@ -464,6 +464,8 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 
 ![Video](https://youtu.be/i3lEG6aRGm8?t=1632)
 
+<iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ---
 ## Reinforcement Learning
 

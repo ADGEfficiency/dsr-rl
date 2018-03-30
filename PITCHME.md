@@ -638,7 +638,7 @@ Discount factor $\gamma$
 ---
 ### Object oriented definition of a MDP
 
-Two objects - the agent and Environment
+Two objects - the agent and environment
 
 Three signals - state, action & reward
 
@@ -657,12 +657,14 @@ reward, next_state = env.step(action)
 ### Environment
 
 Can be real or virtual 
-- modern RL makes heavy use of virtual environments to generate lots of experience
+- modern RL uses virtual environments to generate lots of experience
 
 Each environment has a state space and an action space
 - these spaces can be discrete or continuous
 
-Environments can be episodic (terminating at a certain point) or non-episodic (continuous)
+Environments can be 
+- episodic (terminating at a certain point) 
+- non-episodic (continuous)
 
 The MDP framework unites both in the same way by using the idea of a final absorbing state at the end of episodes
 
@@ -680,14 +682,14 @@ When we discretize we lose the shape of the space
 ---
 ### State
 
-Infomation for the agent to *choose next action* and to *learn from*
+Infomation for the agent to **choose next action** and to **learn from**
 
 State is a flexible concept - it's a n-d array
 
 ```
 state = np.array([temperature, pressure])
 
-state = np.array(pixels).reshape(height, width)
+state = np.array(pixels).reshape(height, width, channels)
 ```
 
 Possible to concactenate sequential samples together to give some idea of the recent trajectory
@@ -695,11 +697,11 @@ Possible to concactenate sequential samples together to give some idea of the re
 ---
 ### State versus observation
 
-I choose to distinguish between state and observation
+Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
 
-Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov.  This then becomes a POMDP
+This then becomes a POMDP - partially observed MDP
 
-```
+```python
 state = np.array([temperature, pressure])
 
 state = np.array([temperature, pressure])

@@ -1,10 +1,10 @@
-/* remove the shadows from images */
+/* images */
 .reveal section img {
   border: 0;
   box-shadow: none;
 }
 
-/* remove the shadows from quotes  */
+/* quotes  */
 .reveal blockquote {
   width: 100%;
   border: 0;
@@ -31,12 +31,13 @@
   font-size: 30px;
 }
 
-/* /1* set alginment for tables and code *1/ */
-/* .reveal table, code { */
-/*   margin-left:auto; */
-/*   margin-right:auto; */
-/*   text-align:center; */
-/*   font-size: 30px; */
-/* } */
+/* tables and code */
+.reveal table, code {
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  font-size: 30px;
+  box-shadow: none;
+}
 
 

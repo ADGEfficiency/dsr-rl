@@ -1687,17 +1687,9 @@ The ideas behind this practical are
 ---
 ###  CartPole
 
-<<<<<<< HEAD
-[Open AI leaderboard](https://gym.openai.com/envs/CartPole-v0/)
-
-[Source on GitHub](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
-=======
 [Source](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
 
 [Open Ai leaderboard](https://gym.openai.com/envs/CartPole-v0/)
-
-![fig](assets/images/practical/cartpole.jpg)
->>>>>>> a18073d2a0fd612254eb10eab4fe9ec4e8923868
 
 > A pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The system is controlled by applying a force of +1 or -1 to the cart. The pendulum starts upright, and the goal is to prevent it from falling over. A reward of +1 is provided for every timestep that the pole remains upright. The episode ends when the pole is more than 15 degrees from vertical, or the cart moves more than 2.4 units from the center.
 

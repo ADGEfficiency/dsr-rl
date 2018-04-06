@@ -1702,10 +1702,23 @@ Episode ends when the cartpole falls over
 ### Hyperparameters
 
 Hyperparameters are configured using a dictionary
+- using dictionaries to setup agents/experiments allows you to eaisly save them to a text file
+- you can also explode a dictionary into a function
 
-Using dictionaries to setup agents/experiments allows you to eaisly save them to a text file - very handy
+```
+config = {'param1': 10, 'param2': 12}
 
-What do you think the effect of changing these hyperparameters will be
+def expt(param1, param2):
+    return param1 * param2
+
+>>> expt(**config**)
+120
+```
+
+---
+### Hyperparameters
+
+What do you think the effect of changing each of these hyperparameters will be?
 
 ```
 config_dict = {'discount': 0.97,

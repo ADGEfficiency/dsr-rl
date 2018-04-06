@@ -1107,22 +1107,29 @@ We make **full backups** - the update to the value function is based on the prob
 
 **Bootstrapped** - we use the recursive Bellman Equation to update our value function
 
-Limited utility in practice but they provide an **essential foundation** for understanding reinforcement learning - all RL
-can be thought of as attempts to achieve what DP can but without a model and with less computation
+Limited utility in practice but they provide an **essential foundation** for understanding reinforcement learning 
+- all RL can be thought of as attempts to achieve what DP can but without a model and with less computation
 
 ---
 ### Monte Carlo
 
 Monte Carlo methods = finding the expected value of a function of a random variable
 
-**No model** - we learn from actual experience (i.e. our sequences of $(s,a,r,s')$
+---
+### Monte Carlo in RL
 
-We can also learn from **simulated experience** - we don't need to know the whole proability
-distribution - just be able to generate sample tracjectories
+**No model** 
+- we learn from actual experience 
 
-**No boostrapping** - we take the average of the true discounted return
+We can also learn from **simulated experience** 
+- we don't need to know the whole proability distribution 
+- just be able to generate sample trajectories
 
-**Episodic only** - because we need to calcuate the true discounted return
+**No boostrapping** 
+- we take the average of the true discounted return
+
+**Episodic only** 
+- because we need to calcuate the true discounted return
 
 ---
 ### Monte Carlo approximation
@@ -1142,7 +1149,7 @@ High variance
 
 Low bias
 - we are using actual experience
-- no chance for a bootstrapped function to mislead 
+- no chance for a bootstrapped function to mislead us
 
 ---
 ### Monte Carlo algorithm
@@ -1163,22 +1170,27 @@ This is because we use experienced state transitions
 ---
 ### Monte Carlo
 
-Learn from **actual or simulated experience** – no environment model
+Learn from **actual or simulated experience** 
+– no environment model
 
-**No bootstrapping** – use true discounted returns
+**No bootstrapping** 
+– use true discounted returns sampled from the environment
 
-**Episodic problems only** – no learning online
+**Episodic problems only** 
+– no learning online
 
 Ability to **focus** on interesting states and ignore others
 
-High variance, low bias
+High variance & low bias
 
 ---
 ### Temporal difference 
 
-Learn from **actual experience** – no environment model
+Learn from **actual experience** 
+– no environment model
 
-**Bootstrap** – learn online
+**Bootstrap** 
+– learn online
 
 Episodic & non-episodic problems
 
@@ -1197,7 +1209,7 @@ Update rule for a lookup table based TD(0) approximation
 
 ![fig](assets/images/section_3/td_2.png)
 
-$$ V(s_1) \leftarrow V(s_1) + \alpha [ r_{23} + \gamma V(s_3) - V(s_1) ] $$
+$$ V(s\_1) \leftarrow V(s\_1) + \alpha [ r\_{23} + \gamma V(s\_3) - V(s\_1) ] $$
 
 ---
 ### TD(0) algorithm
@@ -2516,10 +2528,6 @@ And can get $ H(x) = F(x) + x $
 ### practical concerns
 
 ---
-### 
-
-
----
 ### Key Questions
 
 What is the action space
@@ -2555,6 +2563,17 @@ Not keeping batch size the same for experience replay & training
 Not setting `next_observation = observation`
 
 Not setting online & target network variables the same at the start of an experiment
+
+---
+### Mistakes DSR students have made in RL projects
+
+Since I started teaching in Batch 10 we have had three RL projects
+
+Saving agent brain 
+- not saving the optimizer state
+
+Using too high a learning rate 
+- learning rate is always important!!!
 
 ---
 ### Hyperparameters

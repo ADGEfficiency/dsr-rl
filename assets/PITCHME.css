@@ -39,6 +39,14 @@
   font-size: 30px;
 }
 
+/* code */
+.reveal code {
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 28px;
+  box-shadow: none;
+}
+
 /* tables */
 .reveal table {
   margin-left:auto;
@@ -48,10 +56,3 @@
   box-shadow: none;
 }
 
-/* code */
-.reveal code {
-  margin-left:auto;
-  margin-right:auto;
-  font-size: 28px;
-  box-shadow: none;
-}

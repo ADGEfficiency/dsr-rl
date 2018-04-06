@@ -1711,7 +1711,7 @@ config = {'param1': 10, 'param2': 12}
 def expt(param1, param2):
     return param1 * param2
 
->>> expt(**config**)
+>>> expt(**config)
 120
 ```
 

@@ -1502,11 +1502,18 @@ This section covers two papers that introduced (2013) and developed (2015) the D
 ---
 ### DQN
 
-In 2013 a small London startup published a paper where an agent based on Q-Learning was able to reach a superhuman level of performance in three Atari games
+In 2013 a small London startup published a paper 
+- an agent based on Q-Learning 
+- superhuman level of performance in three Atari games
 
 In 2014 Google purchased DeepMind for around £400M
 
-This is for a company with **no product, no revenue, no customers and a few world class employees**
+This is for a company with 
+- **no product
+- no revenue
+- no customers 
+- a few world class employees**
+
 ---
 
 ![fig](assets/images/section_3/2013_atari.png)
@@ -1518,17 +1525,17 @@ This is for a company with **no product, no revenue, no customers and a few worl
 
 **End to end deep reinforcement learning**
 
-Learning from high dimensional input - raw pixels
+Learning from high dimensional input 
+- raw pixels
 
 Ability to **generalize**
-
-Same algorithm, network strucutre and hyperparameters
+- same algorithm, network strucutre and hyperparameters
 
 Two key innovations behind the success of the DeepMind Atari work
 
-1 - experience replay (Lin 1993)
+1. experience replay (Lin 1993)
 
-2 - target network
+2. target network
 
 ---
 ### Reinforcement learning to play Atari

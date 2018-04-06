@@ -1557,11 +1557,11 @@ Clipped to [-1, +1]
 Joystick buttons (a discrete action space)
 
 ---
-![fig](assets/images/section3/atari_results.png)
+![fig](assets/images/section_3/atari_results.png)
 ---
-![fig](assets/images/section3/atari_func.png)
+![fig](assets/images/section_3/atari_func.png)
 ---
-![fig](assets/images/section3/atari_sea.png)
+![fig](assets/images/section_3/atari_sea.png)
 
 ---
 ### Experience replay

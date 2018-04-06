@@ -1691,7 +1691,7 @@ The ideas behind this practical are
 
 CartPole-v0 defines "solving" as getting average reward of 195.0 over 100 consecutive trials.
 
-hi
+him
 
 ---
 ### Hyperparameters

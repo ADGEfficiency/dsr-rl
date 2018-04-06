@@ -843,7 +843,6 @@ If our discount rate is $[0,1)$ then we can make the sum of an infinite series f
 Can use discount = 1 for
 - games with tree-like structures (without cycles)
 - when time to solve is irrelevant (i.e. a board game)
-
 ---
 ## three <a id="section-three"></a> 
 ### value functions 
@@ -1217,7 +1216,7 @@ $$error = r + \gamma V(s') - V(s) $$
 
 Update rule for a table TD(0) approximation
 
-![fig](assets/images/section_3/td_1.png)
+![fig](assets/images/section_4/td_1.png)
 
 ---
 ### Temporal difference backup
@@ -1669,9 +1668,7 @@ We will cover these improvements and more powerful algorithms tomorrow
 
 ---
 ## Lunch
-
 ---
-
 ### Practical <a id="section-practical"></a>
 
 The practical we will do this afternoon is to play with a working DQN agent on the Open AI Cartpole environment.
@@ -1690,11 +1687,17 @@ The ideas behind this practical are
 ---
 ###  CartPole
 
+<<<<<<< HEAD
+[Open AI leaderboard](https://gym.openai.com/envs/CartPole-v0/)
+
+[Source on GitHub](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
+=======
 [Source](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
 
 [Open Ai leaderboard](https://gym.openai.com/envs/CartPole-v0/)
 
 ![fig](assets/images/practical/cartpole.jpg)
+>>>>>>> a18073d2a0fd612254eb10eab4fe9ec4e8923868
 
 > A pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The system is controlled by applying a force of +1 or -1 to the cart. The pendulum starts upright, and the goal is to prevent it from falling over. A reward of +1 is provided for every timestep that the pole remains upright. The episode ends when the pole is more than 15 degrees from vertical, or the cart moves more than 2.4 units from the center.
 
@@ -1999,9 +2002,6 @@ We select the optimal action according to our online network, but we use the Q v
 ---
 
 TODO MORE ON DDQN!!!
-
----
-
 ---
 ## five <a id="section-five"></a>
 ### motivations for policy gradients
@@ -2364,8 +2364,6 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 
 
 ### break
-
-
 ---
 ## six <a id="section-six"></a>
 ### AlphaGo
@@ -2613,7 +2611,6 @@ And can get $ H(x) = F(x) + x $
 
 ---
 ### break
-
 ---
 ## seven <a id="section-seven"></a>
 ### practical concerns
@@ -2775,7 +2772,6 @@ Spend time looking at open source RL packages
 [Tensorforce](https://github.com/reinforceio/tensorforce) - reinforce.io
 
 There are so many more!
-
 ---
 ## eight <a id="section-eight"></a>
 ### beyond the expectation
@@ -2845,7 +2841,6 @@ The expected value of 7.5 minutes will never occur in reality!
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 
 ---
-
 ## thank you
 
 Adam Green

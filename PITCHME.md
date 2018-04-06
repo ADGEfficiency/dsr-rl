@@ -1101,11 +1101,15 @@ Asynchronous dynamic programming addresses this by updating states in an arbitra
 ---
 ### Dynamic programming summary
 
-Requries a **perfect environment model** - we don't need to sample experience at all (i.we don't ever actually take actions)
+Requries a **perfect environment model** 
+- we don't need to sample experience at all 
+- we don't ever actually take actions)
 
-We make **full backups** - the update to the value function is based on the probability distribution over all possible next states
+We make **full backups** 
+- the update to the value function is based on the probability distribution over all possible next states
 
-**Bootstrapped** - we use the recursive Bellman Equation to update our value function
+**Bootstrapped** 
+- we use the recursive Bellman Equation to update our value function
 
 Limited utility in practice but they provide an **essential foundation** for understanding reinforcement learning 
 - all RL can be thought of as attempts to achieve what DP can but without a model and with less computation
@@ -1171,13 +1175,13 @@ This is because we use experienced state transitions
 ### Monte Carlo
 
 Learn from **actual or simulated experience** 
-– no environment model
+- no environment model
 
 **No bootstrapping** 
-– use true discounted returns sampled from the environment
+- use true discounted returns sampled from the environment
 
 **Episodic problems only** 
-– no learning online
+- no learning online
 
 Ability to **focus** on interesting states and ignore others
 
@@ -1187,10 +1191,10 @@ High variance & low bias
 ### Temporal difference 
 
 Learn from **actual experience** 
-– no environment model
+- no environment model
 
 **Bootstrap** 
-– learn online
+- learn online
 
 Episodic & non-episodic problems
 
@@ -1201,7 +1205,18 @@ Use the Bellman Equation to approximate $V(s)$ using $V(s')$ (like dynammic prog
 
 Sample from experienced trajectories (like Monte Carlo)
 
-Update rule for a lookup table based TD(0) approximation
+Key to TD methods is the **temporal difference error**
+
+$$error = actual - predicted $$
+
+$$predicted = V(s) $$
+
+$$actual = r + \gamma V(s') $$
+
+$$error = r + \gamma V(s') - V(s) $$
+
+Update rule for a table TD(0) approximation
+
 ![fig](assets/images/section_3/td_1.png)
 
 ---
@@ -1210,13 +1225,6 @@ Update rule for a lookup table based TD(0) approximation
 ![fig](assets/images/section_3/td_2.png)
 
 $$ V(s\_1) \leftarrow V(s\_1) + \alpha [ r\_{23} + \gamma V(s\_3) - V(s\_1) ] $$
-
----
-### TD(0) algorithm
-
-![fig](assets/images/section_3/td_2.png)
-
-*Li (2017)*
 
 ---
 ### You are the predictor

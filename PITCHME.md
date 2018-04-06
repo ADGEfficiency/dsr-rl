@@ -1248,7 +1248,7 @@ What are the optimal predictions for $V(A)$ and $V(B)$?
 
 We can estimate the expected return from state $B$ by averaging the rewards
 
-$$V(B) = 6/8 \cdot 1 + 2/6 \cdot 0 = 3\4 $$
+$$V(B) = 6/8 \cdot 1 + 2/6 \cdot 0 = 3/4 $$
 
 What about $V(A)$?  
 
@@ -1257,7 +1257,7 @@ What about $V(A)$?
 
 or
 
-- We observed a return of $0$ when we saw $A$ 
+- We observed a discounted return of $0$ each time we saw $A$ 
 - therefore $V(A) = 0$
 
 Which is the Monte Carlo approach, which is the TD approach?
@@ -1273,6 +1273,9 @@ The MC method gives us the lowest error on fitting the data (i.e. minimizes MSE)
 
 The TD method gives us the **maximum-likelihood estimate**
 
+---
+### You are the predictor
+
 The maximum likelihood estimate of a parameter is the parameter value whose probabilty of generating the data is greatest
 
 We take into account the transition probabilities, which gives us the **certanitiy equivilance estimate** - which is the estimate we get when assuming we know the underlying model (rather than approximating it)
@@ -1282,14 +1285,14 @@ We take into account the transition probabilities, which gives us the **certanit
 
 ![fig](assets/images/section_3/recap.png)
 
-Sutton & Barto - Reinforcement Learning: An Introduction
+*Sutton & Barto - Reinforcement Learning: An Introduction*
 
 ---
 ## three
 ### introduction to value functions 
 ### Bellman Equation 
 ### approximation methods
-### SARSA & Q-Learning
+### **SARSA & Q-Learning**
 ### DQN
 ---
 
@@ -1299,11 +1302,14 @@ SARSA & Q-Learning are both based on the action-value function $Q(s,a)$
 
 Why might we want to learn $Q(s,a)$ rather than $V(s)$?
 
+---
+### $V(s)$ versus $Q(s,a)$ 
+
 Imagine a simple MDP
 
-$$ (\mathcal{S} = \{s_1, s_2, s_3\} $$
+$$ \mathcal{S} = \{s_1, s_2, s_3\} $$
 
-$$ (\mathcal{A} = \{a_1, a_2\} $$
+$$ \mathcal{A} = \{a_1, a_2\} $$
 
 Our agent finds itself in state $s_2$
 
@@ -1315,11 +1321,21 @@ $V(s_3) = 20$
 
 Which action should we take?  
 
+--- 
 ### $V(s)$ versus $Q(s,a)$ 
+
+Now imagine I gave you
+
+$$Q(s\_{2}, a\_1) = 40$$
+$$Q(s\_{2}, a\_2) = 20$$
+
+It's now easy to pick the action that maximizes expected discounted return
 
 $V(s)$ tells us how good a state is
 
 $Q(s,a)$ tells us how good an **action** is
+
+---
 
 ### SARSA
 
@@ -1336,6 +1352,7 @@ $s'$
 
 We learn about the policy being followed, then improve the policy by being greedy towards our new value function, then learn about the new improved policy etc - this is GPI
 
+---
 ### Q-Learning
 
 Q-Learning is an off-policy control method

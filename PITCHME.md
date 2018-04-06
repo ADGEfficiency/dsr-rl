@@ -1246,7 +1246,9 @@ What are the optimal predictions for $V(A)$ and $V(B)$?
 ---
 ### You are the predictor
 
-$$V(B) = \frac{6}{8} \cdot 1 + \frac{2}{6} \cdot 0 = \frac{3}{4} $$
+We can estimate the expected return from state $B$ by averaging the rewards
+
+$$V(B) = 6/8 \cdot 1 + 2/6 \cdot 0 = 3\4 $$
 
 What about $V(A)$?  
 

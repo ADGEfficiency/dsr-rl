@@ -1300,7 +1300,7 @@ We take into account the transition probabilities, which gives us the **certanit
 
 Approximation is all well and good - but we want to control
 
-SARSA & Q-Learning are both based on the **action-value** function $Q(s,a)$
+SARSA & Q-Learning are both based on the **action-value function** $Q(s,a)$
 
 Q-Learning is the basis of DQN - the algorithm developed by DeepMind that sparked off the revolution in deep reinforcement learning
 
@@ -1321,9 +1321,9 @@ Our agent finds itself in state $s_2$
 
 We use our value function $V(s)$ to calculate 
 
-$V(s_1) = 10$
-$V(s_2) = 5$
-$V(s_3) = 20$
+$$V(s_1) = 10$$
+$$V(s_2) = 5$$
+$$V(s_3) = 20$$
 
 Which action should we take?  
 
@@ -1342,36 +1342,48 @@ $V(s)$ tells us how good a state is
 $Q(s,a)$ tells us how good an **action** is
 
 ---
-
 ### SARSA
 
-SARSA is an on-policy control method
+SARSA is an **on-policy** control method
+- we learn about the policy we are following
+- we improve the policy by being greedy to the value function $Q\_{\pi}(s,a)$
 
-We learn $Q(s,a)$ by using every element from our experience tuple $(s,a,r,s')$ 
-
-And also $a'$ - the next action selected by our agent
+We use every element from our experience tuple $(s,a,r,s')$ 
+- and also $a'$ - the next action selected by our agent
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma Q(s', a') - Q(s,a)] $$
 
-SARSA is on-policy because we are forced to learn about the action $a'$ that our agent choose to take after reaching
-$s'$
+Why is SARSA on-policy?
 
-We learn about the policy being followed, then improve the policy by being greedy towards our new value function, then learn about the new improved policy etc - this is GPI
+---
+### SARSA
+
+SARSA is on-policy because we are forced to learn about the action $a'$ that our agent choose to take 
+
+Our value function is always for the policy we are following.  How then do we improve the policy?
+
+We improve using general policy iteration (GPI) that we saw earlier
+- approximate $Q(s,a)$ for our current policy
+- act greedily towards this approximation of $Q(s,a)$
+- approximate $Q(s,a)$ for our new experience
+- act greedily towards this new approximation
+- repeat
 
 ---
 ### Q-Learning
 
 Q-Learning is an off-policy control method
 
-We learn $Q(s,a)$ by using every element from our experience tuple $(s,a,r,s')$
+Use every element from our experience tuple $(s,a,r,s')$
 
-We don't need to know what action our agent took next (i.e. $a'$) - instead we take the **maximum over all possible actions**
-
-This allows us to learn the optimal value function while following a sub-optimal policy!
+We don't need to know what action our agent took next (i.e. $a'$) 
+- instead we take the **maximum over all possible actions**
+- this allows us to learn the optimal value function 
+- while following a sub-optimal policy (i.e. an exploratory policy)
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$
 
-Unlike SARSA, we never try to learn $Q_{\pi}$ - we always try to learn $Q^*$, the optimal policy
+We never try to learn $Q_{\pi}$ - we always try to learn $Q^*$, the optimal policy
 
 ---
 ### SARSA & Q-Learning

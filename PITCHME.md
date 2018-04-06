@@ -1191,9 +1191,11 @@ High variance & low bias
 ### Temporal difference 
 
 Learn from **actual experience** 
+- like Monte Carlo
 - no environment model
 
 **Bootstrap** 
+- like dynamic programming
 - learn online
 
 Episodic & non-episodic problems
@@ -1201,9 +1203,7 @@ Episodic & non-episodic problems
 ---
 ### Temporal difference
 
-Use the Bellman Equation to approximate $V(s)$ using $V(s')$ (like dynammic programming)
-
-Sample from experienced trajectories (like Monte Carlo)
+Use the Bellman Equation to approximate $V(s)$ using $V(s')$ 
 
 Key to TD methods is the **temporal difference error**
 
@@ -1231,7 +1231,9 @@ $$ V(s\_1) \leftarrow V(s\_1) + \alpha [ r\_{23} + \gamma V(s\_3) - V(s\_1) ] $$
 
 Example 6.4 from Sutton & Barto
 
-Imagine you observe the following episodes (State Reward, State Reward)
+Imagine you observe the following episodes 
+- format of (State Reward, State Reward)
+- i.e. A 0 B 0 = state A, reward 0, state B, reward 0
 
 | Episode | Number times observed |
 |---|---|
@@ -1244,15 +1246,17 @@ What are the optimal predictions for $V(A)$ and $V(B)$?
 ---
 ### You are the predictor
 
-$V(B) = 6/8 * 1 + 2/6 * 0 = 3/4$
+$$V(B) = \frac{6}{8} \cdot 1 + \frac{2}{6} \cdot 0 = \frac{3}{4} $$
 
 What about $V(A)$?  
 
-1. We observed that every time we were in $A$ we got $0$ reward and ended up in $B$
+- We observed that every time we were in $A$ we got $0$ reward and ended up in $B$
+- Therefore $V(A) = 0 + V(B) = 3/4$
 
-Therefore $V(A) = 0 + V(B) = 3/4$
+or
 
-2. We observed a return of $0$ when we saw $A$ - therefore $V(A) = 0$
+- We observed a return of $0$ when we saw $A$ 
+- therefore $V(A) = 0$
 
 Which is the Monte Carlo approach, which is the TD approach?
 

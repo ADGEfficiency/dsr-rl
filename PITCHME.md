@@ -1674,7 +1674,7 @@ We will cover these improvements and more powerful algorithms tomorrow
 
 ### Practical <a id="section-practical"></a>
 
-The practical we will do this afternoon is to play with a working DQN (Deep Q-Network) agent on the Open AI Cartpole environment.
+The practical we will do this afternoon is to play with a working DQN agent on the Open AI Cartpole environment.
 
 The ideas behind this practical are
 - in industry you won't be handed a set of notebooks to shift-enter through
@@ -1690,7 +1690,7 @@ The ideas behind this practical are
 ---
 ###  CartPole
 
-![fig](assets/images/practical/cartpole.png)
+![fig](assets/images/practical/cartpole.jpg)
 
 Environment with two actions - push left or push right
 

@@ -1687,7 +1687,7 @@ The ideas behind this practical are
 ---
 ###  CartPole
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/46wjA6dqxOM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/46wjA6dqxOM?rel=0" frameborder="0" loop="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 CartPole-v0 defines "solving" as getting average reward of 195.0 over 100 consecutive trials.
 

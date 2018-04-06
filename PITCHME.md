@@ -1362,7 +1362,7 @@ SARSA is on-policy because we are forced to learn about the action $a'$ that our
 
 Our value function is always for the policy we are following.  How then do we improve the policy?
 
-We improve using general policy iteration (GPI) that we saw earlier
+We improve using general policy iteration (GPI) 
 - approximate $Q(s,a)$ for our current policy
 - act greedily towards this approximation of $Q(s,a)$
 - approximate $Q(s,a)$ for our new experience
@@ -1395,7 +1395,7 @@ We never try to learn $Q_{\pi}$ - we always try to learn $Q^*$, the optimal poli
 
 Selecting optimal actions in Q-Learning can be done by an $\argmax$ across the action space
 
-$$action = \underset{a}{\argmax}Q(s,a)$$
+$$action = \underset{a}{argmax}Q(s,a)$$
 
 The $\argmax$ limits Q-Learning to **discrete action spaces only**
 

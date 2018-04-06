@@ -1531,10 +1531,8 @@ Learning from high dimensional input
 Ability to **generalize**
 - same algorithm, network strucutre and hyperparameters
 
-Two key innovations behind the success of the DeepMind Atari work
-
+Two key innovations 
 1. experience replay (Lin 1993)
-
 2. target network
 
 ---
@@ -1558,11 +1556,12 @@ Clipped to [-1, +1]
 
 Joystick buttons (a discrete action space)
 
----?image=assets/images/section3/atari_results.png&size=auto 80%
-
----?image=assets/images/section3/atari_func.png&size=auto 80%
-
----?image=assets/images/section3/atari_sea.png&size=auto 80%
+---
+![fig](assets/images/section3/atari_results.png)
+---
+![fig](assets/images/section3/atari_func.png)
+---
+![fig](assets/images/section3/atari_sea.png)
 
 ---
 ### Experience replay

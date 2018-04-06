@@ -1393,20 +1393,21 @@ We never try to learn $Q_{\pi}$ - we always try to learn $Q^*$, the optimal poli
 ---
 ### Q-Learning
 
-Selecting optimal actions in Q-Learning can be done by an $\argmax$ across the action space
+Selecting optimal actions in Q-Learning can be done by an $argmax$ across the action space
 
 $$action = \underset{a}{argmax}Q(s,a)$$
 
-The $\argmax$ limits Q-Learning to **discrete action spaces only**
+The $argmax$ limits Q-Learning to **discrete action spaces only**
 
-Acting in Q-Learning is also deterministic - we will always pick the action our $Q(s,a)$ approximation thinks is good
+Acting in Q-Learning is also deterministic 
+- we will always pick the action our $Q(s,a)$ approximation thinks is good
 
 How then do we explore the environment?
 
 ---
 ### $\epsilon$-greedy exploration
 
-One stragety to explore in Q-Learning is known as the epsilon-greedy policy
+One stragety to explore in Q-Learning is known as the **epsilon-greedy policy**
 
 ```
 def epsilon_greedy_policy():
@@ -1425,15 +1426,16 @@ $\epsilon$ is decayed during experiments as our approximation of $Q_*(s,a)$ impr
 ---
 ### Exploration strageties
 
-Alternative policies include Boltzmann (i.e. a softmax) with temperature being annealed as learning progresses
+Alternative policies include Boltzmann (i.e. a softmax) 
+- temperature being annealed as learning progresses
 
-More advanced is a Bayesian Neural Network - a network that maintains distributions over weights -> distribution over actions.  This can also be performed using dropout to simulate a probabilistic network
+More advanced is a Bayesian Neural Network 
+- a network that maintains distributions over weights -> distribution over actions  
+- this can also be performed using dropout to simulate a probabilistic network
 
-[Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
+[**Action-Selection Strategies for Exploration**](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
 
 ---
-DQN trained on CartPole
-
 ![fig](assets/images/section_3/action_selection_exploration.png)
 
 [Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
@@ -1441,15 +1443,13 @@ DQN trained on CartPole
 ---
 ### Problems with Q-learning
 
-One issue is correlations in our dataset (the list of experience tuples)
+Correlations in our dataset (the list of experience tuples)
+- combine this with bootstrapping and instability occurs
 
-Another issue is that small changes to weights or $Q(s,a)$ estimates can change the policy drastically
+Small changes $Q(s,a)$ estimates can drastically change the policy 
 
 $$Q(s_1, a_1) = 10 $$
-
 $$Q(s_1, a_2) = 11 $$
-
-For the Q values above we would select action $a_1$ in state $s_1$
 
 Then we do some learning and our estimates change
 
@@ -1458,19 +1458,17 @@ $$Q(s_1, a_2) = 11 $$
 
 Now our policy is completely different!  
 
-For the Q values above we would select action $a_1$ in state $s_1$
-
 ---
 ### Deadly triad
 
-Sutton & Barto discuss the concept of the **deadly triad** - three mechanisms that docombine to produce instability and
-divergence
+Sutton & Barto discuss the concept of the **deadly triad** 
+- three mechanisms that combine to produce instability and divergence
 
-1 - off-policy learning - to learn about the optimal policy while following an exploratory policy
+1. off-policy learning - to learn about the optimal policy while following an exploratory policy
 
-2 - function approximation - for scalability and generalization
+2. function approximation - for scalability and generalization
 
-3 - bootstrapping - computational & sample efficiency
+3. bootstrapping - computational & sample efficiency
 
 ---
 ### Deadly triad
@@ -1482,35 +1480,38 @@ It's not clear which of the three cause instability
 
 Divergence is an emergent phenomenon
 
+Up until 2013 the deadly traid caused instability when using Q-Learning with complex function approximators (i.e. neural networks)
+
 ---
 ## three
 ### introduction to value functions 
 ### Bellman Equation 
 ### approximation methods
 ### SARSA & Q-Learning
-### DQN
+### **DQN**
 ---
 
 ### DQN
 
 This section covers two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
 
-Prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
-
-Attempts to use complex, non-linear function approximators (i.e. neural networks) all failed - learning was unstable and would often diverge
+- prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
+- attempts to use complex, non-linear function approximators (i.e. neural networks) all failed 
+- learning was unstable and would often diverge
 
 ---
 ### DQN
 
-In 2013 a small London startup published a paper where an agent based on Q-Learning was able to reach a superhuman level of performance in _ Atari games
+In 2013 a small London startup published a paper where an agent based on Q-Learning was able to reach a superhuman level of performance in three Atari games
 
 In 2014 Google purchased DeepMind for around £400M
 
-This is for a company with no product, no revenue, no customers and a few world class employees
+This is for a company with **no product, no revenue, no customers and a few world class employees**
+---
 
----?image=assets/images/section3/2013_atari.png&size=auto 80%
+![fig](assets/images/section_3/2013_atari.png)
 
----?image=assets/images/section3/2015_atari.png&size=auto 80%
+![fig](assets/images/section_3/2015_atari.png)
 
 ---
 ### Significance

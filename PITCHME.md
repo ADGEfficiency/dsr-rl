@@ -1558,10 +1558,22 @@ Joystick buttons (a discrete action space)
 
 ---
 ![fig](assets/images/section_3/atari_results.png)
+
 ---
 ![fig](assets/images/section_3/atari_func.png)
+
 ---
 ![fig](assets/images/section_3/atari_sea.png)
+
+---
+### Two key innovations
+
+Experience replay
+
+Target network
+
+Both of these aim to improve learning stability 
+- not to improve performance!
 
 ---
 ### Experience replay
@@ -1571,11 +1583,13 @@ Joystick buttons (a discrete action space)
 ---
 ### Experience replay
 
-Experience replay helps to deal with our non-iid dataset (i.e. correlations between samples of experience)
+Experience replay helps to deal with our non-iid dataset 
+- training using experience as sampled means each sample is correlated with the one before
+- makes our sampling more independent
+- also makes the distribution of the samples in the batch more evenly distributed
 
-Makes our sampling more independent
-
-Data efficiency - we can learn from experience multiple times
+Data efficiency 
+- we can learn from experience multiple times
 
 Allows seeding of the memory with human expert experience
 
@@ -1599,15 +1613,17 @@ Parameterize two separate neural networks (identical structure) - two sets of we
 
 ![fig](assets/images/section_3/target_net.png)
 
-Original Atari work copied the online network weights to the target network every 10k - 100k steps.  Modern methods use
-a small factor $\tau$ to smoothly update weights at each step
+Original Atari work copied the online network weights to the target network every 10k - 100k steps
+- modern methods use a small factor tau ($\tau$) to smoothly update weights at each step
 
 ---
 ### Target network
 
-Changing value of one action changes value of all actions & similar states - bigger networks less prone (less aliasing)
+Changing value of one action changes value of all actions & similar states 
+- bigger networks less prone (less aliasing aka weight sharing)
  
-Stable training - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
+Stable training 
+- no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
 
 Reduces the correlation between the target used to train the network and the current network approximation 
 
@@ -1628,6 +1644,8 @@ Reduces the correlation between the target used to train the network and the cur
 
 ![fig](assets/images/section_3/huber_loss.png)
 
+The Huber Loss is a form of gradient clipping
+
 ---
 ### Timeline
 
@@ -1639,7 +1657,7 @@ Reduces the correlation between the target used to train the network and the cur
 
 2013 - DQN
 
-2015 - DQN
+2015 - DQN (Nature)
 
 2015 - Prioritized experience replay
 
@@ -1658,10 +1676,12 @@ We will cover these improvements and more powerful algorithms tomorrow
 
 The practical we will do this afternoon is to play with a working DQN (Deep Q-Network) agent on the Open AI Cartpole environment.
 
-The ideas behind this practical are:
+The ideas behind this practical are
 - in industry you won't be handed a set of notebooks to shift-enter through
 
 - you will likely be given an existing code base and be expected to figure out how it works
+
+- you will also need to learn to read other peoples code in the wild
 
 - this skill is also useful for understanding open source projects
 

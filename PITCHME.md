@@ -1966,7 +1966,9 @@ Our estimates of the value of this state are normally distributed above and belo
 
 Actions are taken by averaging the estimates of both Q functions
 
-Learning is done by selecting the optimal action for one function, but using the estimated value for the other function
+Learning is done by 
+- selecting the optimal action for one function 
+- but using the estimated value for the other function
 
 ![fig](assets/images/section_4/2010_Double_Q.png)
 
@@ -1978,10 +1980,10 @@ In 2016 an updated paper on Double Q-Learning was published
 The DDQN modification to DQN is simpler than the 2010 modification
 
 *Original DQN target*
-$$ r + \gamma \underset{a}{\max} Q(s,a,\theta) $$
+$$ r + \gamma \underset{a}{\max} Q(s,a,\theta^{-}) $$
 
 *DDQN target*
-$$ r + \gamma Q(s', \underset{a}{\argmax}Q(s',a)) $$ 
+$$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a, \theta), \theta^{-}) $$ 
 
 We select the optimal action according to our online network, but we use the Q value as estimated by the target network
 

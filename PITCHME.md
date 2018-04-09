@@ -2174,12 +2174,12 @@ Note that the score function limits us to on-policy learning
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-$\log \pi(a_t|s_t;\theta)$ - how probable was the action we picked
-
+$\log \pi(a_t|s_t;\theta)$ 
+- how probable was the action we picked
 - we want to reinforce actions we thought were good
 
-$ G_t $ - how good was that action
-
+$ G_t $ 
+- how good was that action
 - we want to reinforce actions that were actually good
 
 ---
@@ -2187,7 +2187,7 @@ $ G_t $ - how good was that action
 
 We can use different methods to approximate the return $G_t$
 
-One way is to use the Monte Carlo return - i.e. the true sampled discounted return.  This is known as REINFORCE
+One way is to use the Monte Carlo return.  This is known as REINFORCE
 
 Using a Monte Carlo approach comes with all the problems we saw earlier
 - high variance
@@ -2201,17 +2201,19 @@ How can we get some the advantages of Temporal Difference methods?
 
 We can introduce a baseline function - this reduces variance without introducing bias
 
-$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t)$ - how probable was the action we picked
+$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t)$ 
+- how probable was the action we picked
 
 A natural baseline is the value function - which we parameterize using weights $w$.  This is known as REINFORCE with a baseline
 
-$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w)$ - how probable was the action we picked
+$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w)$ 
+- how probable was the action we picked
 
 This also gives rise to the concept of **advantage**
 
-$$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
+$$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 
-The advantage function tells us how much better an action is than the average actionfor that policy & environment dynamics
+The advantage function tells us how much better an action is than the average action for that policy & environment dynamics
 
 ---
 ### Actor-Critic
@@ -2224,8 +2226,8 @@ The advantage function tells us how much better an action is than the average ac
 Actor-Critic brings together value functions and policy gradients
 
 We parameterize two functions
-1. an **actor** = policy
-2. a **critic** = value function
+- an **actor** = policy
+- a **critic** = value function
 
 We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
 
@@ -2233,7 +2235,7 @@ The direction is given by the temporal difference error
 
 ---
 
-![fig](assets/images/section_5/ac_arc.png)
+![fig](assets/images/section_5/ac_arch.png)
 
 *Sutton & Barto*
 

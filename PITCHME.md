@@ -1905,7 +1905,7 @@ The importance weight function
 
 $$ w(x) = \frac{p(x)}{q(x)}$$
 
-$$ \mathbb{E}[f(x)] = \frac{1}/{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
+$$ \mathfb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
 
 This is an unbiased approximation
 - can also be lower variance than using the sample distribution $p$
@@ -1913,22 +1913,23 @@ This is an unbiased approximation
 ---
 ### Importance sampling in prioritized experience replay
 
-$$\omega\_{i} = \left( \frac{1}{N} \cdot \frac{1}{P(i)} \right)^{\beta} $$
+$$\omega\_{i} = \left( \frac{1}{N} \cdot \frac{1}{P(i)} \right)^{\beta}$$
 
+$\beta$ 
+- hyperparameter that is increased over the course of an experiment
+- 0.4 or 0.5 up to 1.0
 
 Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale the update downwards
 
-$\beta$ is a parameter that is increased over the course of an experiment (0.4 or 0.5 up to 1.0)
+All new transitions are stored at maximum priority - to ensure replay at least once
 
----
-### Prioritized experience replay
-
-All new transitions are stored at maximum priority - to ensure replay at least oncec
-
-Sampling is commonly done using binary heaps to efficiently search for high prioritiy transitions and to calculate sums
+Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums
 and minimums
 
----?image=assets/images/section4/sumtree_test.png&size=auto 80%
+Ask your algorithms teacher to go over binary heaps - they are useful!
+
+---
+![fig](assets/images/section_4/sumtree_test.png)
 
 ---
 ## four

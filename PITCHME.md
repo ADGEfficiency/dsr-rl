@@ -2123,32 +2123,31 @@ Reward function is not known
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-Where does this strange equation come from?
+Can't tell you how reward is calculated - but can tell you what direction you need to go to get more of it
 
 ---
 ### The score function in statistics
 
 The **score function** comes from using the log-likelihood ratio trick
 
-The score function allows us to get the gradient of a function by taking an expectattion
+The score function allows us to get the gradient of a function by **taking an expectation**
 
-Expectataions are averages - meaning that we can use sample based methods to approximate them
+Expectataions are averages 
+- use sample based methods to approximate them
 
-$$\nabla_{\theta} mathbf\E[f(x)] = \E[\nabla_{\theta} \log P(x) \cdot f(x)]$$
+$$\nabla\_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
 
 ---
 ### Deriving the score function
 
 ![fig](assets/images/section_5/score_derivation.png)
 
-http://karpathy.github.io/2016/05/31/rl/
+**http://karpathy.github.io/2016/05/31/rl/**
 
 ---
 ### The score function in reinforcement learning
 
-$$\nabla_{\theta} \E[f(x)] = \E[\nabla_{\theta} \log P(x) \cdot f(x)]$$
-
-$$\nabla_{\theta} \E[G_t] = \E_{\pi_{\theta}}[\nabla_{\theta} \log \pi(a_t|s_t;\theta) \cdot G_t]$$
+$$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
 The gradient of our return wrt our policy parameters = the expectation of the gradient of the policy wrt it's parameters * the return
 

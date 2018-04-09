@@ -1975,25 +1975,34 @@ Learning is done by
 ---
 ### DDQN
 
-In 2016 an updated paper on Double Q-Learning was published
+The DDQN modification to DQN makes use of the target network as the second network 
 
-The DDQN modification to DQN is simpler than the 2010 modification
+**Original DQN target**
+$$ r + \gamma \underset{a}{\max} Q(s,a;\theta^{-}) $$
 
-*Original DQN target*
-$$ r + \gamma \underset{a}{\max} Q(s,a,\theta^{-}) $$
+**DDQN target**
+$$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$ 
 
-*DDQN target*
-$$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a, \theta), \theta^{-}) $$ 
-
-We select the optimal action according to our online network, but we use the Q value as estimated by the target network
+- select the optimal action according to our online network
+- but we use the Q value as estimated by the target network
 
 ---
 
 ![fig](assets/images/section_4/2015_DDQN_results.png)
 
 ---
+## four
+### eligibility traces
+### prioritized experience replay
+### DDQN
+### Rainbow
 
-TODO MORE ON DDQN!!!
+---
+
+TODO RAINBOW
+
+---
+
 ---
 ## five <a id="section-five"></a>
 ### motivations for policy gradients
@@ -2003,8 +2012,9 @@ TODO MORE ON DDQN!!!
 
 ---
 
----?image=assets/images/section5/intro.png&size=auto 80%
+![fig](assets/images/section_5/intro.png)
 
+---
 ### Policy gradients
 
 Previously we looked at generating a policy from a value function (i.e. $\argmax$ across the action space)

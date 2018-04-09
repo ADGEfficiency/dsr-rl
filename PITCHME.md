@@ -2135,9 +2135,7 @@ The score function allows us to get the gradient of a function by **taking an ex
 Expectataions are averages 
 - use sample based methods to approximate them
 
-$$\nabla\_{\theta} \mathbf{E}[f(x)] $$
-
-$$= \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
+$$\nabla\_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
 
 ---
 ### Deriving the score function
@@ -2151,12 +2149,12 @@ $$= \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-The gradient of our return wrt our policy parameters = the expectation of the gradient of the policy wrt it's parameters * the return
+The gradient of our return = expectation of the gradient of the policy * the return
 
 The key here is that the RHS is an expectation.  We can estimate it by sampling
 
 The expectation is made up of thing we can sample
-- we can sample from our policy (i.e. we can get the probability of actions in certain states)
+- we can sample from our policy 
 - we can sample the return (from experience)
 
 ---
@@ -2164,30 +2162,25 @@ The expectation is made up of thing we can sample
 
 We use the score function to get the gradient, then follow the gradient 
 
-gradient 
+gradient = log(probability of action) * return
 
-=
+gradient = log(policy) * return
 
-log(probability of action) * return
-
-=
-
-log(policy) * return
-
-Note that the score function limits us to on-policy learning - we need to calculate the log probability of the action taken by the policy
+Note that the score function limits us to on-policy learning 
+- we need to calculate the log probability of the action taken by the policy
 
 --- 
 ### Policy gradient intuition
 
-$$\E_{\pi_{\theta}}[\nabla_{\theta} \log \pi(a_t|s_t;\theta) \cdot G_t]$$
+$$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
 $\log \pi(a_t|s_t;\theta)$ - how probable was the action we picked
 
-We want to reinforce actions we thought were good
+- we want to reinforce actions we thought were good
 
 $ G_t $ - how good was that action
 
-We want to reinforce actions that were actually good
+- we want to reinforce actions that were actually good
 
 ---
 ### REINFORCE 

@@ -2135,7 +2135,9 @@ The score function allows us to get the gradient of a function by **taking an ex
 Expectataions are averages 
 - use sample based methods to approximate them
 
-$$\nabla\_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
+$$\nabla\_{\theta} \mathbf{E}[f(x)] $$
+
+$$= \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
 
 ---
 ### Deriving the score function

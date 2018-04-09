@@ -2322,7 +2322,6 @@ The difference between stochastic (green) and deterministic (red) increases with
 ### A3C
 
 Asynchronous Advantage Actor-Critic 
-- has obsoleted DQN as state of the art
 - works in continuous action spaces
 
 We saw earlier that experience replay is used to make learning more stable & decorrelate updates
@@ -2346,7 +2345,7 @@ Asynchronous
 
 Advantage = the advantage function 
 
-$$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
+$$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 
 The advantage tells us how much better an action is than the average action followed by the policy
 

@@ -1812,9 +1812,11 @@ It requires an additional variable in our agents memory
 - the eligibility trace $e_{t}(s)$
 
 At each step we decay the trace according to
+
 $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) $$
 
 Unless we visited that state, in which case we accumulate more eligibility
+
 $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 
 ---

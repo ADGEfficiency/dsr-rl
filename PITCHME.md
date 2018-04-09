@@ -1841,20 +1841,22 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 ![fig](assets/images/section_3/exp_replay.png)
 
 ---
-![fig](assets/images/section4/schaul_2015.png)
+![fig](assets/images/section_4/schaul_2015.png)
 
 ---
 ### Prioritized Experience Replay
 
-Naive experience replay randomly samples batches of experience for learning.  This random sampling means we learn from experience at the same frequency as they are experienced
+Naive experience replay **randomly samples experience** 
+- learning occurs at the same frequency as experience
 
 Some samples of experience are more useful for learning than others
 
 We can measure how useful experience by the temporal difference error
 
-$$ td_error = r + \gamma Q(s', a) - Q(s,a) $$
+$$ td error = r + \gamma Q(s', a) - Q(s,a) $$
 
-TD error measures suprise - this transition gave a higher or lower reward than expected
+TD error measures suprise 
+- this transition gave a higher or lower reward than expected
 
 ---
 ### Prioritized Experience Replay

@@ -1862,10 +1862,7 @@ TD error measures suprise
 
 Non-random sampling introduces two problems
 
-1. loss of diversity - we will only sample from high TD error experiences
-2. introduce bias - non-independent sampling
-
-Schaul et. al (2016) solves these problems by
+1. loss of diversity - we will only sample from high TD error experiences 2. introduce bias - non-independent sampling Schaul et. al (2016) solves these problems by
 
 1. correct the loss of diversity by making the prioritization stochastic
 2. correct the bias using importance sampling
@@ -1886,36 +1883,39 @@ Schaul suggets alpha $~ 0.6 - 0.7$
 ---
 ### Importance sampling
 
-Not a sampling method - it's a method of Monte Carlo approximation
+Not a sampling method 
+- it's a method of Monte Carlo approximation
 
-https://www.youtube.com/watch?v=S3LAOZxGcnk
 
-Monte Carlo approximates using the sample mean, assuming that the sampling distribution (x<sub>p</sub>) is the same as
-the true distribution (x~p)
+Monte Carlo approximates using the sample mean
+- assuming that the sampling distribution $x\_p$ 
+- is the same as the true distribution $(x~p)$ 
 
-$$ \mathbb{E}[f(x)] = 1/n \sum f(xi) $$
+$$ \mathbb{E}[f(x)] = 1/n \sum f(x\_{i}) $$
 
-Could we use infomation about another distribution (q) to learn the distribution of p
+Could we use infomation about another distribution $q$ to learn the distribution of $p$
+- correct for the fact that we are using another distribution
 
-i.e. correct for the fact that we are using another distribution
-
+*https://www.youtube.com/watch?v=S3LAOZxGcnk*
 ---
 
 ### Importance sampling
 
-The importance weight function:
-$$ w(x) = p(x) / q(x) $$
+The importance weight function
 
-$$ \mathbb{E}[f(x)] = 1/n \sum f(xi) w(xi) $$
+$$ w(x) = \frac{p(x)}{q(x)}$$
 
-This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$
+$$ \mathbb{E}[f(x)] = \frac{1}/{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
+
+This is an unbiased approximation
+- can also be lower variance than using the sample distribution $p$
 
 ---
 ### Importance sampling in prioritized experience replay
 
-$$ \omega_i = \Big(  \frac{1}{N} \cdot \frac{1}{P(i)} \Big^\beta $$
+$$ \omega\_i = \Big(\frac{1}{N} \cdot \frac{1}{P(i)} \Big^\beta $$
 
-Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale the update (ie the update to the neural network weights) downwards
+Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale the update downwards
 
 $\beta$ is a parameter that is increased over the course of an experiment (0.4 or 0.5 up to 1.0)
 

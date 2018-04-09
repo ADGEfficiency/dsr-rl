@@ -1840,8 +1840,10 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 
 ![fig](assets/images/section_3/exp_replay.png)
 
----?image=assets/images/section4/schaul_2015.png&size=auto 80%
+---
+![fig](assets/images/section4/schaul_2015.png)
 
+---
 ### Prioritized Experience Replay
 
 Naive experience replay randomly samples batches of experience for learning.  This random sampling means we learn from experience at the same frequency as they are experienced

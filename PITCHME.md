@@ -1759,6 +1759,7 @@ Eligibility traces allow us to assign TD errors to different states other than t
 In between TD and MC exist a family of approximation methods known as **n-step returns**
 
 ![fig](assets/images/section_4/bias_var.png)
+*Sutton & Barto*
 
 ---
 ### The forward and backward view
@@ -1803,8 +1804,7 @@ $TD(\lambda)$ and n-step returns are the same thing
 ---
 ### The backward view
 
-The forward view is great - but it's not practical
-- it requires knowledge of the future!
+The forward view is not practical - it requires knowledge of the future!
 
 The backward view approximates the forward view
 
@@ -1831,11 +1831,9 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 ![fig](assets/images/section_4/traces_grid.png)
 *Sutton & Barto*
 
-One step method would only update the last $Q(s,a)$
-
-n-step method would update all $Q(s,a)$ equally
-
-Eligibility traces updates based on how recently each $Q(s,a)$ was experienced
+- one step method would only update the last $Q(s,a)$
+- n-step method would update all $Q(s,a)$ equally
+- eligibility traces updates based on how recently each $Q(s,a)$ was experienced
 
 ---
 ### Experience replay

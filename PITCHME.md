@@ -1775,14 +1775,12 @@ The **backward** view
 ### The forward view
 
 We can decompose our return into **complex backups**
+- looking forward to future returns to create the return from the current state
+- can use a combination of experience based and model based backups 
 
 $$R\_t = \frac{1}{2} R\_{t}^{2} + \frac{1}{2} R\_{t}^{4} $$
 
 $$R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
-
-We are looking forward to future returns to creating the return from the current step
-
-We could also use a combination of experience based and model based backups 
 
 ![fig](assets/images/section_4/forward_view.png)
 *Sutton & Barto*
@@ -1791,30 +1789,33 @@ We could also use a combination of experience based and model based backups
 ### $$TD(\lambda)$$
 
 The family of algorithms between TD and MC is known as $TD(\lambda)$
-
-Weight each return by $\lambda^{n-1}$ and normalize using $(1-\lambda)$
+- weight each return by $\lambda^{n-1}$ 
+- normalize using $(1-\lambda)$
 
 $$ TD(\lambda) = (1-\lambda) \sum_{n-1}^{\infty} \lambda^{n-1} R_t^n $$
 
-$\lambda = 0$ -> TD(0) 
-$\lambda = 1$ -> Monte Carlo
+$$\lambda = 0$$ -> TD(0) 
+
+$$\lambda = 1$$ -> Monte Carlo
 
 $TD(\lambda)$ and n-step returns are the same thing
 
 ---
 ### The backward view
 
-The forward view is great - but it's not practical.  It requires knowledge of the future!
+The forward view is great - but it's not practical
+- it requires knowledge of the future!
 
 The backward view approximates the forward view
 
-It requires an additional variable in our agents memory - the eligibility trace $e_{t}(s)$
+It requires an additional variable in our agents memory 
+- the eligibility trace $e_{t}(s)$
 
-At each step we decay the trace according to:
-$$ e_{t}(s) = \gamma \lambda e_{t-1}(s) $$
+At each step we decay the trace according to
+$$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) $$
 
-Unless we visited that state, in which case we accumulate more eligibility:
-$$ e_{t}(s) = \gamma \lambda e_{t-1}(s) + 1 $$
+Unless we visited that state, in which case we accumulate more eligibility
+$$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 
 ---
 ### The backward view

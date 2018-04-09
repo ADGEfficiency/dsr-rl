@@ -1850,10 +1850,9 @@ Naive experience replay **randomly samples experience**
 - learning occurs at the same frequency as experience
 
 Some samples of experience are more useful for learning than others
+- we can measure how useful experience is by the temporal difference error
 
-We can measure how useful experience by the temporal difference error
-
-$$ td error = r + \gamma Q(s', a) - Q(s,a) $$
+$$ error = r + \gamma Q(s', a) - Q(s,a) $$
 
 TD error measures suprise 
 - this transition gave a higher or lower reward than expected
@@ -1863,24 +1862,22 @@ TD error measures suprise
 
 Non-random sampling introduces two problems
 
-1 - loss of diversity - we will only sample from high TD error experiences
+1. loss of diversity - we will only sample from high TD error experiences
+2. introduce bias - non-independent sampling
 
-2 - introduce bias - non-independent sampling
+Schaul et. al (2016) solves these problems by
 
-Schaul et. al (2016) solves these problems by:
-
-1 - correct the loss of diversity by making the prioritization stochastic
-
-2 - correct the bias using importance sampling
+1. correct the loss of diversity by making the prioritization stochastic
+2. correct the bias using importance sampling
 
 ---
 ### Stochastic prioritization
 
 Noisy rewards can make the TD error signal less useful
 
-$p_i$ is the priority for transition $i$ ($i > 0$)
+$p_i$ is the priority for transition $i$
 
-$$ \frac{p_{i}^{\alpha}}{\sum_{k}p_{k}^{\alpha}} $$
+$$ \frac{p\_{i}^{\alpha}}{\sum\_{k}p\_{k}^{\alpha}} $$
 
 $\alpha = 0 $ -> uniform random sampling
 

@@ -2243,18 +2243,18 @@ The direction is given by the temporal difference error
 ### Actor-Critic Algorithm
 
 ![fig](assets/images/section_5/ac_algo.png)
+*Sutton & Barto*
 
 ---
-### Determinstic Policy Gradient
 
 ![fig](assets/images/section_5/dpg_lit.png)
 
 ---
-### DPG
+### Determinstic Policy Gradient
 
 Actor Critic
 
-Determinstic policy -> more efficient than stochastic (we only integrate over TODO)
+Determinstic policy -> more efficient than stochastic
 
 Continuous action spaces
 
@@ -2271,9 +2271,12 @@ Stochastic policy is a probability distribution over actions
 
 Actions are selected by sampling from this distribution
 
-$$ \pi_{\theta}(a|s) = P[a|s,\theta] $$
+$$ \pi_{\theta}(a|s) = P[a|s;\theta] $$
+
+$$ a \textasciitilde \pi_{\theta}(a|s) $$
 
 DPG parameterizes a determinstic policy
+
 $$a = \mu_{\theta}(s) $$
 
 ---
@@ -2310,7 +2313,7 @@ Deterministic case integrates over only the state space - leading to better samp
 
 The difference between stochastic (green) and deterministic (red) increases with the dimensionality of the action space
 
-
+---
 ### A3C
 
 ![fig](assets/images/section_5/A3C_lit.png)

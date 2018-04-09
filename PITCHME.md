@@ -1776,7 +1776,7 @@ The **backward** view
 
 We can decompose our return into **complex backups**
 
-$$R\_t = \frac{1}{2} R_{t}^{2} + \frac{1}{2} R_{t}^{4} $$
+$$R\_t = \frac{1}{2} R\_{t}^{2} + \frac{1}{2} R\_{t}^{4} $$
 
 $$R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
 

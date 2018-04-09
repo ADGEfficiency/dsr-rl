@@ -1913,7 +1913,8 @@ This is an unbiased approximation
 ---
 ### Importance sampling in prioritized experience replay
 
-$$ \omega\_i = \Big(\frac{1}{N} \cdot \frac{1}{P(i)} \Big^\beta $$
+$$\omega\_{i} = \big( N  \big $$
+
 
 Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale the update downwards
 

@@ -1933,8 +1933,9 @@ Ask your algorithms teacher to go over binary heaps - they are useful!
 
 ---
 ## four
+### eligibility traces
 ### prioritized experience replay
-### DDQN
+### **DDQN**
 ### Rainbow
 
 ---
@@ -1944,10 +1945,10 @@ Ask your algorithms teacher to go over binary heaps - they are useful!
 ### DDQN
 
 DDQN = Double Deep Q-Network
+- first introducued in a tabular setting in 2010
+- then reintroduced in the content of DQN in 2016
 
-First introducued in a tabular setting in 2010, then reintroduced in the content of DQN in 2016
-
-DDQN aims to overcome the *maximization bias* that occurs due to the max operator in Q-Learning
+DDQN aims to overcome the **maximization bias** that occurs due to the max operator in Q-Learning
 
 ---
 ### Maximization bias
@@ -1967,7 +1968,7 @@ Actions are taken by averaging the estimates of both Q functions
 
 Learning is done by selecting the optimal action for one function, but using the estimated value for the other function
 
-![fig](assets/images/section_4/2010_ddqn.png)
+![fig](assets/images/section_4/2010_Double_Q.png)
 
 ---
 ### DDQN

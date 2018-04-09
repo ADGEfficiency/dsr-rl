@@ -2121,7 +2121,7 @@ How do we improve it?
 Reward function is not known
 - but we can calculate the *gradient of the expectation of reward*
 
-$$\nabla\_{\theta} \E[G\_t] = \E[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
+$$\nabla\_{\theta} \mathbf{E}[G\_t] = \E[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
 Where does this strange equation come from?
 
@@ -2134,7 +2134,7 @@ The score function allows us to get the gradient of a function by taking an expe
 
 Expectataions are averages - meaning that we can use sample based methods to approximate them
 
-$$\nabla_{\theta} \E[f(x)] = \E[\nabla_{\theta} \log P(x) \cdot f(x)]$$
+$$\nabla_{\theta} mathbf\E[f(x)] = \E[\nabla_{\theta} \log P(x) \cdot f(x)]$$
 
 ---
 ### Deriving the score function

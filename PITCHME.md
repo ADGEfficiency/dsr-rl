@@ -1736,52 +1736,49 @@ config_dict = {'discount': 0.97,
 ---
 ![fig](assets/images/section_4/unified_view.png)
 
-[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
+[*The Long-term of AI & Temporal-Difference Learning – Rich Sutton*](https://www.youtube.com/watch?v=EeMCEQa85tw)
 
 ---
 ![fig](assets/images/section_4/effect_bootstrap.png)
 
-[The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)
+[*The Long-term of AI & Temporal-Difference Learning – Rich Sutton*](https://www.youtube.com/watch?v=EeMCEQa85tw)
 
 ---
 ### Eligibility traces
 
-Eligibility traces are the family of methods between Temporal Difference & Monte Carlo
+Eligibility traces are the family of methods **between Temporal Difference & Monte Carlo**
 
 Eligibility traces allow us to assign TD errors to different states other than the current state
-
-Can be useful with delayed rewards or non-Markov environments
-
-Requires more computation & squeezes more out of data
+- can be useful with delayed rewards or non-Markov environments
+- requires more computation 
+- squeezes more out of data
 
 ---
 ### The space between TD and MC
 
-Inbetween TD and MC exist a family of methods known as **n-step returns**
+In between TD and MC exist a family of approximation methods known as **n-step returns**
 
 ![fig](assets/images/section_4/bias_var.png)
-
-All of these methods are for **approximation** - i.e. creating targets to learn from
 
 ---
 ### The forward and backward view
 
 We can look at eligibility traces from two perspectives
-- the **forward** view
-- the **backward** view
 
-The forward view is helpful for understanding the theory
+The **forward** view
+- the forward view is helpful for understanding the theory
 
-The backward view we can put into practice
+The **backward** view
+- the backward view we can put into practice
 
 ---
 ### The forward view
 
 We can decompose our return into **complex backups**
 
-$$R_t = \frac{1}{2} R_{t}^{2} + \frac{1}{2} R_{t}^{4} $$
+$$R\_t = \frac{1}{2} R_{t}^{2} + \frac{1}{2} R_{t}^{4} $$
 
-$$R_t = \frac{1}{2} TD + \frac{1}{2} MC $$
+$$R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
 
 We are looking forward to future returns to creating the return from the current step
 
@@ -2829,6 +2826,12 @@ The expected value of 7.5 minutes will never occur in reality!
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 
 ---
+
+
+
+
+
+
 ## thank you
 
 Adam Green

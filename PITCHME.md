@@ -2029,24 +2029,14 @@ $$ \pi(a_t|s_t;\theta) $$
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PtAIh9KSnjo?rel=0&amp;showinfo=0&amp;start=2905" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
-### Motivations for policy gradients
-
-Stochastic policies
-
-High dimensional or continuous action spaces
-
-Optimize what we care about directly
-
-Stability
-
----
 ### Motivation - stochastic policies
 
 ![fig](assets/images/section_5/rock_paper.png)
 
 A determinstic policy (i.e. always rock) is eaisly exploited
 
-A stochastic policy also gets us exploration built into the policy, that can be learned and controlled by the agent
+A stochastic policy also gets us exploration built into the policy
+- exploration can be controlled by the agent
 
 ---
 ### Motivation - high dimensional action spaces
@@ -2057,33 +2047,37 @@ Lets imagine controlling a robot arm in three dimensions in the range [0, 90] de
 
 This corresponds to approx. 750,000 actions a Q-Learner would need to argmax across
 
+We also lose shape of the action space by discretization
 
----?image=assets/images/section5/disc_cont_act.png&size=auto 80%
+---
+
+![fig](assets/images/section5/disc_cont_act.png)
+
+---
 
 ### Motivation - optimize return directly
 
 When learning value functions our optimizer is working towards improving the predictive accuracy of the value function
-
-i.e. our gradients point in the direction of predicting return
+- our gradients point in the direction of predicting return
 
 This isn't what we really care about - we care about maximizing return
 
----
-### Motivation - optimize return directly
-
 Policy methods optimize return directly
+- changing weights according to the gradient that maximizes future reward
+- aligning gradients with our objective (and hopefully a business objective)
+---
 
-Changing weights according to the gradient that maximizes future reward
-
-Aligning gradients with our objective (and hopefully a business objective)
+### Motivation - simplicity
 
 Can be easier to just select an action – rather than quantify return
 
----?image=assets/images/section5/motivation_simple.png&size=auto 80%
+---
 
-## five - policy gradients & Actor-Critic
-### motivations for policy gradients
-### introduction 
+![fig](assets/images/section5/motivation_simple.png)
+
+## five 
+### motivations 
+### **introduction** 
 ### the score function
 ### REINFORCE
 ### Actor-Critic
@@ -2108,7 +2102,7 @@ The type of policy you parameterize depends on the **action space**
 We have a parameterized policy
 - i.e. a neural network that outputs a distribution over actions
 
-How do we improve it? (i.e. how do we learn?) 
+How do we improve it - how do we learn?
 - change parameters to take actions that get more reward
 - change parameters to favour probable actions
 
@@ -2127,7 +2121,7 @@ How do we improve it?
 Reward function is not known
 - but we can calculate the *gradient of the expectation of reward*
 
-$$\nabla_{\theta} \E[G_t] = \E[\nabla_{\theta} \log \pi(a|s) \cdot G_t]$$
+$$\nabla\_{\theta} \E[G\_t] = \E[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
 Where does this strange equation come from?
 

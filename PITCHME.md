@@ -2002,10 +2002,8 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 TODO RAINBOW
 
 ---
-
----
 ## five <a id="section-five"></a>
-### motivations for policy gradients
+### **motivations for policy gradients**
 ### introduction 
 ### the score function
 ### REINFORCE
@@ -2017,7 +2015,9 @@ TODO RAINBOW
 ---
 ### Policy gradients
 
-Previously we looked at generating a policy from a value function (i.e. $\argmax$ across the action space)
+Previously we looked at generating a policy from a value function 
+
+$$ \underset{a}{argmax} Q(s,a) $$
 
 In policy gradients we **parameterize a policy directly**
 

@@ -338,6 +338,19 @@ This is because a larger batch size gives a more accurate estimation of the grad
 *https://miguel-data-sc.github.io/2017-11-05-first/*
 
 ---
+### Batch size
+
+Observed in practice that larger batch sizes lead to a decrease in generalization performance 
+
+Lack of generalization is due to large batches converging to *sharp minimizers* 
+- areas with large positive eigenvalues $ \nabla^{2} f(x) $
+- Hessian matrix (matrix of second derivatives) where all eigenvalues positive = positive definite = local minima
+
+Batch size is a **hyperparameter that should be tuned**
+
+*https://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network*
+
+---
 ### Scaling aka pre-processing
 
 Neural networks don't like numbers on different scales  
@@ -732,11 +745,16 @@ An agent always has a policy - even if it's a bad one
 ---
 ### The reward hypothesis
 
-Maximising return is making an assumption about the nature of our goals
+Maximising expected return is making an assumption about the nature of our goals
 
 We are assuming that *goals can be described by the maximization of expected cumulative reward*
 
 Do you agree with this?
+- happiness
+- status
+- reputation
+
+Think about the role of emotion in human decision making.  Is there a place for this in RL?
 
 ---
 ### Policy $\pi(s)$
@@ -2057,6 +2075,8 @@ We also lose shape of the action space by discretization
 
 ### Motivation - optimize return directly
 
+Value function methods have a mismattch between the loss function (which measures vlaue function consistency) versus the loss of expected return
+
 When learning value functions our optimizer is working towards improving the predictive accuracy of the value function
 - our gradients point in the direction of predicting return
 
@@ -2069,7 +2089,25 @@ Policy methods optimize return directly
 
 ### Motivation - simplicity
 
+Policy gradients are more general and versatile
+
+More compataible with recurrent neural networks
+
 Can be easier to just select an action – rather than quantify return
+
+---
+### Policy gradients versus value functions
+
+**Policy gradients**
+- optimize return directly
+- work in continuous and discrete action spaces
+- works better in high-dimensional action spaces
+
+**Value functions**
+- optimize value function accuracy
+- off policy learning
+- exploration
+- better sample efficiency
 
 ---
 
@@ -2646,6 +2684,9 @@ Not setting `next_observation = observation`
 
 Not setting online & target network variables the same at the start of an experiment
 
+Gradient clipping
+- clip the norm of the gradient (I've seen between 1 - 5)
+
 ---
 ### Mistakes DSR students have made in RL projects
 
@@ -2753,6 +2794,87 @@ Multiple random seeds
 Automate experiments - don't waste time watching them run!
 
 Spend time looking at open source RL packages
+
+---
+
+![fig](assets/images/section_7/amid_fish.png)
+
+*http://amid.fish/reproducing-deep-rl*
+
+---
+### Matthew Rahtz of Amid Fish
+
+Reinforcement learning is really sensitive...  it can be difficult to diagnose where you’ve gone wrong.
+
+> It’s not like my experience of programming in general so far where you get stuck but there’s usually a clear trail to follow and you can get unstuck within a couple of days at most. 
+
+> It’s more like when you’re trying to solve a puzzle, there are no clear inroads into the problem, and the only way to proceed is to try things until you find the key piece of evidence or get the key spark that lets you figure it out.
+
+Try and be as sensitive as possible in noticing confusion.
+
+---
+### Matthew Rahtz
+
+Debugging in four steps
+1. evidence about what the problem might be
+2. form hypothesis about what the problem might be (evidence based)
+3. choose most likely hypothesis, fix
+4. repeat until problem goes away
+
+Most programming involves rapid feedback 
+- you can see the effects of changes very quickly
+- gathering evidence can be cheaper than forming hypotheses
+
+In RL (and supervised learning with long run times) gathering evidence is expensive
+- suggests spending more time on the hypothesis stage
+- switch from **experimenting a lot and thinking little** to **experimenting a little and thinking a lot**
+- reserve experiments for after you've really fleshed out the hypotehsis space
+
+---
+### Get more out of runs
+
+Reccomends keeping a detailed work log
+- what output am I working on now
+- think out loud - what are the hypotheses, what to do next
+- record of current runs with reminder about what each run is susposed to answer
+- results of runs (i.e. TensorBoard)
+
+Log all the mtrics you can
+- policy entropy for policy gradient methods
+
+![fig](assets/images/section_7/policy_entropy.png)
+
+Try to predict future failures
+- how suprised would I be if this run failed
+- if not very suprised - try to fix whatever comes to mind
+
+---
+### Matthew Rahtz of Amid Fish
+
+RL specific
+- test your environment using a baseline algorithm
+- normalize observations
+- end to end tests of training
+- gym envs: -v0 environments mean 25% of the time action is ignored and previous action is repeated.  Use -v4 to get rid of the randomness
+
+General ML
+- for weight sharing, be careful with both dropout and batchnorm
+- spikes in memory usages suggest validation batch size is too big
+- if you are struggling with the Adam optimizer, try an optimizer without momentum (i.e. RMSprop)
+
+TensorFlow
+- `sess.run()` can have a large overhead.  Try to group session calls
+- use the `allow_growth` option to avoid TF reserving memory it doesn't need
+- don't get addicted to TensorBoard - let your expts run!
+
+---
+
+![fig](assets/images/section_7/timeline.png)
+
+---
+
+![fig](assets/images/section_7/fail_expts.png)
+
 
 ---
 ### Cool open source RL projects

@@ -2015,11 +2015,42 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Rainbow
+### **Rainbow**
 
 ---
 
-TODO RAINBOW
+![fig](assets/images/section_4/rainbow_lit.png)
+
+---
+
+### Rainbow
+
+Combines improvements to DQN
+
+These improvements all address different issues  
+
+- DDQN - overestimation bias
+- prioritized experience replay - sample efficiency
+- dueling - generalize across actions
+- multi-step bootstrap targets - bias variance tradeoff
+- distributional Q-learning - learn categorical distribution of $Q(s,a)$
+- noisy DQN - stochastic layers for exploration
+
+---
+
+![fig](assets/images/section_4/rainbow_fig1.png)
+
+---
+
+![fig](assets/images/section_4/rainbow_expt.png)
+
+---
+
+![fig](assets/images/section_4/rainbow_hyper.png)
+
+---
+
+![fig](assets/images/section_4/rainbow_results.png)
 
 ---
 ## five <a id="section-five"></a>
@@ -2938,10 +2969,6 @@ The expected value of 7.5 minutes will never occur in reality!
 ![fig](assets/images/section_8/lit_aux.png)
 
 *https://www.youtube.com/watch?v=mckulxKWyoc*
-
----
-
-### TODO MORE ON THIS 
 
 ---
 

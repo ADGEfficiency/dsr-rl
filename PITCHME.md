@@ -1,4 +1,5 @@
 ---
+
 ## a glance at reinforcement learning
 
 ### Adam Green
@@ -399,7 +400,7 @@ Vanilla batch norm. struggles with small or non-iid batches - the mean/variance/
 
 Vanilla batch norm. uses two different methods for normalization for training & testing
 
-Batch renormalization attempts to fix this by using a single algorithm for both training & testing
+Batch renormalization attempts to fix this by using a single algorithm for both training & testing
 
 ---
 ## two <a id="section-two"></a>
@@ -861,6 +862,7 @@ If our discount rate is $[0,1)$ then we can make the sum of an infinite series f
 Can use discount = 1 for
 - games with tree-like structures (without cycles)
 - when time to solve is irrelevant (i.e. a board game)
+
 ---
 ## three <a id="section-three"></a> 
 ### value functions 
@@ -2396,6 +2398,7 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 
 
 ### break
+
 ---
 ## six <a id="section-six"></a>
 ### AlphaGo
@@ -2403,14 +2406,13 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 ### Residual networks
 
 ---
-### AlphaGo
 
 ![fig](assets/images/section_6/AG_lit.png)
 
 ---
 ### AlphaGo Trailer
 
-TODO
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8tq1C8spV_g?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
 ### IBM Deep Blue
@@ -2634,15 +2636,16 @@ And can get $ H(x) = F(x) + x $
 ---
 ### DeepMind AlphaGo AMA
 
-![fig](assets/images/section_6/reddit_AMA.png)
+![fig](assets/images/section_6/Reddit_AMA.png)
 
 ---
 ### DeepMind AlphaGo AMA
 
-![fig](assets/images/section_6/reddit_AMA_posts.png)
+![fig](assets/images/section_6/Reddit_AMA_posts.png)
 
 ---
 ### break
+
 ---
 ## seven <a id="section-seven"></a>
 ### practical concerns
@@ -2660,10 +2663,13 @@ What is the reward
 It is a complex problem
 - classical optimization techniques such as linear programming or cross entropy may offer a simpler solution
 
+Can I sample efficiently / cheaply
+- do you have a simulator
+
 ---
 ### Preprocessing
 
-As with supervised learning, scaling/processing of inputs and targets for neural networks is key to keep gradients under control
+Scaling/processing of inputs and targets for neural networks is key to keep gradients under control
 
 In reinforcement learning we often don't know the true min/max/mean/standard deviation of observations/actions/rewards/returns
 
@@ -2743,9 +2749,6 @@ Rescale rewards - but don’t shift mean
 
 Standardize prediction targets (i.e. value functions) the same way
 
----
-### John Schulman advice
-
 Batch size matters
 
 Policy gradient methods – weight initialization matters
@@ -2773,6 +2776,9 @@ Be careful not to overfit these simple problems
 Rescale environment observations if they have known mins & maxs
 
 Rescale/clip reward if very large
+
+---
+### Gary Wang advice
 
 Compute useful statistics 
 - explained variance (for seeing if your value functions are overfitting), 
@@ -2887,21 +2893,22 @@ TensorFlow
 
 [Tensorforce](https://github.com/reinforceio/tensorforce) - reinforce.io
 
-There are so many more!
 ---
 ## eight <a id="section-eight"></a>
 ### beyond the expectation
+### auxillary loss functions 
+### inverse reinforcement learning 
 
 ---
 
-![fig](assets/images/section_7/lit_dist.png)
+![fig](assets/images/section_8/lit_dist.png)
 
 ---
 ### Beyond the expectation
 
 All the reinforcement learning today we have seen is about the expectation (mean expected return)
 
-$$Q(s,a) = \mathfb{E}[G_t] = \mathfb{E}[r + \gamma Q(s',a)] $$
+$$Q(s,a) = \mathbf{E}[G_t] = \mathbf{E}[r + \gamma Q(s',a)] $$
 
 In 2017 DeepMind introduced the idea of the value distribution
 
@@ -2910,25 +2917,25 @@ State of the art results on Atari
 ---
 ### Beyond the expectation
 
-![fig](assets/images/section_7/beyond_ex.png)
+![fig](assets/images/section_8/beyond_ex.png)
 
 The expected value of 7.5 minutes will never occur in reality!
 
 ---
 
-![fig](assets/images/section_7/value_dist.png)
+![fig](assets/images/section_8/value_dist.png)
 
 *Bellamare et. al 2017*
 
 ---
 
-![fig](assets/images/section_7/value_dist_results.png)
+![fig](assets/images/section_8/value_dist_results.png)
 
 *Bellamare et. al 2017*
 
 ---
 
-![fig](assets/images/section_7/lit_aux.png)
+![fig](assets/images/section_8/lit_aux.png)
 
 *https://www.youtube.com/watch?v=mckulxKWyoc*
 
@@ -2938,32 +2945,36 @@ The expected value of 7.5 minutes will never occur in reality!
 
 ---
 
-![fig](assets/images/section_7/aux_results.png)
+![fig](assets/images/section_8/aux_results.png)
 
 ---
 
-![fig](assets/images/section_7/inverse_rl_lit.png)
+![fig](assets/images/section_8/inverse_rl_lit.png)
 
 ---
 
-![fig](assets/images/section_7/inverse_1.png)
+![fig](assets/images/section_8/inverse_1.png)
 
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 
 ---
 
-![fig](assets/images/section_7/inverse_2.png)
+![fig](assets/images/section_8/inverse_2.png)
 
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 
 ---
 
+## Closing thoughts
 
+Exploration versus exploitation
 
+Test your models on simple problems
 
+Reinforcement learning is sample inefficient
+- you need simulation to learn
 
-
-## thank you
+## Thank you
 
 Adam Green
 

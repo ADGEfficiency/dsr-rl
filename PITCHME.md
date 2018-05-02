@@ -888,7 +888,7 @@ Can use discount = 1 for
 
 <center>$V_\pi(s)$</center>
 
-**how good is this state**
+<center>how good is this state</center>
 
 <br> </br>
 
@@ -896,7 +896,7 @@ Can use discount = 1 for
 
 <center>$Q_\pi(s,a)$</center>
 
-**how good is this action**
+<center>how good is this action</center>
 
 ---
 ### Value function

@@ -890,6 +890,8 @@ Can use discount = 1 for
 
 **how good is this state**
 
+<br> </br>
+
 ### Action-value function
 
 <center>$Q_\pi(s,a)$</center>

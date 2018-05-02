@@ -1395,11 +1395,11 @@ Why is SARSA on-policy?
 ---
 ### SARSA
 
-SARSA is on-policy because we are forced to learn about the action $a'$ that our agent choose to take 
+SARSA is on-policy because we learn about the action $a'$ that our agent choose to take 
 
-Our value function is always for the policy we are following.  How then do we improve the policy?
+Our value function is always for the policy we are following 
 
-We improve using general policy iteration (GPI) 
+But we can improve it using general policy iteration (GPI) 
 - approximate $Q(s,a)$ for our current policy
 - act greedily towards this approximation of $Q(s,a)$
 - approximate $Q(s,a)$ for our new experience
@@ -1499,7 +1499,8 @@ Now our policy is completely different!
 ### Deadly triad
 
 Sutton & Barto discuss the concept of the **deadly triad** 
-- three mechanisms that combine to produce instability and divergence
+
+Three mechanisms that combine to produce instability and divergence
 
 1. off-policy learning - to learn about the optimal policy while following an exploratory policy
 
@@ -1510,7 +1511,7 @@ Sutton & Barto discuss the concept of the **deadly triad**
 ---
 ### Deadly triad
 
-It's not clear which of the three cause instability
+It's not clear what causes instability
 - dynamic programming can diverge with function approximation (so even on-policy learing can diverge)
 - prediction can diverge
 - linear functions can be unstable
@@ -1518,6 +1519,8 @@ It's not clear which of the three cause instability
 Divergence is an emergent phenomenon
 
 Up until 2013 the deadly traid caused instability when using Q-Learning with complex function approximators (i.e. neural networks)
+
+Then came DeepMind & DQN
 
 ---
 ## three
@@ -1530,10 +1533,12 @@ Up until 2013 the deadly traid caused instability when using Q-Learning with com
 
 ### DQN
 
-This section covers two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
+Two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
 
 - prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
+
 - attempts to use complex, non-linear function approximators (i.e. neural networks) all failed 
+
 - learning was unstable and would often diverge
 
 ---

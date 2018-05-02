@@ -884,7 +884,6 @@ Can use discount = 1 for
 ![fig](assets/images/section_3/summary_value.png)
 
 ---
-
 ### Value function
 
 <center>$V_\pi(s)$</center>
@@ -898,15 +897,14 @@ Can use discount = 1 for
 **how good is this action**
 
 ---
-### Value functions
 
-**Value function**
+### Value function
 
 $ V_{\pi}(s) = \mathbf{E}[G_t | s_t] $ 
 
 Expected return when in state $s$, following policy $\pi$
 
-**Action-value function**
+### Action-value function
 
 $ Q_{\pi}(s,a) = \mathbf{E}[G_t | s_t, a_t] $ 
 

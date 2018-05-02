@@ -1,4 +1,3 @@
----
 
 ## a glance at reinforcement learning
 
@@ -8,7 +7,9 @@
 ---
 ### Course Materials
 
-[All course materials are in the GitHub repo dsr_rl](https://github.com/ADGEfficiency/dsr_rl)
+All course materials are in the GitHub repo dsr_rl
+
+https://github.com/ADGEfficiency/dsr_rl
 
 - lecture notes hosted on GitPages
 - useful machine learning & reinforcement learning literature
@@ -76,6 +77,8 @@ Experience with running reinforcement learning experiments
 
 Guidance on reinforcement learning project ideas
 
+Developing the skills of understanding already built projects
+
 ---
 ### Goals for today and tomorrow
 To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
@@ -83,14 +86,17 @@ To really learn RL, you will need to dedicate significiant amount of time (same 
 These slides are designed as both a **future reference** and slides for today
 
 ---
-### Where to start
+### Where to go next 
 
-- [Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in
+Textbook
+[Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in
   progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
 
-- [David Silver's 10 lecture series on YouTube](https://www.youtube.com/watch?v=2pWv7GOvuf0)
+Video lectures
+[David Silver's 10 lecture series on YouTube](https://www.youtube.com/watch?v=2pWv7GOvuf0)
 
-- [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
+Literature review
+[Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
 
 ---
 ## one <a id="section-one"></a>
@@ -100,7 +106,7 @@ These slides are designed as both a **future reference** and slides for today
 
 ### Nomenclature
 
-Nomenclature in RL can be somewhat inconsistent - often quite different for value function methods versus policy gradient methods
+Nomenclature in RL can be inconsistent - often quite different for value function methods versus policy gradient methods
 
 Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
 
@@ -117,8 +123,8 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ a \sim \pi(s) $  | sampling action from a stochastic policy |
 |$ a = \pi(s)$ | determinstic policy |
 |$ \pi^\star $ | optimal policy |
-|$ V_t\pi (s)$| value function |
-|$ Q_t\pi (s,a)$| value function |
+|$ V_\{pi} (s)$| value function |
+|$ Q_\{pi} (s,a)$| value function |
 |$ \theta , \omega $ | function parameters (i.e. weights) |
 |$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 

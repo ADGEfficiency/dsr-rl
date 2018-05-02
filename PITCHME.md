@@ -881,7 +881,7 @@ Can use discount = 1 for
 ### DQN
 ---
 
-![fig](assets/section_3/summary_value.png)
+![fig](assets/images/section_3/summary_value.png)
 
 ---
 

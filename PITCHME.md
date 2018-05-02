@@ -927,11 +927,14 @@ But we don’t know this function
 ---
 ### Generating the optimal policy from the optimal value function
 
-Imagine we were given the optimal value function $Q_*(s,a)$
+Imagine we were 
+- given the optimal value function $Q_*(s,a)$
 
-We are in state $s$, and our set of actions $\mathcal{A} = \{a_1, a_2, a_3\}$
+- we are in state $s$
 
-We can use our optimal value function to calculate the optimal expected discounted return for each action
+- our set of actions $\mathcal{A} = \{a_1, a_2, a_3\}$
+
+We can use the value function to determine which action has the highest expected return
 
 We then select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{\arg\max} Q(s,a)$
 
@@ -960,7 +963,7 @@ These are two distinct steps
 
 1 - improving the predictive power of our value function
 
-2 - improving the policy - i.e. improving the actions that we take based on our value function
+2 - improving the policy 
 
 ---
 ### Policy & value iteration
@@ -969,12 +972,12 @@ $$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
 
 These two steps are done sequentially in a process known as **policy iteration**
 - approximate our policy (i.e. $V_{\pi}(s)$)
-- improve our policy by being greedy
-- approximate our new better policy
+- act greedy wrt value function 
+- approximate our (better) policy
 - act greedy 
+- etc etc
 
-A similar by slightly different process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the u*pdate
-
+A similar by slightly different process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the update
 
 ---
 ### Generalized policy iteration
@@ -984,16 +987,9 @@ Policy iteration = sequence of approximating value function then making policy g
 
 Value iteration = single iteration of policy evaluation done inbetween each policy improvement
 
-Both of these can achieve the same result - stabilizing when a policy has been found that is greedy wrt it's own value function
+Both of these can achieve the same result 
 
-GPI = value function approximates the policy, then we improve the policy wrt this improved value function, which improves the policy
-
-Idea is that the approximate policy and value functions interact in a way that both move towards their optimal values - this is one souce of non-stationary learning in RL
-
----
-### Generalized policy iteration
-
-![fig](assets/images/section_3/GPI.png)
+The policy and value functions interact to move both towards their optimal values - this is one souce of non-stationary learning in RL
 
 ---
 ### Value function approximation
@@ -1014,9 +1010,6 @@ Modern reinforcement learning is based on using neural networks
 
 Invented dynamic programming in 1953 
 
----
-### Richard Bellman
-
 *[On the naming of dynamic programminging](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
 > I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying...
 
@@ -1030,8 +1023,7 @@ Bellman's contribution is remembered by the Bellman Equation
 
 $$ G\_{\pi}(s) = r + \gamma G\_{\pi}(s') $$
 
-The Bellman equation relates the expected discounted return of the current state to the discounted value of the next
-state
+The Bellman equation relates the expected discounted return of the **current state** to the discounted value of the **next state**
 
 The Bellman equation is a recursive definition - it is bootstrapped
 
@@ -1044,15 +1036,18 @@ $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 ---
 ### How does the Bellman Equation help us learn?
 
+The Bellman equation helps us to create **targets for learning**
+
 In supervised learning you train a neural network by minimizing the difference between the network output and the correct target for that sample
 
-In order to improve our approximation of a value function (i.e. a neural network) we need to create a target for each sample of experience
+In order to improve our approximation of a value function we need to **create a target** for each sample of experience
 
 We can then improve our approximation by minimizing a loss function
 
 $$ loss = target - approximation $$
 
 For an experience sample of $(s, a, r, s')$
+
 $$ loss = r + Q(s',a) - Q(s,a) $$
 
 This is also known as the **temporal difference error**
@@ -1067,6 +1062,7 @@ This is also known as the **temporal difference error**
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
+
 ---
 ### Approximation methods
 
@@ -1078,7 +1074,7 @@ We are going to look at three different methods for approximation
 
 Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
 
-What these methods are doing is **creating targets** to learn from
+We are **creating targets** to learn from
 
 ---
 ### Dynamic programming
@@ -1109,7 +1105,7 @@ $$V(s_4) = 0$$
 
 We can then express the value functions for the remaining two states
 
-$$V(s\_3) = P\_{34}[r\_{34} + \gamma V(s\_4)$$
+$$V(s\_3) = P\_{34}[r\_{34} + \gamma V(s\_4)]$$
 
 $$V(s\_3) = 1 \cdot [5 + 0.9 \cdot 0] = 5 $$
 
@@ -1125,7 +1121,12 @@ Our value function approximation depends on
 - the environment (where our actions take us and what rewards we get)
 - our current estimate of $V(s')$
 
-A dynamic programming update is expensive - our new estimate $V(s)$ depends on the value of all other states (even if the probability is zero)
+<br></br>
+
+A dynamic programming update is expensive 
+- our new estimate $V(s)$ depends on the value of all other states (even if the probability is zero)
+
+<br></br>
 
 Asynchronous dynamic programming addresses this by updating states in an arbitrary order
 

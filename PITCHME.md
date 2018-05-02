@@ -156,7 +156,7 @@ reward received from a state & action
 
 $$ R(r|s,a,s') $$  
 
-Sampling an action from a stochastic policy conditioned on being in state s
+Sampling an action from a stochastic policy conditioned on being in state $s$
 
 $$ a \sim \pi (s|a) $$
 
@@ -190,7 +190,7 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 - approximations or bootstrapping tend to introduce bias
 - biased away from an optimal agent / policy
 
----?image=assets/variance_bias.png&size=auto 90%
+![fig](assets/images/section_1/variance_bias.png)
 
 ---
 ### Bootstrapping

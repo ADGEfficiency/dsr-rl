@@ -897,12 +897,14 @@ Can use discount = 1 for
 **how good is this action**
 
 ---
-
 ### Value function
 
 $ V_{\pi}(s) = \mathbf{E}[G_t | s_t] $ 
 
 Expected return when in state $s$, following policy $\pi$
+
+
+
 
 ### Action-value function
 

@@ -1546,17 +1546,6 @@ This is for a company with
 - a few world class employees
 
 ---
-### DQN
-
-Two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
-
-- prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
-
-- attempts to use complex, non-linear function approximators (i.e. neural networks) all failed 
-
-- learning was unstable and would often diverge
-
----
 
 ![fig](assets/images/section_3/2013_atari.png)
 
@@ -1565,7 +1554,8 @@ Two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) 
 ---
 ### Significance
 
-**End to end deep reinforcement learning**
+End to end deep reinforcement learning
+- Q-Learning with neural networks was historically unstable
 
 Learning from high dimensional input 
 - raw pixels
@@ -1614,8 +1604,7 @@ Experience replay
 
 Target network
 
-Both of these aim to improve learning stability 
-- not to improve performance!
+Both of these aim to improve learning **stability**
 
 ---
 ### Experience replay
@@ -1626,14 +1615,13 @@ Both of these aim to improve learning stability
 ### Experience replay
 
 Experience replay helps to deal with our non-iid dataset 
-- training using experience as sampled means each sample is correlated with the one before
-- makes our sampling more independent
-- also makes the distribution of the samples in the batch more evenly distributed
+- randomizing the sampling of experience -> more independent
+- brings the batch distribution closer to the true distribution -> more identical 
 
 Data efficiency 
 - we can learn from experience multiple times
 
-Allows seeding of the memory with human expert experience
+Allows seeding of the memory with high quality experience
 
 ---
 ### Biological basis for experience replay
@@ -1656,7 +1644,8 @@ Parameterize two separate neural networks (identical structure) - two sets of we
 ![fig](assets/images/section_3/target_net.png)
 
 Original Atari work copied the online network weights to the target network every 10k - 100k steps
-- modern methods use a small factor tau ($\tau$) to smoothly update weights at each step
+
+Can also use a small factor tau ($\tau$) to smoothly update weights at each step
 
 ---
 ### Target network
@@ -1666,8 +1655,7 @@ Changing value of one action changes value of all actions & similar states
  
 Stable training 
 - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
-
-Reduces the correlation between the target used to train the network and the current network approximation 
+- reduces correlation between the target created for the network and the network itself 
 
 ---
 ### Stability techniques
@@ -1714,7 +1702,7 @@ We will cover these improvements and more powerful algorithms tomorrow
 ---
 ### Practical <a id="section-practical"></a>
 
-The practical we will do this afternoon is to play with a working DQN agent on the Open AI Cartpole environment.
+The practical we will do this afternoon is to play with a working DQN agent on the Open AI Cartpole environment
 
 The ideas behind this practical are
 - in industry you won't be handed a set of notebooks to shift-enter through
@@ -1730,7 +1718,8 @@ The ideas behind this practical are
 ---
 ###  CartPole
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/46wjA6dqxOM?rel=0&loop=1&autoplay=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/46wjA6dqxOM?rel=0&amp;showinfo=0" frameborder="0"
+allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 CartPole-v0 defines "solving" as getting average reward of 195.0 over 100 consecutive trials.
 

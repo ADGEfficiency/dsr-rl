@@ -293,11 +293,11 @@ In statistical learning one always assumes the training set is independently dra
 ---
 ### A few things about training neural networks
 
-**Learning rate
+**Learning rate**
 
-Batch size
+**Batch size**
 
-Scaling / preprocessing**
+**Scaling / preprocessing**
 
 Does anyone know what these are?
 
@@ -341,6 +341,8 @@ This is because a larger batch size gives a more accurate estimation of the grad
 
 ---
 ![lr_batch](assets/images/section_1/lr_batch.png)
+
+Larger batch size -> larger optimal learning rate
 
 *https://miguel-data-sc.github.io/2017-11-05-first/*
 
@@ -432,12 +434,12 @@ Batch renormalization attempts to fix this by using a single algorithm for both 
 
 More general optimization methods such as **cross entropy method** are often reccomended to be tried before you try RL
 
-Classicial decision making methods such as **linear programming** are also useful
+Classicial optimization such as **linear programming** 
 
 ---
 ###  Applications
 
-RL is all about **decision making**.
+RL is all about **decision making**
 
 ![fig](assets/images/section_2/applications_silver.png)
 
@@ -452,7 +454,6 @@ Sutton & Barto - Reinforcment Learning: An Introduction
 Mnih et. al (2015) Human-level control through deep reinforcement learning
 >Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
 
----
 ### Habit formation
 
 Cue -> Routine -> Reward
@@ -467,6 +468,7 @@ NOT an alternative method to use instead of a random forest, neural network etc
 “I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**
 
 Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
+- in the same way that a classifier learns the function of image -> cat
 
 ---
 ###  Deep reinforcement learning
@@ -520,7 +522,7 @@ $$experience,$$
 $$...$$
 $$experience]$$
 
-$$[(s_0, a_0, r_1, s_1), $$ 
+$$[(s\_{0}, a_0, r_1, s_1), $$ 
 $$(s_1, a_1, r_2, s_2), $$
 $$...$$
 $$(s_n, a_n, r_n, s_n)] $$

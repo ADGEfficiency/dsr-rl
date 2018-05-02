@@ -714,12 +714,12 @@ State is a flexible concept - it's a n-d array
 ``` python
 state = np.array([temperature, pressure])
 
-state = np.array(pixels).reshape(height, width, channels)
+state = np.array(pixels).reshape(height, 
+                                 width)
 ```
 
 Possible to concactenate sequential samples together to give some idea of the recent trajectory
 
----
 ### State versus observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
@@ -744,7 +744,6 @@ Sparse
 A well defined reward signal is often a limit for applications of RL 
 - i.e. autonomous driving - whats the reward?
 
----
 ### Agent
 
 Our agent is the **learner and decision maker**
@@ -823,7 +822,7 @@ Predicts environment response to actions
 ```python
 def model(state, action):
 
-# do stuff
+    # do stuff
 
     return next_state, reward
 ```

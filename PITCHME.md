@@ -907,7 +907,6 @@ Expected return when in state $s$, following policy $\pi$
 <br> </br>
 <br> </br>
 
-
 ### Action-value function
 
 $ Q_{\pi}(s,a) = \mathbf{E}[G_t | s_t, a_t] $ 

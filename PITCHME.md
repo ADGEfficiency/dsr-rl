@@ -937,6 +937,8 @@ We then select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{
 
 This is known as a *greedy policy*
 
+![fig](assets/images/section_3/gen_policy.png)
+
 ---
 ### Generating the optimal policy from the optimal value function
 
@@ -971,7 +973,7 @@ These two steps are done sequentially in a process known as **policy iteration**
 - approximate our new better policy
 - act greedy 
 
-A similar by slightly different process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the update
+A similar by slightly different process is **value iteration**, where we combine the policy approximation and improvement steps by using a maximization over all possible next states in the u*pdate
 
 
 ---

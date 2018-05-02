@@ -1529,17 +1529,6 @@ Then came DeepMind & DQN
 ### approximation methods
 ### SARSA & Q-Learning
 ### **DQN**
----
-
-### DQN
-
-Two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
-
-- prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
-
-- attempts to use complex, non-linear function approximators (i.e. neural networks) all failed 
-
-- learning was unstable and would often diverge
 
 ---
 ### DQN
@@ -1551,10 +1540,21 @@ In 2013 a small London startup published a paper
 In 2014 Google purchased DeepMind for around £400M
 
 This is for a company with 
-- **no product
+- no product
 - no revenue
 - no customers 
-- a few world class employees**
+- a few world class employees
+
+---
+### DQN
+
+Two papers that introduced (2013) and developed (2015) the Deep Q-Network (DQN) algorithm
+
+- prior to 2013, Q-Learning was only stable in MDPs with lookup tables or linear function approximators
+
+- attempts to use complex, non-linear function approximators (i.e. neural networks) all failed 
+
+- learning was unstable and would often diverge
 
 ---
 

@@ -903,7 +903,7 @@ Can use discount = 1 for
 
 <center>$ V_{\pi}(s) = \mathbf{E}[G_t | s_t] $ </center>
 
-Expected return when in state $s$, following policy $\pi$
+<center>Expected return when in state $s$, following policy $\pi$</center>
 
 <br> </br>
 
@@ -911,7 +911,7 @@ Expected return when in state $s$, following policy $\pi$
 
 <center> $ Q_{\pi}(s,a) = \mathbf{E}[G_t | s_t, a_t] $ </center>
 
-Expected return when in state $s$, taking action $a$, following policy $\pi$
+<center>Expected return when in state $s$, taking action $a$, following policy $\pi$</center>
 
 ---
 ### Value functions are oracles

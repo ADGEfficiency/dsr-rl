@@ -1151,7 +1151,6 @@ Limited utility in practice but they provide an **essential foundation** for und
 
 Monte Carlo methods = finding the expected value of a function of a random variable
 
----
 ### Monte Carlo in RL
 
 **No model** 

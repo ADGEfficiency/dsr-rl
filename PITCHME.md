@@ -564,13 +564,13 @@ Design of reward signal vs. exploration required
 ---
 ### Data quality
 
-Remember our two assumptions in iid - independent sampling & identical distribution.  
+Remember our two assumptions in iid - independent sampling & identical distribution
 
-RL breaks both in multiple ways:
+RL breaks both in multiple ways
 
 **Independent sampling**
 - all the samples collected on a given episode are correlated (along the state trajectory)
-- our agent will likely be following a policy that is biased
+- our agent will likely be following a policy that is biased (towards good states)
 
 **Identically distributed**
 - learning changes the data distribution
@@ -578,7 +578,7 @@ RL breaks both in multiple ways:
 - environment can be non-stationary
 
 ---
-## Reinforcement learning will always break supervised learning assumptions about data quality
+## Reinforcement learning will **always** break supervised learning assumptions about data quality
 
 ---
 ###  Credit assignment
@@ -627,7 +627,6 @@ Mathematical framework for the reinforcement learning problem
 
 The Markov property is often a requirement to gurantee convergence
 
----
 ### Markov property
 
 Future is conditional only on the present
@@ -665,6 +664,9 @@ Two objects - the agent and environment
 Three signals - state, action & reward
 
 ``` python
+
+class Agent
+
 class Agent
 
 class Environment

@@ -903,7 +903,9 @@ $ V_{\pi}(s) = \mathbf{E}[G_t | s_t] $
 
 Expected return when in state $s$, following policy $\pi$
 
-
+<br> </br>
+<br> </br>
+<br> </br>
 
 
 ### Action-value function

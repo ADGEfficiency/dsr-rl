@@ -766,6 +766,12 @@ Do you agree with this?
 
 Think about the role of emotion in human decision making.  Is there a place for this in RL?
 
+### The importance of reward engineering
+
+![fig](assets/images/section_2/reward_eng.png)
+
+[Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf)
+
 ---
 ### Policy $\pi(s)$
 
@@ -1175,7 +1181,6 @@ As we run more episodes, our estimate should converge to the true expectation
 
 Low bias & high variance - why?
 
----
 ### Bias & variance of Monte Carlo
 
 High variance
@@ -1248,7 +1253,7 @@ $$error = r + \gamma V(s') - V(s) $$
 
 Update rule for a table TD(0) approximation
 
-![fig](assets/images/section_4/td_1.png)
+![fig](assets/images/section_3/td_1.png)
 
 ---
 ### Temporal difference backup
@@ -1364,6 +1369,7 @@ Which action should we take?
 Now imagine I gave you
 
 $$Q(s\_{2}, a\_1) = 40$$
+
 $$Q(s\_{2}, a\_2) = 20$$
 
 It's now easy to pick the action that maximizes expected discounted return
@@ -3012,6 +3018,10 @@ Test your models on simple problems
 
 Reinforcement learning is sample inefficient
 - you need simulation to learn
+
+Deep RL is hard
+
+Reward engineering is key
 
 ## Thank you
 

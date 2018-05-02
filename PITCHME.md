@@ -137,11 +137,11 @@ Weighted average of all possible values - i.e. the mean
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
-The important thing about expectations is that they **allow us to approximate by sampling**
+Expectations **allow us to approximate by sampling**
 
-i.e. if we want to approximate the average time it takes us to get to work 
+- i.e. if we want to approximate the average time it takes us to get to work 
 
-we can measure how long it takes us for a week and get an approximation by averaging each of those days
+- we can measure how long it takes us for a week and get an approximation by averaging each of those days
 
 ---
 ### Conditionals

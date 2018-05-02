@@ -123,8 +123,8 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ a \sim \pi(s) $  | sampling action from a stochastic policy |
 |$ a = \pi(s)$ | determinstic policy |
 |$ \pi^\star $ | optimal policy |
-|$ V_\{pi} (s)$| value function |
-|$ Q_\{pi} (s,a)$| value function |
+|$ V_\{\pi} (s)$| value function |
+|$ Q_\{\pi} (s,a)$| value function |
 |$ \theta , \omega $ | function parameters (i.e. weights) |
 |$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 

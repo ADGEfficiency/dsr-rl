@@ -1426,8 +1426,8 @@ We take into account the transition probabilities, which gives us the **certanit
 ### value functions
 ### Bellman Equation 
 ### approximation methods
-### SARSA & Q-Learning
-### <span style="color:#66ff66">DQN</span>
+### <span style="color:#66ff66">SARSA & Q-Learning</span>
+### DQN
 
 ---
 

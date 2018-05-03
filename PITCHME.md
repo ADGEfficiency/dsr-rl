@@ -1172,10 +1172,10 @@ $$ loss = r + Q(s',a) - Q(s,a) $$
 This is also known as the **temporal difference error**
 
 ---
-## three
-### introduction to value functions 
-### <span style="color:#66ff66">Bellman Equation</span>
-### approximation methods
+## three <a id="section-three"></a> 
+### value functions
+### Bellman Equation 
+### <span style="color:#66ff66">approximation methods</span>
 ### SARSA & Q-Learning
 ### DQN
 

@@ -1158,9 +1158,9 @@ $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 
 Create **targets for learning**
 
-In supervised learning you train a neural network by minimizing the difference between the network output and the correct target for that sample
+Train a neural network by minimizing the difference between the network output and the correct target
 
-In order to improve our approximation of a value function we need to **create a target** for each sample of experience
+To improve our approximation of a value function we need to create a targets for each sample of experience
 
 We can then improve our approximation by minimizing a loss function
 

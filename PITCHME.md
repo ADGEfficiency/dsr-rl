@@ -820,11 +820,11 @@ It's goal is to maximize total discounted reward
 An agent always has a policy - even if it's a bad one 
 
 ---
-### The reward hypothesis
+### Reward hypothesis
 
 Maximising expected return is making an assumption about the nature of our goals
 
-We are assuming that *goals can be described by the maximization of expected cumulative reward*
+*Goals can be described by the maximization of expected cumulative reward*
 
 Do you agree with this?
 - happiness

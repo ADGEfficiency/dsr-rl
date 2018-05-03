@@ -2957,9 +2957,7 @@ TensorFlow
 ![fig](assets/images/section_8/work_bender.jpg)
 
 ---
-### Sample inefficiency 
-
-Modern RL is **sample inefficient**
+### Modern RL is sample inefficient
 
 ![fig](assets/images/section_4/rainbow_fig1.png)
 

@@ -782,7 +782,7 @@ State is a flexible concept - it's a n-d array
 
 <br></br>
 
-### State versus observation
+### Observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
 
@@ -798,6 +798,16 @@ Observation can be made more Markov by
 - using function approximation with a memory element (LSTMs)
 
 ---
+### Agent
+
+Our agent is the **learner and decision maker**
+
+It's goal is to maximize total discounted reward
+
+An agent always has a policy - even if it's a bad one 
+
+<br></br>
+
 ### Reward
 
 Scalar
@@ -808,16 +818,6 @@ Sparse
 
 A well defined reward signal is often a limit for applications of RL 
 - autonomous driving - whats the reward?
-
-<br></br>
-
-### Agent
-
-Our agent is the **learner and decision maker**
-
-It's goal is to maximize total discounted reward
-
-An agent always has a policy - even if it's a bad one 
 
 ---
 ### Reward hypothesis

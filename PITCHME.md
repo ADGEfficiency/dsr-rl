@@ -440,7 +440,7 @@ We use the mean and variance of the batch to normalize activations
 
 [Batch normalization before or after relu - Reddit](http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/)
 
-[Ian Goodfellow Lecture - min 3:20 onward](http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl)
+[Ian Goodfellow Lecture (3:20 onward)](http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl)
 
 ---
 ### Batch renormalization

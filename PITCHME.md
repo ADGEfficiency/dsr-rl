@@ -1060,9 +1060,6 @@ $$ loss = r + Q(s',a) - Q(s,a) $$
 This is also known as the **temporal difference error**
 
 ---
-## break
-
----
 ## three
 ### introduction to value functions 
 ### Bellman Equation 
@@ -1700,6 +1697,7 @@ We will cover these improvements and more powerful algorithms tomorrow
 
 ---
 ## Lunch
+
 ---
 ### Practical <a id="section-practical"></a>
 
@@ -2029,14 +2027,57 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### **Rainbow**
+### Beyond the expectation
+### Rainbow
+---
+
+![fig](assets/images/section_8/lit_dist.png)
+
+---
+### Beyond the expectation
+
+All the reinforcement learning today we have seen is about the expectation (mean expected return)
+
+$$Q(s,a) = \mathbf{E}[G_t] = \mathbf{E}[r + \gamma Q(s',a)] $$
+
+In 2017 DeepMind introduced the idea of the value distribution
+
+State of the art results on Atari (at the time - Rainbow is currently SOTA)
+
+---
+### Beyond the expectation
+
+![fig](assets/images/section_8/beyond_ex.png)
+
+The expected value of 7.5 minutes will never occur in reality!
+
+---
+
+![fig](assets/images/section_8/value_dist.png)
+
+*Bellamare et. al 2017*
+
+---
+
+![fig](assets/images/section_8/value_dist_results.png)
+
+*Bellamare et. al 2017*
+
+---
 
 ---
 
 ![fig](assets/images/section_4/rainbow_lit.png)
 
 ---
+## four
+### eligibility traces
+### prioritized experience replay
+### DDQN
+### Beyond the expectation
+### Rainbow
 
+---
 ### Rainbow
 
 Combines improvements to DQN
@@ -2442,8 +2483,6 @@ The advantage tells us how much better an action is than the average action foll
 https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
 
 
-### break
-
 ---
 ## six <a id="section-six"></a>
 ### AlphaGo
@@ -2688,8 +2727,6 @@ And can get $ H(x) = F(x) + x $
 
 ![fig](assets/images/section_6/Reddit_AMA_posts.png)
 
----
-### break
 
 ---
 ## seven <a id="section-seven"></a>
@@ -2946,7 +2983,6 @@ TensorFlow
 ---
 ## eight <a id="section-eight"></a>
 ### Deep RL doesn't work yet
-### beyond the expectation
 ### auxillary loss functions 
 ### inverse reinforcement learning 
 
@@ -3014,10 +3050,11 @@ RL adds an additional dimension - random change
 ![fig](assets/images/section_8/work_karpathy.png)
 
 ---
+### Going forward & the future
 
 ![fig](assets/images/section_8/work_research.png)
 
-Properties to make learning eaiser
+Make learning eaiser
 - ability to generate near unbounded amounts of experience
 - problem is simplified into an eaiser form
 - you can introduce self-play into learning
@@ -3034,41 +3071,6 @@ Many things need to go right for RL to work - success stories are the exception,
 
 
 
----
-
-![fig](assets/images/section_8/lit_dist.png)
-
----
-### Beyond the expectation
-
-All the reinforcement learning today we have seen is about the expectation (mean expected return)
-
-$$Q(s,a) = \mathbf{E}[G_t] = \mathbf{E}[r + \gamma Q(s',a)] $$
-
-In 2017 DeepMind introduced the idea of the value distribution
-
-State of the art results on Atari
-
----
-### Beyond the expectation
-
-![fig](assets/images/section_8/beyond_ex.png)
-
-The expected value of 7.5 minutes will never occur in reality!
-
----
-
-![fig](assets/images/section_8/value_dist.png)
-
-*Bellamare et. al 2017*
-
----
-
-![fig](assets/images/section_8/value_dist_results.png)
-
-*Bellamare et. al 2017*
-
----
 
 ![fig](assets/images/section_8/lit_aux.png)
 

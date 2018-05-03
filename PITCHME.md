@@ -926,7 +926,7 @@ Return ($G_t$) is the total discounted future reward
 
 $$G\_t = r\_{t+1} + \gamma r\_{t+2} + \gamma^2 r\_{t+3} + ... = \sum\_{k=0}^{\infty} \gamma^k r\_{t+k+1}$$
 
-` return = reward + discount * reward + discount^2 * reward ...`
+` reward + discount * reward + discount^2 * reward ...`
 
 **Why do we discount future rewards?**
 

@@ -476,6 +476,26 @@ Classicial optimization such as **linear programming**
 ![fig](assets/images/section_2/sl_unsl_rl.png)
 
 ---
+###  Reinforcement learning is not
+
+NOT an alternative method to use instead of a random forest, neural network etc
+
+“I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**
+
+Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
+- classifier learns the function of image -> cat
+- regressor learns the function of market_data -> stock_price
+
+---
+###  Deep reinforcement learning
+
+**Deep learning** = neural networks with multiple layers
+
+**Deep reinforcement learning** = using multiple layer networks to approximate policies or value functions
+
+Feedforward, convolutional or recurrent neural networks are all used within different RL algorithms
+
+---
 ### Model free reinforcment learning
 
 ![fig](assets/images/section_2/summary.png)
@@ -483,7 +503,7 @@ Classicial optimization such as **linear programming**
 ---
 ###  Applications
 
-RL is all about **decision making**
+RL is **decision making**
 
 ![fig](assets/images/section_2/applications_silver.png)
 
@@ -504,24 +524,6 @@ Cue -> Routine -> Reward
 
 State -> Action -> Reward
 
----
-###  Reinforcement learning is not
-
-NOT an alternative method to use instead of a random forest, neural network etc
-
-“I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**
-
-Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
-- in the same way that a classifier learns the function of image -> cat
-
----
-###  Deep reinforcement learning
-
-**Deep learning** = neural networks with multiple layers
-
-**Deep reinforcement learning** = using multiple layer networks to approximate policies or value functions
-
-Feedforward, convolutional or recurrent neural networks are all used within different RL algorithms
 
 ---
 ###  A new level of intelligence

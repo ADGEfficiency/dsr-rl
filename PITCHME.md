@@ -780,6 +780,8 @@ State is a flexible concept - it's a n-d array
 
 `state = np.array(pixels).reshape(height, width)`
 
+<br></br>
+
 ### State versus observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
@@ -807,6 +809,8 @@ Sparse
 A well defined reward signal is often a limit for applications of RL 
 - autonomous driving - whats the reward?
 
+<br></br>
+
 ### Agent
 
 Our agent is the **learner and decision maker**
@@ -829,7 +833,7 @@ Do you agree with this?
 
 Think about the role of emotion in human decision making.  Is there a place for this in RL?
 
-### The importance of reward engineering
+### Reward engineering
 
 ![fig](assets/images/section_2/reward_eng.png)
 

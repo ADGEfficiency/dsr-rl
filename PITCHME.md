@@ -1093,11 +1093,13 @@ A similar by slightly different process is **value iteration**, where we combine
 
 ---
 ### Generalized policy iteration
-GPI = the general idea of letting policy evaluation and improvement processes interact  
+Letting policy evaluation and improvement processes interact  
 
-Policy iteration = sequence of approximating value function then making policy greedy wrt value function
+Policy iteration 
+- sequence of approximating value function then making policy greedy wrt value function
 
-Value iteration = single iteration of policy evaluation done inbetween each policy improvement
+Value iteration 
+- single iteration of policy evaluation done inbetween each policy improvement
 
 Both of these can achieve the same result 
 

@@ -320,22 +320,20 @@ High learning rate
 ---
 ### Learning rate
 
-Learning rate is the most important hyperparameter 
-- always intentionally set it
+Always intentionally set it
 
 ```python
 
-from keras.optimizers import RMSprop
 from keras.models import Sequential
 
-model = Sequential()
-
 #  don't do this!
-model.compile(optimizer='rmsprop')
+model.compile(optimizer='rmsprop', loss='mse')
 
 #  do this
+from keras.optimizers import RMSprop
+
 opt = RMSprop(lr=0.001)
-model.compile(optimizer=opt)
+model.compile(optimizer=opt, loss='mse')
 ```
 
 ---

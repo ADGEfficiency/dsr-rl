@@ -437,9 +437,9 @@ It also allows us to use higher learning rates
 
 Originally applied before the activation - but this is a topic of debate
 
-http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/
+[Batch normalization before or after relu - Reddit](http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/)
 
-http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl
+[Ian Goodfellow Lecture - min 3:20 onward](http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl)
 
 ---
 ### Batch renormalization

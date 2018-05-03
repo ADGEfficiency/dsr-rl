@@ -2853,6 +2853,18 @@ Spend time looking at open source RL packages
 *http://amid.fish/reproducing-deep-rl*
 
 ---
+
+![fig](assets/images/section_7/timeline.png)
+
+![fig](assets/images/section_7/costs.png)
+
+---
+
+> Reinforcement learning can be so unstable that you need to repeat every run multiple times with different seeds to be confident.
+
+![fig](assets/images/section_7/fail_expts.png)
+
+---
 ### Matthew Rahtz of Amid Fish
 
 Reinforcement learning is really sensitive...  it can be difficult to diagnose where you’ve gone wrong.
@@ -2862,7 +2874,6 @@ Reinforcement learning is really sensitive...  it can be difficult to diagnose w
 > It’s more like when you’re trying to solve a puzzle, there are no clear inroads into the problem, and the only way to proceed is to try things until you find the key piece of evidence or get the key spark that lets you figure it out.
 
 Try and be as sensitive as possible in noticing confusion.
-
 
 ---
 ### Matthew Rahtz
@@ -2918,18 +2929,6 @@ TensorFlow
 - `sess.run()` can have a large overhead.  Try to group session calls
 - use the `allow_growth` option to avoid TF reserving memory it doesn't need
 - don't get addicted to TensorBoard - let your expts run!
-
----
-
-![fig](assets/images/section_7/timeline.png)
-
----
-
-> Reinforcement learning can be so unstable that you need to repeat every run multiple times with different seeds to be confident.
-
-![fig](assets/images/section_7/fail_expts.png)
-
-![fig](assets/images/section_7/costs.png)
 
 ---
 ### Cool open source RL projects

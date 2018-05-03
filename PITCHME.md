@@ -1463,7 +1463,7 @@ Which action should we take?
 --- 
 ### $V(s)$ versus $Q(s,a)$ 
 
-Now imagine I gave you
+Now imagine we had
 
 $$Q(s\_{2}, a\_1) = 40$$
 
@@ -1570,7 +1570,7 @@ Bayesian Neural Network
 Parameter noise
 - adding adaptive noise to weights of network 
 
-[**Action-Selection Strategies for Exploration**](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
+[Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
 
 [Plappert et al. (2018) Paramter Space Noise for Exploration](https://arxiv.org/pdf/1706.01905.pdf)
 

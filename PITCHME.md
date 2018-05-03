@@ -978,14 +978,6 @@ Can use discount = 1 for
 ### SARSA & Q-Learning
 ### DQN
 ---
-## three <a id="section-three"></a> 
-### value functions
-### Bellman Equation 
-### approximation methods
-### SARSA & Q-Learning
-### DQN
-
----
 
 ![fig](assets/images/section_3/summary_value.png)
 
@@ -1349,7 +1341,7 @@ Episodic & non-episodic problems
 
 Use the Bellman Equation to approximate $V(s)$ using $V(s')$ 
 
-Key to TD methods is the **temporal difference error**
+**Temporal difference error**
 
 $$actual = r + \gamma V(s') $$
 $$predicted = V(s) $$
@@ -1430,12 +1422,13 @@ We take into account the transition probabilities, which gives us the **certanit
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 
 ---
-## three
-### introduction to value functions 
+## three <a id="section-three"></a> 
+### value functions
 ### Bellman Equation 
 ### approximation methods
-### **SARSA & Q-Learning**
-### DQN
+### SARSA & Q-Learning
+### <span style="color:#66ff66">DQN</span>
+
 ---
 
 ### SARSA & Q-Learning

@@ -1022,14 +1022,14 @@ Can use discount = 1 for
 ---
 ### Value functions are oracles
 
-Value functions are predictions of the future 
-- they are expectations
+Prediction of the future 
 - predict expected future discounted reward
 - always conditioned on a policy
 
-But we don’t know this function 
+We don’t know this function 
 - agent must learn it 
 - once we learn it – how will it help us to act?
+
 ---
 ### Generating the optimal policy from the optimal value function
 

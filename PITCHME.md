@@ -1033,7 +1033,6 @@ We don’t know this function
 ---
 ### Using a value function
 
-Imagine
 - given the optimal value function $Q_*(s,a)$
 
 - we are in state $s$
@@ -1048,10 +1047,11 @@ How can we act?
 
 This is known as a *greedy policy*
 
-![fig](assets/images/section_3/gen_policy.png)
 
 ---
 ### Generating the optimal policy from the optimal value function
+
+![fig](assets/images/section_3/gen_policy.png)
 
 ``` python
 def greedy_policy(state):

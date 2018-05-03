@@ -954,7 +954,7 @@ Can use discount = 1 for
 
 ---
 ## three <a id="section-three"></a> 
-<span style="color:green">### value functions</span>
+### <span style="color:green">value functions</span>
 ### Bellman Equation 
 ### approximation methods
 ### SARSA & Q-Learning
@@ -1135,7 +1135,7 @@ This is also known as the **temporal difference error**
 ---
 ## three
 ### introduction to value functions 
-<span style="color:green">### Bellman Equation</span>
+<span style="color:green"> Bellman Equation</span>
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN

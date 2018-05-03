@@ -2904,7 +2904,7 @@ Reccomends keeping a detailed work log
 - record of current runs with reminder about what each run is susposed to answer
 - results of runs (i.e. TensorBoard)
 
-Log all the mtrics you can
+Log all the metrics you can
 - policy entropy for policy gradient methods
 
 ![fig](assets/images/section_7/policy_entropy.png)
@@ -2923,7 +2923,7 @@ RL specific
 - gym envs: -v0 environments mean 25% of the time action is ignored and previous action is repeated.  Use -v4 to get rid of the randomness
 
 General ML
-- for weight sharing, be careful with both dropout and batchnorm
+- for weight sharing, be careful with both dropout and batchnorm - you need to match additional variables
 - spikes in memory usages suggest validation batch size is too big
 - if you are struggling with the Adam optimizer, try an optimizer without momentum (i.e. RMSprop)
 
@@ -2954,7 +2954,7 @@ TensorFlow
 
 ![fig](assets/images/section_8/work_intro.png)
 
-![fig](assets/images/section_8/work_bender.png)
+![fig](assets/images/section_8/work_bender.jpg)
 
 ---
 ### Sample inefficiency 

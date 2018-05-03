@@ -1625,12 +1625,12 @@ Up until 2013 the deadly traid caused instability when using Q-Learning with com
 Then came DeepMind & DQN
 
 ---
-## three
-### introduction to value functions 
+## three <a id="section-three"></a> 
+### value functions
 ### Bellman Equation 
 ### approximation methods
 ### SARSA & Q-Learning
-### **DQN**
+### <span style="color:#66ff66">DQN</span>
 
 ---
 ### DQN

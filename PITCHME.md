@@ -549,17 +549,24 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 ![fig](assets/images/section_2/rl_process.png)
 
 ---
-### Supervised learning versus reinforcement learning
+### Contrast with supervised learning 
 
-In supervised learning we are limited by our dataset
+In supervised learning we
+- are given a dataset with labels
+- we are constrained by the dataset
+- test on unseen data
 
-In reinforcement learning we can generate more data by acting
+In reinforcement learning we
+- are given no data and no labels
+- we can generate more data by acting
+- test using the same environment
 
 > Deep RL is popular because it’s the only area in ML where it’s socially acceptable to train on the test set
 
-Data = the agent's experience $(s,a,r,s')$
-
-It's not clear what we should do with this data - no implicit target
+Data 
+- the agent's experience $(s,a,r,s')$
+- it's not clear what we should do with this data 
+- no implicit target
 
 ---
 ### Reinforcement learning dataset

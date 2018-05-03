@@ -341,24 +341,38 @@ model.compile(optimizer=opt, loss='mse')
 
 Modern reinforcement learning trains neural networks using batches of samples
 
-1 epoch = 1 pass over all samples
+Below we have a dataset with four samples, of shape (14, 2)
 
-i.e. 128 samples, batch size=64
--> two forward & backward passes across net
+```
+>>> import numpy as np
+
+>>> data = np.arange(4*28).reshape(4, -1, 2)
+
+>>> data.shape
+(4, 14, 2)
+```
+
+The first dimension is the batch dimension - this is foundational in TensorFlow 
+
+```
+tf.placeholder(shape=(None, 14, 2)
+```
 
 ---
 ### Batch size
 
-Smaller batch sizes = less memory on GPU
+Smaller batch sizes 
+- less memory on GPU
 
 Batches train faster 
-- weights are updated more often for each epoch
+- weights are updated more often during each epoch
 
-The cost of using batches is a less accurate estimate of the gradient 
+Batches give a less accurate estimate of the gradient 
 - this noise can be useful to escape local minima
 
 Bigger batch size = larger learning rate
--  larger batch size gives a more accurate estimation of the gradient
+- larger batch size gives a more accurate estimation of the gradient
+- so we can take larger steps
 
 ---
 ![lr_batch](assets/images/section_1/lr_batch.png)

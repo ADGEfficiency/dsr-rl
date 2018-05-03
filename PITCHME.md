@@ -356,11 +356,13 @@ The first dimension is the batch dimension - this is foundational in TensorFlow
 
 `tf.placeholder(shape=(None, 14, 2))`
 
+Passing in `None` allows us to use whatever batch size we want 
+
 ---
 ### Batch size
 
-Smaller batch sizes 
-- less memory on GPU
+Smaller batches can fit onto smaller GPUs
+- if a large sample dimension we can use less samples per batch
 
 Batches train faster 
 - weights are updated more often during each epoch
@@ -368,9 +370,9 @@ Batches train faster
 Batches give a less accurate estimate of the gradient 
 - this noise can be useful to escape local minima
 
-Bigger batch size = larger learning rate
-- larger batch size gives a more accurate estimation of the gradient
-- so we can take larger steps
+Larger batch size -> larger learning rate
+- more accurate estimation of the gradient (better data distribution across batch)
+- we can take larger steps
 
 ---
 ![lr_batch](assets/images/section_1/lr_batch.png)
@@ -382,9 +384,9 @@ Larger batch size -> larger optimal learning rate
 ---
 ### Batch size
 
-Observed in practice that larger batch sizes lead to a decrease in generalization performance 
+Observed that larger batch sizes decrease generalization performance 
 
-Lack of generalization is due to large batches converging to *sharp minimizers* 
+Poor generalization  due to large batches converging to *sharp minimizers* 
 - areas with large positive eigenvalues $ \nabla^{2} f(x) $
 - Hessian matrix (matrix of second derivatives) where all eigenvalues positive = positive definite = local minima
 
@@ -396,14 +398,11 @@ Batch size is a **hyperparameter that should be tuned**
 ### Scaling aka pre-processing
 
 Neural networks don't like numbers on different scales  
+- improperly scaled inputs or outputs can cause issues with gradients
+- anything that touches a neural network needs to be within a reasonable range
 
-Improperly scaled inputs or targets can cause issues with gradients
-
-Anything that touches a neural network needs to be within a reasonable range
-
-In supervised learning we can estimate statistics like min/max/mean from the training set
-
-In reinforcment learning we have no training set!
+We can estimate statistics like min/max/mean from the training set
+- in reinforcment learning we have no training set!
 
 ---
 ### Scaling aka pre-processing
@@ -412,13 +411,13 @@ In reinforcment learning we have no training set!
 
 $$ \phi(x) = x - \frac{\mu(x)}{\sigma(x)} $$
 
-Our data now has a mean of 0, and a variance of 1
+Our data now has mean of 0, variance of 1
 
 **Normalization** = min/max scaling
 
 $$ \phi(x) = \frac{x - x\_{min}}{x\_{max} - x\_{min}} $$
 
-Our data is now within a range of 0 to 1
+Our data is now between 0 and 1
 
 ---
 ![fig](assets/images/section_1/batch_norm_lit.png)

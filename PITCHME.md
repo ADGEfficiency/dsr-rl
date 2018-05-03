@@ -125,21 +125,21 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ \pi^\star $ | optimal policy |
 |$ V_\{\pi} (s)$| value function |
 |$ Q_\{\pi} (s,a)$| value function |
-|$ \theta , \omega $ | function parameters (i.e. weights) |
+|$ \theta , \omega $ | function parameters (weights) |
 |$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 
 ---
 ### Expectations
 
-Weighted average of all possible values - i.e. the mean
+Weighted average of all possible values (the mean)
 
-`Expected_value = probability * magnitude`
+`expected_value = probability * magnitude`
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
 Expectations **allow us to approximate by sampling**
 
-- i.e. if we want to approximate the average time it takes us to get to work 
+- if we want to approximate the average time it takes us to get to work 
 
 - we can measure how long it takes us for a week and get an approximation by averaging each of those days
 
@@ -156,7 +156,7 @@ reward received from a state & action
 
 $$ R(r|s,a,s') $$  
 
-Sampling an action from a stochastic policy conditioned on being in state $s$
+sampling an action from a stochastic policy conditioned on being in state $s$
 
 $$ a \sim \pi (s|a) $$
 
@@ -190,6 +190,7 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 - approximations or bootstrapping tend to introduce bias
 - biased away from an optimal agent / policy
 
+---
 ![fig](assets/images/section_1/variance_bias.png)
 
 ---
@@ -197,8 +198,7 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 
 Doing something on your own 
 - i.e. funding a startup with your own capital
-
-Using a function to improve / estimate itself
+- using a function to improve / estimate itself
 
 The Bellman Equation is bootstrapped equation
 
@@ -218,9 +218,7 @@ Bootstrapping often introduces bias
 ### Lookup tables
 A system with two dimensions in the state variable
 
-```
-state = np.array([temperature, pressure])
-```
+`state = np.array([temperature, pressure])`
 
 |state |temperature | pressure | estimate |
 |---|
@@ -1477,7 +1475,7 @@ Parameter noise
 [Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
 
 ---
-### Problems with Q-learning
+### Problems with vanilla Q-Learning
 
 Correlations in our dataset (the list of experience tuples)
 - combine this with bootstrapping and instability occurs

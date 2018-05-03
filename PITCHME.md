@@ -457,6 +457,19 @@ Vanilla batch norm. struggles with small or non-iid batches
 ### introduction to reinforcement learning
 ### four central challenges
 ### Markov Decision Processes
+
+---
+### Related methods 
+
+**Evolutionary methods** 
+- better able to deal with sparse error signals 
+- eaisly parallelizable
+- tend to perform better that RL if state variable is hidden
+
+**Cross entropy method** is often reccomended as an alternative 
+
+Classicial optimization such as **linear programming** 
+
 ---
 ### Machine learning
 
@@ -466,18 +479,6 @@ Vanilla batch norm. struggles with small or non-iid batches
 ### Model free reinforcment learning
 
 ![fig](assets/images/section_2/summary.png)
-
----
-###  Also worth knowing about are
-
-**Evolutionary methods** 
-- better able to deal with sparse error signals 
-- eaisly parallelizable
-- tend to perform better that RL if state variable is hidden
-
-More general optimization methods such as **cross entropy method** are often reccomended to be tried before you try RL
-
-Classicial optimization such as **linear programming** 
 
 ---
 ###  Applications

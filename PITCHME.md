@@ -944,8 +944,9 @@ Finance
 
 Makes the maths works
 - return for infinite horizon problems finite
-
-If our discount rate is $[0,1)$ then we can make the sum of an infinite series finite (known as a geometric series)
+- discount rate is $[0,1)$ 
+- can make the sum of an infinite series finite 
+- geometric series
 
 Can use discount = 1 for
 - games with tree-like structures (without cycles)

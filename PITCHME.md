@@ -317,6 +317,9 @@ Small learning rate
 High learning rate 
 - overshoot or divergence
 
+---
+### Learning rate
+
 Learning rate is the most important hyperparameter 
 - always intentionally set it
 

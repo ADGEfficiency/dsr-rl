@@ -895,9 +895,10 @@ Predicts environment response to actions
 - predicts $s,r$ from $s,a$
 
 `def model(state, action):`
-`   # do stuff`
-`   return next_state, reward`
 
+`   # do stuff`
+
+`   return next_state, reward`
 
 Sample vs. distributional model
 

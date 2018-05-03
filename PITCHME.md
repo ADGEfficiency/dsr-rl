@@ -307,7 +307,9 @@ Larger batch size
 
 Controls the strength of weight updates performed by the optimizer (SGD, RMSprop, ADAM etc)
 
-$$ \theta^{t+1} = \theta^{t} - \alpha \frac{\partial error}{\partial \theta} $$
+$$ \theta^{t+1} = \theta^{t} - \alpha \frac{\partial E(x, \theta^{t}}{\partial \theta} $$
+
+where $E(x, \theta^{t})$ is the error backpropagated from sample $x$
 
 Small learning rate 
 - slow training

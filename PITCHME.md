@@ -732,8 +732,6 @@ Three signals - state, action & reward
 
 `class Agent`
 
-`class Agent`
-
 `class Environment`
 
 `state = env.reset()`
@@ -745,28 +743,31 @@ Three signals - state, action & reward
 ---
 ### Environment
 
-Can be real or virtual 
+Real or virtual 
 - modern RL uses virtual environments to generate lots of experience
 
 Each environment has a state space and an action space
 - these spaces can be discrete or continuous
 
 Environments can be 
-- episodic (terminating at a certain point) 
-- non-episodic (continuous)
+- episodic (finite length, can be variable or fixed length)
+- non-episodic (infinite length)
 
 The MDP framework unites both in the same way by using the idea of a final absorbing state at the end of episodes
 
 ---
 ### Discretiziation
 
-Too coarse -> non-smooth control output
+Too coarse 
+- non-smooth control output
 
-Too fine -> curse of dimensionality = computational expense
+Too fine 
+- curse of dimensionality 
+- computational expense
 
-Discretization requires some prior knowledge
+Requires some prior knowledge
 
-When we discretize we lose the shape of the space
+Lose the shape of the space
 
 ---
 ### State
@@ -775,15 +776,11 @@ Infomation for the agent to **choose next action** and to **learn from**
 
 State is a flexible concept - it's a n-d array
 
-``` python
-state = np.array([temperature, pressure])
+`state = np.array([temperature, pressure])`
 
-state = np.array(pixels).reshape(height, 
-                                 width)
-```
+`state = np.array(pixels).reshape(height, width)`
 
-Possible to concactenate sequential samples together to give some idea of the recent trajectory
-
+---
 ### State versus observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
@@ -795,6 +792,9 @@ state = np.array([temperature, pressure])
 
 observation = np.array([temperature + noise])
 ```
+Observation can be made more Markov by
+- concatenating state trajectories together
+- using function approximation with a memory element (LSTMs)
 
 ---
 ### Reward
@@ -808,6 +808,7 @@ Sparse
 A well defined reward signal is often a limit for applications of RL 
 - i.e. autonomous driving - whats the reward?
 
+---
 ### Agent
 
 Our agent is the **learner and decision maker**

@@ -349,6 +349,7 @@ Below we have a dataset with four samples, of shape (14, 2)
 `>>> data = np.arange(4*28).reshape(4, -1, 2)`
 
 `>>> data.shape`
+
 `(4, 14, 2)`
 
 The first dimension is the batch dimension - this is foundational in TensorFlow 

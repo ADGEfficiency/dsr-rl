@@ -610,10 +610,13 @@ Agent needs to balance between the two
 ---
 ### Exploration vs exploitation
 
-How stationary are the environment state transition and reward functions?  How stochastic is my policy?
+How stationary are the environment state transition and reward functions?  
+
+How stochastic is my policy?
 
 Design of reward signal vs. exploration required
-- algorithm does care about the time step
+
+Time step matters
 - too small = rewards are delayed = credit assignment harder
 - too large = coarser control 
 
@@ -645,7 +648,9 @@ Reward signal is often
 - **delayed** - benefit/penalty of action only seen much later  
 - **sparse** - experience with reward = 0
 
-Sometimes we can design a more dense reward signal for a given environment
+Can design a more dense reward signal for a given environment
+- reward shaping
+- changing the reward signal can change behaviour
 
 ---
 ### Sample efficiency
@@ -665,16 +670,20 @@ Requirement for sample efficiency depends on how expensive it is to generate dat
 ---
 ### Four challenges
 **exploration vs exploitation**
- how good is my understanding of the range of options
+
+how good is my understanding of the range of options
 
 **data**
- biased sampling, non-stationary distribution
+
+biased sampling, non-stationary distribution
 
 **credit assignment**
+
 which action gave me this reward
 
 **sample efficiency**
- learning quickly, squeezing information from data
+
+learning quickly, squeezing information from data
 
 ---
 ### Markov Decision Processes

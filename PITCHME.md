@@ -402,7 +402,8 @@ Neural networks don't like numbers on different scales
 - anything that touches a neural network needs to be within a reasonable range
 
 We can estimate statistics like min/max/mean from the training set
-- in reinforcment learning we have no training set!
+- these statistics are as much a part of the ML model as weights
+- in reinforcement learning we have no training set
 
 ---
 ### Scaling aka pre-processing
@@ -425,13 +426,20 @@ Our data is now between 0 and 1
 ---
 ### Batch normalization
 
-Batch norm. is used in both supervised & reinforcment learning.  It's additional preprocessing of data as it moves between network layers
+Batch norm. is additional preprocessing of data as it moves between network layers
+- used in very deep convolutional/residual nets
 
-We use the mean and variance of the batch to normalize activations (note - standardization is actually used!)
+We use the mean and variance of the batch to normalize activations (standardization is actually used!)
 
 This reduces sensitivty to weight & bias initialization
 
 It also allows us to use higher learning rates
+
+Originally applied before the activation - but this is a topic of debate
+
+http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/
+
+http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl
 
 ---
 ### Batch renormalization

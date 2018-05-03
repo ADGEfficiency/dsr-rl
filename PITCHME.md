@@ -804,7 +804,8 @@ Our agent is the **learner and decision maker**
 
 It's goal is to maximize total discounted reward
 
-An agent always has a policy - even if it's a bad one 
+An agent always has a policy 
+- even if it's a bad one 
 
 <br></br>
 
@@ -843,6 +844,13 @@ Think about the role of emotion in human decision making.  Is there a place for 
 ### Policy $\pi(s)$
 
 A policy is rules to select actions
+- act randomly
+- always pick a specific action
+- the optimal policy - the policy that maximizes future reward
+
+Policy can be
+- parameterized directly (policy gradient methods)
+- generated from a value function (value function methods)
 
 $$pi(s)$$
 
@@ -850,16 +858,7 @@ $$\pi(s,a|\theta)$$
 
 $$\pi_\theta(s|a)$$
 
-Example policies
-- act randomly
-- always pick a specific action
-- the optimal policy - the policy that maximizes future reward
-
-Policies can be deterministic or stochastic
-
-Policy can be
-- parameterized directly (policy gradient methods)
-- generated from a value function (value function methods)
+Deterministic or stochastic
 
 ---
 ### Prediction versus control

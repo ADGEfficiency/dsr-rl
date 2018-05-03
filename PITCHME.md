@@ -489,9 +489,11 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 ---
 ###  Deep reinforcement learning
 
-**Deep learning** = neural networks with multiple layers
+**Deep learning** 
+- neural networks with multiple layers
 
-**Deep reinforcement learning** = using multiple layer networks to approximate policies or value functions
+**Deep reinforcement learning** 
+- using multiple layer networks to approximate policies or value functions
 - feedforward 
 - convolutional 
 - recurrent 

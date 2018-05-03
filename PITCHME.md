@@ -730,20 +730,17 @@ Two objects - the agent and environment
 
 Three signals - state, action & reward
 
-``` python
+`class Agent`
 
-class Agent
+`class Agent`
 
-class Agent
+`class Environment`
 
-class Environment
+`state = env.reset()`
 
-state = env.reset()
+`action = agent.act(state)`
 
-action = agent.act(state)
-
-reward, next_state = env.step(action)
-```
+`reward, next_state = env.step(action)`
 
 ---
 ### Environment

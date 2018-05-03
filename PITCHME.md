@@ -2856,6 +2856,8 @@ Spend time looking at open source RL packages
 
 ![fig](assets/images/section_7/timeline.png)
 
+---
+
 ![fig](assets/images/section_7/costs.png)
 
 ---

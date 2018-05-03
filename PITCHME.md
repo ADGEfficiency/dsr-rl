@@ -1787,7 +1787,10 @@ The Huber Loss is a form of gradient clipping
 
 1992 - Experience replay (Lin)
 
+2010 - Double Q-Learning
+
 ...
+
 2010's - GPUs used for neural networks
 
 2013 - DQN

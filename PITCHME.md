@@ -309,11 +309,14 @@ Controls the strength of weight updates performed by the optimizer (SGD, RMSprop
 
 $$ \theta^{t+1} = \theta^{t} - \alpha \frac{\partial error}{\partial \theta} $$
 
-Small learning rate = slow training
+Small learning rate 
+- slow training
 
-High learning rate = overshoot or divergence
+High learning rate 
+- overshoot or divergence
 
-Learning rate is the most important hyperparameter - you should always intentionally set it
+Learning rate is the most important hyperparameter 
+- always intentionally set it
 
 ---
 ### Batch size

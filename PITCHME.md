@@ -933,13 +933,17 @@ $$G\_t = r\_{t+1} + \gamma r\_{t+2} + \gamma^2 r\_{t+3} + ... = \sum\_{k=0}^{\in
 ---
 ### Discounting
 
-Future is uncertain - stochastic environment
+Future is uncertain 
+- stochastic environment
 
-Matches human thinking - hyperbolic discounting
+Matches human thinking 
+- hyperbolic discounting
 
-Finance - time value of money
+Finance 
+- time value of money
 
-Makes return for infinite horizon problems finite
+Makes the maths works
+- return for infinite horizon problems finite
 
 If our discount rate is $[0,1)$ then we can make the sum of an infinite series finite (known as a geometric series)
 

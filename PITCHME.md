@@ -780,7 +780,6 @@ State is a flexible concept - it's a n-d array
 
 `state = np.array(pixels).reshape(height, width)`
 
----
 ### State versus observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
@@ -806,9 +805,8 @@ Delayed
 Sparse
 
 A well defined reward signal is often a limit for applications of RL 
-- i.e. autonomous driving - whats the reward?
+- autonomous driving - whats the reward?
 
----
 ### Agent
 
 Our agent is the **learner and decision maker**

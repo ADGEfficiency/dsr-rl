@@ -978,6 +978,14 @@ Can use discount = 1 for
 ### SARSA & Q-Learning
 ### DQN
 ---
+## three <a id="section-three"></a> 
+### value functions
+### Bellman Equation 
+### approximation methods
+### SARSA & Q-Learning
+### DQN
+
+---
 
 ![fig](assets/images/section_3/summary_value.png)
 
@@ -1054,26 +1062,23 @@ This is known as a *greedy policy*
 
 ``` python
 def greedy_policy(state):
+    #  get the Q values for each state_action pair
     q_values = value_function.predict(state)
 
+    # select action with highest Q
     action = np.argmax(q_values)
 
     return action
 ```
 
 ---
-### Policy approximation versus policy improvement
+### Approximation versus improvement
 
-We can see that having a good approximation of the optimal value function helps us to improve our policy
-
-These are two distinct steps
+A good approximation of the optimal value function helps us to improve our policy
 
 1 - improving the predictive power of our value function
 
 2 - improving the policy 
-
----
-### Policy & value iteration
 
 $$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
 
@@ -1109,6 +1114,14 @@ To approximate a value function we can use one of the methods we looked at in th
 Linear functions are appropriate with some agents or environments
 
 Modern reinforcement learning is based on using neural networks 
+
+---
+## three <a id="section-three"></a> 
+### value functions
+### <span style="color:#66ff66">Bellman Equation </span>
+### approximation methods
+### SARSA & Q-Learning
+### DQN
 
 ---
 ### Richard Bellman

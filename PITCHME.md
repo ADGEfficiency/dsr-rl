@@ -1154,9 +1154,9 @@ $$ V\_{\pi}(s) = r + \gamma V\_{\pi}(s') $$
 $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 
 ---
-### How does the Bellman Equation help us learn?
+### How do we use the Bellman Equation? 
 
-The Bellman equation helps us to create **targets for learning**
+Create **targets for learning**
 
 In supervised learning you train a neural network by minimizing the difference between the network output and the correct target for that sample
 

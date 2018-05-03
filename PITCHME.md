@@ -536,11 +536,11 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 <iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
-### Reinforcement Learning
+#### Reinforcement Learning
 
 #### is
 
-## learning through action
+# learning through action
 
 ---
 ![fig](assets/images/section_2/mdp_schema_simple.png)

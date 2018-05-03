@@ -2976,8 +2976,7 @@ It's not about learning time - it's about the ability to sample
 ### Other methods often work better 
 
 Many problems are better solved by other methods
-
-Allowing the agent access to a ground truth model (i.e. a simulator)
+- allowing the agent access to a ground truth model (i.e. simulator)
 - model based RL with a perfect model
 
 ![fig](assets/images/section_8/work_atari.png)

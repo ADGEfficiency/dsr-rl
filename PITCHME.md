@@ -551,12 +551,12 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 ---
 ### Contrast with supervised learning 
 
-In supervised learning we
+Supervised learning
 - are given a dataset with labels
 - we are constrained by the dataset
 - test on unseen data
 
-In reinforcement learning we
+Reinforcement learning 
 - are given no data and no labels
 - we can generate more data by acting
 - test using the same environment

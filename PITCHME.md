@@ -297,16 +297,17 @@ Batch size
 
 Scaling / preprocessing
 
-Larger batch size -> larger learning rate
-
-Larger batch size -> decrease in generalization
-
-Larger batch size -> decrease in batch normalization performance
+Larger batch size 
+- larger learning rate
+- decrease in generalization
+- decrease in batch normalization performance
 
 ---
 ### Learning rate
 
 Controls the strength of weight updates performed by the optimizer (SGD, RMSprop, ADAM etc)
+
+$$ \theta^{t+1} = \theta^{t} - \alpha \frac{\partial error}{\partial \theta} $$
 
 Small learning rate = slow training
 

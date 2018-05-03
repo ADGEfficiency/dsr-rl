@@ -1005,6 +1005,8 @@ Can use discount = 1 for
 
 <center>$ V_{\pi}(s) = \mathbf{E}[G_t | s_t] $ </center>
 
+<br> </br>
+
 <center>Expected return when in state $s$, following policy $\pi$</center>
 
 <br> </br>
@@ -1012,6 +1014,8 @@ Can use discount = 1 for
 ### Action-value function
 
 <center> $ Q_{\pi}(s,a) = \mathbf{E}[G_t | s_t, a_t] $ </center>
+
+<br> </br>
 
 <center>Expected return when in state $s$, taking action $a$, following policy $\pi$</center>
 

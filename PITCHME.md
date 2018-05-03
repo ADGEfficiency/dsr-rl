@@ -1157,12 +1157,11 @@ $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 ### How do we use the Bellman Equation? 
 
 Create **targets for learning**
+- train a neural network by minimizing the difference between the network output and the correct target
 
-Train a neural network by minimizing the difference between the network output and the correct target
+- improve our approximation of a value function we need to create a targets for each sample of experience
 
-To improve our approximation of a value function we need to create a targets for each sample of experience
-
-We can then improve our approximation by minimizing a loss function
+- minimize a loss function
 
 $$ loss = target - approximation $$
 

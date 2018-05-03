@@ -688,11 +688,11 @@ learning quickly, squeezing information from data
 ---
 ### Markov Decision Processes
 
-Mathematical framework for the reinforcement learning problem
-
-The Markov property is often a requirement to gurantee convergence
+Mathematical framework for reinforcement learning 
 
 ### Markov property
+
+Can be a requirement to gurantee convergence
 
 Future is conditional only on the present
 
@@ -704,6 +704,8 @@ $$ P(s\_{t+1} | s\_{t}, a\_{t}) = P(s\_{t+1}|s\_t,a\_t...s\_0,a\_0)$$
 
 ---
 ### Formal definition of a MDP
+
+An MDP can be defined a tuple
 
 $$ (\mathcal{S}, \mathcal{A}, \mathcal{R}, P, R, d_0, \gamma) $$
 

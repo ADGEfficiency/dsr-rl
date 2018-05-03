@@ -431,6 +431,7 @@ Batch renormalization attempts to fix this by using a single algorithm for both 
 **Evolutionary methods** 
 - better able to deal with sparse error signals 
 - eaisly parallelizable
+- tend to perform better that RL if state variable is hidden
 
 More general optimization methods such as **cross entropy method** are often reccomended to be tried before you try RL
 
@@ -2862,6 +2863,7 @@ Reinforcement learning is really sensitive...  it can be difficult to diagnose w
 
 Try and be as sensitive as possible in noticing confusion.
 
+
 ---
 ### Matthew Rahtz
 
@@ -2923,8 +2925,11 @@ TensorFlow
 
 ---
 
+> Reinforcement learning can be so unstable that you need to repeat every run multiple times with different seeds to be confident.
+
 ![fig](assets/images/section_7/fail_expts.png)
 
+![fig](assets/images/section_7/costs.png)
 
 ---
 ### Cool open source RL projects
@@ -2939,9 +2944,97 @@ TensorFlow
 
 ---
 ## eight <a id="section-eight"></a>
+### Deep RL doesn't work yet
 ### beyond the expectation
 ### auxillary loss functions 
 ### inverse reinforcement learning 
+
+---
+
+![fig](assets/images/section_8/work_intro.png)
+
+![fig](assets/images/section_8/work_bender.png)
+
+---
+### Sample inefficiency 
+
+Modern RL is **sample inefficient**
+
+![fig](assets/images/section_4/rainbow_fig1.png)
+
+To pass the 100% median performance
+- Rainbow = 18 million frames = 83 hours of play
+- Distributional DQN = 70 million
+- DQN = never (even after 200 million frames!)
+
+We can ignore sample efficiency if sampling is cheap
+
+In the real world it can be hard or expensive to generate experience
+
+It's not about learning time - it's about the ability to sample
+
+---
+### Other methods often work better 
+
+Many problems are better solved by other methods
+
+Allowing the agent access to a ground truth model (i.e. a simulator)
+- model based RL with a perfect model
+
+![fig](assets/images/section_8/work_atari.png)
+
+The generalizability of RL means that except in rare cases, domain specific algorithms work faster and better
+
+---
+### Requirement of a reward function 
+
+Reward function design is difficult
+- need to encourage behaviour
+- need to be learnable
+
+Shaping rewards to help learning can change behaviour
+
+---
+### Unstable and hard to reproduce results
+
+![fig](assets/images/section_8/work_seeds.png)
+
+Only difference is the random seed!
+
+30% failure rate counts as working
+
+---
+
+Machine learning adds more dimensions to your space of failure cases
+
+![fig](assets/images/section_8/work_ml.png)
+
+RL adds an additional dimension - random change
+
+**A sample inefficient and unstable training algorithm heavily slows down your rate of productive research**
+
+![fig](assets/images/section_8/work_karpathy.png)
+
+---
+
+![fig](assets/images/section_8/work_research.png)
+
+Properties to make learning eaiser
+- ability to generate near unbounded amounts of experience
+- problem is simplified into an eaiser form
+- you can introduce self-play into learning
+- learnable reward signal
+- any reward shaping should be rich
+
+The future
+- local optima are good enough (is any human behaviour globally optimal)
+- improvements in hardware help with sample inefficiency
+- more learning signal - hallucinating rewards, auxillary tasks, model learning
+- model learning fixes a bunch of problems - difficulty is learning one
+
+Many things need to go right for RL to work - success stories are the exception, not the rule
+
+
 
 ---
 
@@ -3025,3 +3118,4 @@ Adam Green
 adgefficency.com
 
 adam.green@adgefficiency.com
+

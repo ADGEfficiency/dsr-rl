@@ -1047,9 +1047,8 @@ How can we act?
 
 This is known as a *greedy policy*
 
-
 ---
-### Generating the optimal policy from the optimal value function
+### Using a value function 
 
 ![fig](assets/images/section_3/gen_policy.png)
 

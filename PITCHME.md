@@ -445,11 +445,12 @@ We use the mean and variance of the batch to normalize activations
 ---
 ### Batch renormalization
 
-Vanilla batch norm. struggles with small or non-iid batches - the mean/variance/min/max estimates are worse
+Vanilla batch norm. struggles with small or non-iid batches 
+- the estimated statistics are worse
 
-Vanilla batch norm. uses two different methods for normalization for training & testing
+- vanilla batch norm. uses two different methods for normalization during training & testing
 
-Batch renormalization attempts to fix this by using a single algorithm for both training & testing
+- batch renormalization uses a single algorithm for both training & testing
 
 ---
 ## two <a id="section-two"></a>

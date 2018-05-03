@@ -954,7 +954,7 @@ Can use discount = 1 for
 
 ---
 ## three <a id="section-three"></a> 
-### <span style="color:green">value functions</span>
+### <span style="color:#66ff66">value functions</span>
 ### Bellman Equation 
 ### approximation methods
 ### SARSA & Q-Learning

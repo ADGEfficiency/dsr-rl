@@ -1182,15 +1182,15 @@ This is also known as the **temporal difference error**
 ---
 ### Approximation methods
 
-We are going to look at three different methods for approximation
+Look at three different methods for approximation
 
 1. dynamic programming
 2. Monte Carlo
 3. temporal difference
 
-Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
-
 We are **creating targets** to learn from
+
+Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
 
 ---
 ### Dynamic programming

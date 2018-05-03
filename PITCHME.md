@@ -1808,7 +1808,7 @@ The Huber Loss is a form of gradient clipping
 We will cover these improvements tomorrow 
 
 ---
-## Lunch
+# <span style="color:#66ff66">Lunch</span>
 
 ---
 ### Practical <a id="section-practical"></a>

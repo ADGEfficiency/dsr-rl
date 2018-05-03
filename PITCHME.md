@@ -894,11 +894,13 @@ Our agent can learn an environment model
 Predicts environment response to actions
 - predicts $s,r$ from $s,a$
 
-`def model(state, action):`
+```python
+def model(state, action):
 
-`   # do stuff`
+    # do stuff
 
-`   return next_state, reward`
+    return next_state, reward
+```
 
 Sample vs. distributional model
 

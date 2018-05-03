@@ -1241,11 +1241,10 @@ Use the Bellman Equation to approximate $V(s)$ using $V(s')$
 
 Key to TD methods is the **temporal difference error**
 
-$$error = actual - predicted $$
-
+$$actual = r + \gamma V(s') $$
 $$predicted = V(s) $$
 
-$$actual = r + \gamma V(s') $$
+$$error = actual - predicted $$
 
 $$error = r + \gamma V(s') - V(s) $$
 

@@ -843,6 +843,12 @@ Think about the role of emotion in human decision making.  Is there a place for 
 ---
 ### Policy $\pi(s)$
 
+$$\pi(s)$$
+
+$$\pi(s,a|\theta)$$
+
+$$\pi_\theta(s|a)$$
+
 A policy is rules to select actions
 - act randomly
 - always pick a specific action
@@ -852,23 +858,19 @@ Policy can be
 - parameterized directly (policy gradient methods)
 - generated from a value function (value function methods)
 
-$$pi(s)$$
-
-$$\pi(s,a|\theta)$$
-
-$$\pi_\theta(s|a)$$
-
 Deterministic or stochastic
 
 ---
 ### Prediction versus control
 
-Prediction 
-- understanding a fixed or given policy
+Prediction / approximation
+- predicting return for given policy
 
 Control 
-- finding the optimal policy
+- the optimal policy
 - the policy that maximizes expected future discounted reward
+
+<br></br>
 
 ### On versus off policy learning
 
@@ -878,7 +880,8 @@ On policy
 Off policy 
 - evaluate or improve one policy while using another to make decisions
 
-Possible to do control on or off policy - using general policy iteration
+Control can be on or off policy 
+- use general policy iteration to improve a policy using an on-policy approximation
 
 ---
 ![fig](assets/images/section_2/on_off_policy.png)
@@ -891,13 +894,10 @@ Our agent can learn an environment model
 Predicts environment response to actions
 - predicts $s,r$ from $s,a$
 
-```python
-def model(state, action):
+`def model(state, action):`
+`   # do stuff`
+`   return next_state, reward`
 
-    # do stuff
-
-    return next_state, reward
-```
 
 Sample vs. distributional model
 

@@ -1405,18 +1405,16 @@ But we can improve it using general policy iteration (GPI)
 ### Q-Learning
 
 Q-Learning allows **off-policy control** 
+- use every element from our experience tuple $(s,a,r,s')$
 
-Use every element from our experience tuple $(s,a,r,s')$
-
-We take the **maximum over all possible actions**
+We take the **maximum over all possible next actions**
 - we don't need to know what action our agent took next (i.e. $a'$) 
 
-This allows us to learn the optimal value function 
-- while following a sub-optimal policy (i.e. an exploratory policy)
+This allows us to learn the optimal value function while following a sub-optimal policy 
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$
 
-We never try to learn $Q_{\pi}$ - we always try to learn $Q^*$, the optimal policy
+Don't learn $Q_{\pi}$ - learn $Q^*$ (the optimal policy)
 
 ---
 ### SARSA & Q-Learning
@@ -1432,15 +1430,14 @@ $$action = \underset{a}{argmax}Q(s,a)$$
 
 The $argmax$ limits Q-Learning to **discrete action spaces only**
 
-Acting in Q-Learning is also deterministic 
-- we will always pick the action our $Q(s,a)$ approximation thinks is good
+For a given approximation of $Q(s,a)$ acting greedy is deterministic
 
 How then do we explore the environment?
 
 ---
 ### $\epsilon$-greedy exploration
 
-One stragety to explore in Q-Learning is known as the **epsilon-greedy policy**
+A common exploration stragety is the **epsilon-greedy policy**
 
 ```
 def epsilon_greedy_policy():
@@ -1455,18 +1452,24 @@ def epsilon_greedy_policy():
     return action
 ```
 
-$\epsilon$ is decayed during experiments as our approximation of $Q_*(s,a)$ improves
+$\epsilon$ is decayed during experiments to explore less as our agent learns (i.e. to exploit)
+
 ---
 ### Exploration strageties
 
-Alternative policies include Boltzmann (i.e. a softmax) 
+Boltzmann (a softmax) 
 - temperature being annealed as learning progresses
 
-More advanced is a Bayesian Neural Network 
+Bayesian Neural Network 
 - a network that maintains distributions over weights -> distribution over actions  
 - this can also be performed using dropout to simulate a probabilistic network
 
+Parameter noise
+- adding adaptive noise to weights of network 
+
 [**Action-Selection Strategies for Exploration**](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
+
+[Plappert et al. (2018) Paramter Space Noise for Exploration](https://arxiv.org/pdf/1706.01905.pdf)
 
 ---
 ![fig](assets/images/section_3/action_selection_exploration.png)

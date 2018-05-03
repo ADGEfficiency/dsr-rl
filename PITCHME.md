@@ -100,8 +100,9 @@ Literature review
 
 ---
 ## one <a id="section-one"></a>
-### nomenclature & definitions
-### background and terminology
+### <span style="color:#66ff66">nomenclature & statistics background</span>
+### a few things about training neural networks
+
 ---
 
 ### Nomenclature
@@ -289,6 +290,11 @@ Fundamental assumption in statistical learning
 In statistical learning one always assumes the training set is independently drawn from a fixed distribution
 
 ---
+## one <a id="section-one"></a>
+### nomenclature & statistics background
+### <span style="color:#66ff66">a few things about training neural networks</span>
+
+---
 ### A few things about training neural networks
 
 Learning rate
@@ -454,7 +460,7 @@ Vanilla batch norm. struggles with small or non-iid batches
 
 ---
 ## two <a id="section-two"></a>
-### introduction to reinforcement learning
+### <span style="color:#66ff66">introduction to reinforcement learning</span>
 ### four central challenges
 ### Markov Decision Processes
 
@@ -586,6 +592,12 @@ $$(s_n, a_n, r_n, s_n)] $$
 What should we do with this dataset?
 
 ---
+## two <a id="section-two"></a>
+### introduction to reinforcement learning
+### <span style="color:#66ff66">four central challenges</span>
+### Markov Decision Processes
+
+---
 ### Four central challenges 
 
 one - exploration vs exploitation
@@ -684,6 +696,12 @@ which action gave me this reward
 **sample efficiency**
 
 learning quickly, squeezing information from data
+
+---
+## two <a id="section-two"></a>
+### introduction to reinforcement learning
+### four central challenges
+### <span style="color:#66ff66">Markov Decision Processes</span>
 
 ---
 ### Markov Decision Processes
@@ -968,6 +986,8 @@ Can use discount = 1 for
 
 <center>$V_\pi(s)$</center>
 
+<br> </br>
+
 <center>how good is this state</center>
 
 <br> </br>
@@ -975,6 +995,8 @@ Can use discount = 1 for
 ### Action-value function
 
 <center>$Q_\pi(s,a)$</center>
+
+<br> </br>
 
 <center>how good is this action</center>
 
@@ -1135,7 +1157,7 @@ This is also known as the **temporal difference error**
 ---
 ## three
 ### introduction to value functions 
-<span style="color:green"> Bellman Equation</span>
+### <span style="color:#66ff66">Bellman Equation</span>
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN

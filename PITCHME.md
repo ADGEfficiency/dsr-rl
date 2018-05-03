@@ -1031,18 +1031,20 @@ We don’t know this function
 - once we learn it – how will it help us to act?
 
 ---
-### Generating the optimal policy from the optimal value function
+### Using a value function
 
-Imagine we were 
+Imagine
 - given the optimal value function $Q_*(s,a)$
 
 - we are in state $s$
 
 - our set of actions $\mathcal{A} = \{a_1, a_2, a_3\}$
 
-We can use the value function to determine which action has the highest expected return
+How can we act?
 
-We then select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{\arg\max} Q(s,a)$
+- use the value function to determine which action has the highest expected return
+
+- select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{\arg\max} Q(s,a)$
 
 This is known as a *greedy policy*
 

@@ -216,7 +216,7 @@ Bootstrapping often introduces bias
 
 ---
 ### Lookup tables
-A system with two dimensions in the state variable
+Two dimensions in the state variable
 
 `state = np.array([temperature, pressure])`
 
@@ -291,15 +291,17 @@ In statistical learning one always assumes the training set is independently dra
 ---
 ### A few things about training neural networks
 
-**Learning rate**
+Learning rate
 
-**Batch size**
+Batch size
 
-**Scaling / preprocessing**
+Scaling / preprocessing
 
-Does anyone know what these are?
+Larger batch size -> larger learning rate
 
-How do they affect each other?
+Larger batch size -> decrease in generalization
+
+Larger batch size -> decrease in batch normalization performance
 
 ---
 ### Learning rate
@@ -334,8 +336,7 @@ The cost of using batches is a less accurate estimate of the gradient
 - this noise can be useful to escape local minima
 
 Bigger batch size = larger learning rate
-
-This is because a larger batch size gives a more accurate estimation of the gradient
+-  larger batch size gives a more accurate estimation of the gradient
 
 ---
 ![lr_batch](assets/images/section_1/lr_batch.png)
@@ -402,7 +403,7 @@ It also allows us to use higher learning rates
 ---
 ### Batch renormalization
 
-Vanilla batch norm. struggles with small or non-iid batches - the mean/variance/min/max estimtates are worse
+Vanilla batch norm. struggles with small or non-iid batches - the mean/variance/min/max estimates are worse
 
 Vanilla batch norm. uses two different methods for normalization for training & testing
 

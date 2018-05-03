@@ -1368,7 +1368,7 @@ $$Q(s\_{2}, a\_2) = 20$$
 
 It's now easy to pick the action that maximizes expected discounted return
 
-$V(s)$ tells us how good a state is
+$V(s)$ tells us how good a state is.  We require the state transition probabilities for each action to use $V(s)$ for control
 
 $Q(s,a)$ tells us how good an **action** is
 
@@ -1376,8 +1376,8 @@ $Q(s,a)$ tells us how good an **action** is
 ### SARSA
 
 SARSA is an **on-policy** control method
-- we learn about the policy we are following
-- we improve the policy by being greedy to the value function $Q\_{\pi}(s,a)$
+- we approximate the policy we are following
+- we improve the policy by being greedy wrt to our approximation 
 
 We use every element from our experience tuple $(s,a,r,s')$ 
 - and also $a'$ - the next action selected by our agent
@@ -1392,6 +1392,7 @@ Why is SARSA on-policy?
 SARSA is on-policy because we learn about the action $a'$ that our agent choose to take 
 
 Our value function is always for the policy we are following 
+- the state transition probabilities depend on the policy
 
 But we can improve it using general policy iteration (GPI) 
 - approximate $Q(s,a)$ for our current policy
@@ -1403,13 +1404,14 @@ But we can improve it using general policy iteration (GPI)
 ---
 ### Q-Learning
 
-Q-Learning is an off-policy control method
+Q-Learning allows **off-policy control** 
 
 Use every element from our experience tuple $(s,a,r,s')$
 
-We don't need to know what action our agent took next (i.e. $a'$) 
-- instead we take the **maximum over all possible actions**
-- this allows us to learn the optimal value function 
+We take the **maximum over all possible actions**
+- we don't need to know what action our agent took next (i.e. $a'$) 
+
+This allows us to learn the optimal value function 
 - while following a sub-optimal policy (i.e. an exploratory policy)
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$

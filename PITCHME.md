@@ -1245,7 +1245,6 @@ $$actual = r + \gamma V(s') $$
 $$predicted = V(s) $$
 
 $$error = actual - predicted $$
-
 $$error = r + \gamma V(s') - V(s) $$
 
 Update rule for a table TD(0) approximation
@@ -1331,13 +1330,11 @@ We take into account the transition probabilities, which gives us the **certanit
 
 ### SARSA & Q-Learning
 
-Approximation is all well and good - but we want to control
+Approximation is a tool - **control** is what we really want
 
 SARSA & Q-Learning are both based on the **action-value function** $Q(s,a)$
 
-Q-Learning is the basis of DQN - the algorithm developed by DeepMind that sparked off the revolution in deep reinforcement learning
-
-It's also the algorithm we will be playing with this afternoon
+The practical today is based on DQN - the DeepMind implementation of Q-Learning
 
 Why might we want to learn $Q(s,a)$ rather than $V(s)$?
 

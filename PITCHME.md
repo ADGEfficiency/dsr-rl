@@ -429,13 +429,14 @@ Our data is now between 0 and 1
 Batch norm. is additional preprocessing of data as it moves between network layers
 - used in very deep convolutional/residual nets
 
-We use the mean and variance of the batch to normalize activations (standardization is actually used!)
+We use the mean and variance of the batch to normalize activations 
+- standardization is actually used!
 
-This reduces sensitivty to weight & bias initialization
+- reduces sensitivty to weight & bias initialization
 
-It also allows us to use higher learning rates
+- allows higher learning rates
 
-Originally applied before the activation - but this is a topic of debate
+- originally applied before the activation - but this is a topic of debate
 
 [Batch normalization before or after relu - Reddit](http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/)
 

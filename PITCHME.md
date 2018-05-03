@@ -1781,11 +1781,14 @@ The Huber Loss is a form of gradient clipping
 ---
 ### Timeline
 
+1986 - Backprop by Rumelhart, Hinton & Williams in multi layer nets
+
 1989 - Q-Learning (Watkins)
 
 1992 - Experience replay (Lin)
 
 ...
+2010's - GPUs used for neural networks
 
 2013 - DQN
 
@@ -1797,7 +1800,9 @@ The Huber Loss is a form of gradient clipping
 
 2017 - Distributional Q-Learning
 
-We will cover these improvements and more powerful algorithms tomorrow
+2018 - Rainbow
+
+We will cover these improvements tomorrow 
 
 ---
 ## Lunch

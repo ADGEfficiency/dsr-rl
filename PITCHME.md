@@ -2015,8 +2015,8 @@ Non-random sampling introduces two problems
 
 Schaul et. al (2016) solves these problems by
 
-1. correct the loss of diversity by making the prioritization stochastic
-2. correct the bias using importance sampling
+1. loss of diversity -> make the prioritization stochastic
+2. correct bias -> use importance sampling
 
 ---
 ### Stochastic prioritization

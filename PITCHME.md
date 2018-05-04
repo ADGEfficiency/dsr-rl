@@ -1950,12 +1950,13 @@ $TD(\lambda)$ and n-step returns are the same thing
 ---
 ### The backward view
 
-The forward view is not practical - it requires knowledge of the future!
+The forward view is not practical 
+- it requires knowledge of the future!
 
 The backward view approximates the forward view
 
 It requires an additional variable in our agents memory 
-- the eligibility trace $e_{t}(s)$
+- **eligibility trace $e_{t}(s)$**
 
 At each step we decay the trace according to
 
@@ -1982,33 +1983,37 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 - eligibility traces updates based on how recently each $Q(s,a)$ was experienced
 
 ---
+![fig](assets/images/section_4/schaul_2015.png)
+
+---
 ### Experience replay
 
 ![fig](assets/images/section_3/exp_replay.png)
 
 ---
-![fig](assets/images/section_4/schaul_2015.png)
 
----
 ### Prioritized Experience Replay
 
 Naive experience replay **randomly samples experience** 
 - learning occurs at the same frequency as experience
 
-Some samples of experience are more useful for learning than others
+Some experience is more useful for learning than others
 - we can measure how useful experience is by the temporal difference error
 
 $$ error = r + \gamma Q(s', a) - Q(s,a) $$
 
 TD error measures suprise 
-- this transition gave a higher or lower reward than expected
+- this transition gave a higher or lower reward than our value function expected
 
 ---
 ### Prioritized Experience Replay
 
 Non-random sampling introduces two problems
 
-1. loss of diversity - we will only sample from high TD error experiences 2. introduce bias - non-independent sampling Schaul et. al (2016) solves these problems by
+1. loss of diversity - we will only sample from high TD error experiences 
+2. introduce bias - non-independent sampling 
+
+Schaul et. al (2016) solves these problems by
 
 1. correct the loss of diversity by making the prioritization stochastic
 2. correct the bias using importance sampling
@@ -2031,7 +2036,6 @@ Schaul suggets alpha $~ 0.6 - 0.7$
 
 Not a sampling method 
 - it's a method of Monte Carlo approximation
-
 
 Monte Carlo approximates using the sample mean
 - assuming that the sampling distribution $x\_p$ 

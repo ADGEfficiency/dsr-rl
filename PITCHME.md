@@ -1908,21 +1908,21 @@ In between TD and MC exist a family of approximation methods known as **n-step r
 *Sutton & Barto*
 
 ---
-### The forward and backward view
+### Forward and backward view
 
 We can look at eligibility traces from two perspectives
 
 The **forward** view
-- the forward view is helpful for understanding the theory
+- helpful for understanding the theory
 
 The **backward** view
-- the backward view we can put into practice
+- can put into practice
 
 ---
 ### The forward view
 
-We can decompose our return into **complex backups**
-- looking forward to future returns to create the return from the current state
+We can decompose return into **complex backups**
+- looking forward to future returns 
 - can use a combination of experience based and model based backups 
 
 $$R\_t = \frac{1}{2} R\_{t}^{2} + \frac{1}{2} R\_{t}^{4} $$
@@ -1941,9 +1941,9 @@ The family of algorithms between TD and MC is known as $TD(\lambda)$
 
 $$ TD(\lambda) = (1-\lambda) \sum_{n-1}^{\infty} \lambda^{n-1} R_t^n $$
 
-$$\lambda = 0$$ -> TD(0) 
+$\lambda = 0$ -> TD(0) 
 
-$$\lambda = 1$$ -> Monte Carlo
+$\lambda = 1$ -> Monte Carlo
 
 $TD(\lambda)$ and n-step returns are the same thing
 

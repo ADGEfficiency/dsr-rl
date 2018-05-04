@@ -1811,20 +1811,22 @@ We will cover these improvements tomorrow
 # <span style="color:#66ff66">Lunch</span>
 
 ---
+## <span style="color:#66ff66">Practical</span>
+
+---
 ### Practical <a id="section-practical"></a>
 
 The practical we will do this afternoon is to play with a working DQN agent on the Open AI Cartpole environment
 
-The ideas behind this practical are
 - in industry you won't be handed a set of notebooks to shift-enter through
 
-- you will likely be given an existing code base and be expected to figure out how it works
+- likely be given an existing code base and be expected to figure out how it works
 
-- you will also need to learn to read other peoples code in the wild
+- need to learn to read other peoples code in the wild
 
 - this skill is also useful for understanding open source projects
 
-- using a working system allows you to understand the effect of hyperparameters
+- using a working system allows you to understand the effect of hyperparameters and feel how hard RL can be!
 
 ---
 ###  CartPole
@@ -1872,7 +1874,7 @@ config_dict = {'discount': 0.97,
 
 ---
 ## four <a id="section-four"></a>
-### eligibility traces
+### <span style="color:#66ff66">eligibility traces</span>
 ### prioritized experience replay
 ### DDQN
 ### Rainbow

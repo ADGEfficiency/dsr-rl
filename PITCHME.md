@@ -1877,6 +1877,7 @@ config_dict = {'discount': 0.97,
 ### <span style="color:#66ff66">eligibility traces</span>
 ### prioritized experience replay
 ### DDQN
+### Distributional Q-Learning 
 ### Rainbow
 
 ---
@@ -1983,6 +1984,14 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 - eligibility traces updates based on how recently each $Q(s,a)$ was experienced
 
 ---
+## four
+### eligibility traces
+### <span style="color:#66ff66">prioritized experience replay</span>
+### DDQN
+### Distributional Q-Learning 
+### Rainbow
+
+---
 ![fig](assets/images/section_4/schaul_2015.png)
 
 ---
@@ -1994,7 +2003,7 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 
 ### Prioritized Experience Replay
 
-Naive experience replay **randomly samples experience** 
+Naive experience replay randomly samples experience
 - learning occurs at the same frequency as experience
 
 Some experience is more useful for learning than others
@@ -2073,8 +2082,7 @@ Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale t
 
 All new transitions are stored at maximum priority - to ensure replay at least once
 
-Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums
-and minimums
+Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums and minimums
 
 Ask your algorithms teacher to go over binary heaps - they are useful!
 
@@ -2085,7 +2093,8 @@ Ask your algorithms teacher to go over binary heaps - they are useful!
 ## four
 ### eligibility traces
 ### prioritized experience replay
-### **DDQN**
+### <span style="color:#66ff66">DDQN</span>
+### Distributional Q-Learing 
 ### Rainbow
 
 ---
@@ -2145,7 +2154,7 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Beyond the expectation
+### <span style="color:#66ff66">Distrubutional Q-Learning </span>
 ### Rainbow
 ---
 
@@ -2192,8 +2201,8 @@ The expected value of 7.5 minutes will never occur in reality!
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Beyond the expectation
-### Rainbow
+### Distributional Q-Learning 
+### <span style="color:#66ff66">Rainbow</span>
 
 ---
 ### Rainbow
@@ -2227,7 +2236,7 @@ These improvements all address different issues
 
 ---
 ## five <a id="section-five"></a>
-### **motivations for policy gradients**
+### <span style="color:#66ff66">motivations for policy gradients</span>
 ### introduction 
 ### the score function
 ### REINFORCE

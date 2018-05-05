@@ -99,7 +99,7 @@ Literature review
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
 
 ---
-## one <a id="section-one"></a>
+## one <a name="section-one"></a>
 ### <span style="color:#66ff66">nomenclature & statistics background</span>
 ### a few things about training neural networks
 

@@ -2241,7 +2241,7 @@ $$ a = \underset{a}{argmax} Q(s,a) $$
 
 In policy gradients we **parameterize a policy directly**
 
-$$ a \textbackslash \pi(a_t|s_t;\theta) $$
+$$ a \sim \pi(a_t|s_t;\theta) $$
 
 ---
 ### John Schulan - Berkley, Open AI
@@ -2541,9 +2541,9 @@ Critic
 
 ![fig](assets/images/section_5/DPG_grads.png)
 
-Stochastic case integrates over both the state & action spaces
+Stochastic integrates over both the state & action spaces
 
-Deterministic case integrates over only the state space - leading to better sample efficiency
+Deterministic integrates over only the state space -> leading to better sample efficiency
 
 ---
 ### Updating policy weights
@@ -2557,6 +2557,7 @@ Deterministic case integrates over only the state space - leading to better samp
 
 The difference between stochastic (green) and deterministic (red) increases with the dimensionality of the action space
 
+---
 ## five 
 ### motivations for policy gradients
 ### introduction 
@@ -2567,15 +2568,12 @@ The difference between stochastic (green) and deterministic (red) increases with
 ### <span style="color:#66ff66">A3C</span>
 
 ---
-### A3C
-
 ![fig](assets/images/section_5/A3C_lit.png)
 
 ---
 ### A3C
 
 Asynchronous Advantage Actor-Critic 
-- works in continuous action spaces
 
 We saw earlier that experience replay is used to make learning more stable & decorrelate updates
 - but can only be used with off-policy learners
@@ -2587,9 +2585,7 @@ Asynchronous
 - multiple agents learning separately
 - experience of each agent is independent of other agents
 - learning in parallel stabilizes training
-
 - allows use of on-policy learners
-
 - runs on single multi-core CPU
 - learns faster than many GPU methods
 
@@ -2600,7 +2596,7 @@ Advantage = the advantage function
 
 $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 
-The advantage tells us how much better an action is than the average action followed by the policy
+How much better an action is than the average action followed by the policy
 
 ---
 ### A3C algorithm
@@ -2612,7 +2608,7 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 
 ---
 ## six <a id="section-six"></a>
-### AlphaGo
+### <span style="color:#66ff66">AlphaGo</span>
 ### AlphaGo Zero
 ### Residual networks
 
@@ -2621,8 +2617,6 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 ![fig](assets/images/section_6/AG_lit.png)
 
 ---
-### AlphaGo Trailer
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8tq1C8spV_g?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
@@ -2635,15 +2629,13 @@ First defeat of a world chess champion by a machine in 1997
 ---
 ### Deep Blue vs AlphaGo
 
-Deep Blue was handcrafted
--  programmers & chess grandmasters
+Deep Blue was handcrafted by programmers & chess grandmasters
 
-AlphaGo *learnt*
--  human moves & self play
+AlphaGo *learnt* from human moves & self play
 
 AlphaGo evaluated fewer positions 
--  **width** policy network select states more intelligently
--  **depth** value function evaluate states more precisely
+-  **width** - policy network select states more intelligently
+-  **depth** - value function evaluate states more precisely
 
 ---
 ### Why Go?
@@ -2668,19 +2660,6 @@ One value function $V(s)$
 Combined together using Monte Carlo tree search
 
 ---
-### Components of the AlphaGo agent
-
-1. train fast & supervised policy networks
- predicting human moves
-
-2. train reinforcement learning policy network
- initialize using supervised network weights
- self play (align gradient towards winning)
-
-3. train value function
- use data generated during self play
-
----
 ### Learning
 
 ![fig](assets/images/section_6/AG_learning.png)
@@ -2695,17 +2674,6 @@ Basic idea = analyse most promising next moves
 Planning algorithm
 - simulated (not actual experience)
 - roll out to end of game (a simulated Monte Carlo return)
-
----
-### Monte Carlo Tree Search
-
-1. pick a state to investigate further
- using measures of state value & visit statistics
-
-2. rollout down from this state
- use linear fast rollout policy
-
-3. repeat
 
 ---
 ### Monte Carlo Tree Search
@@ -2744,12 +2712,16 @@ Convenient properties of Go
 - evaluation is clear
 - huge datasets of human play
 - energy consumption (human ≈ 50 W) 1080 ti = 250 W
-
+
 *https://medium.com/@karpathy/alphago-in-context-c47718cb95a5*
 
 ---
-### AlphaGo Zero
+## six <a id="section-six"></a>
+### AlphaGo
+### <span style="color:#66ff66">AlphaGo Zero</span>
+### Residual networks
 
+---
 ![fig](assets/images/section_6/Zero_lit.png)
 
 ---
@@ -2787,17 +2759,17 @@ Computational efficiency
 ---
 ### AlphaGo Zero innovations
 
-1. learns using only self play
+Learns using only self play
 - no learning from human expert games
 - no feature engineering
 - learn purely from board positions
 
-2. single neural network
+Single neural network
 - combine the policy & value networks
 
-3. MCTS only during acting (not during learning)
+MCTS only during acting (not during learning)
 
-4. Use of residual networks developed for machine vision
+Use of residual networks developed for machine vision
 
 ---
 ### AlphaGo Zero acting & learning

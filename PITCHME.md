@@ -76,7 +76,7 @@ Experience with running reinforcement learning experiments
 
 Guidance on reinforcement learning project ideas
 
-Developing the skills of understanding already built projects
+Working with existing code bases
 
 ---
 ### Goals for today and tomorrow
@@ -304,7 +304,7 @@ Scaling / preprocessing
 Larger batch size 
 - larger learning rate
 - decrease in generalization
-- decrease in batch normalization performance
+- increase in batch normalization performance
 
 ---
 ### Learning rate
@@ -326,19 +326,16 @@ High learning rate
 
 Always intentionally set it
 
-```python
+`from keras.models import Sequential`
 
-from keras.models import Sequential
+`#  don't do this!`
+`model.compile(optimizer='rmsprop', loss='mse')`
 
-#  don't do this!
-model.compile(optimizer='rmsprop', loss='mse')
+`#  do this`
+`from keras.optimizers import RMSprop`
 
-#  do this
-from keras.optimizers import RMSprop
-
-opt = RMSprop(lr=0.001)
-model.compile(optimizer=opt, loss='mse')
-```
+`opt = RMSprop(lr=0.001)`
+`model.compile(optimizer=opt, loss='mse')`
 
 ---
 ### Batch size
@@ -457,6 +454,24 @@ Vanilla batch norm. struggles with small or non-iid batches
 - batch renormalization uses a single algorithm for both training & testing
 
 ---
+### Recap
+
+Three sources of generalization error
+
+Missing relevant patterns in data = variance or bias?
+
+Seeing patterns that aren't there = variance or bias?
+
+One advantage & disadvantage of lookup tables
+
+iid = ? and ? distributed
+
+Larger batches -> larger or smaller learning rate?
+
+Why do we pass in `None` for the first dimension in TensorFlow
+`tf.placeholder(shape=(None, 14, 2))`
+
+---
 ## two <a id="section-two"></a>
 ### <span style="color:#66ff66">introduction to reinforcement learning</span>
 ### four central challenges
@@ -472,7 +487,7 @@ Vanilla batch norm. struggles with small or non-iid batches
 
 **Cross entropy method** is often reccomended as an alternative 
 
-Classicial optimization such as **linear programming** 
+Constrained optimization such as **linear programming** 
 
 ---
 ### Machine learning
@@ -564,8 +579,6 @@ Reinforcement learning
 - are given no data and no labels
 - we can generate more data by acting
 - test using the same environment
-
-> Deep RL is popular because it’s the only area in ML where it’s socially acceptable to train on the test set
 
 Data 
 - the agent's experience $(s,a,r,s')$
@@ -821,7 +834,6 @@ Our agent is the **learner and decision maker**
 It's goal is to maximize total discounted reward
 
 An agent always has a policy 
-- even if it's a bad one 
 
 <br></br>
 
@@ -833,8 +845,7 @@ Delayed
 
 Sparse
 
-A well defined reward signal is often a limit for applications of RL 
-- autonomous driving - whats the reward?
+A well defined reward signal is a limit for applying RL 
 
 ---
 ### Reward hypothesis
@@ -908,7 +919,7 @@ Control can be on or off policy
 Our agent can learn an environment model
 
 Predicts environment response to actions
-- predicts $s,r$ from $s,a$
+- predicts $s', r$ from $s, a$
 
 ```python
 def model(state, action):
@@ -969,6 +980,19 @@ Can use discount = 1 for
 - when time to solve is irrelevant (i.e. a board game)
 
 ---
+### Recap
+
+How does reinforcement learning break iid?
+
+What is the credit assignment problem?
+
+An MDP is composed of two objects & three signals - what are they?
+
+What is off-policy learning?
+
+Why do we discount future rewards?
+
+---
 ## three <a id="section-three"></a> 
 ### <span style="color:#66ff66">value functions</span>
 ### Bellman Equation 
@@ -984,8 +1008,6 @@ Can use discount = 1 for
 
 <center>$V_\pi(s)$</center>
 
-<br> </br>
-
 <center>how good is this state</center>
 
 <br> </br>
@@ -994,16 +1016,12 @@ Can use discount = 1 for
 
 <center>$Q_\pi(s,a)$</center>
 
-<br> </br>
-
 <center>how good is this action</center>
 
 ---
 ### Value function
 
 <center>$ V_{\pi}(s) = \mathbf{E}[G_t | s_t] $ </center>
-
-<br> </br>
 
 <center>Expected return when in state $s$, following policy $\pi$</center>
 
@@ -1012,8 +1030,6 @@ Can use discount = 1 for
 ### Action-value function
 
 <center> $ Q_{\pi}(s,a) = \mathbf{E}[G_t | s_t, a_t] $ </center>
-
-<br> </br>
 
 <center>Expected return when in state $s$, taking action $a$, following policy $\pi$</center>
 
@@ -1806,8 +1822,21 @@ The Huber Loss is a form of gradient clipping
 We will cover these improvements tomorrow 
 
 ---
-# <span style="color:#66ff66">Lunch</span>
----
+### Value function recap
+
+What does a value function predict?
+
+What is general policy iteration?
+
+How does the Bellman Equation help us learn?
+
+| method | env model | bootstrapped | non-episodic | uses experience |
+|---|
+| dynamic programming | |
+| Monte Carlo | |
+| temporal difference | |
+
+
 ## <span style="color:#66ff66">Practical</span>
 ---
 ### Practical <a id="section-practical"></a>

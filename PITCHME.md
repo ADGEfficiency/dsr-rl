@@ -2605,7 +2605,6 @@ How much better an action is than the average action followed by the policy
 
 https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
 
-
 ---
 ## six <a id="section-six"></a>
 ### <span style="color:#66ff66">AlphaGo</span>
@@ -3076,7 +3075,6 @@ TensorFlow
 [rllab](https://github.com/rll/rllab) - Berkley
 
 [Tensorforce](https://github.com/reinforceio/tensorforce) - reinforce.io
-
 ---
 ## eight <a id="section-eight"></a>
 ### <span style="color:#66ff66">Deep RL doesn't work yet</span>
@@ -3206,4 +3204,3 @@ Adam Green
 adgefficiency.com
 
 adam.green@adgefficiency.com
-

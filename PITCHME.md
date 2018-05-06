@@ -3194,7 +3194,6 @@ Exploration versus exploitation
 Test your models on simple problems
 
 Reinforcement learning is sample inefficient
-- you need simulation to learn
 
 Deep RL is hard
 
@@ -3204,7 +3203,7 @@ Reward engineering is key
 
 Adam Green
 
-adgefficency.com
+adgefficiency.com
 
 adam.green@adgefficiency.com
 

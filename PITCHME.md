@@ -2319,6 +2319,8 @@ More compataible with recurrent neural networks
 ### the score function
 ### REINFORCE
 ### Actor-Critic
+### Deterministic Policy Gradient
+### A3C
 
 ---
 ### Parameterizing policies
@@ -2338,19 +2340,19 @@ The type of policy you parameterize depends on the **action space**
 ### Policy gradients without equations
 
 We have a parameterized policy
-- i.e. a neural network that outputs a distribution over actions
+- a neural network that outputs a distribution over actions
 
 How do we improve it - how do we learn?
 - change parameters to take actions that get more reward
 - change parameters to favour probable actions
 
 Reward function is not known
-- but we can calculate the *gradient of the expectation of reward*
+- but we can calculate the *gradient the expected reward*
 
 ---
 ### Policy gradients with a few equations
 
-Imagine we have a policy $\pi(a_t|s_t;\theta)$, which is a **probability distribution over actions**
+Our policy $\pi(a_t|s_t;\theta)$ is a **probability distribution over actions**
 
 How do we improve it?  
 - change parameters to take actions that get more reward
@@ -2361,7 +2363,7 @@ Reward function is not known
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-Can't tell you how reward is calculated - but can tell you what direction you need to go to get more of it
+We can figure out how to change our parameters without actually knowing the reward function itself
 
 ---
 ### The score function in statistics
@@ -2387,11 +2389,11 @@ $$\nabla\_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla\_{\theta} \log P(x) \cdo
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-The gradient of our return = expectation of the gradient of the policy * the return
+` gradient of return = expectation of the gradient of the policy * return`
 
-The key here is that the RHS is an expectation.  We can estimate it by sampling
+The RHS is an expectation - we can estimate it by sampling
 
-The expectation is made up of thing we can sample
+The expectation is made up of things we can sample from
 - we can sample from our policy 
 - we can sample the return (from experience)
 
@@ -2400,11 +2402,11 @@ The expectation is made up of thing we can sample
 
 We use the score function to get the gradient, then follow the gradient 
 
-gradient = log(probability of action) * return
+`gradient = log(probability of action) * return`
 
-gradient = log(policy) * return
+`gradient = log(policy) * return`
 
-Note that the score function limits us to on-policy learning 
+The score function limits us to on-policy learning 
 - we need to calculate the log probability of the action taken by the policy
 
 --- 
@@ -2423,9 +2425,9 @@ $ G_t $
 ---
 ### REINFORCE 
 
-We can use different methods to approximate the return $G_t$
+Different methods to approximate the return $G_t$
 
-One way is to use the Monte Carlo return.  This is known as REINFORCE
+We can use a Monte Carlo estimate - this is known as REINFORCE 
 
 Using a Monte Carlo approach comes with all the problems we saw earlier
 - high variance
@@ -2437,21 +2439,16 @@ How can we get some the advantages of Temporal Difference methods?
 ---
 ### Baseline
 
-We can introduce a baseline function - this reduces variance without introducing bias
+We can introduce a baseline function 
+- this reduces variance without introducing bias
+- a natural baseline is the value function (weights $w$).  
 
-$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t)$ 
-- how probable was the action we picked
-
-A natural baseline is the value function - which we parameterize using weights $w$.  This is known as REINFORCE with a baseline
-
-$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w)$ 
-- how probable was the action we picked
+$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w))$ 
 
 This also gives rise to the concept of **advantage**
+- how much better this action is than the average action (policy & env dependent)
 
 $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
-
-The advantage function tells us how much better an action is than the average action for that policy & environment dynamics
 
 ---
 ### Actor-Critic
@@ -2464,12 +2461,10 @@ The advantage function tells us how much better an action is than the average ac
 Actor-Critic brings together value functions and policy gradients
 
 We parameterize two functions
-- an **actor** = policy
-- a **critic** = value function
+- **actor** = policy
+- **critic** = value function
 
 We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
-
-The direction is given by the temporal difference error
 
 ---
 
@@ -2484,15 +2479,26 @@ The direction is given by the temporal difference error
 *Sutton & Barto*
 
 ---
+## five 
+### motivations for policy gradients
+### introduction 
+### the score function
+### REINFORCE
+### Actor-Critic
+### <span style="color:#66ff66">Deterministic Policy Gradient</span>
+### A3C
+
+---
 
 ![fig](assets/images/section_5/dpg_lit.png)
 
 ---
-### Determinstic Policy Gradient
+### Deterministic Policy Gradient
 
 Actor Critic
 
-Determinstic policy -> more efficient than stochastic
+Determinstic policy 
+- more efficient than stochastic
 
 Continuous action spaces
 
@@ -2511,7 +2517,7 @@ Actions are selected by sampling from this distribution
 
 $$ \pi_{\theta}(a|s) = P[a|s;\theta] $$
 
-$$ a \textasciitilde \pi_{\theta}(a|s) $$
+$$ a \sim \pi_{\theta}(a|s) $$
 
 DPG parameterizes a determinstic policy
 
@@ -2550,6 +2556,15 @@ Deterministic case integrates over only the state space - leading to better samp
 ![fig](assets/images/section_5/DPG_results.png)
 
 The difference between stochastic (green) and deterministic (red) increases with the dimensionality of the action space
+
+## five 
+### motivations for policy gradients
+### introduction 
+### the score function
+### REINFORCE
+### Actor-Critic
+### Deterministic Policy Gradient
+### <span style="color:#66ff66">A3C</span>
 
 ---
 ### A3C

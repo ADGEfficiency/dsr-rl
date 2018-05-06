@@ -1,4 +1,3 @@
-
 ## a glance at reinforcement learning
 
 ### Adam Green
@@ -97,7 +96,6 @@ Video lectures
 
 Literature review
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
-
 ---
 ## one <a name="section-one"></a>
 ### <span style="color:#66ff66">nomenclature & statistics background</span>
@@ -1809,10 +1807,8 @@ We will cover these improvements tomorrow
 
 ---
 # <span style="color:#66ff66">Lunch</span>
-
 ---
 ## <span style="color:#66ff66">Practical</span>
-
 ---
 ### Practical <a id="section-practical"></a>
 
@@ -1893,9 +1889,9 @@ config_dict = {'discount': 0.97,
 ---
 ### Eligibility traces
 
-Eligibility traces are the family of methods **between Temporal Difference & Monte Carlo**
+Family of methods between Temporal Difference & Monte Carlo
 
-Eligibility traces allow us to assign TD errors to different states other than the current state
+Eligibility traces allow us to **assign TD errors** to different states 
 - can be useful with delayed rewards or non-Markov environments
 - requires more computation 
 - squeezes more out of data
@@ -1913,11 +1909,9 @@ In between TD and MC exist a family of approximation methods known as **n-step r
 
 We can look at eligibility traces from two perspectives
 
-The **forward** view
-- helpful for understanding the theory
+The **forward** view is helpful for understanding the theory
 
-The **backward** view
-- can put into practice
+The **backward** view can be put into practice
 
 ---
 ### The forward view
@@ -1951,10 +1945,8 @@ $TD(\lambda)$ and n-step returns are the same thing
 ---
 ### The backward view
 
-The forward view is not practical 
-- it requires knowledge of the future!
-
 The backward view approximates the forward view
+- forward view is not practical (requires knowledge of the future)
 
 It requires an additional variable in our agents memory 
 - **eligibility trace $e_{t}(s)$**
@@ -1995,7 +1987,7 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 ![fig](assets/images/section_4/schaul_2015.png)
 
 ---
-### Experience replay
+### Naive experience replay
 
 ![fig](assets/images/section_3/exp_replay.png)
 
@@ -2064,7 +2056,7 @@ The importance weight function
 
 $$ w(x) = \frac{p(x)}{q(x)}$$
 
-$$ \mathfb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
+$$ \mathbf{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
 
 This is an unbiased approximation
 - can also be lower variance than using the sample distribution $p$
@@ -2076,15 +2068,16 @@ $$\omega\_{i} = \left( \frac{1}{N} \cdot \frac{1}{P(i)} \right)^{\beta}$$
 
 $\beta$ 
 - hyperparameter that is increased over the course of an experiment
-- 0.4 or 0.5 up to 1.0
+- 0.4 or 0.5 -> 1.0
 
-Weights are normalized by $ 1 / \max_i \omega_i $ to ensure that we only scale the update downwards
+Weights are normalized by $ 1 / \max_i \omega_i $ 
+- ensure that we only scale the update downwards
 
-All new transitions are stored at maximum priority - to ensure replay at least once
+All new transitions are stored at maximum priority 
+- to ensure replay at least once
 
 Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums and minimums
-
-Ask your algorithms teacher to go over binary heaps - they are useful!
+- ask your algorithms teacher to go over binary heaps - they are useful!
 
 ---
 ![fig](assets/images/section_4/sumtree_test.png)
@@ -2105,16 +2098,16 @@ Ask your algorithms teacher to go over binary heaps - they are useful!
 
 DDQN = Double Deep Q-Network
 - first introducued in a tabular setting in 2010
-- then reintroduced in the content of DQN in 2016
+- reintroduced in the content of DQN in 2016
 
-DDQN aims to overcome the **maximization bias** that occurs due to the max operator in Q-Learning
+DDQN aims to overcome the **maximization bias** of Q-Learning 
 
 ---
 ### Maximization bias
 
 Imagine a state where $Q(s,a) = 0$ for all $a$
 
-Our estimates of the value of this state are normally distributed above and below 0
+Our estimates are normally distributed above and below 0
 
 ![fig](assets/images/section_4/max_bias.png)
 
@@ -2143,7 +2136,7 @@ $$ r + \gamma \underset{a}{\max} Q(s,a;\theta^{-}) $$
 $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$ 
 
 - select the optimal action according to our online network
-- but we use the Q value as estimated by the target network
+- but use the Q value as estimated by the target network
 
 ---
 
@@ -2154,7 +2147,7 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### <span style="color:#66ff66">Distrubutional Q-Learning </span>
+### <span style="color:#66ff66">Distributional Q-Learning </span>
 ### Rainbow
 ---
 
@@ -2163,7 +2156,7 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ---
 ### Beyond the expectation
 
-All the reinforcement learning today we have seen is about the expectation (mean expected return)
+All the reinforcement learning we have seen focuses on the expectation (i.e. the mean)
 
 $$Q(s,a) = \mathbf{E}[G_t] = \mathbf{E}[r + \gamma Q(s',a)] $$
 
@@ -2175,8 +2168,6 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 ### Beyond the expectation
 
 ![fig](assets/images/section_8/beyond_ex.png)
-
-The expected value of 7.5 minutes will never occur in reality!
 
 ---
 
@@ -2191,12 +2182,6 @@ The expected value of 7.5 minutes will never occur in reality!
 *Bellamare et. al 2017*
 
 ---
-
----
-
-![fig](assets/images/section_4/rainbow_lit.png)
-
----
 ## four
 ### eligibility traces
 ### prioritized experience replay
@@ -2205,11 +2190,12 @@ The expected value of 7.5 minutes will never occur in reality!
 ### <span style="color:#66ff66">Rainbow</span>
 
 ---
+![fig](assets/images/section_4/rainbow_lit.png)
+
+---
 ### Rainbow
 
-Combines improvements to DQN
-
-These improvements all address different issues  
+All the various improvements to DQN address different issues
 
 - DDQN - overestimation bias
 - prioritized experience replay - sample efficiency
@@ -2217,6 +2203,8 @@ These improvements all address different issues
 - multi-step bootstrap targets - bias variance tradeoff
 - distributional Q-learning - learn categorical distribution of $Q(s,a)$
 - noisy DQN - stochastic layers for exploration
+
+Rainbow combines these improvements
 
 ---
 
@@ -2233,28 +2221,27 @@ These improvements all address different issues
 ---
 
 ![fig](assets/images/section_4/rainbow_results.png)
-
 ---
 ## five <a id="section-five"></a>
 ### <span style="color:#66ff66">motivations for policy gradients</span>
 ### introduction 
 ### the score function
 ### REINFORCE
+### Actor-Critic
 
 ---
-
 ![fig](assets/images/section_5/intro.png)
 
 ---
 ### Policy gradients
 
-Previously we looked at generating a policy from a value function 
+Previously we generated a policy from a value function 
 
-$$ \underset{a}{argmax} Q(s,a) $$
+$$ a = \underset{a}{argmax} Q(s,a) $$
 
 In policy gradients we **parameterize a policy directly**
 
-$$ \pi(a_t|s_t;\theta) $$
+$$ a \textbackslash \pi(a_t|s_t;\theta) $$
 
 ---
 ### John Schulan - Berkley, Open AI
@@ -2268,7 +2255,7 @@ $$ \pi(a_t|s_t;\theta) $$
 
 A determinstic policy (i.e. always rock) is eaisly exploited
 
-A stochastic policy also gets us exploration built into the policy
+A stochastic policy means exploration is built into the policy
 - exploration can be controlled by the agent
 
 ---
@@ -2283,14 +2270,10 @@ This corresponds to approx. 750,000 actions a Q-Learner would need to argmax acr
 We also lose shape of the action space by discretization
 
 ---
-
-![fig](assets/images/section5/disc_cont_act.png)
+![fig](assets/images/section_5/disc_cont_act.png)
 
 ---
-
 ### Motivation - optimize return directly
-
-Value function methods have a mismattch between the loss function (which measures vlaue function consistency) versus the loss of expected return
 
 When learning value functions our optimizer is working towards improving the predictive accuracy of the value function
 - our gradients point in the direction of predicting return
@@ -2304,11 +2287,12 @@ Policy methods optimize return directly
 
 ### Motivation - simplicity
 
+Sometimes it's eaiser to pick an action
+- rather than to quantify return for each action, then pick action
+
 Policy gradients are more general and versatile
 
 More compataible with recurrent neural networks
-
-Can be easier to just select an action – rather than quantify return
 
 ---
 ### Policy gradients versus value functions
@@ -2325,12 +2309,13 @@ Can be easier to just select an action – rather than quantify return
 - better sample efficiency
 
 ---
+![fig](assets/images/section_5/motivation_simple.png)
 
-![fig](assets/images/section5/motivation_simple.png)
+---
 
 ## five 
-### motivations 
-### **introduction** 
+### motivations for policy gradients
+### <span style="color:#66ff66">introduction</span>
 ### the score function
 ### REINFORCE
 ### Actor-Critic

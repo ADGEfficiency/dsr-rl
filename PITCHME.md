@@ -2769,7 +2769,7 @@ Single neural network
 
 MCTS only during acting (not during learning)
 
-Use of residual networks developed for machine vision
+Use of residual networks 
 
 ---
 ### AlphaGo Zero acting & learning
@@ -2793,6 +2793,12 @@ The improved policy generated during acting becomes the target policy during tra
 
 [Keynote David Silver NIPS 2017 Deep Reinforcement Learning Symposium AlphaZero
 ](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
+
+---
+## six <a id="section-six"></a>
+### AlphaGo
+### AlphaGo Zero
+### <span style="color:#66ff66">Residual networks</span>
 
 ---
 ### Residual networks
@@ -2826,20 +2832,20 @@ And can get $ H(x) = F(x) + x $
 
 ![fig](assets/images/section_6/Reddit_AMA_posts.png)
 
-
 ---
 ## seven <a id="section-seven"></a>
-### practical concerns
+### <span style="color:#66ff66">practical concerns</span>
 
 ---
-### Key Questions
+### Should I use reinforcement learning for my problem
 
 What is the action space
 - what can the agent choose to do
 - does the action change the environment
 - continuous or discrete
 
-What is the reward
+What is the reward function
+- does it incentivize behaviour
 
 It is a complex problem
 - classical optimization techniques such as linear programming or cross entropy may offer a simpler solution
@@ -2849,8 +2855,6 @@ Can I sample efficiently / cheaply
 
 ---
 ### Preprocessing
-
-Scaling/processing of inputs and targets for neural networks is key to keep gradients under control
 
 In reinforcement learning we often don't know the true min/max/mean/standard deviation of observations/actions/rewards/returns
 
@@ -2871,7 +2875,7 @@ Not setting `next_observation = observation`
 
 Not setting online & target network variables the same at the start of an experiment
 
-Gradient clipping
+Not gradient clipping
 - clip the norm of the gradient (I've seen between 1 - 5)
 
 ---
@@ -2946,13 +2950,15 @@ https://www.quora.com/How-can-I-test-if-the-training-process-of-a-reinforcement-
 ---
 ### Gary Wang advice
 
-Debugging RL algorithms is very hard. Everything runs and you are not sure where the problem is.
+Debugging RL algorithms is very hard
+- everything runs and you are not sure where the problem is.
 
 Simple environments for testing
 - CartPole for discrete action spaces
 - Pendulum for continuous action spaces
 
 Be careful not to overfit these simple problems
+- use low capacity neural networks
 
 Rescale environment observations if they have known mins & maxs
 
@@ -2973,8 +2979,6 @@ Visualize statistics
 - network gradients
 
 Gradient clipping is helpful - dropout & batchnorm not so much
-
-Simple neural networks
 
 Multiple random seeds
 
@@ -3005,13 +3009,9 @@ Spend time looking at open source RL packages
 ---
 ### Matthew Rahtz of Amid Fish
 
-Reinforcement learning is really sensitive...  it can be difficult to diagnose where you’ve gone wrong.
-
 > It’s not like my experience of programming in general so far where you get stuck but there’s usually a clear trail to follow and you can get unstuck within a couple of days at most. 
 
 > It’s more like when you’re trying to solve a puzzle, there are no clear inroads into the problem, and the only way to proceed is to try things until you find the key piece of evidence or get the key spark that lets you figure it out.
-
-Try and be as sensitive as possible in noticing confusion.
 
 ---
 ### Matthew Rahtz
@@ -3028,8 +3028,8 @@ Most programming involves rapid feedback
 
 In RL (and supervised learning with long run times) gathering evidence is expensive
 - suggests spending more time on the hypothesis stage
-- switch from **experimenting a lot and thinking little** to **experimenting a little and thinking a lot**
-- reserve experiments for after you've really fleshed out the hypotehsis space
+- switch from experimenting a lot and thinking little to **experimenting a little and thinking a lot**
+- reserve experiments for after you've really fleshed out the hypothesis space
 
 ---
 ### Get more out of runs
@@ -3046,8 +3046,6 @@ Log all the metrics you can
 ![fig](assets/images/section_7/policy_entropy.png)
 
 Try to predict future failures
-- how suprised would I be if this run failed
-- if not very suprised - try to fix whatever comes to mind
 
 ---
 ### Matthew Rahtz of Amid Fish
@@ -3081,7 +3079,7 @@ TensorFlow
 
 ---
 ## eight <a id="section-eight"></a>
-### Deep RL doesn't work yet
+### <span style="color:#66ff66">Deep RL doesn't work yet</span>
 ### auxillary loss functions 
 ### inverse reinforcement learning 
 
@@ -3168,9 +3166,7 @@ The future
 
 Many things need to go right for RL to work - success stories are the exception, not the rule
 
-
-
-
+---
 ![fig](assets/images/section_8/lit_aux.png)
 
 *https://www.youtube.com/watch?v=mckulxKWyoc*
@@ -3186,12 +3182,6 @@ Many things need to go right for RL to work - success stories are the exception,
 ---
 
 ![fig](assets/images/section_8/inverse_1.png)
-
-*Chelsea Finn – Berkley Deep RL Bootcamp 2017*
-
----
-
-![fig](assets/images/section_8/inverse_2.png)
 
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 

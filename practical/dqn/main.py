@@ -56,9 +56,12 @@ def experiment(config):
             global_rewards.append(ep_rew)
             avg_reward = sum(global_rewards[-100:]) / len(global_rewards[-100:])
 
-            logging.info("""step {:.0f} ep {:.0f}
-                         reward {:.1f} avg {:.1f}""".format(global_step, episode,
-                                                            ep_rew, avg_reward))
+            if episode % 10 == 0:
+                log_str =' step {:.0f} ep {:.0f} reward {:.1f} avg {:.1f}'
+                logging.info(log_str.format(global_step,
+                                            episode,
+                                            ep_rew,
+                                            avg_reward))
 
             summary = tf.Summary(value=[tf.Summary.Value(tag='episode_reward',
                                                          simple_value=ep_rew)])

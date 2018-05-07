@@ -20,7 +20,7 @@ Now clone the course repo in a folder on your machine
 
 Move into the Q-Learning directory
 
-` cd DSR_RL/practical/q_learning/`
+` cd DSR_RL/practical/dqn/`
 
 Install the packages in requirements.txt
 

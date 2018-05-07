@@ -50,7 +50,9 @@ class Agent(object):
         #  the counter is stepped up every time we act or learn
         self.counter = 0
 
-        if repr(env) == '<TimeLimit<CartPoleEnv<CartPole-v1>>>':
+        if (repr(env) == '<TimeLimit<CartPoleEnv<CartPole-v0>>>') or \
+            (repr(env) == '<TimeLimit<CartPoleEnv<CartPole-v1>>>'):
+
             obs_space_shape = env.observation_space.shape
             #  the shape of the gym Discrete space is the number of actions
             #  not the shape of a single action array

@@ -16,11 +16,11 @@ Activate your environment
 
 Now clone the course repo in a folder on your machine
 
-` git clone https://github.com/ADGEfficiency/DSR_RL`
+` git clone https://github.com/ADGEfficiency/dsr_rl`
 
 Move into the Q-Learning directory
 
-` cd DSR_RL/practical/dqn/`
+` cd dsr_rl/practical/dqn/`
 
 Install the packages in requirements.txt
 

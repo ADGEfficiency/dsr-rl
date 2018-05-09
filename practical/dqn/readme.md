@@ -26,15 +26,6 @@ Install the packages in requirements.txt
 
 ` pip install -r requirements.txt `
 
-Finally we will clone the gym repo - the current pip version is different for one of the environments we are going to
-use.  
-
-` git clone https://github.com/openai/gym`
-
-` cd gym `
-
-` python setup.py install`
-
 ## Practical work
 
 ### Task

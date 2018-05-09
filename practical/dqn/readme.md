@@ -55,6 +55,10 @@ To run an experiment we use main.py
 
 ` python main.py `
 
+If you want to clear the previous results from TensorBoard
+
+` rm -r results/ && mkdir results && python main.py `
+
 If you want to change the hyperparameters used in the experiment you can change the `config_dict` dictionary in `main.py`.
 
 If you want to view results of the experiment on Tensorboard you will run a Tensorboard server in a separate terminal session.

@@ -893,6 +893,7 @@ Do you agree with this?
 - reputation
 
 Think about the role of emotion in human decision making.  Is there a place for this in RL?
+
 ---
 ### Reward engineering
 
@@ -1007,6 +1008,9 @@ Makes the maths works
 - discount rate is $[0,1)$ 
 - can make the sum of an infinite series finite 
 - geometric series
+
+---
+### Discounting
 
 Can use discount = 1 for
 - games with tree-like structures (without cycles)

@@ -1,16 +1,16 @@
 ## a glance at reinforcement learning
 
 ### Adam Green
-### [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
-### [adgefficiency.com](http://adgefficiency.com)
+#### [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
+#### [adgefficiency.com](http://adgefficiency.com)
 ---
 ### Course Materials
 
-All course materials are in the GitHub repo dsr_rl
+All course materials are in the GitHub repo *dsr_rl*
 
 https://github.com/ADGEfficiency/dsr_rl
 
-- lecture notes hosted on GitPages
+- lecture notes hosted on GitPages (`PITCHME.md`)
 - useful machine learning & reinforcement learning literature
 - practical work - collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
 
@@ -68,7 +68,7 @@ Energy Data Scientist at Tempus Energy
 ---
 ### Goals for today and tomorrow
 
-Introduction to **concepts, ideas and terminology** of reinforcement learning
+Introduction to **concepts, ideas and terminology** 
 
 Familiarity with important literature
 
@@ -105,7 +105,9 @@ Literature review
 ---
 ### Nomenclature
 
-Nomenclature in RL can be inconsistent - often quite different for value function methods versus policy gradient methods
+Nomenclature in RL can be inconsistent
+- value function methods, action = `a`
+- policy gradient methods, action = `u`
 
 Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
 
@@ -329,12 +331,15 @@ Always intentionally set it
 `from keras.models import Sequential`
 
 `#  don't do this!`
+
 `model.compile(optimizer='rmsprop', loss='mse')`
 
 `#  do this`
+
 `from keras.optimizers import RMSprop`
 
 `opt = RMSprop(lr=0.001)`
+
 `model.compile(optimizer=opt, loss='mse')`
 
 ---
@@ -343,7 +348,6 @@ Always intentionally set it
 Modern reinforcement learning trains neural networks using batches of samples
 
 Below we have a dataset with four samples, of shape (14, 2)
-
 
 `>>> import numpy as np`
 
@@ -365,14 +369,14 @@ Passing in `None` allows us to use whatever batch size we want
 Smaller batches can fit onto smaller GPUs
 - if a large sample dimension we can use less samples per batch
 
-Batches train faster 
+Batches allow us to learn faster
 - weights are updated more often during each epoch
 
 Batches give a less accurate estimate of the gradient 
 - this noise can be useful to escape local minima
 
 Larger batch size -> larger learning rate
-- more accurate estimation of the gradient (better data distribution across batch)
+- more accurate estimation of the gradient (better distribution across batch)
 - we can take larger steps
 
 ---
@@ -432,11 +436,8 @@ Batch norm. is additional preprocessing of data as it moves between network laye
 
 We use the mean and variance of the batch to normalize activations 
 - standardization is actually used!
-
 - reduces sensitivty to weight & bias initialization
-
 - allows higher learning rates
-
 - originally applied before the activation - but this is a topic of debate
 
 [Batch normalization before or after relu - Reddit](http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/)
@@ -457,6 +458,29 @@ Vanilla batch norm. struggles with small or non-iid batches
 ### Recap
 
 Three sources of generalization error
+- ?
+- ?
+- ?
+
+Missing relevant patterns in data = ?
+
+Seeing patterns that aren't there = ? 
+
+One advantage & disadvantage of lookup tables
+- advantage = ?
+- disadvantage = ? 
+
+iid = ? and ? distributed 
+
+Larger batches -> ? learning rate
+
+Why do we pass in `None` for the first dimension in TensorFlow
+`tf.placeholder(shape=(None, 14, 2))`
+
+---
+### Recap
+
+Three sources of generalization error
 - bias
 - variance
 - noise
@@ -471,7 +495,8 @@ One advantage & disadvantage of lookup tables
 
 iid = independent and identically distributed 
 
-Larger batches -> larger learning rate?
+Larger batches -> larger learning rate
+- better estimation of the gradient
 
 Why do we pass in `None` for the first dimension in TensorFlow
 `tf.placeholder(shape=(None, 14, 2))`
@@ -495,6 +520,8 @@ Why do we pass in `None` for the first dimension in TensorFlow
 **Cross entropy method** is often reccomended as an alternative 
 
 Constrained optimization such as **linear programming** 
+
+Any other **domain specific** algorithm for your problem
 
 ---
 ### Machine learning
@@ -562,11 +589,11 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 <iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
-#### Reinforcement Learning
+### Reinforcement Learning
 
-#### is
+### is
 
-# learning through action
+### learning through action
 
 ---
 ![fig](assets/images/section_2/mdp_schema_simple.png)
@@ -579,15 +606,15 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 
 Supervised learning
 - are given a dataset with labels
-- we are constrained by the dataset
+- we are constrained by this dataset
 - test on unseen data
 
 Reinforcement learning 
-- are given no data and no labels
+- are given no dataset and no labels
 - we can generate more data by acting
 - test using the same environment
 
-Data 
+Data in RL
 - the agent's experience $(s,a,r,s')$
 - it's not clear what we should do with this data 
 - no implicit target
@@ -653,7 +680,7 @@ Time step matters
 ---
 ### Data quality
 
-Remember our two assumptions in iid - independent sampling & identical distribution
+iid = independent sampling & identical distribution
 
 RL breaks both in multiple ways
 
@@ -674,7 +701,7 @@ RL breaks both in multiple ways
 
 The reward we see now might not be because of the action we just took
 
-Reward signal is often
+Reward signal can be 
 - **delayed** - benefit/penalty of action only seen much later  
 - **sparse** - experience with reward = 0
 
@@ -990,6 +1017,27 @@ Can use discount = 1 for
 ### Recap
 
 How does reinforcement learning break iid?
+- ? 
+- ? 
+
+What is the credit assignment problem?
+- ? 
+
+An MDP is composed of two objects & three signals - what are they?
+- ? 
+- ? 
+
+What is off-policy learning?
+- ?
+
+Why do we discount future rewards?
+- ?
+- ?
+
+---
+### Recap
+
+How does reinforcement learning break iid?
 - we don't sample experience indepdently - sampling biased by the agent & environmentt
 - our experience is not independent - based on trajectory in the MDP
 
@@ -1125,6 +1173,16 @@ Value iteration
 Both of these can achieve the same result 
 
 The policy and value functions interact to move both towards their optimal values - this is one souce of non-stationary learning in RL
+
+---
+![fig](assets/images/section_3/policy_iter.png)
+
+*Sutton & Barto*
+
+---
+![fig](assets/images/section_3/value_iter.png)
+
+*Sutton & Barto*
 
 ---
 ### Value function approximation
@@ -1833,7 +1891,7 @@ The Huber Loss is a form of gradient clipping
 We will cover these improvements tomorrow 
 
 ---
-### Value function recap
+### Recap 
 
 What does a value function predict?
 
@@ -1841,11 +1899,10 @@ What is general policy iteration?
 
 How does the Bellman Equation help us learn?
 
-| method | env model | bootstrapped | non-episodic | uses experience |
-|---|---|---|---|---|
-|dynamic programming|---|---|---|---|
-|Monte Carlo|---|---|---|---|
-|temporal difference|---|---|---|---|
+For each of the three approximation methods (DP, MC, TD)
+- needs an environment model?
+- bootstrapped?
+- 
 
 If we wanted to control using $V(s)$, what else would we need?
 
@@ -1856,6 +1913,37 @@ What is the deadly triad?
 What is the benefit of experience replay?
 
 What is the benefit of a target network?
+
+---
+### Recap 
+
+What does a value function predict?
+- future expected discounted reward
+
+What is general policy iteration?
+- process of letting policy evaluation and policy improvement interact 
+
+How does the Bellman Equation help us learn?
+- allows us to create bootstrapped targets
+
+If we wanted to control using $V(s)$, what else would we need?
+- the state transition function
+
+What makes Q-Learning off-policy?
+- maximization over all possible next actions
+
+What is the deadly triad?
+- function approximation
+- off-policy learning
+- bootstrapping
+
+What is the benefit of experience replay?
+- decorrelating experience
+- data efficiency
+
+What is the benefit of a target network?
+- stability
+- decorrelating the target used to train the network from the network output
 
 ---
 ## <span style="color:#66ff66">Practical</span>

@@ -1131,7 +1131,7 @@ This is known as a *greedy policy*
 ### Using a value function 
 
 ![fig](assets/images/section_3/gen_policy.png)
-
+---
 ``` python
 def greedy_policy(state):
     #  get the Q values for each state_action pair

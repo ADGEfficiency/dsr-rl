@@ -843,8 +843,7 @@ State is a flexible concept - it's a n-d array
 
 `state = np.array(pixels).reshape(height, width)`
 
-<br></br>
-
+---
 ### Observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov

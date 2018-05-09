@@ -893,7 +893,7 @@ Do you agree with this?
 - reputation
 
 Think about the role of emotion in human decision making.  Is there a place for this in RL?
-
+---
 ### Reward engineering
 
 ![fig](assets/images/section_2/reward_eng.png)

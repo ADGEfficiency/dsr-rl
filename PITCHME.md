@@ -2072,21 +2072,6 @@ $$R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
 *Sutton & Barto*
 
 ---
-### $$TD(\lambda)$$
-
-The family of algorithms between TD and MC is known as $TD(\lambda)$
-- weight each return by $\lambda^{n-1}$ 
-- normalize using $(1-\lambda)$
-
-$$ TD(\lambda) = (1-\lambda) \sum_{n-1}^{\infty} \lambda^{n-1} R_t^n $$
-
-$\lambda = 0$ -> TD(0) 
-
-$\lambda = 1$ -> Monte Carlo
-
-$TD(\lambda)$ and n-step returns are the same thing
-
----
 ### The backward view
 
 The backward view approximates the forward view
@@ -2162,67 +2147,6 @@ Schaul et. al (2016) solves these problems by
 
 1. loss of diversity -> make the prioritization stochastic
 2. correct bias -> use importance sampling
-
----
-### Stochastic prioritization
-
-Noisy rewards can make the TD error signal less useful
-
-$p_i$ is the priority for transition $i$
-
-$$ \frac{p\_{i}^{\alpha}}{\sum\_{k}p\_{k}^{\alpha}} $$
-
-$\alpha = 0 $ -> uniform random sampling
-
-Schaul suggets alpha $~ 0.6 - 0.7$
-
----
-### Importance sampling
-
-Not a sampling method 
-- it's a method of Monte Carlo approximation
-
-Monte Carlo approximates using the sample mean
-- assuming that the sampling distribution $x\_p$ 
-- is the same as the true distribution $(x~p)$ 
-
-$$ \mathbb{E}[f(x)] = 1/n \sum f(x\_{i}) $$
-
-Could we use infomation about another distribution $q$ to learn the distribution of $p$
-- correct for the fact that we are using another distribution
-
-*https://www.youtube.com/watch?v=S3LAOZxGcnk*
----
-
-### Importance sampling
-
-The importance weight function
-
-$$ w(x) = \frac{p(x)}{q(x)}$$
-
-$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
-
-This is an unbiased approximation
-- can also be lower variance than using the sample distribution $p$
-
----
-### Importance sampling in prioritized experience replay
-
-$$\omega\_{i} = \left( \frac{1}{N} \cdot \frac{1}{P(i)} \right)^{\beta}$$
-
-$\beta$ is a hyperparameter that is linearly scheduled during learning(0.4 or 0.5 -> 1.0)
-
-Weights are normalized by $ 1 / \max_i \omega_i $ 
-- ensure that we only scale the update downwards
-
-All new transitions are stored at maximum priority 
-- to ensure replay at least once
-
-Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums and minimums
-- ask your algorithms teacher to go over binary heaps - they are useful!
-
----
-![fig](assets/images/section_4/sumtree_test.png)
 
 ---
 ## four

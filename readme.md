@@ -12,7 +12,12 @@ This project is built and maintained by Adam Green - [adam.green@adgefficiency.c
 
 Practical work is using an existing reinforcement learning library to run experiments.
 
+The repo also has an [introducton to tensorflow](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/intro_to_tensorflow.ipynb) and [python tricks](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/python_tricks.ipynb) notebooks.
+
 ## Resources 
+
+This repo contains useful [machine
+learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.
 
 ### to start with
 

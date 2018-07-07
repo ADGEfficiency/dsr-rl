@@ -19,7 +19,7 @@ def experiment(config):
     with tf.Session() as sess:
 
         envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
-        env = gym.make(envs[1])
+        env = gym.make(envs[2])
 
         global_rewards = []
         global_step, episode = 0, 0
@@ -41,7 +41,7 @@ def experiment(config):
 
             while not done:
                 global_step += 1
-                if episode % 10 == 0:
+                if episode % 1 == 0:
                     env.render()
                 action = agent.act(observation)
                 next_observation, reward, done, info = env.step(action)

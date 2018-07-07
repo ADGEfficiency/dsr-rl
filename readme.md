@@ -1,30 +1,4 @@
-# Data Science Retreat Reinforcement Learning Course
 
-Course materials for the reinforcement learning
-course at [Data Science Retreat.](https://www.datascienceretreat.com/)
-
-This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@aadgefficiency.com).
-
-I write about energy & machine learning at [adgefficiency.com](http://adgefficiency.com/).  
-
-I also maintain the energy focused reinforcement learning framework [energy_py.](https://github.com/ADGEfficiency/energy_py)
-
-### Course literature
-
-[Mnih et. al (2013) Playing Atari with Deep Reinforcement Learning](https://arxiv.org/pdf/1312.5602.pdf)
-
-[Silver et. al (2014) Deterministic Policy Gradient Algorithms](http://proceedings.mlr.press/v32/silver14.pdf)
-
-[Mnih et. al (2015) Human-level control through deep reinforcement learning](http://www.nature.com/nature/journal/v518/n7540/full/nature14236.html?foxtrotcallback=true)
-
-[Schaul et.al (2015) Prioritized Experience Replay](https://arxiv.org/abs/1511.05952)
-
-[Silver et. al (2016) Mastering the game of Go with deep neural networks and tree search](https://www.nature.com/nature/journal/v529/n7587/full/nature16961.html)
-
-[Mnih et. al (2016) Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/pdf/1602.01783v2.pdf)
-
-[Bellemare et. al (2017) A Distributional Perspective on Reinforcement Learning](https://arxiv.org/abs/1707.06887
-https://deepmind.com/blog/going-beyond-average-reinforcement-learning/)
 
 ### Reccomended next steps
 

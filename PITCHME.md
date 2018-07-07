@@ -1,18 +1,16 @@
 ## a glance at reinforcement learning
 
-### Adam Green
-#### [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
-#### [adgefficiency.com](http://adgefficiency.com)
+adam green  
+[adam.green@adgefficiency.com](adam.green@adgefficiency.com)
+[adgefficiency.com](http://adgefficiency.com)
 ---
 ### Course Materials
 
-All course materials are in the GitHub repo *dsr_rl*
-
-https://github.com/ADGEfficiency/dsr_rl
+https://github.com/ADGEfficiency/dsr_rl (Google `dsr_rl`)
 
 - lecture notes hosted on GitPages (`PITCHME.md`)
-- useful machine learning & reinforcement learning literature
-- practical work - collection of scripts to run DQN on Cartpole and some additional Python tips & tricks
+- practical work - using an existing reinforcement learning library to run experiments.
+- [introducton to tensorflow](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/intro_to_tensorflow.ipynb) and [python tricks](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/python_tricks.ipynb) notebooks
 
 ---
 ### Agenda - Today

@@ -1,12 +1,17 @@
 ## a glance at reinforcement learning
 
 adam green  
+
 [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
+
 [adgefficiency.com](http://adgefficiency.com)
+
 ---
 ### Course Materials
 
-https://github.com/ADGEfficiency/dsr_rl (Google `dsr_rl`)
+https://github.com/ADGEfficiency/dsr_rl 
+
+google `dsr_rl`
 
 - lecture notes hosted on GitPages (`PITCHME.md`)
 - practical work - using an existing reinforcement learning library to run experiments.

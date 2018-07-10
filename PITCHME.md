@@ -2059,7 +2059,10 @@ Allow us to tradeoff between bias and variance
 
 In between TD and MC exist a family of approximation methods known as **n-step returns**
 
-![fig](assets/images/section_4/bias_var.png)
+![fig](assts/images/section_4/bias_var.png)
+
+---?image=assets/images/section_4/bias_var.png&size=auto 90%
+
 *Sutton & Barto*
 
 ---

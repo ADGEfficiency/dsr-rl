@@ -2,7 +2,7 @@
 
 Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
 
-[Lecture notes are hosted used GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master?grs=github&t=simple#/).
+[Lecture notes are hosted on GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master?grs=github&t=simple#/).
 
 This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@aadgefficiency.com).
 
@@ -23,7 +23,7 @@ learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general
 
 [Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)](http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf)
 
-RL Course by David Silver - [slides](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html) - [lecture videos](https://www.youtube.com/watch?v=2pWv7GOvuf0)
+RL Course by David Silver - [slides](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/silver_lectures) - [lecture videos](https://www.youtube.com/watch?v=2pWv7GOvuf0)
 
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/pdf/1701.07274.pdf)
 

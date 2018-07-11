@@ -1081,7 +1081,7 @@ Why do we discount future rewards?
 ### DQN
 ---
 
-![fig](assets/images/section_3/summary_value.png)
+---?image=assets/images/section_3/summary_value.png&size-80%
 
 ---
 ### Value function
@@ -1226,11 +1226,16 @@ Modern reinforcement learning is based on using neural networks
 
 ![fig](assets/images/section_3/bellman.png)
 
-Invented dynamic programming in 1953 - *[On the naming of dynamic programming](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
-> I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying...
+Invented dynamic programming in 1953.
 
 Also introduced the curse of dimensionality 
 - number of states $\mathcal{S}$ increases exponentially with number of dimensions in the state
+
+---
+
+*[On the naming of dynamic programming](ttp://arcanesentiment.blogspot.com.au/2010/04/why-dynamic-programming.html)*
+
+> I was interested in planning, in decision making, in thinking. But planning, is not a good word for various reasons. I decided therefore to use the word, ‘programming.’ I wanted to get across the idea that this was dynamic, this was multistage, this was time-varying...
 
 ---
 ###  Bellman Equation
@@ -1678,11 +1683,7 @@ Parameter noise
 
 [Plappert et al. (2018) Paramter Space Noise for Exploration](https://arxiv.org/pdf/1706.01905.pdf)
 
-
----?image=assets/images/section_3/action_selection_exploration.png&position=top&size=80%
-
-
-[Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
+---?image=assets/images/section_3/action_selection_exploration.png&size=80%
 
 ---
 ### Problems with vanilla Q-Learning

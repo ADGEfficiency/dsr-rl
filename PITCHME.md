@@ -1678,8 +1678,9 @@ Parameter noise
 
 [Plappert et al. (2018) Paramter Space Noise for Exploration](https://arxiv.org/pdf/1706.01905.pdf)
 
----
-![fig](assets/images/section_3/action_selection_exploration.png)
+
+---?image=assets/images/section_3/action_selection_exploration.png&position=top&size=80%
+
 
 [Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
 
@@ -1754,7 +1755,6 @@ This is for a company with
 ---
 
 ![fig](assets/images/section_3/2013_atari.png)
-
 ![fig](assets/images/section_3/2015_atari.png)
 
 ---
@@ -1790,7 +1790,7 @@ Ability to **generalize**
 ---
 ![fig](assets/images/section_3/atari_results.png)
 
----?image=assets/images/section_3/atari_func.png&size=auto 90% 
+---?image=assets/images/section_3/atari_func.png&size=auto 80% 
 
 ---?image=assets/images/section_3/atari_sea.png&size=auto 90% 
 

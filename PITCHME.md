@@ -1793,11 +1793,9 @@ Joystick buttons (a discrete action space)
 ---
 ![fig](assets/images/section_3/atari_results.png)
 
----
-![fig](assets/images/section_3/atari_func.png)
+---?image=assets/images/section_3/atari_func.png&size=auto 90% 
 
----
-![fig](assets/images/section_3/atari_sea.png)
+---?image=assets/images/section_3/atari_sea.png&size=auto 90% 
 
 ---
 ### Two key innovations in DQN
@@ -1869,7 +1867,6 @@ Stable training
 
 ---?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
 
-## Huber loss
 ---?image=assets/images/section_3/huber_loss.png&size=auto 90% 
 
 ---

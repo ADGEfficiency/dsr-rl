@@ -3,7 +3,7 @@
   top: 0;
   margin-top:0;
   box-shadow: none;
-} 
+}
 
 /* images */
 .reveal section img {
@@ -40,7 +40,7 @@
 }
 
 /* code */
-.reveal code {
+.reveal section code {
   margin-left:auto;
   margin-right:auto;
   font-size: 28px;

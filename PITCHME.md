@@ -934,7 +934,7 @@ Control
 - the optimal policy
 - the policy that maximizes expected future discounted reward
 
-<br></br>
+---
 
 ### On versus off policy learning
 
@@ -1055,14 +1055,14 @@ Why do we discount future rewards?
 ### Recap
 
 How does reinforcement learning break iid?
-- we don't sample experience indepdently - sampling biased by the agent & environmentt
+- we don't sample experience independently - sampling biased by the agent & environment
 - our experience is not independent - based on trajectory in the MDP
 
 What is the credit assignment problem?
 - working out which action gave us which rewards
 
 An MDP is composed of two objects & three signals - what are they?
-- agent & environmentt
+- agent & environment
 - state, action, reward
 
 What is off-policy learning?
@@ -1874,7 +1874,7 @@ Stable training
 ---
 ### Huber Loss
 
-![fig](assets/images/section_3/huber_loss.png)
+---?image=assets/images/section_3/huber_loss.png&size=auto 90% 
 
 The Huber Loss is a form of gradient clipping
 
@@ -1968,15 +1968,18 @@ What is the benefit of a target network?
 ---
 ### Practical <a id="section-practical"></a>
 
-The practical we will do this afternoon is to play with a working DQN agent on the Open AI Cartpole environment
+Experiments with a working DQN agent & the Open AI CartPole environment
 
-- in industry you won't be handed a set of notebooks to shift-enter through
+---
+### Practical <a id="section-practical"></a>
 
-- likely be given an existing code base and be expected to figure out how it works
+- you won't be handed a set of notebooks to shift-enter through
 
-- need to learn to read other peoples code in the wild
+- given an existing code base and be expected to figure out how it works
 
-- this skill is also useful for understanding open source projects
+- learn to read other peoples code in the wild
+
+- useful for understanding open source projects
 
 - using a working system allows you to understand the effect of hyperparameters and feel how hard RL can be!
 
@@ -2195,22 +2198,9 @@ Our estimates are normally distributed above and below 0
 ![fig](assets/images/section_4/max_bias.png)
 
 ---
-### Double Q-Learning
-
-2010 paper parameterizes two networks $Q^A$ and $Q^B$
-
-Actions are taken by averaging the estimates of both Q functions
-
-Learning is done by 
-- selecting the optimal action for one function 
-- but using the estimated value for the other function
-
-![fig](assets/images/section_4/2010_Double_Q.png)
-
----
 ### DDQN
 
-The DDQN modification to DQN makes use of the target network as the second network 
+The DDQN modification to DQN makes use of the target network as a different function to approximate Q(s,a)
 
 **Original DQN target**
 $$ r + \gamma \underset{a}{\max} Q(s,a;\theta^{-}) $$
@@ -2218,8 +2208,9 @@ $$ r + \gamma \underset{a}{\max} Q(s,a;\theta^{-}) $$
 **DDQN target**
 $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$ 
 
-- select the optimal action according to our online network
-- but use the Q value as estimated by the target network
+- select the action according to the online network
+
+- quanitfy the value that action using the target network
 
 ---
 
@@ -3137,7 +3128,7 @@ Gradient clipping is helpful - dropout & batchnorm not so much
 > It’s more like when you’re trying to solve a puzzle, there are no clear inroads into the problem, and the only way to proceed is to try things until you find the key piece of evidence or get the key spark that lets you figure it out.
 
 ---
-### Matthew Rahtz
+### Debugging 
 
 Debugging in four steps
 1. evidence about what the problem might be
@@ -3174,8 +3165,6 @@ Try to predict future failures
 ### Matthew Rahtz of Amid Fish
 
 RL specific
-- test your environment using a baseline algorithm
-- normalize observations
 - end to end tests of training
 - gym envs: -v0 environments mean 25% of the time action is ignored and previous action is repeated.  Use -v4 to get rid of the randomness
 
@@ -3220,6 +3209,7 @@ Deep RL is hard and sample inefficient
 ### <span style="color:#66ff66">Deep RL doesn't work yet</span>
 ### auxillary loss functions 
 ### inverse reinforcement learning 
+### world models
 
 ---
 
@@ -3322,6 +3312,7 @@ Many things need to go right for RL to work - success stories are the exception,
 ![fig](assets/images/section_8/inverse_1.png)
 
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
+
 ---
 
 ## Closing thoughts

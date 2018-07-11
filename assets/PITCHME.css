@@ -39,13 +39,13 @@
   font-size: 30px;
 }
 
-/* code */
-.reveal section code {
-  margin-left:auto;
-  margin-right:auto;
-  font-size: 28px;
-  box-shadow: none;
-}
+/* /1* code *1/ */
+/* .reveal section code { */
+/*   margin-left:auto; */
+/*   margin-right:auto; */
+/*   font-size: 28px; */
+/*   box-shadow: none; */
+/* } */
 
 /* tables */
 .reveal table {

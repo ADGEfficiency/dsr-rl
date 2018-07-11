@@ -1866,17 +1866,11 @@ Stable training
 
 *Minh – Deep Q-Networks – Deep RL Bootcamp 2017*
 
----
-### DQN algorithm
 
-![fig](assets/images/section_3/DQN_algo.png)
+---?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
 
----
-### Huber Loss
-
+## Huber loss
 ---?image=assets/images/section_3/huber_loss.png&size=auto 90% 
-
-The Huber Loss is a form of gradient clipping
 
 ---
 ### Timeline

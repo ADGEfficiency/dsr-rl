@@ -1774,21 +1774,18 @@ Ability to **generalize**
 
 **State**
 
-Last four screens concatenated together
-
-Allows infomation about movement
-
-Grey scale, cropped & normalized
+- Last four screens concatenated together
+- Allows infomation about movement
+- Grey scale, cropped & normalized
 
 **Reward**
 
-Game score
-
-Clipped to [-1, +1]
+- Game score
+- Clipped to [-1, +1]
 
 **Actions**
 
-Joystick buttons (a discrete action space)
+- Joystick buttons (a discrete action space)
 
 ---
 ![fig](assets/images/section_3/atari_results.png)

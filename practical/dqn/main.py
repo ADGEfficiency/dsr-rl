@@ -30,7 +30,8 @@ def experiment(config):
 
         env_id = config.pop('env_id')
         LOGGER.info('using {} env'.format(env_id))
-        env = gym.make(envs[2])
+
+        env = gym.make(env_id)
 
         global_rewards = []
         global_step, episode = 0, 0

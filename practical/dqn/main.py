@@ -1,6 +1,8 @@
 import logging
+import random
 
 import gym
+import numpy as np
 import tensorflow as tf
 
 from agent import Agent
@@ -18,7 +20,16 @@ def experiment(config):
     """
     with tf.Session() as sess:
 
-        envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
+        seed = config.pop('seed')
+
+        if seed:
+            seed = int(seed)
+            random.seed(seed)
+            tf.set_random_seed(seed)
+            np.random.seed(seed)
+
+        env_id = config.pop('env_id')
+        LOGGER.info('using {} env'.format(env_id))
         env = gym.make(envs[2])
 
         global_rewards = []
@@ -27,6 +38,8 @@ def experiment(config):
         config['env'] = env
         config['env_repr'] = repr(env)
         config['sess'] = sess
+
+        render = int(config.pop('render'))
 
         agent = Agent(**config)
 
@@ -41,7 +54,8 @@ def experiment(config):
 
             while not done:
                 global_step += 1
-                if episode % 1 == 0:
+
+                if episode % 1 == render:
                     env.render()
                 action = agent.act(observation)
                 next_observation, reward, done, info = env.step(action)
@@ -75,15 +89,22 @@ def experiment(config):
 
 if __name__ == '__main__':
 
-    config_dict = {'discount': 0.97,
-                   'tau': 0.001,
-                   'total_steps': 500000,
-                   'batch_size': 32,
-                   'layers': (50, 50),
-                   'learning_rate': 0.0001,
-                   'epsilon_decay_fraction': 0.3,
-                   'memory_fraction': 0.4,
-                   'process_observation': False,
-                   'process_target': False}
+    envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
+
+    config_dict = {
+        'env_id': envs[1],
+        'discount': 0.97,
+        'tau': 0.001,
+        'total_steps': 500000,
+        'batch_size': 32,
+        'layers': (50, 50),
+        'learning_rate': 0.0001,
+        'epsilon_decay_fraction': 0.3,
+        'memory_fraction': 0.4,
+        'process_observation': False,
+        'process_target': False,
+        'seed': 42,
+        'render': 1
+    }
 
     output = experiment(config_dict)

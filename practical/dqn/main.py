@@ -56,8 +56,8 @@ def experiment(config):
             while not done:
                 global_step += 1
 
-                if episode % 1 == render:
-                    env.render()
+                # if episode % 1 == render:
+                env.render()
                 action = agent.act(observation)
                 next_observation, reward, done, info = env.step(action)
                 agent.remember(observation, action, reward, next_observation, done)
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     envs = ['Pendulum-v0', 'CartPole-v0', 'MountainCar-v0']
 
     config_dict = {
-        'env_id': envs[1],
+        'env_id': envs[2],
         'discount': 0.97,
         'tau': 0.001,
         'total_steps': 500000,

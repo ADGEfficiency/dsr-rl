@@ -2,7 +2,8 @@
 
 Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
 
-[Lecture notes are hosted on GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master?grs=github&t=simple#/).
+The lecture notes are available as a [pdf](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf') and are [hosted
+on GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master?grs=github&t=simple#/).
 
 This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@aadgefficiency.com).
 

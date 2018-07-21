@@ -61,3 +61,5 @@ https://deepmind.com/blog/going-beyond-average-reinforcement-learning/)
 
 [Deep Deterministic Policy Gradients in TensorFlow](http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html)
 
+[AlphaGo, in context](https://medium.com/@karpathy/alphago-in-context-c47718cb95a5)
+

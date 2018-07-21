@@ -54,6 +54,8 @@ Energy Engineer at ENGIE UK
 
 Energy Data Scientist at Tempus Energy
 
+/newpage
+
 ### Goals for today and tomorrow
 
 Introduction to **concepts, ideas and terminology** 

@@ -4,7 +4,7 @@
 
 **Evolutionary methods** 
 - better able to deal with sparse error signals 
-- eaisly parallelizable
+- easily parallelizable
 - tend to perform better that RL if state variable is hidden
 
 **Cross entropy method** is often recommended as an alternative 
@@ -15,7 +15,7 @@ Any other **domain specific** algorithm for your problem
 
 ### Machine learning
 
-![fig](assets/images/section_2/sl_unsl_rl.png)
+![fig](../assets/images/section_2/sl_unsl_rl.png)
 
 ###  Reinforcement learning is not
 

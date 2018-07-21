@@ -22,5 +22,4 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ V_\{\pi} (s)$| value function |
 |$ Q_\{\pi} (s,a)$| value function |
 |$ \theta , \omega $ | function parameters (weights) |
-|$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 

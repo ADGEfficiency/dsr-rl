@@ -1,5 +1,3 @@
-## introduction to reinforcement learning
-
 ### Related methods 
 
 **Evolutionary methods** 
@@ -42,7 +40,7 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 
 ![fig](../assets/images/section_2/summary.png)
 
-###  Applications
+### Applications
 
 RL is **decision making**
 

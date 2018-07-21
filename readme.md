@@ -1,3 +1,16 @@
+Notes for the rebuild
+
+- don't use the internal section + list all headers in the notes
+- no color
+- allthe figures will need to be changed (differnt directroy for notes)
+
+## section heading
+
+### Section Sub Heading
+
+
+---
+
 # A glance at reinforcement learning
 
 Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)

@@ -40,13 +40,13 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 
 ### Model free reinforcement learning
 
-![fig](assets/images/section_2/summary.png)
+![fig](../assets/images/section_2/summary.png)
 
 ###  Applications
 
 RL is **decision making**
 
-![fig](assets/images/section_2/applications_silver.png)
+![fig](../assets/images/section_2/applications_silver.png)
 
 [*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 
@@ -77,9 +77,9 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 
 ### learning through action
 
-![fig](assets/images/section_2/mdp_schema_simple.png)
+![fig](../assets/images/section_2/mdp_schema_simple.png)
 
-![fig](assets/images/section_2/rl_process.png)
+![fig](../assets/images/section_2/rl_process.png)
 
 ### Contrast with supervised learning 
 
@@ -253,7 +253,7 @@ Think about the role of emotion in human decision making.  Is there a place for 
 
 ### Reward engineering
 
-![fig](assets/images/section_2/reward_eng.png)
+![fig](../assets/images/section_2/reward_eng.png)
 
 [Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf)
 
@@ -307,7 +307,7 @@ We can reuse data
 
 > Maybe the less we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
 
-![fig](assets/images/section_2/on_off_policy.png)
+![fig](../assets/images/section_2/on_off_policy.png)
 
 ### Environment model
 
@@ -329,12 +329,12 @@ Sample vs. distributional model
 Model can be used to simulate trajectories for **planning**
 
 
-![fig](assets/images/section_2/learn_plan_act.png)
+![fig](../assets/images/section_2/learn_plan_act.png)
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 
 
-![fig](assets/images/section_2/mdp_schema_complex.png)
+![fig](../assets/images/section_2/mdp_schema_complex.png)
 
 
 ### Return

@@ -8,7 +8,7 @@ google `dsr_rl`
 - practical work - using an existing reinforcement learning library to run experiments.
 - [introduction to tensorflow](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/intro_to_tensorflow.ipynb) and [python tricks](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/python_tricks.ipynb) notebooks
 
-### Agenda - Today
+### Agenda 
 
 **today - morning**
 
@@ -21,8 +21,6 @@ google `dsr_rl`
 **today - afternoon**
 
 [DQN practical](#section-practical)
-
-### Agenda - Tomorrow
 
 **tomorrow - morning**
 
@@ -68,19 +66,4 @@ Guidance on reinforcement learning project ideas
 
 Working with existing code bases
 
-### Goals for today and tomorrow
 To really learn RL, you will need to dedicate significant amount of time (same as if you want to learn NLP, convolution, GANs etc)
-
-These slides are designed as both a **future reference** and slides for today
-
-### Where to go next 
-
-Textbook
-[Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in
-  progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
-
-Video lectures
-[David Silver's 10 lecture series on YouTube](https://www.youtube.com/watch?v=2pWv7GOvuf0)
-
-Literature review
-[Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)

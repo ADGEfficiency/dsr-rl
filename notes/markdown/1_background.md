@@ -53,33 +53,3 @@ $$ R(r|s,a,s') $$
 sampling an action from a stochastic policy conditioned on being in state $s$
 
 $$ a \sim \pi (s|a) $$
-
-### Variance & bias in supervised learning
-
-Model generalization error = <span style="color:red">bias + variance + noise</span>
-
-**Variance**
-
-- error from sensitivity to noise in data set
-- seeing patterns that aren’t there -> overfitting
-
-**Bias**
-
-- error from assumptions in the learning algorithm
-- missing relevant patterns -> underfitting
-
-### Variance & bias in RL 
-
-**Variance** = deviation from expected value
-
-- how consistent is my model / sampling
-- can often be dealt with by sampling more
-- high variance = sample inefficient
-
-**Bias** = expected deviation vs true value
-
-- how close to the truth is my model
-- approximations or bootstrapping tend to introduce bias
-- biased away from an optimal agent / policy
-
-![fig](assets/images/section_1/variance_bias.png)

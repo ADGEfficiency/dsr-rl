@@ -24,32 +24,3 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 |$ \theta , \omega $ | function parameters (weights) |
 |$ \mathbf{E}[f(x)] $  | expectation of f(x) |
 
-### Expectations
-
-Weighted average of all possible values (the mean)
-
-`expected_value = probability * magnitude`
-
-$$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
-
-Expectations **allow us to approximate by sampling**
-
-- if we want to approximate the average time it takes us to get to work 
-
-- we can measure how long it takes us for a week and get an approximation by averaging each of those days
-
-### Conditionals
-
-**Probability of one thing given another**
-
-probability of next state and reward given state & action
-
-$$ P(s'|s,a) $$  
-
-reward received from a state & action
-
-$$ R(r|s,a,s') $$  
-
-sampling an action from a stochastic policy conditioned on being in state $s$
-
-$$ a \sim \pi (s|a) $$

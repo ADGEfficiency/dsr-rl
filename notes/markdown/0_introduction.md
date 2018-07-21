@@ -54,7 +54,7 @@ Energy Engineer at ENGIE UK
 
 Energy Data Scientist at Tempus Energy
 
-/newpage
+\newpage
 
 ### Goals for today and tomorrow
 

@@ -19,4 +19,3 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 
 |$ a \sim \pi(s) $  | sampling action from a stochastic policy |
 |$ a = \pi(s)$ | deterministic policy |
-|$ \pi^{\star} $ | optimal policy |

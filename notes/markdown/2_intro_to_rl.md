@@ -26,8 +26,7 @@ State -> Action -> Reward
 
 Reinforcement learning is fundamentally about **decision making**
 
-![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png)
-
+![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png){ width=50%, height=50% }
 
 ## Related methods 
 
@@ -127,7 +126,7 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 
 ### Model free reinforcement learning
 
-![fig](../../assets/images/section_2/summary.png)
+![fig](../../assets/images/section_2/summary.png){ width=50%, height=50% }
 
 Model based reinforcement learning is outside the scope of this course.
 
@@ -284,7 +283,7 @@ Think about the role of emotion in human decision making.  Is there a place for 
 
 ![fig](../assets/images/section_2/reward_eng.png)
 
-[Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf)
+[Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf){ width=50%, height=50% }
 
 ## Policy $\pi(s)$
 
@@ -335,7 +334,7 @@ We can reuse data
 
 > Maybe the less we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
 
-![fig](../assets/images/section_2/on_off_policy.png)
+![fig](../assets/images/section_2/on_off_policy.png){ width=50%, height=50% }
 
 ## Environment model
 
@@ -357,7 +356,7 @@ Sample vs. distributional model
 Model can be used to simulate trajectories for **planning**
 
 
-![fig](../assets/images/section_2/learn_plan_act.png)
+![fig](../assets/images/section_2/learn_plan_act.png){ width=50%, height=50% }
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 

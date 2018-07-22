@@ -70,9 +70,19 @@ https://deepmind.com/blog/going-beyond-average-reinforcement-learning/)
 [2017 NIPS David Silver Keynote - AlphaZero](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
 
 ### blog posts
-[Deep Reinforcement Learning: Pong from Pixels (Andrej Karpathy - Open AI / Tesla) - policy gradients](http://karpathy.github.io/2016/05/31/rl/)
+
+[Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/)
 
 [Deep Deterministic Policy Gradients in TensorFlow](http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html)
 
 [AlphaGo, in context](https://medium.com/@karpathy/alphago-in-context-c47718cb95a5)
 
+[World Models](https://worldmodels.github.io/)
+
+### cool open source RL projects
+
+[gym](https://github.com/openai/gym/tree/master/gym) - Open AI
+
+[baselines](https://github.com/openai/baselines) - Open AI
+
+[rllab](https://github.com/rll/rllab) - Berkley

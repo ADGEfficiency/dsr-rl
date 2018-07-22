@@ -28,6 +28,8 @@ Reinforcement learning is fundamentally about **decision making**
 
 ![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png){ width=50%, height=50% }
 
+\newpage
+
 ## Related methods 
 
 ![Faces of RL - David Silver Lecture 1](../../assets/images/section_2/faces_rl.png){ width=50%, height=50% }
@@ -55,7 +57,9 @@ Reinforcement learning is fundamentally about **decision making**
 
 A **domain specific** algorithm for your problem
 
-### Context within machine learning
+\newpage
+
+## Context within machine learning
 
 ![fig](../../assets/images/section_2/sl_unsl_rl.png)
 
@@ -110,19 +114,23 @@ NOT an alternative method to use instead of a random forest, neural network etc
 “I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**
 
 Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
+
 - classifier learns the function of image -> cat
 - regressor learns the function of market_data -> stock_price
 
-###  Deep reinforcement learning
+### Deep reinforcement learning
 
 **Deep learning** 
 - neural networks with multiple layers
 
 **Deep reinforcement learning** 
 - using multiple layer networks to approximate policies or value functions
+
 - feedforward 
 - convolutional 
 - recurrent 
+
+\newpage
 
 ### Model free reinforcement learning
 
@@ -136,7 +144,9 @@ $$ P(s',r | s, a) $$
 
 A good environment model is very valuable - it allows planning.  Planning is the simulation of rollouts - the agent can use the results of these rollouts to decide what action to take or to improve learning.
 
-A key challenge in model based reinforcement learning is to learn the model. 
+A key challenge in model based reinforcement learning is to learn the model. If a good model can be learnt then it's likely to be very valuable.  Dynamic programming (which is introduced in Section 3) uses an environment model to perfectly solve environments.
+
+\newpage
 
 ## Markov Decision Processes
 
@@ -273,6 +283,7 @@ Maximising expected return is making an assumption about the nature of our goals
 *Goals can be described by the maximization of expected cumulative reward*
 
 Do you agree with this?
+
 - happiness
 - status
 - reputation
@@ -355,16 +366,13 @@ Sample vs. distributional model
 
 Model can be used to simulate trajectories for **planning**
 
-
 ![fig](../assets/images/section_2/learn_plan_act.png){ width=50%, height=50% }
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 
+![fig](../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
 
-![fig](../assets/images/section_2/mdp_schema_complex.png)
-
-
-## Return
+### Return
 
 Goal of our agent is to maximize reward
 
@@ -376,7 +384,7 @@ $$G\_t = r\_{t+1} + \gamma r\_{t+2} + \gamma^2 r\_{t+3} + ... = \sum\_{k=0}^{\in
 
 **Why do we discount future rewards?**
 
-## Discounting
+### Discounting
 
 Future is uncertain 
 - stochastic environment
@@ -434,9 +442,9 @@ RL breaks both in multiple ways
 - exploration changes the data distribution 
 - environment can be non-stationary
 
-## Reinforcement learning will **always** break supervised learning assumptions about data quality
+Reinforcement learning will **always** break supervised learning assumptions about data quality
 
-##  Three - credit assignment
+###  Three - credit assignment
 
 The reward we see now might not be because of the action we just took
 
@@ -448,7 +456,7 @@ Can design a more dense reward signal for a given environment
 - reward shaping
 - changing the reward signal can change behaviour
 
-## Four - sample efficiency
+### Four - sample efficiency
 How quickly a learner learns
 
 How often we reuse data

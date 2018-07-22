@@ -130,6 +130,8 @@ Sampling from one distribution allows to lower the variance of our estimate of t
 
 Trying to approximate the expected value of a random variable $X$ under a distribution $P$ - $\mathbf{E}[X;P]$ 
 
+## Kullback–Leibler divergence
+
 \newpage
 
 ## Function approximation

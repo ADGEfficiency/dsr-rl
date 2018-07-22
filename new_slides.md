@@ -41,9 +41,11 @@ batch norm
 
 ---
 
+applications (maybe should go before context)
+
 context
 
-applications (maybe should go before context)
+<iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 markov decision processes (TODO expand)
 

@@ -1,21 +1,62 @@
-### Related methods 
+## Applications
 
-**Evolutionary methods** 
+RL is **decision making**
+
+![fig](../assets/images/section_2/applications_silver.png)
+
+[*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
+
+## Related methods 
+
+![Faces of RL - David Silver Lecture 1](../../assets/images/section_2/faces_rl.png){ width=50%, height=50% }
+
+**Evolutionary methods** - [wikipedia](https://en.wikipedia.org/wiki/Evolutionary_algorithm)
+
+- use biological inspired mechanisms such as reproduction, mutation and selection
 - better able to deal with sparse error signals 
 - easily parallelizable
 - tend to perform better that RL if state variable is hidden
 
-**Cross entropy method** is often recommended as an alternative 
+**Cross entropy method**  [wikipedia](https://en.wikipedia.org/wiki/Cross-entropy_method)
 
-Constrained optimization such as **linear programming** 
+- often recommended as an alternative 
+- generate a random sampling of data (i.e. an episode)
+- update parameters of the model to produce a better sample in the next iteration
+- this involves minimizing the KL-divergence
 
-Any other **domain specific** algorithm for your problem
+**Linear programming** [wikipedia](https://en.wikipedia.org/wiki/Linear_programming)
 
-### Machine learning
+- constrained optimization
+- environment model must be linear
 
-![fig](../assets/images/section_2/sl_unsl_rl.png)
+**Optimal control** [wikipedia](https://en.wikipedia.org/wiki/Optimal_control) - [Data-Driven control lecture](https://www.youtube.com/watch?v=oulLR06lj_E)
 
-###  Reinforcement learning is not
+A **domain specific** algorithm for your problem
+
+## Machine learning
+
+![fig](../../assets/images/section_2/sl_unsl_rl.png)
+
+Three areas based on the feedback that is available to the learner.
+
+Supervised learning - feedback is the target (one per sample)
+
+|features|target|
+|---|---|
+|$(2.0, 1.5)$| $25$ |
+|$(1.2, 0.3)$| $7.2$|
+
+Unsupervised learning - feedback from data structures, adversarial training
+
+|features|
+|---|
+|$(2.0, 1.5)$|
+|$(1.2, 0.3)$|
+
+Reinforcement learning - feedback from state transitions and a scalar reward signal 
+
+---
+##  Reinforcement learning is not
 
 NOT an alternative method to use instead of a random forest, neural network etc
 
@@ -36,19 +77,12 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 - convolutional 
 - recurrent 
 
-### Model free reinforcement learning
+## Model free reinforcement learning
 
 ![fig](../assets/images/section_2/summary.png)
 
-### Applications
 
-RL is **decision making**
-
-![fig](../assets/images/section_2/applications_silver.png)
-
-[*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
-
-###  Biological inspiration
+##  Biological inspiration
 
 Sutton & Barto - Reinforcement Learning: An Introduction
 >Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems 
@@ -56,30 +90,23 @@ Sutton & Barto - Reinforcement Learning: An Introduction
 Mnih et. al (2015) Human-level control through deep reinforcement learning
 >Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
 
-### Habit formation
+## Habit formation
 
 Cue -> Routine -> Reward
 
 State -> Action -> Reward
 
-
-###  A new level of intelligence
+##  A new level of intelligence
 
 Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 2015 series
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+## Reinforcement learning is learning through action
 
-### Reinforcement Learning
+![fig](../../assets/images/section_2/mdp_schema_simple.png){ width=50%, height=50% }
 
-### is
+![fig](../../assets/images/section_2/rl_process.png){ width=50%, height=50% }
 
-### learning through action
-
-![fig](../assets/images/section_2/mdp_schema_simple.png)
-
-![fig](../assets/images/section_2/rl_process.png)
-
-### Contrast with supervised learning 
+## Contrast with supervised learning 
 
 Supervised learning
 - are given a dataset with labels
@@ -96,8 +123,6 @@ Data in RL
 - it's not clear what we should do with this data 
 - no implicit target
 
-### Reinforcement learning dataset
-
 The dataset we generate is the agent's memory
 
 $$[experience,$$
@@ -110,15 +135,13 @@ $$(s_1, a_1, r_2, s_2), $$
 $$...$$
 $$(s_n, a_n, r_n, s_n)] $$
 
-What should we do with this dataset?
-
 ## Markov Decision Processes
 
 Mathematical framework for reinforcement learning 
 
 ### Markov property
 
-Can be a requirement to gurantee convergence
+Can be a requirement to guarantee convergence
 
 Future is conditional only on the present
 
@@ -148,7 +171,7 @@ Distribution over initial states $d_0$
 
 Discount factor $\gamma$
 
-### Object oriented definition of a MDP
+## Object oriented definition of a MDP
 
 Two objects - the agent and environment
 
@@ -164,7 +187,7 @@ Three signals - state, action & reward
 
 `reward, next_state = env.step(action)`
 
-### Environment
+## Environment
 
 Real or virtual 
 - modern RL uses virtual environments to generate lots of experience
@@ -178,7 +201,7 @@ Environments can be
 
 The MDP framework unites both in the same way by using the idea of a final absorbing state at the end of episodes
 
-### Discretiziation
+## Discretiziation
 
 Too coarse 
 - non-smooth control output
@@ -191,7 +214,7 @@ Requires some prior knowledge
 
 Lose the shape of the space
 
-### State
+## State
 
 Infomation for the agent to **choose next action** and to **learn from**
 
@@ -201,7 +224,7 @@ State is a flexible concept - it's a n-d array
 
 `state = np.array(pixels).reshape(height, width)`
 
-### Observation
+## Observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
 
@@ -216,7 +239,7 @@ Observation can be made more Markov by
 - concatenating state trajectories together
 - using function approximation with a memory element (LSTMs)
 
-### Agent
+## Agent
 
 Our agent is the **learner and decision maker**
 
@@ -226,7 +249,7 @@ An agent always has a policy
 
 <br></br>
 
-### Reward
+## Reward
 
 Scalar
 
@@ -236,7 +259,7 @@ Sparse
 
 A well defined reward signal is a limit for applying RL 
 
-### Reward hypothesis
+## Reward hypothesis
 
 Maximising expected return is making an assumption about the nature of our goals
 
@@ -249,13 +272,13 @@ Do you agree with this?
 
 Think about the role of emotion in human decision making.  Is there a place for this in RL?
 
-### Reward engineering
+## Reward engineering
 
 ![fig](../assets/images/section_2/reward_eng.png)
 
 [Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf)
 
-### Policy $\pi(s)$
+## Policy $\pi(s)$
 
 $$\pi(s)$$
 
@@ -274,7 +297,7 @@ Policy can be
 
 Deterministic or stochastic
 
-### Prediction versus control
+## Prediction versus control
 
 Prediction / approximation
 - predicting return for given policy
@@ -283,8 +306,7 @@ Control
 - the optimal policy
 - the policy that maximizes expected future discounted reward
 
-
-### On versus off policy learning
+## On versus off policy learning
 
 On policy 
 - learn about the policy we are using to make decisions 
@@ -295,7 +317,7 @@ Off policy
 Control can be on or off policy 
 - use general policy iteration to improve a policy using an on-policy approximation
 
-### Why would we want to learn off-policy?
+## Why would we want to learn off-policy?
 
 We can learn about policies that we don't have
 - learn the optimal policy from data generated by a random policy
@@ -307,7 +329,7 @@ We can reuse data
 
 ![fig](../assets/images/section_2/on_off_policy.png)
 
-### Environment model
+## Environment model
 
 Our agent can learn an environment model
 
@@ -335,7 +357,7 @@ Model can be used to simulate trajectories for **planning**
 ![fig](../assets/images/section_2/mdp_schema_complex.png)
 
 
-### Return
+## Return
 
 Goal of our agent is to maximize reward
 
@@ -347,7 +369,7 @@ $$G\_t = r\_{t+1} + \gamma r\_{t+2} + \gamma^2 r\_{t+3} + ... = \sum\_{k=0}^{\in
 
 **Why do we discount future rewards?**
 
-### Discounting
+## Discounting
 
 Future is uncertain 
 - stochastic environment
@@ -364,23 +386,13 @@ Makes the maths works
 - can make the sum of an infinite series finite 
 - geometric series
 
-### Discounting
-
 Can use discount = 1 for
 - games with tree-like structures (without cycles)
 - when time to solve is irrelevant (i.e. a board game)
 
 ## Four central challenges 
 
-one - exploration vs exploitation
-
-two - data quality
-
-three - credit assignment
-
-four - sample efficiency
-
-### Exploration vs exploitation
+### One - exploration vs exploitation
 Do I go to the restaurant in Berlin I think is best – or do  I try something new?
 
 - exploration = finding information
@@ -389,8 +401,6 @@ Do I go to the restaurant in Berlin I think is best – or do  I try something n
 Agent needs to balance between the two
 - we don't want to waste time exploring poor quality states
 - we don't want to miss high quality states
-
-### Exploration vs exploitation
 
 How stationary are the environment state transition and reward functions?  
 
@@ -402,7 +412,7 @@ Time step matters
 - too small = rewards are delayed = credit assignment harder
 - too large = coarser control 
 
-### Data quality
+## Two - data quality
 
 iid = independent sampling & identical distribution
 
@@ -419,7 +429,7 @@ RL breaks both in multiple ways
 
 ## Reinforcement learning will **always** break supervised learning assumptions about data quality
 
-###  Credit assignment
+##  Three - credit assignment
 
 The reward we see now might not be because of the action we just took
 
@@ -431,7 +441,7 @@ Can design a more dense reward signal for a given environment
 - reward shaping
 - changing the reward signal can change behaviour
 
-### Sample efficiency
+## Four - sample efficiency
 How quickly a learner learns
 
 How often we reuse data
@@ -446,18 +456,18 @@ Requirement for sample efficiency depends on how expensive it is to generate dat
 - expensive / limited data -> squeeze more out of data
 
 ### Four challenges
-**exploration vs exploitation**
+**one - exploration vs exploitation**
 
 how good is my understanding of the range of options
 
-**data**
+**two - data quality**
 
 biased sampling, non-stationary distribution
 
-**credit assignment**
+**three - credit assignment**
 
 which action gave me this reward
 
-**sample efficiency**
+**four - sample efficiency**
 
 learning quickly, squeezing information from data

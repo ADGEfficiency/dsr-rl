@@ -54,25 +54,25 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 
 ### In supervised learning
 
-**Variance** = overfitting
+Variance = overfitting
 
 - error from sensitivity to noise in data set
 - seeing patterns that aren’t there 
 
-**Bias** = underfitting
+Bias = underfitting
 
 - error from assumptions in the learning algorithm
 - missing relevant patterns 
 
 ### In reinforcement learning
 
-**Variance** = deviation from expected value
+Variance = deviation from expected value
 
 - how consistent is my model / sampling
 - can often be dealt with by sampling more
 - high variance = sample inefficient
 
-**Bias** = expected deviation vs true value
+Bias = expected deviation vs true value
 
 - how close to the truth is my model
 - approximations or bootstrapping tend to introduce bias
@@ -96,6 +96,40 @@ $$ Q(s,a) = r + \gamma Q(s', a') $$
 
 Bootstrapping often introduces bias.  The bootstrapped approximation gives the agent a chance to mislead itself.
 
+## iid - independent and identically distributed
+
+Fundamental assumption made in statistical learning
+
+Assuming the training set is independently drawn from a fixed distribution
+
+In the context of image classification
+
+- independent sampling = we have photos from a wide range of sources, and each photo is independent of our other photos
+
+- fixed distribution = the photos we have in our training set are the same kinds of photos as we will do prediction for
+
+## Curse of dimensionality
+
+Refers to phenomena that occur in high dimensional spaces
+
+High dimensional spaces means we need more data to support these dimensions
+
+Often we need to consider every possible combination of actions - a high dimensional action space (say a robot with multiple arms) means we need to consider a large number of potential actions - this is known as the **combinatorial explosion**
+
+Each additional dimension doubles the effort to consider all of the combinations
+
+Rule of thumb - 5 training examples for each dimension in the representation
+
+## Importance sampling
+
+[Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
+
+Estimate the properties of a distribution we can't sample from (the unknown distribution) using samples from another distribution
+
+Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution 
+
+Trying to approximate the expected value of a random variable $X$ under a distribution $P$ - $\mathbf{E}[X;P]$ 
+
 \newpage
 
 ## Function approximation
@@ -103,83 +137,67 @@ Bootstrapping often introduces bias.  The bootstrapped approximation gives the a
 ![Three commonly use function approximation methods](../../assets/images/section_1/func_approx.png){ width=65%, height=65% }
 
 ### Lookup tables
-Two dimensions in the state variable
+Imagine a problem where we have two dimensions in the state variable, with each state variable having two discrete options (either high or low).  We use this state variable to predict the safety of the system.
 
 `state = np.array([temperature, pressure])`
 
-|state |temperature | pressure | estimate |
+|state |temperature | pressure | safety estimate |
 |---|---|---|---|
 |0   |high   |high   |unsafe   |
 |1   |low   |high   |safe   |
 |2  |high   |low   |safe   |
 |3   |low   |low   |very safe   |
 
-### Lookup tables
+Advantages
 
-**Advantages**
+- Stability
+- Each estimate is independent of every other estimate
 
-Stability
+Disadvantages
 
-Each estimate is independent of every other estimate
+- No sharing of knowledge between similar states/actions
+- Curse of dimensionality - high dimensional state and action spaces means large tables
 
-**Disadvantages**
 
-No sharing of knowledge between similar states/actions
-
-Curse of dimensionality 
-
-High dimensional state/action spaces means lots of entries
 
 ### Linear functions
 
 $$ V(s) = 3s_1 + 4s_2 $$
 
-**Advantages**
+Advantages
 
-Less parameters than a table
+- Less parameters than a table
 
-Can generalize across states
+- Can generalize across states
 
-**Disadvantages**
+Disadvantages
 
-The real world is often non-linear
-
+- The real world is often non-linear
 
 ###  Non-linear functions
 
 Most commonly neural networks
 
-**Advantages**
+Advantages
 
-Model complex dynamics
+- Model complex dynamics
 
-Convolution for vision
+- Convolution for vision
 
-Recurrency for memory / temporal dependencies
+- Recurrency for memory / temporal dependencies
 
-**Disadvantages**
+Disadvantages
 
-Instability
+- Instability
 
-Difficult to train
+- Difficult to train
 
-## iid
-
-Fundamental assumption in statistical learning
-
-**Independent and identically distributed**
-
-In statistical learning one always assumes the training set is independently drawn from a fixed distribution
+\newpage
 
 ## A few things about training neural networks
 
-Learning rate
-
-Batch size
-
-Scaling / preprocessing
-
 Larger batch size 
+
 - larger learning rate
 - decrease in generalization
 - increase in batch normalization performance
@@ -198,9 +216,7 @@ Small learning rate
 High learning rate 
 - overshoot or divergence
 
-### Learning rate
-
-Always intentionally set it
+### Always intentionally set learning rate
 
 `from keras.models import Sequential`
 
@@ -236,13 +252,15 @@ The first dimension is the batch dimension - this is foundational in TensorFlow
 
 Passing in `None` allows us to use whatever batch size we want 
 
-### Batch size
-
-Smaller batches can fit onto smaller GPUs
-- if a large sample dimension we can use less samples per batch
+### Why use batches
 
 Batches allow us to learn faster
 - weights are updated more often during each epoch
+
+> It is better to take many small steps in the right direction than to make a great leap forward only to stumble backward - Chinese Proverb
+
+Smaller batches can fit onto smaller GPUs
+- if a large sample dimension we can use less samples per batch
 
 Batches give a less accurate estimate of the gradient 
 - this noise can be useful to escape local minima
@@ -251,13 +269,11 @@ Larger batch size -> larger learning rate
 - more accurate estimation of the gradient (better distribution across batch)
 - we can take larger steps
 
-![lr_batch](../../assets/images/section_1/lr_batch.png)
+![Relationship between learning rate error plotted using batches from 64 to 4](../../assets/images/section_1/lr_batch.png){ width=50%, height=50% }
 
 Larger batch size -> larger optimal learning rate
 
 *https://miguel-data-sc.github.io/2017-11-05-first/*
-
-### Batch size
 
 Observed that larger batch sizes decrease generalization performance 
 
@@ -272,16 +288,18 @@ Batch size is a **hyperparameter that should be tuned**
 ## Scaling aka pre-processing
 
 Neural networks don't like numbers on different scales  
+
 - improperly scaled inputs or outputs can cause issues with gradients
 - anything that touches a neural network needs to be within a reasonable range
 
 We can estimate statistics like min/max/mean from the training set
+
 - these statistics are as much a part of the ML model as weights
 - in reinforcement learning we have no training set
 
 **Standardization** = removing mean & scale by unit variance
 
-$$ \phi(x) = x - \frac{\mu(x)}{\sigma(x)} $$
+$$ \phi(x) = \frac{x-\mu(x)}{\sigma(x)} $$
 
 Our data now has mean of 0, variance of 1
 
@@ -291,16 +309,20 @@ $$ \phi(x) = \frac{x - x\_{min}}{x\_{max} - x\_{min}} $$
 
 Our data is now between 0 and 1
 
-![fig](../../assets/images/section_1/batch_norm_lit.png)
+## Batch normalization
 
-### Batch normalization
+[Ioffe & Szegedy (2015) Batch normalization](https://github.com/ADGEfficiency/dsr_rl/blob/master/literature/general_machine_learning/2015_Ioffe_Szegedy_BatchNorm.pdf)
+
+[Ioffe (2017) Batch renormalization](https://github.com/ADGEfficiency/dsr_rl/blob/master/literature/general_machine_learning/2015_Ioffe_Szegedy_BatchNorm.pdf)
 
 Batch norm. is additional preprocessing of data as it moves between network layers
+
 - used in very deep convolutional/residual nets
 
 We use the mean and variance of the batch to normalize activations 
+
 - standardization is actually used!
-- reduces sensitivty to weight & bias initialization
+- reduces sensitivity to weight & bias initialization
 - allows higher learning rates
 - originally applied before the activation - but this is a topic of debate
 

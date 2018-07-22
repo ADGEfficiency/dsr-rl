@@ -1,7 +1,10 @@
 ##  Biological inspiration
 
-The reinforcement learning approach is one that is familiar to any human being.  It is learning through action
+The reinforcement learning approach is one that is familiar to any human being.  It is learning through action.
 
+To learn chess in a supervised manner, we would learn moves from textbooks of the games of grandmasters.
+
+To learn chess in a reinforcement learning manner, we would learn chess by playing ourselves.
 
 *Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems*
 
@@ -11,7 +14,9 @@ Sutton & Barto - Reinforcement Learning: An Introduction
 
 Mnih et. al (2015) Human-level control through deep reinforcement learning
 
-## Habit formation
+### Habit formation
+
+The mechanism by which habits are formed is essentially the reinforcement learning mechanism
 
 Cue -> Routine -> Reward
 
@@ -19,11 +24,10 @@ State -> Action -> Reward
 
 ## Applications
 
-RL is fundamentally about **decision making**
+Reinforcement learning is fundamentally about **decision making**
 
-![fig](../../assets/images/section_2/applications_silver.png)
+![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png)
 
-[*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 
 ## Related methods 
 
@@ -86,7 +90,7 @@ Reinforcement learning is a **data generation** process.  The dataset we generat
 
 The agent's experience $(s,a,r,s')$ is sampled from the environment by taking actions.
 
-It's not clear what we should do with this data - there is no implicit target.x
+It's not clear what we should do with this data - there is no implicit target.
 
 $$[experience,$$
 $$experience,$$
@@ -97,6 +101,8 @@ $$[(s\_{0}, a_0, r_1, s_1), $$
 $$(s_1, a_1, r_2, s_2), $$
 $$...$$
 $$(s_n, a_n, r_n, s_n)] $$
+
+This data generation attribute of reinforcement learning makes it more democratic than supervised learning - access to environments may fairer than access to the titanic supervised learning datasets at Google.
 
 ### Reinforcement learning is not
 

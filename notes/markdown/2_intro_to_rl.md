@@ -1,8 +1,27 @@
+##  Biological inspiration
+
+The reinforcement learning approach is one that is familiar to any human being.  It is learning through action
+
+
+*Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems*
+
+Sutton & Barto - Reinforcement Learning: An Introduction
+
+*Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex*
+
+Mnih et. al (2015) Human-level control through deep reinforcement learning
+
+## Habit formation
+
+Cue -> Routine -> Reward
+
+State -> Action -> Reward
+
 ## Applications
 
-RL is **decision making**
+RL is fundamentally about **decision making**
 
-![fig](../assets/images/section_2/applications_silver.png)
+![fig](../../assets/images/section_2/applications_silver.png)
 
 [*David Silver – Deep Reinforcement Learning*](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Resources_files/deep_rl.pdf)
 
@@ -33,13 +52,17 @@ RL is **decision making**
 
 A **domain specific** algorithm for your problem
 
-## Machine learning
+### Context within machine learning
 
 ![fig](../../assets/images/section_2/sl_unsl_rl.png)
 
 Three areas based on the feedback that is available to the learner.
 
 Supervised learning - feedback is the target (one per sample)
+
+- are given a dataset with labels
+- we are constrained by this dataset
+- test on unseen data
 
 |features|target|
 |---|---|
@@ -55,8 +78,27 @@ Unsupervised learning - feedback from data structures, adversarial training
 
 Reinforcement learning - feedback from state transitions and a scalar reward signal 
 
----
-##  Reinforcement learning is not
+- are given no dataset and no labels
+- we can generate more data by acting
+- test using the same environment
+
+Reinforcement learning is a **data generation** process.  The dataset we generate is the agent's memory
+
+The agent's experience $(s,a,r,s')$ is sampled from the environment by taking actions.
+
+It's not clear what we should do with this data - there is no implicit target.x
+
+$$[experience,$$
+$$experience,$$
+$$...$$
+$$experience]$$
+
+$$[(s\_{0}, a_0, r_1, s_1), $$ 
+$$(s_1, a_1, r_2, s_2), $$
+$$...$$
+$$(s_n, a_n, r_n, s_n)] $$
+
+### Reinforcement learning is not
 
 NOT an alternative method to use instead of a random forest, neural network etc
 
@@ -77,67 +119,27 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 - convolutional 
 - recurrent 
 
-## Model free reinforcement learning
+### Model free reinforcement learning
 
-![fig](../assets/images/section_2/summary.png)
+![fig](../../assets/images/section_2/summary.png)
 
+Model based reinforcement learning is outside the scope of this course.
 
-##  Biological inspiration
+Environment models predict the response (i.e. next state and reward) of an environment for a given state and action.
 
-Sutton & Barto - Reinforcement Learning: An Introduction
->Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems 
+$$ P(s',r | s, a) $$
 
-Mnih et. al (2015) Human-level control through deep reinforcement learning
->Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
+A good environment model is very valuable - it allows planning.  Planning is the simulation of rollouts - the agent can use the results of these rollouts to decide what action to take or to improve learning.
 
-## Habit formation
-
-Cue -> Routine -> Reward
-
-State -> Action -> Reward
-
-##  A new level of intelligence
-
-Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 2015 series
-
-## Reinforcement learning is learning through action
-
-![fig](../../assets/images/section_2/mdp_schema_simple.png){ width=50%, height=50% }
-
-![fig](../../assets/images/section_2/rl_process.png){ width=50%, height=50% }
-
-## Contrast with supervised learning 
-
-Supervised learning
-- are given a dataset with labels
-- we are constrained by this dataset
-- test on unseen data
-
-Reinforcement learning 
-- are given no dataset and no labels
-- we can generate more data by acting
-- test using the same environment
-
-Data in RL
-- the agent's experience $(s,a,r,s')$
-- it's not clear what we should do with this data 
-- no implicit target
-
-The dataset we generate is the agent's memory
-
-$$[experience,$$
-$$experience,$$
-$$...$$
-$$experience]$$
-
-$$[(s\_{0}, a_0, r_1, s_1), $$ 
-$$(s_1, a_1, r_2, s_2), $$
-$$...$$
-$$(s_n, a_n, r_n, s_n)] $$
+A key challenge in model based reinforcement learning is to learn the model. 
 
 ## Markov Decision Processes
 
 Mathematical framework for reinforcement learning 
+
+![The basic Markov Decision Process framework for reinforcement learning](../../assets/images/section_2/mdp_schema_simple.png){ width=50%, height=50% }
+
+![The MDP generates data which an agent uses to learn](../../assets/images/section_2/rl_process.png){ width=50%, height=50% }
 
 ### Markov property
 

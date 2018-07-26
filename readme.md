@@ -33,13 +33,19 @@ The repo also has an [introducton to tensorflow](https://github.com/ADGEfficienc
 This repo contains useful [machine
 learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.
 
-### to start with
+### to start with for reinforcement learning
 
 [Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)](http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf)
 
 RL Course by David Silver - [slides](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/silver_lectures) - [lecture videos](https://www.youtube.com/watch?v=2pWv7GOvuf0)
 
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/pdf/1701.07274.pdf)
+
+### to start with for machine learning
+
+For neural networks - [Deep Learning - Ian Goodfellow, Yoshua Bengio and Aaron Courville](https://www.deeplearningbook.org/)
+
+For everything else (linear models, random forests etc) - [Elements of Staistical Learning - Trevor Hastie, Robert Tibshirani and Jerome Friedman](https://web.stanford.edu/~hastie/Papers/ESLII.pdf)
 
 ### course literature
 

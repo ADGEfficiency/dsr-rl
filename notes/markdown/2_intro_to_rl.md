@@ -22,6 +22,12 @@ Cue -> Routine -> Reward
 
 State -> Action -> Reward
 
+Variable rewards
+
+- dopamine surges when brain is expecting a reward
+- variability multiplies the effect
+- focused state where judgment and reason are suppressed
+
 ## Applications
 
 Reinforcement learning is fundamentally about **decision making**
@@ -240,6 +246,8 @@ State is a flexible concept - it's a n-d array
 `state = np.array([temperature, pressure])`
 
 `state = np.array(pixels).reshape(height, width)`
+
+Make sure all the info you need to learn & make good decisions is in the state!
 
 ## Observation
 

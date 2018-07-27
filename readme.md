@@ -4,6 +4,8 @@ Notes for the rebuild
 - no color
 - allthe figures will need to be changed (differnt directroy for notes)
 
+should rewrite all algorithms into pseudo code
+
 ## section heading
 
 ### Section Sub Heading

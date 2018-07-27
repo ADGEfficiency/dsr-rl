@@ -300,7 +300,7 @@ Think about the role of emotion in human decision making.  Is there a place for 
 
 ## Reward engineering
 
-![fig](../assets/images/section_2/reward_eng.png)
+![fig](../../assets/images/section_2/reward_eng.png)
 
 [Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf){ width=50%, height=50% }
 
@@ -353,7 +353,7 @@ We can reuse data
 
 > Maybe the less we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
 
-![fig](../assets/images/section_2/on_off_policy.png){ width=50%, height=50% }
+![fig](../../assets/images/section_2/on_off_policy.png){ width=50%, height=50% }
 
 ## Environment model
 
@@ -374,11 +374,11 @@ Sample vs. distributional model
 
 Model can be used to simulate trajectories for **planning**
 
-![fig](../assets/images/section_2/learn_plan_act.png){ width=50%, height=50% }
+![fig](../../assets/images/section_2/learn_plan_act.png){ width=50%, height=50% }
 
 *Sutton & Barto - Reinforcement Learning: An Introduction*
 
-![fig](../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
+![fig](../../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
 
 ### Return
 

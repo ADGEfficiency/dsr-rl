@@ -130,7 +130,25 @@ Sampling from one distribution allows to lower the variance of our estimate of t
 
 Trying to approximate the expected value of a random variable $X$ under a distribution $P$ - $\mathbf{E}[X;P]$ 
 
+## Entropy
+
+[Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
+
+[Shannon entropy in the context of machine learning and AI](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
+
+Entropy is a measurement of how much infomation is contained in a distribution.
+
 ## Kullback–Leibler divergence
+
+[Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
+
+Also known as relative entropy or infomation gain.
+
+Measures the difference between probability distributions.
+
+KL divergence is used in [Trust Region Policy Optimization](https://arxiv.org/pdf/1502.05477.pdf) to constrain how much a policy changes during learning. 
+
+Also used in [C51 - A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) uses the KL divergence, and suggests that the Wassertien metric might be a fruitful next step.
 
 \newpage
 

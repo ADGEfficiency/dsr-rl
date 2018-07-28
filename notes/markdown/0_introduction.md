@@ -1,62 +1,38 @@
-### Course Materials
+## Course Materials
 
-https://github.com/ADGEfficiency/dsr_rl 
+[All course materials are hosted on the GitHub repo 'dsr_rl'](https://github.com/ADGEfficiency/dsr_rl)
 
-google `dsr_rl`
+Lecture notes 
 
-- lecture notes hosted on GitPages (`PITCHME.md`)
-- practical work - using an existing reinforcement learning library to run experiments.
-- [introduction to tensorflow](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/intro_to_tensorflow.ipynb) and [python tricks](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/python_tricks.ipynb) notebooks
+Practical work
 
-### Agenda 
+- generic Python lessons
+- using DQN to solve Open AI gym Cartpole 
 
-**today - morning**
+Literature
 
-[one - background & terminology](#section-one)
+- reinforcement learning
+- machine learning
 
-[two - introduction to reinforcement learning](#section-two)
+## Notes 
 
-[three - value functions & DQN](#section-three)
+one - background & terminology
 
-**today - afternoon**
+two - introduction to reinforcement learning
 
-[DQN practical](#section-practical)
+three - value functions & DQN
 
-**tomorrow - morning**
+four - improvements to DQN
 
-[four - improvements to DQN](#section-four)
+five - policy gradients & Actor Critic
 
-[five - policy gradients & Actor Critic](#section-five)
+six - AlphaGo & AlphaGo Zero
 
-[six - AlphaGo & AlphaGo Zero](#section-six)
+seven - practical concerns
 
-[seven - practical concerns](#section-seven)
+eight - state of the art
 
-[eight - a quick look at the state of the art](#section-eight)
-
-**tomorrow - afternoon**
-
-Misc advice + portfolio projects
-
-### About Me
-
-**Education**
-
-B.Eng Chemical Engineering
-
-MSc Advanced Process Design for Energy
-
-DSR Batch 9
-
-**Industry**  
-
-Energy Engineer at ENGIE UK
-
-Energy Data Scientist at Tempus Energy
-
-\newpage
-
-### Goals for today and tomorrow
+## Goals for today and tomorrow
 
 Introduction to **concepts, ideas and terminology** 
 

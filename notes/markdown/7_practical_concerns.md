@@ -163,7 +163,7 @@ Gradient clipping is helpful - dropout & batchnorm not so much
 
 > Reinforcement learning can be so unstable that you need to repeat every run multiple times with different seeds to be confident.
 
-![fig](../..assets/images/section_7/fail_expts.png)
+![fig](../../assets/images/section_7/fail_expts.png)
 
 > It’s not like my experience of programming in general so far where you get stuck but there’s usually a clear trail to follow and you can get unstuck within a couple of days at most. 
 
@@ -200,7 +200,7 @@ Recommends keeping a detailed work log
 Log all the metrics you can
 - policy entropy for policy gradient methods
 
-![fig](../..assets/images/section_7/policy_entropy.png)
+![fig](../../assets/images/section_7/policy_entropy.png)
 
 Try to predict future failures
 

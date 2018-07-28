@@ -42,6 +42,15 @@ def greedy_policy(state):
 
 ## Approximation versus improvement
 
+Prediction / approximation
+
+- predicting return for given policy
+
+Control 
+
+- the optimal policy
+- the policy that maximizes expected future discounted reward
+
 A good approximation of the optimal value function helps us to improve our policy
 
 1. improving the predictive power of our value function
@@ -600,9 +609,7 @@ Sutton & Barto discuss the concept of the **deadly triad**
 Three mechanisms that combine to produce instability and divergence
 
 1. off-policy learning - to learn about the optimal policy while following an exploratory policy
-
 2. function approximation - for scalability and generalization
-
 3. bootstrapping - computational & sample efficiency
 
 It's not clear what causes instability.  Divergence is an emergent phenomenon.

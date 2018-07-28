@@ -2,7 +2,7 @@
 
 Nomenclature in RL can be inconsistent.  Modern literature has largely settled on nomenclature as given below.  Historically some policy gradient methods would use `u` for action - this is also common in *optimal control* (a related field - see the notes for Section 2).
 
-Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
+These notes follow [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
 
 |symbol | variable  |
 |---| ---|
@@ -22,29 +22,23 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 
 ## Expectations = weighted average of all possible values (the mean)
 
-`expected_value = probability * magnitude`
+` expectation = probability * magnitude `
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
 Expectations allow us to **approximate by sampling**
 
-Approximating the expectation for our commute to work can be done by sampling the time across three days and averagig.
+Approximating the expectation for our commute to work can be done by sampling the time across three days and averaging.
 
 Modern reinforcement learning optimizes expectations - expected future reward.  RL is trying to take actions that **on average** are the best.
 
 ## Conditionals = probability of one thing given another
 
-probability of next state and reward given state & action
+Probability of next state and reward given state & action $P(s'|s,a)$
 
-$$ P(s'|s,a) $$
+Reward received from a state & action $R(r|s,a,s')$
 
-reward received from a state & action 
-
-$$ R(r|s,a,s') $$
-
-sampling an action from a stochastic policy 
-
-$$ a \sim \pi (s|a) $$
+Sampling an action from a stochastic policy $a \sim \pi (s|a)$
 
 \newpage
 
@@ -96,7 +90,7 @@ $$ Q(s,a) = r + \gamma Q(s', a') $$
 
 Bootstrapping often introduces bias.  The bootstrapped approximation gives the agent a chance to mislead itself.
 
-## iid - independent and identically distributed
+## IID - independent and identically distributed
 
 Fundamental assumption made in statistical learning
 
@@ -136,13 +130,15 @@ Trying to approximate the expected value of a random variable $X$ under a distri
 
 [Shannon entropy in the context of machine learning and AI](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
 
-Entropy is a measurement of how much infomation is contained in a distribution.
+Entropy is a measurement of how much information is contained in a distribution.
+
+Some policy graident based agents will have an entropy maximization term in the loss function - to make the policy as random as possible
 
 ## Kullback–Leibler divergence
 
 [Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
 
-Also known as relative entropy or infomation gain.
+Also known as relative entropy or information gain.
 
 Measures the difference between probability distributions.
 
@@ -154,7 +150,7 @@ Also used in [C51 - A Distributional Perspective on Reinforcement Learning](http
 
 ## Function approximation
 
-![Three commonly use function approximation methods](../../assets/images/section_1/func_approx.png){ width=65%, height=65% }
+![Three commonly use function approximation methods](../../assets/images/section_1/func_approx.png){ width=30%, height=30% }
 
 ### Lookup tables
 Imagine a problem where we have two dimensions in the state variable, with each state variable having two discrete options (either high or low).  We use this state variable to predict the safety of the system.
@@ -177,8 +173,6 @@ Disadvantages
 
 - No sharing of knowledge between similar states/actions
 - Curse of dimensionality - high dimensional state and action spaces means large tables
-
-
 
 ### Linear functions
 
@@ -238,19 +232,17 @@ High learning rate
 
 ### Always intentionally set learning rate
 
-`from keras.models import Sequential`
+```python
+from keras.models import Sequential
 
-`#  don't do this!`
+#  don't do this!
+model.compile(optimizer='rmsprop', loss='mse')
 
-`model.compile(optimizer='rmsprop', loss='mse')`
-
-`#  do this`
-
-`from keras.optimizers import RMSprop`
-
-`opt = RMSprop(lr=0.001)`
-
-`model.compile(optimizer=opt, loss='mse')`
+#  do this
+from keras.optimizers import RMSprop
+opt = RMSprop(lr=0.001)
+model.compile(optimizer=opt, loss='mse')
+```
 
 ### Batch size
 
@@ -258,21 +250,27 @@ Modern reinforcement learning trains neural networks using batches of samples
 
 Below we have a dataset with four samples, of shape (14, 2)
 
-`>>> import numpy as np`
+```python
+>>> import numpy as np
 
-`>>> data = np.arange(4*28).reshape(4, -1, 2)`
+>>> data = np.arange(4*28).reshape(4, -1, 2)
 
-`>>> data.shape`
+>>> data.shape
 
-`(4, 14, 2)`
+(4, 14, 2)
 
-The first dimension is the batch dimension - this is foundational in TensorFlow 
+##  the first dimension is the batch dimension - this is foundational in TensorFlow 
 
-`tf.placeholder(shape=(None, 14, 2))`
+tf.placeholder(shape=(None, 14, 2))
+```
 
 Passing in `None` allows us to use whatever batch size we want 
 
 ### Why use batches
+
+[Tradeoff batch size vs. number of iterations to train a neural network](https://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network)
+
+[Visualizing Learning rate vs Batch size](https://miguel-data-sc.github.io/2017-11-05-first/)
 
 Batches allow us to learn faster
 - weights are updated more often during each epoch
@@ -289,21 +287,19 @@ Larger batch size -> larger learning rate
 - more accurate estimation of the gradient (better distribution across batch)
 - we can take larger steps
 
-![Relationship between learning rate error plotted using batches from 64 to 4](../../assets/images/section_1/lr_batch.png){ width=50%, height=50% }
+![Relationship between learning rate error plotted using batches from 64 to 4 - [Visualizing Learning rate vs Batch size](https://miguel-data-sc.github.io/2017-11-05-first/)](../../assets/images/section_1/lr_batch.png){ width=50%, height=50% }
 
 Larger batch size -> larger optimal learning rate
-
-*https://miguel-data-sc.github.io/2017-11-05-first/*
 
 Observed that larger batch sizes decrease generalization performance 
 
 Poor generalization  due to large batches converging to *sharp minimizers* 
+
 - areas with large positive eigenvalues $\nabla^{2} f(x)$
 - Hessian matrix (matrix of second derivatives) where all eigenvalues positive = positive definite = local minima
 
 Batch size is a **hyperparameter that should be tuned**
 
-*https://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network*
 
 ## Scaling aka pre-processing
 
@@ -335,22 +331,21 @@ Our data is now between 0 and 1
 
 [Ioffe (2017) Batch renormalization](https://github.com/ADGEfficiency/dsr_rl/blob/master/literature/general_machine_learning/2015_Ioffe_Szegedy_BatchNorm.pdf)
 
+[Batch normalization before or after relu - Reddit](http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/)
+
+[Ian Goodfellow Lecture (3:20 onward)](http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl)
+
 Batch norm. is additional preprocessing of data as it moves between network layers
 
 - used in very deep convolutional/residual nets
 
 We use the mean and variance of the batch to normalize activations 
-
 - standardization is actually used!
 - reduces sensitivity to weight & bias initialization
 - allows higher learning rates
 - originally applied before the activation - but this is a topic of debate
 
-[Batch normalization before or after relu - Reddit](http://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/)
-
-[Ian Goodfellow Lecture (3:20 onward)](http://www.youtube.com/watch?time_continue=385&v=Xogn6veSyxAppl)
-
-Vanilla batch norm. struggles with small or non-iid batches 
+Vanilla batch norm. struggles with small or non-IID batches 
 - the estimated statistics are worse
 
 - vanilla batch norm. uses two different methods for normalization during training & testing

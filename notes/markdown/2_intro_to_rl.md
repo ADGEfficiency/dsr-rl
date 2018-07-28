@@ -6,13 +6,9 @@ To learn chess in a supervised manner, we would learn moves from textbooks of th
 
 To learn chess in a reinforcement learning manner, we would learn chess by playing ourselves.
 
-*Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems*
+> Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems - Sutton & Barto - Reinforcement Learning: An Introduction
 
-Sutton & Barto - Reinforcement Learning: An Introduction
-
-*Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex*
-
-Mnih et. al (2015) Human-level control through deep reinforcement learning
+> Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex - Mnih et. al (2015) Human-level control through deep reinforcement learning
 
 ### Habit formation
 
@@ -61,15 +57,16 @@ Reinforcement learning is fundamentally about **decision making**
 
 **Optimal control** [wikipedia](https://en.wikipedia.org/wiki/Optimal_control) - [Data-Driven control lecture](https://www.youtube.com/watch?v=oulLR06lj_E)
 
-A **domain specific** algorithm for your problem
+- primarily concerned with control of linear systems
+- commonly used in electrical engineering
+
+A **domain specific** algorithm for your problem - if you have one, use it!
 
 \newpage
 
 ## Context within machine learning
 
-![fig](../../assets/images/section_2/sl_unsl_rl.png)
-
-Three areas based on the feedback that is available to the learner.
+![Three areas of machine learning that differ based on the feedback signal available to the learner](../../assets/images/section_2/sl_unsl_rl.png)
 
 Supervised learning - feedback is the target (one per sample)
 
@@ -140,17 +137,10 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 
 ### Model free reinforcement learning
 
-![fig](../../assets/images/section_2/summary.png){ width=50%, height=50% }
+![fig](../../assets/images/section_2/summary.png){ width=30%, height=30% }
 
 Model based reinforcement learning is outside the scope of this course.
 
-Environment models predict the response (i.e. next state and reward) of an environment for a given state and action.
-
-$$ P(s',r | s, a) $$
-
-A good environment model is very valuable - it allows planning.  Planning is the simulation of rollouts - the agent can use the results of these rollouts to decide what action to take or to improve learning.
-
-A key challenge in model based reinforcement learning is to learn the model. If a good model can be learnt then it's likely to be very valuable.  Dynamic programming (which is introduced in Section 3) uses an environment model to perfectly solve environments.
 
 \newpage
 
@@ -158,9 +148,9 @@ A key challenge in model based reinforcement learning is to learn the model. If 
 
 Mathematical framework for reinforcement learning 
 
-![The basic Markov Decision Process framework for reinforcement learning](../../assets/images/section_2/mdp_schema_simple.png){ width=50%, height=50% }
+![The basic Markov Decision Process framework for reinforcement learning](../../assets/images/section_2/mdp_schema_simple.png){ width=40%, height=40% }
 
-![The MDP generates data which an agent uses to learn](../../assets/images/section_2/rl_process.png){ width=50%, height=50% }
+![The MDP generates data which an agent uses to learn](../../assets/images/section_2/rl_process.png){ width=40%, height=40% }
 
 ### Markov property
 
@@ -176,7 +166,7 @@ $$ P(s\_{t+1} | s\_{t}, a\_{t}) = P(s\_{t+1}|s\_t,a\_t...s\_0,a\_0)$$
 
 ### Formal definition of a MDP
 
-An MDP can be defined a tuple
+An MDP can be defined as a tuple
 
 $$ (\mathcal{S}, \mathcal{A}, \mathcal{R}, P, R, d_0, \gamma) $$
 
@@ -200,56 +190,60 @@ Two objects - the agent and environment
 
 Three signals - state, action & reward
 
-`class Agent`
+```python
+class Agent
 
-`class Environment`
+class Environment
 
-`state = env.reset()`
+state = env.reset()
 
-`action = agent.act(state)`
+action = agent.act(state)
 
-`reward, next_state = env.step(action)`
+reward, next_state = env.step(action)
+```
 
-## Environment
+### Environment
 
 Real or virtual 
+
 - modern RL uses virtual environments to generate lots of experience
 
 Each environment has a state space and an action space
+
 - these spaces can be discrete or continuous
 
 Environments can be 
+
 - episodic (finite length, can be variable or fixed length)
 - non-episodic (infinite length)
 
 The MDP framework unites both in the same way by using the idea of a final absorbing state at the end of episodes
 
-## Discretiziation
+Discretiziation 
 
-Too coarse 
-- non-smooth control output
+- some agents require discrete spaces (i.e. Q-Learning requires a discrete action space)
+- too coarse -> non-smooth control output
+- too fine -> curse of dimensionality & computational expense
+- requires some prior knowledge
+- lose the shape of the space
 
-Too fine 
-- curse of dimensionality 
-- computational expense
+Losing the shape of the space = agent sees all actions as discrete options, and has no way to understand the relationship between each one (this is true for the DQN style neural network, with one output node per action).
 
-Requires some prior knowledge
-
-Lose the shape of the space
-
-## State
+### State
 
 Infomation for the agent to **choose next action** and to **learn from**
 
 State is a flexible concept - it's a n-d array
 
-`state = np.array([temperature, pressure])`
+```python
+state = np.array([temperature, pressure])
 
-`state = np.array(pixels).reshape(height, width)`
+state = np.array(pixels).reshape(height, width)
+```
 
 Make sure all the info you need to learn & make good decisions is in the state!
 
-## Observation
+### Observation
 
 Many problems your agent won't be able to see everything that would help it learn - i.e. non-Markov
 
@@ -264,7 +258,7 @@ Observation can be made more Markov by
 - concatenating state trajectories together
 - using function approximation with a memory element (LSTMs)
 
-## Agent
+### Agent
 
 Our agent is the **learner and decision maker**
 
@@ -272,9 +266,7 @@ It's goal is to maximize total discounted reward
 
 An agent always has a policy 
 
-<br></br>
-
-## Reward
+### Reward
 
 Scalar
 
@@ -283,8 +275,6 @@ Delayed
 Sparse
 
 A well defined reward signal is a limit for applying RL 
-
-## Reward hypothesis
 
 Maximising expected return is making an assumption about the nature of our goals
 
@@ -298,146 +288,146 @@ Do you agree with this?
 
 Think about the role of emotion in human decision making.  Is there a place for this in RL?
 
-## Reward engineering
+> The Reward Engineering Principle = As reinforcement learning based AI systems become more general and more autonomous, the design of reward mechanisms that elicit desired behaviours becomes both more important and more difficult - [Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf){ width=50%, height=50% }
 
-![fig](../../assets/images/section_2/reward_eng.png)
-
-[Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf){ width=50%, height=50% }
-
-## Policy $\pi(s)$
+### Policy $\pi(s)$
 
 $$\pi(s)$$
-
 $$\pi(s,a|\theta)$$
-
 $$\pi_\theta(s|a)$$
 
 A policy is rules to select actions
+
 - act randomly
 - always pick a specific action
 - the optimal policy - the policy that maximizes future reward
 
 Policy can be
+
 - parameterized directly (policy gradient methods)
 - generated from a value function (value function methods)
 
 Deterministic or stochastic
 
-## Prediction versus control
+### On versus off policy learning
 
-Prediction / approximation
-- predicting return for given policy
+On policy - learn about the policy we are using to make decisions 
 
-Control 
-- the optimal policy
-- the policy that maximizes expected future discounted reward
+Off policy - evaluate or improve one policy while using another to make decisions
 
-## On versus off policy learning
+Control can be on or off policy - use general policy iteration to improve a policy using an on-policy approximation.  On to off-policyness is a scale (agents vary in degrees).
 
-On policy 
-- learn about the policy we are using to make decisions 
+Why would we want to learn off-policy?
 
-Off policy 
-- evaluate or improve one policy while using another to make decisions
-
-Control can be on or off policy 
-- use general policy iteration to improve a policy using an on-policy approximation
-
-## Why would we want to learn off-policy?
-
-We can learn about policies that we don't have
+- we can learn about policies that we don't have
 - learn the optimal policy from data generated by a random policy
-
-We can reuse data
+- we can reuse data
 - on-policy algorithms have to throw away experience after the policy is improved
 
 > Maybe the less we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
 
-![fig](../../assets/images/section_2/on_off_policy.png){ width=50%, height=50% }
+Learning from diverse datasets = requires off-policy learning.
+
+![Two policies that generate datasets of experience by acting in the environment.  One policy can only learn from it's own experience - the second policy can learn from both datasets](../../assets/images/section_2/on_off_policy.png){ width=50%, height=50% }
+
+Remember that as soon as the weights of any neural networks used by the agent changes, the policy changes.  On-policy agents must throw away experience after they have improved the policy.
+
+An off-policy agent can reuse experience multiple times - is able to use experience generated by a poor quality policy being followed for exploration early on in an agent's life.
 
 ## Environment model
 
-Our agent can learn an environment model
+Environment models predict the response (i.e. next state and reward) of an environment for a given state and action.
 
-Predicts environment response to actions
+$$ P(s',r | s, a) $$
+
+Our agent can learn an environment model - predicts environment response to actions
 - predicts $s', r$ from $s, a$
 
 ```python
 def model(state, action):
-
     # do stuff
-
     return next_state, reward
 ```
 
 Sample vs. distributional model
 
-Model can be used to simulate trajectories for **planning**
+- sample can be easy to build (i.e. two random number generators for rolling dice)
+- distributional requires understanding the probability distribution over all possible next states and rewards
 
-![fig](../../assets/images/section_2/learn_plan_act.png){ width=50%, height=50% }
+Model can be used to simulate trajectories for **planning**.  Planning is really important in our own thinking, and is very powerful if you can get it to work.
 
-*Sutton & Barto - Reinforcement Learning: An Introduction*
+A good environment model is very valuable - it allows planning.  Planning is the simulation of rollouts - the agent can use the results of these rollouts to decide what action to take or to improve learning.
 
-![fig](../../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
+A key challenge in model based reinforcement learning is to learn the model. If a good model can be learnt then it's likely to be very valuable.  Dynamic programming (which is introduced in Section 3) uses an environment model to perfectly solve environments.
 
-### Return
+![Relationships amoung learning, planning and action - Sutton & Barto - Reinforcement Learning: An Introduction](../../assets/images/section_2/learn_plan_act.png){ width=40%, height=40% }
+
+![The Markov Decision Process showing the agent and environment internals](../../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
+
+## Return
 
 Goal of our agent is to maximize reward
 
 Return ($G_t$) is the total discounted future reward
 
-$$G\_t = r\_{t+1} + \gamma r\_{t+2} + \gamma^2 r\_{t+3} + ... = \sum\_{k=0}^{\infty} \gamma^k r\_{t+k+1}$$
+$$ G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1} $$
 
-` reward + discount * reward + discount^2 * reward ...`
+The discount factor is exponential
 
-**Why do we discount future rewards?**
-
-### Discounting
+### Why discount 
 
 Future is uncertain 
+
 - stochastic environment
 
 Matches human thinking 
+
 - hyperbolic discounting
 
 Finance 
+
 - time value of money
 
 Makes the maths works
+
 - return for infinite horizon problems finite
 - discount rate is $[0,1)$ 
 - can make the sum of an infinite series finite 
 - geometric series
 
 Can use discount = 1 for
+
 - games with tree-like structures (without cycles)
 - when time to solve is irrelevant (i.e. a board game)
 
+\newpage
+
 ## Four central challenges 
 
-### One - exploration vs exploitation
+### Exploration vs exploitation
 Do I go to the restaurant in Berlin I think is best – or do  I try something new?
 
 - exploration = finding information
 - exploitation = using information
 
 Agent needs to balance between the two
+
 - we don't want to waste time exploring poor quality states
 - we don't want to miss high quality states
 
 How stationary are the environment state transition and reward functions?  
-
 How stochastic is my policy?
 
 Design of reward signal vs. exploration required
 
 Time step matters
+
 - too small = rewards are delayed = credit assignment harder
 - too large = coarser control 
 
-## Two - data quality
+### Data quality
 
-iid = independent sampling & identical distribution
+IID = independent sampling & identical distribution
 
 RL breaks both in multiple ways
 
@@ -452,7 +442,7 @@ RL breaks both in multiple ways
 
 Reinforcement learning will **always** break supervised learning assumptions about data quality
 
-###  Three - credit assignment
+### Credit assignment
 
 The reward we see now might not be because of the action we just took
 
@@ -464,7 +454,7 @@ Can design a more dense reward signal for a given environment
 - reward shaping
 - changing the reward signal can change behaviour
 
-### Four - sample efficiency
+### Sample efficiency
 How quickly a learner learns
 
 How often we reuse data
@@ -479,6 +469,7 @@ Requirement for sample efficiency depends on how expensive it is to generate dat
 - expensive / limited data -> squeeze more out of data
 
 ### Four challenges
+
 **one - exploration vs exploitation**
 
 how good is my understanding of the range of options

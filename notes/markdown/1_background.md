@@ -287,7 +287,7 @@ Larger batch size -> larger learning rate
 - more accurate estimation of the gradient (better distribution across batch)
 - we can take larger steps
 
-![Relationship between learning rate error plotted using batches from 64 to 4 - [Visualizing Learning rate vs Batch size](https://miguel-data-sc.github.io/2017-11-05-first/)](../../assets/images/section_1/lr_batch.png){ width=70%, height=70% }
+![Relationship between learning rate error plotted using batches from 64 to 4 - [Visualizing Learning rate vs Batch size](https://miguel-data-sc.github.io/2017-11-05-first/)](../../assets/images/section_1/lr_batch.png){ width=60%, height=60% }
 
 Larger batch size -> larger optimal learning rate
 

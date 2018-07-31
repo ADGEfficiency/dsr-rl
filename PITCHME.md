@@ -1664,6 +1664,10 @@ Long held as the most challenging classic game for artificial intelligence
 - difficult to evaluate positions & moves
 - sparse & delayed reward
 
+Difficult to evaluate positions
+- chess you can evaluate positions by summing the value of all the peices
+- go - it's just stones on the board!
+
 --- 
 ### Components of the AlphaGo agent
 

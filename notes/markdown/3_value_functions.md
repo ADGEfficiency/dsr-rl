@@ -6,6 +6,9 @@ $$ V_{\pi}(s) = \mathbf{E}[G_t | s_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t
 
 $$ Q_{\pi}(s, a) = \mathbf{E}[G_t | s_t, a_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{t=0}^{\infty} \gamma^{t} r_{t} $$
 
+Expected total reward from state $s$ and action $a$ under policy $\pi$
+
+How good is action $a$ in state $s$
 
 The key difference is that the value function $V_{\pi}(s)$ tells us how good a state is, the action-value function $Q_{\pi}(s,a)$ tells us how good an action is.
 
@@ -180,9 +183,22 @@ The Bellman equation relates the expected discounted return of the **current sta
 $$ V_{\pi}(s) = r + \gamma V_{\pi}(s') $$
 $$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
 
+The magic of the value function is how it allows us to use experience (i.e. data)
+
+- we make use of the state as the input to a neural network
+- we make use of the action as the output node on a neural network
+- the reward is used in the approximation
+- the next state is used as the input to a neural network
+
+$$ (s, a, r, s' $$
+
+$$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
+
+The Bellman equation allows an agent to learn about state transitions and expected return for states and actions.  
+
 ### How do we use the Bellman Equation? 
 
-Create **targets for learning**.  For an experience sample of $(s, a, r, s')$, we create a Bellman target:
+The Bellman Equation is used to **Create targets for learning**.  For an experience sample of $(s, a, r, s')$, we create a Bellman target:
 
 $$ target = r + Q(s',a) $$
 
@@ -745,9 +761,11 @@ Stable training
 
 1992 - Experience replay (Lin)
 
+---
+
 2010 - Tabular Double Q-Learning 
 
-...
+---
 
 2010's - GPUs used for neural networks
 

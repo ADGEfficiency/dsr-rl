@@ -1,3 +1,11 @@
+## What is reinforcement learning
+
+Training agents that can learn how to interact with environments and maximize reward signals
+
+Reinforcement learning is fundamentally about **decision making**
+
+> Goal at DeepMind is to try to use reinforcement learning to solve some of the bigger visions of AI ... it is the paradigm of artificial intelligence ... RL is the paradigm that describes how to learn optimal decisions in any environment - [David Silver](https://www.youtube.com/watch?v=M5a6HasTHs4)
+
 ##  Biological inspiration
 
 The reinforcement learning approach is one that is familiar to any human being.  It is learning through action.
@@ -25,8 +33,6 @@ Variable rewards
 - focused state where judgment and reason are suppressed
 
 ## Applications
-
-Reinforcement learning is fundamentally about **decision making**
 
 ![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png){ width=50%, height=50% }
 
@@ -109,6 +115,10 @@ $$...$$
 $$(s_n, a_n, r_n, s_n)] $$
 
 This data generation attribute of reinforcement learning makes it more democratic than supervised learning - access to environments may fairer than access to the titanic supervised learning datasets at Google.
+
+Reinforcment learning uses supervised learning as a tool to learn functions.  RL can be seen as a way to create targets for supervised learning.
+
+Success in modern reinforcement learning (2013 onwards) is largely due to making use of deep learning to create powerful function approximators.
 
 ### Reinforcement learning is not
 

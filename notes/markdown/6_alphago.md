@@ -66,7 +66,7 @@ Planning algorithm
 
 ## AlphaGo, in context – Andrej Karpathy
 
-Convenient properties of Go
+[Convenient properties of Go](https://medium.com/@karpathy/alphago-in-context-c47718cb95a5)
 
 - fully deterministic
 - fully observed
@@ -75,9 +75,8 @@ Convenient properties of Go
 - relatively short episodes 
 - evaluation is clear
 - huge datasets of human play
-- energy consumption (human ≈ 50 W) 1080 ti = 250 W
 
-*https://medium.com/@karpathy/alphago-in-context-c47718cb95a5*
+DeepMind take advantage of properties of Go that will not be available in real world applications of reinforcement learning.
 
 ## AlphaGo Zero
 

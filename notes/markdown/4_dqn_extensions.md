@@ -105,33 +105,6 @@ Schaul et. al (2016) solves these problems by
 1. loss of diversity -> make the prioritization stochastic
 2. correct bias -> use importance sampling
 
-### Stochastic prioritization
-
-Noisy rewards can make the TD error signal less useful
-
-$p_i$ is the priority for transition $i$
-
-$$ \frac{p\_{i}^{\alpha}}{\sum\_{k}p\_{k}^{\alpha}} $$
-
-$\alpha = 0 $ -> uniform random sampling
-
-Schaul suggets alpha $~ 0.6 - 0.7$
-
-### Importance sampling in prioritized experience replay
-
-$$\omega\_{i} = \left( \frac{1}{N} \cdot \frac{1}{P(i)} \right)^{\beta}$$
-
-$\beta$ is a hyperparameter that is linearly scheduled during learning(0.4 or 0.5 -> 1.0)
-
-Weights are normalized by $ 1 / \max_i \omega_i $ 
-- ensure that we only scale the update downwards
-
-All new transitions are stored at maximum priority 
-- to ensure replay at least once
-
-Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums and minimums
-- ask your algorithms teacher to go over binary heaps - they are useful!
-
 ## DDQN
 
 Reference = TODO

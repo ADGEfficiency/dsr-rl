@@ -112,7 +112,7 @@ RL adds an additional dimension - random change
 
 ### Going forward & the future
 
-![fig](assets/images/section_8/work_research.png)
+![fig](../../assets/images/section_8/work_research.png){ width=30%, height=30% }
 
 Make learning eaiser
 
@@ -133,7 +133,7 @@ Many things need to go right for RL to work - success stories are the exception,
 
 ## Inverse reinforcement learning
 
-![fig](assets/images/section_8/inverse_1.png)
+![fig](../../assets/images/section_8/inverse_1.png){ width=30%, height=30% }
 
 *Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 

@@ -5,6 +5,7 @@
 Family of methods between Temporal Difference & Monte Carlo
 
 Eligibility traces allow us to **assign TD errors** to different states 
+
 - can be useful with delayed rewards or non-Markov environments
 - requires more computation 
 - squeezes more out of data
@@ -16,6 +17,20 @@ Allow us to tradeoff between bias and variance
 In between TD and MC exist a family of approximation methods known as **n-step returns**
 
 ![Sutton & Barto](../../assets/images/section_4/bias_var.png){ width=30%, height=30% }
+
+### $$TD(\lambda)$$
+
+The family of algorithms between TD and MC is known as $TD(\lambda)$
+- weight each return by $\lambda^{n-1}$ 
+- normalize using $(1-\lambda)$
+
+$$ TD(\lambda) = (1-\lambda) \sum_{n-1}^{\infty} \lambda^{n-1} R_t^n $$
+
+$\lambda = 0$ -> TD(0) 
+
+$\lambda = 1$ -> Monte Carlo
+
+$TD(\lambda)$ and n-step returns are the same thing
 
 ### Forward and backward view
 
@@ -29,9 +44,9 @@ We can decompose return into **complex backups**
 - looking forward to future returns 
 - can use a combination of experience based and model based backups 
 
-$$ R\_t = \frac{1}{2} R\_{t}^{2} + \frac{1}{2} R\_{t}^{4} $$
+$$ R_t = \frac{1}{2} R_{t}^{2} + \frac{1}{2} R_{t}^{4} $$
 
-$$ R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
+$$ R_t = \frac{1}{2} TD + \frac{1}{2} MC $$
 
 ![Sutton & Barto](../../assets/images/section_4/forward_view.png){ width=30%, height=30% }
 
@@ -45,17 +60,17 @@ It requires an additional variable in our agents memory
 
 At each step we decay the trace according to
 
-$$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) $$
+$$ e_{t}(s) = \gamma \lambda e_{t-1}(s) $$
 
 Unless we visited that state, in which case we accumulate more eligibility
 
-$$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
+$$ e_{t}(s) = \gamma \lambda e_{t-1}(s) + 1 $$
 
 ![Sutton & Barto](../../assets/images/section_4/backward_view.png){ width=30%, height=30% }
 
 ### Traces in a grid world
 
-![Sutton & Barto](../../assets/images/section_4/traces_grid.png){ width=30%, height=30% }
+![Sutton & Barto](../../assets/images/section_4/traces_grid.png){ width=40%, height=40% }
 
 - one step method would only update the last $Q(s,a)$
 - n-step method would update all $Q(s,a)$ equally
@@ -63,18 +78,16 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 
 ## Prioritized experience replay
 
-![fig](../../assets/images/section_4/schaul_2015.png){ width=30%, height=30% }
+Reference = Schaul et. al (2016) Prioritized Experience Replay TODO link
 
 ### Naive experience replay
 
-![fig](../../assets/images/section_3/exp_replay.png)
+![fig](../../assets/images/section_3/exp_replay.png){ width=30%, height=30% }
 
 Naive experience replay randomly samples experience
 - learning occurs at the same frequency as experience
 
-### Prioritized Experience Replay
-
-Some experience is more useful for learning than others
+But some experience is more useful for learning than others
 - we can measure how useful experience is by the temporal difference error
 
 $$ error = r + \gamma Q(s', a) - Q(s,a) $$
@@ -92,12 +105,39 @@ Schaul et. al (2016) solves these problems by
 1. loss of diversity -> make the prioritization stochastic
 2. correct bias -> use importance sampling
 
-### DDQN
+### Stochastic prioritization
 
-![fig](../../assets/images/section_4/2015_DDQN.png){ width=30%, height=30% }
+Noisy rewards can make the TD error signal less useful
+
+$p_i$ is the priority for transition $i$
+
+$$ \frac{p\_{i}^{\alpha}}{\sum\_{k}p\_{k}^{\alpha}} $$
+
+$\alpha = 0 $ -> uniform random sampling
+
+Schaul suggets alpha $~ 0.6 - 0.7$
+
+### Importance sampling in prioritized experience replay
+
+$$\omega\_{i} = \left( \frac{1}{N} \cdot \frac{1}{P(i)} \right)^{\beta}$$
+
+$\beta$ is a hyperparameter that is linearly scheduled during learning(0.4 or 0.5 -> 1.0)
+
+Weights are normalized by $ 1 / \max_i \omega_i $ 
+- ensure that we only scale the update downwards
+
+All new transitions are stored at maximum priority 
+- to ensure replay at least once
+
+Sampling is commonly done using **binary heaps** to efficiently search for high prioritiy transitions and to calculate sums and minimums
+- ask your algorithms teacher to go over binary heaps - they are useful!
+
+## DDQN
+
+Reference = TODO
 
 DDQN = Double Deep Q-Network
-- first introducued in a tabular setting in 2010
+- first introduced in a tabular setting in 2010
 - reintroduced in the content of DQN in 2016
 
 DDQN aims to overcome the **maximization bias** of Q-Learning 
@@ -108,7 +148,7 @@ Imagine a state where $Q(s,a) = 0$ for all $a$
 
 Our estimates are normally distributed above and below 0
 
-![fig](../../assets/images/section_4/max_bias.png){ width=30%, height=30% }
+![Taking the maximum across our estimates makes our estimate positively biased](../../assets/images/section_4/max_bias.png){ width=30%, height=30% }
 
 The DDQN modification to DQN makes use of the target network as a different function to approximate Q(s,a)
 
@@ -120,13 +160,13 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 
 - select the action according to the online network
 
-- quanitfy the value that action using the target network
+- quantify the value that action using the target network
 
-![fig](../../assets/images/section_4/2015_DDQN_results.png){ width=30%, height=30% }
+![fig](../../assets/images/section_4/2015_DDQN_results.png){ width=50%, height=50% }
 
 ## Distributional Q-Learning
 
-![fig](../../assets/images/section_8/lit_dist.png){ width=30%, height=30% }
+ref = TODO
 
 ### Beyond the expectation
 
@@ -144,9 +184,7 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 
 ![Bellamare et. al 2017](../../assets/images/section_8/value_dist_results.png){ width=30%, height=30% }
 
-### Rainbow
-
-![fig](../../assets/images/section_4/rainbow_lit.png){ width=30%, height=30% }
+## Rainbow
 
 All the various improvements to DQN address different issues
 
@@ -159,9 +197,9 @@ All the various improvements to DQN address different issues
 
 Rainbow combines these improvements
 
-![fig](../../assets/images/section_4/rainbow_fig1.png){ width=30%, height=30% }
+![fig](../../assets/images/section_4/rainbow_fig1.png){ width=100%, height=100% }
 
-![fig](../../assets/images/section_4/rainbow_expt.png){ width=30%, height=30% }
+![fig](../../assets/images/section_4/rainbow_expt.png){ width=20%, height=20% }
 
 ![fig](../../assets/images/section_4/rainbow_hyper.png){ width=30%, height=30% }
 

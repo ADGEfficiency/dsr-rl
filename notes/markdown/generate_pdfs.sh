@@ -8,4 +8,10 @@ pandoc 3_value_functions.md -o ../3_value_functions.pdf -V geometry:margin=1in -
 
 pandoc 4_dqn_extensions.md -o ../4_dqn_extensions.pdf -V geometry:margin=1in --variable urlcolor=cyan
 
+pandoc 5_policy_gradients.md -o ../5_policy_gradients.pdf -V geometry:margin=1in --variable urlcolor=cyan
+
+pandoc 6_alphago.md -o ../6_alphago.pdf -V geometry:margin=1in --variable urlcolor=cyan
+
 pandoc 7_practical_concerns.md -o ../7_practical_concerns.pdf -V geometry:margin=1in --variable urlcolor=cyan
+
+pandoc 8_sota.md -o ../8_sota.pdf -V geometry:margin=1in --variable urlcolor=cyan

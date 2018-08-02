@@ -116,6 +116,8 @@ Rule of thumb - 5 training examples for each dimension in the representation
 
 ## Importance sampling
 
+Context - importance sampling is used in prioritized experience replay
+
 [Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
 
 Estimate the properties of a distribution we can't sample from (the unknown distribution) using samples from another distribution
@@ -123,6 +125,34 @@ Estimate the properties of a distribution we can't sample from (the unknown dist
 Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution 
 
 Trying to approximate the expected value of a random variable $X$ under a distribution $P$ - $\mathbf{E}[X;P]$ 
+
+Not a sampling method 
+- it's a method of Monte Carlo approximation
+
+Monte Carlo approximates using the sample mean
+- assuming that the sampling distribution $x\_p$ 
+- is the same as the true distribution $(x~p)$ 
+
+$$ \mathbb{E}[f(x)] = 1/n \sum f(x\_{i}) $$
+
+Could we use infomation about another distribution $q$ to learn the distribution of $p$
+- correct for the fact that we are using another distribution
+
+*https://www.youtube.com/watch?v=S3LAOZxGcnk*
+
+The importance weight function
+
+$$ w(x) = \frac{p(x)}{q(x)}$$
+
+$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
+
+This is an unbiased approximation
+
+- can also be lower variance than using the sample distribution $p$
+
+
+
+
 
 ## Entropy
 
@@ -352,3 +382,23 @@ Vanilla batch norm. struggles with small or non-IID batches
 - vanilla batch norm. uses two different methods for normalization during training & testing
 
 - batch renormalization uses a single algorithm for both training & testing
+
+## Residual networks
+
+Context - AlphaGo Zero uses residual blocks in the value function and policy networkk
+
+ref = TODO
+
+Convolutional network with skip connections
+
+Layers are reformulated as residuals of the input
+
+trying to learn $ H(x) $ 
+
+instead of learning $ F(x) = H(x) $ 
+
+we learn the residual $ F(x) = H(x) - x $ 
+
+and can get $ H(x) = F(x) + x $ 
+
+[Residual blocks](../..assets/images/section_6/res_block.png){ width=30%, height=30% }

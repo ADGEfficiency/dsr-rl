@@ -90,3 +90,124 @@ Why do we discount future rewards?
 - makes return a geometric series
 - discounting is common in decision making
 
+---
+### Recap 
+
+What does a value function predict?
+
+What is general policy iteration?
+
+How does the Bellman Equation help us learn?
+
+For each of the three approximation methods (DP, MC, TD)
+- needs an environment model?
+- bootstrapped?
+- 
+
+If we wanted to control using $V(s)$, what else would we need?
+
+What makes Q-Learning off-policy?
+
+What is the deadly triad?
+
+What is the benefit of experience replay?
+
+What is the benefit of a target network?
+
+---
+### Recap 
+
+What does a value function predict?
+- future expected discounted reward
+
+What is general policy iteration?
+- process of letting policy evaluation and policy improvement interact 
+
+How does the Bellman Equation help us learn?
+- allows us to create bootstrapped targets
+
+If we wanted to control using $V(s)$, what else would we need?
+- the state transition function
+
+What makes Q-Learning off-policy?
+- maximization over all possible next actions
+
+What is the deadly triad?
+- function approximation
+- off-policy learning
+- bootstrapping
+
+What is the benefit of experience replay?
+- decorrelating experience
+- data efficiency
+
+What is the benefit of a target network?
+- stability
+- decorrelating the target used to train the network from the network output
+---
+### Recap
+
+Elgibility traces allow us to trade bias and variance
+
+Elgibility traces assign the temporal difference to different states
+
+What two problems does prioritized experience replay introduce?
+- lack of diversity, solved by making sampling stochastic
+- introduces bias, solved using importance sampling
+
+What problem does DDQN address?
+- maximization bias
+
+---
+### Recap
+
+Motivations for policy gradients
+- optimize what we care about directly
+- high dimensional spaces
+
+How do we parameterize a continuous action
+- output of network is the mean & variance of a Gaussian
+
+What does the log-likelihood trick allow us to do
+- get the gradient of an unknown function
+
+Two intuitions behind the score function
+- make probable actions more probable
+- make high return actions more probable
+
+What is the motivation behind asynchronous learning in A3C?
+- decorrelating experience
+
+---
+### Recap
+
+How does AlphaGo reduce search width
+- policy network to focus on high probability states
+
+How does AlphaGo reduce search depth
+- a value network
+
+MCTS is a planning algorithm - what does AlphaGo use for an environment model?
+- the linear fast rollout policy + game rules
+
+Innovations in AlphaGo Zero
+- combining the policy and value network
+- using MCTS during acting to create targets to learn from
+
+
+---
+
+---
+### Recap
+
+Quick experiments on small test problems
+- make learning easy 
+- automate experiments
+
+Visualize the learning process
+
+Multiple random seeds
+
+Preprocess/scale observations/targets etc
+
+Deep RL is hard and sample inefficient

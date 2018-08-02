@@ -7,32 +7,26 @@ $$ a = \underset{a}{argmax} Q(s,a) $$
 In policy gradients we **parameterize a policy directly**
 
 $$ a \sim \pi(a_t|s_t;\theta) $$
-![Policy gradients in context](../../assets/images/section_5/intro.png){ width=30%, height=30% }
-
-### John Schulan - Berkley, Open AI
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PtAIh9KSnjo?rel=0&amp;showinfo=0&amp;start=2905" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Motivations for policy gradients
 
 ### Stochastic policies
 
-[A determinstic policy (i.e. always rock) is eaisly exploited](../..assets/images/section_5/rock_paper.png){ width=30%, height=30% }
+![A determinstic policy (i.e. always rock) is eaisly exploited](../../assets/images/section_5/rock_paper.png){ width=30%, height=30% }
 
-A stochastic policy means exploration is built into the policy
-- exploration can be controlled by the agent
+A stochastic policy means exploration is built into the policy -> exploration can be controlled by the agent by changing parameters.  A common example of this is for the agent to be able to learn the standard deviation of an action.
 
 ### High dimensional action spaces
 
-Q-Learning requires a discrete action space to argmax across
+Q-Learning requires a discrete action space to $argmax$ across
 
 Lets imagine controlling a robot arm in three dimensions in the range [0, 90] degrees
 
 This corresponds to approx. 750,000 actions a Q-Learner would need to argmax across
 
-We also lose shape of the action space by discretization
+We also lose shape of the action space by discretization.  By this I mean that the agent now has an action space of discrete actions with no understanding of how they relate to each other
 
-![fig](../../assets/images/section_5/disc_cont_act.png){ width=30%, height=30% }
+![fig](../../assets/images/section_5/disc_cont_act.png){ width=80%, height=80% }
 
 ### Optimize return directly
 
@@ -47,13 +41,11 @@ Policy methods optimize return directly
 
 ### Simplicity
 
-Sometimes it's eaiser to pick an action
-
-- rather than to quantify return for each action, then pick action
+Learning a value function and deriving a policy from it is more complex than simply parameteterizing a policy.  Some states don't require exact quantification of return for each action - it's very obvious what is the correct action.  An example of this is TODO
 
 Policy gradients are more general and versatile
 
-More compatible with recurrent neural networks.  Policy gradient methods are often trained using sequeneces of experience.
+More compatible with recurrent neural networks.  Policy gradient methods are often trained using sequences of experience.
 
 ## Policy gradients versus value functions
 
@@ -70,17 +62,15 @@ More compatible with recurrent neural networks.  Policy gradient methods are oft
 - exploration
 - better sample efficiency
 
-![fig](../../assets/images/section_5/motivation_simple.png)
+![fig](../../assets/images/section_5/motivation_simple.png){ width=30%, height=30% }
 
 ## Parameterizing policies
 
 The type of policy you parameterize depends on the **action space**
 
-![fig](../../assets/images/section_5/discrete_policy.png){ width=30%, height=30% }
+![Parameterizing a discrete policy](../../assets/images/section_5/discrete_policy.png){ width=30%, height=30% }
 
-The type of policy you parameterize depends on the **action space**
-
-![fig](../../assets/images/section_5/cont_policy.png){ width=30%, height=30% }
+![Parameterizing a continous policy](../../assets/images/section_5/cont_policy.png){ width=30%, height=30% }
 
 ## Policy gradients without equations
 
@@ -102,6 +92,7 @@ Reward function is not known
 Our policy $\pi(a_t|s_t;\theta)$ is a **probability distribution over actions**
 
 How do we improve it?  
+
 - change parameters to take actions that get more reward
 - change parameters to favour probable actions
 
@@ -123,11 +114,7 @@ Expectataions are averages
 
 $$\nabla_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla_{\theta} \log P(x) \cdot f(x)]$$
 
-### Deriving the score function
-
-![fig](../../assets/images/section_5/score_derivation.png){ width=30%, height=30% }
-
-**http://karpathy.github.io/2016/05/31/rl/**
+![[Derivation of the score function](http://karpathy.github.io/2016/05/31/rl/)](../../assets/images/section_5/score_derivation.png){ width=30%, height=30% }
 
 ## The score function in reinforcement learning
 
@@ -234,7 +221,7 @@ $$ \pi_{\theta}(a|s) = P[a|s;\theta] $$
 
 $$ a \sim \pi_{\theta}(a|s) $$
 
-DPG parameterizes a determinstic policy
+DPG parameterizes a deterministic policy
 
 $$ a = \mu_{\theta}(s) $$
 

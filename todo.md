@@ -1,5 +1,8 @@
 
 ## todos on the conversion
+
+examples for everything
+
 rewrite all algorithms into pseudo code
 
 all of my ML notes should go into here

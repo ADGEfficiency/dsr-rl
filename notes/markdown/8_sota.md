@@ -21,6 +21,8 @@ real world = huge, highly varied, goal=dont screw up too much, test set = unmiti
 
 (http://www.gamesbyangelina.org/2018/06/good-luck-have-fun/)]
 
+(https://s3-us-west-2.amazonaws.com/openai-assets/dota_benchmark_results/network_diagram_08_06_2018.pdf)
+
 ## World models
 
 TODO

@@ -20,7 +20,9 @@ These notes follow [Thomas & Okal (2016) A Notation for Markov Decision Processe
 |$\theta, \omega$ | function parameters (weights) |
 |$\mathbf{E}[f(x)]$  | expectation of f(x) |
 
-## Expectations = weighted average of all possible values (the mean)
+## Expectations 
+
+**An expectation is simply the mean** (or average for the less statistically careful).
 
 ` expectation = probability * magnitude `
 
@@ -32,7 +34,9 @@ Approximating the expectation for our commute to work can be done by sampling th
 
 Modern reinforcement learning optimizes expectations - expected future reward.  RL is trying to take actions that **on average** are the best.
 
-## Conditionals = probability of one thing given another
+## Conditionals 
+
+**Probability of one thing given another**
 
 Probability of next state and reward given state & action $P(s'|s,a)$
 
@@ -114,11 +118,9 @@ Each additional dimension doubles the effort to consider all of the combinations
 
 Rule of thumb - 5 training examples for each dimension in the representation
 
-## Importance sampling
+## Importance sampling - [Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
 
 Context - importance sampling is used in prioritized experience replay
-
-[Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
 
 Estimate the properties of a distribution we can't sample from (the unknown distribution) using samples from another distribution
 
@@ -150,13 +152,7 @@ This is an unbiased approximation
 
 - can also be lower variance than using the sample distribution $p$
 
-
-
-
-
-## Entropy
-
-[Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
+## Entropy - [Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
 
 [Shannon entropy in the context of machine learning and AI](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
 
@@ -164,9 +160,7 @@ Entropy is a measurement of how much information is contained in a distribution.
 
 Some policy graident based agents will have an entropy maximization term in the loss function - to make the policy as random as possible
 
-## Kullback–Leibler divergence
-
-[Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
+## Kullback–Leibler divergence - [Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
 
 Also known as relative entropy or information gain.
 
@@ -261,6 +255,8 @@ High learning rate
 - overshoot or divergence
 
 ### Always intentionally set learning rate
+
+It shows you understand the importance of the hyperparameter!
 
 ```python
 from keras.models import Sequential
@@ -387,7 +383,9 @@ Vanilla batch norm. struggles with small or non-IID batches
 
 Context - AlphaGo Zero uses residual blocks in the value function and policy networkk
 
-ref = TODO
+![Residual blocks](../..assets/images/section_6/res_block.png){ width=30%, height=30% }
+
+![He et. al (2015) Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 
 Convolutional network with skip connections
 
@@ -401,4 +399,3 @@ we learn the residual $ F(x) = H(x) - x $
 
 and can get $ H(x) = F(x) + x $ 
 
-[Residual blocks](../..assets/images/section_6/res_block.png){ width=30%, height=30% }

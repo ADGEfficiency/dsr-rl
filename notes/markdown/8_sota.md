@@ -17,6 +17,8 @@ real world = huge, highly varied, goal=dont screw up too much, test set = unmiti
 
 ## Open AI Dota
 
+TODO
+
 (https://www.rockpapershotgun.com/2018/07/20/ai-wizard-mike-cook-wants-openais-dota-bots-to-teach-him-not-beat-him/)
 
 (http://www.gamesbyangelina.org/2018/06/good-luck-have-fun/)]
@@ -27,9 +29,15 @@ real world = huge, highly varied, goal=dont screw up too much, test set = unmiti
 
 TODO
 
+## Model based RL
+
+TODO
+
 ## Deep RL doesn't work yet
 
 Blog post - [Deep Reinforcment Learning Doesn't Work Yet](https://www.alexirpan.com/2018/02/14/rl-hard.html)
+
+![fig](../../assets/images/section_8/work_bender.jpg){ width=30%, height=30% }
 
 State of the art reinforcement learning is **sample inefficient** - we need lots of experience to learn
 
@@ -41,22 +49,19 @@ Requirement of a reward function - or the requirement to design one
 
 Results can be unstable and hard to produce (this applies to a lot of scientific literature).  Different random seeds can lead to dramatically different results
 
-Andrej Karpathy (when he was at OpenAI)
->>[Supervised learning] wants to work. Even if you screw something up you’ll usually get something non-random back. RL must be forced to work. If you screw something up or don’t tune something well enough you’re exceedingly likely to get a policy that is even worse than random. And even if it’s all well tuned you’ll get a bad policy 30% of the time, just because.
+
+>>[Supervised learning] wants to work. Even if you screw something up you’ll usually get something non-random back. RL must be forced to work. If you screw something up or don’t tune something well enough you’re exceedingly likely to get a policy that is even worse than random. And even if it’s all well tuned you’ll get a bad policy 30% of the time, just because - Andrej Karpathy (when he was at OpenAI)
 
 Still immature in real world production systems - examples are rare
 
 Requirements and/or nice to haves for learning
+
 - easy to generate experience
 - simple problem
 - ability to introduce self play
 - well defined rewards and dense
 
 RL solution doesn’t have to achieve a global optima, as long as its local optima is better than the human baseline
-
-![fig](../../assets/images/section_8/work_intro.png){ width=30%, height=30% }
-
-![fig](../../assets/images/section_8/work_bender.jpg){ width=30%, height=30% }
 
 ### Modern RL is sample inefficient
 
@@ -93,7 +98,6 @@ Reward function design is difficult
 
 Shaping rewards to help learning can change behaviour
 
----
 ### Unstable and hard to reproduce results
 
 ![fig](../../assets/images/section_8/work_seeds.png){ width=30%, height=30% }
@@ -135,9 +139,7 @@ Many things need to go right for RL to work - success stories are the exception,
 
 ## Inverse reinforcement learning
 
-![fig](../../assets/images/section_8/inverse_1.png){ width=30%, height=30% }
-
-*Chelsea Finn – Berkley Deep RL Bootcamp 2017*
+![Chelsea Finn – Berkley Deep RL Bootcamp 2017](../../assets/images/section_8/inverse_1.png){ width=30%, height=30% }
 
 ## Closing thoughts
 

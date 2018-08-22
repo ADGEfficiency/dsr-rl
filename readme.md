@@ -53,10 +53,14 @@ For everything else (linear models, random forests etc) - [Elements of Statistic
 
 [World Models](https://worldmodels.github.io/)
 
-### cool open source RL projects
+### open source RL projects
 
 [gym](https://github.com/openai/gym/tree/master/gym) - Open AI
 
 [baselines](https://github.com/openai/baselines) - Open AI
 
 [rllab](https://github.com/rll/rllab) - Berkley
+
+### less well known open source projects
+
+[Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)

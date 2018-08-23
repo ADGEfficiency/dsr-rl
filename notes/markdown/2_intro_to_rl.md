@@ -48,6 +48,7 @@ Variable rewards
 - better able to deal with sparse error signals 
 - easily parallelizable
 - tend to perform better that RL if state variable is hidden
+- CMA-ES works well for solution spaces up to a few thousand parameters
 
 **Cross entropy method**  [wikipedia](https://en.wikipedia.org/wiki/Cross-entropy_method)
 

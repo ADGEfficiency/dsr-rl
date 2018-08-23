@@ -19,15 +19,215 @@ real world = huge, highly varied, goal=dont screw up too much, test set = unmiti
 
 TODO
 
+(https://www.reddit.com/r/MachineLearning/comments/99ix2d/d_openai_five_loses_against_first_professional/)
+
 (https://www.rockpapershotgun.com/2018/07/20/ai-wizard-mike-cook-wants-openais-dota-bots-to-teach-him-not-beat-him/)
 
 (http://www.gamesbyangelina.org/2018/06/good-luck-have-fun/)]
 
 (https://s3-us-west-2.amazonaws.com/openai-assets/dota_benchmark_results/network_diagram_08_06_2018.pdf)
 
-## World models
+## Ha & Schmidhuber (2018) World Models
 
-TODO
+[paper](https://arxiv.org/pdf/1803.10122.pdf) - [blog post](https://worldmodels.github.io/) - [blog post appendix](https://worldmodels.github.io/#appendix)
+
+Uses a generative environment model to train an agent.  Agent can be trained entirely within the 'dream environment', with the policy being transferred into the actual environment.  Very cool!
+
+The mental models humans use are low dimensional representations of the world around us - using selected concepts to represent the real system.
+
+Our brain learns abstract representations of spatial and temporal infomation.  Evidence also suggests that perception itself is governed by an internal prediction of the future, using our mental models
+
+This predictive model can be used to perform fast reflexive behaviours when we face danger
+
+Many model free RL algos use small networks with few parameters.  The algo is often bottlenecked by the credit assignment problem - making it hard to learn millions of weights.  Smaller networks are used as they iterate faster to a good policy
+
+Agent is divided into a 
+
+- large world model
+- small controller model
+
+First use unsupervised learning to learn model.  Then controller to perform task using the model.  A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
+
+Possible to learn highly compact policies
+
+Solve a task that hasn't been solved using traditional methods
+
+Most model based RL trains on the actual env.  World models trains only inside of generated environment, transferring the policy back to the actual environment
+
+Uses a temperature parameter to control amount of uncertainty in generated environments.  Show that noisier environments help prevent agent from taking advantage of imperfections of its internal world model.
+
+Agent has
+
+- visual sensory component (V) that compresses pixels into lower dimensional representation
+- memory component (M) that makes predictions based on past sequences
+- decision making component (C) decides what action to take based on vision and memory
+
+![The agent consists of three components that work closely together: Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png)
+
+### Variational Auto Encoder (V) 
+
+Creates a compressed representation that can be used to reconstruct the original image.  
+
+### Mixed Density Recurret Network (M) 
+
+Compresses over time.  A predictive model of the future vectors that V is expected to produce.
+
+Outputs probability density function instead of a deterministic prediction.  Modeled as a mixture of Gaussians.  Known as a Mixture Density Network.
+
+### Mixed density networks
+
+TODO review
+
+Bishop (1994) - Mixture Density Networks [paper](https://publications.aston.ac.uk/373/1/NCRG_94_004.pdf)
+
+Mixture Density Networks with TensorFlow [blog post](http://blog.otoro.net/2015/11/24/mixture-density-networks-with-tensorflow/) - [pytorch implementation](https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb)
+
+### Controller (C)
+
+Simple as possible - trained separately from V and M.  Single linear layer that maps the MDN-RNN hidden state and latent representation of the observation to action
+
+![Flow diagram of the agent model](../../assets/images/section_8/wm_fig2.png)
+
+```python
+def rollout(controller):
+    ''' env, rnn, vae are '''
+    ''' global variables  '''
+    obs = env.reset()
+    h = rnn.initial_state()
+    done = False
+    cumulative_reward = 0
+    while not done:
+    z = vae.encode(obs)
+    a = controller.action([z, h])
+    obs, reward, done = env.step(a)
+    cumulative_reward += reward
+    h = rnn.forward([a, z, h])
+    return cumulative_reward
+```
+
+The simplicity of C allows using unconventional ways to train C - Ha et. al use Covariance-Matrix Adaptation Evolution Stragety (CMA-ES).  This algorithm works well for solution spaces of up to a few thousand parameters.
+
+### CMA-ES - [wikipedia](https://en.wikipedia.org/wiki/CMA-ES)
+
+Stochastic and derivative free.  
+
+Evolutionary algo = repeated interplay of variation (recombination and mutuation) + selection based on some objective function.
+
+New candidates are sampled according to a mulitvariate normal distribution.  Recombination is selecting a new mean for this distribution.  Mutation is adding a zero mean random vector.  
+
+Pairwise dependencies are represented by a covariance matrix - CMA is a method to update this covariance matrix.  Adapting this covariance matrix amounts to learning a second order model of the objective function.  Only the ranking between candidates is used for learning the sample distribution.
+
+## Environment & experiments
+
+First agent to solve this car racing task.  Tracks are randomly generated for each trial, agent rewarded for visiting as many tiles in the least amount of time.  Action space is continuous - steering left/right, acceleration and brake.
+
+VAE is trained using dataset of 10,000 random rollouts.  Minimize the different between a frame and the reconstructed version.  **How is this distance measured????**
+
+Now can use the trained autoencoder to train the memory model.  The MDN-RNN is trained to model $P(z_{t+1} | a_t, z_t, h_t)$ using a mixture of Gaussians.  The MDN-RNN is predicting the next state (generating a probability distribution over next states as function of the action taken, the latent representation of the observation and the hidden state of the MDN-RNN).
+
+## Procedure
+
+![Actual and reconstructed observations.  Note the reconstructed observation is not used by the controller - it is shown here to compare the quality with the actual observation.](../../assets/images/section_8/wm_fig25.png)
+
+1. 10,000 random rollouts
+2. train VAE to encode observation into latent vector
+3. train MDN-RNN to predict probability distribution of next state 
+4. use CMA-ES to solve for the parameters of the linear controller
+
+| Model | Parameter Count |
+|---|---|
+|VAE|4,348,547|
+|MDN-RNN|422,368|
+|Controller|867|
+
+## Experiment results
+
+### V only
+
+Learning to drive from good features is not difficult - easy to train small feed-forward network to map hand engineered features to policy.  
+
+First test is on the agent that can only access the latent representation of the observation.  Achieved 632 +/- 251 over 100 trials.  Same performance as A3C.  Adding a hidden layer improves it to 788 +/- 141 (still not solved)
+
+### V and M - full world model
+
+Combining with M gives good representation of both current observation and what to expect in the future.  **Agent doesn't need to plan** - all of the infomation about the future is represented in the RRN hidden state.  
+
+![Experiment results](../../assets/images/section_8/wm_fig3.png)
+
+Traditional Deep RL requires pre-processing of frame (i.e. edge detection) or stacking of trajectories.  World models directly learns a spatial-temporal representation.
+
+## Learning inside of a dream
+
+Use the *VizDoom: Take Cover* environment - reward is number of timesteps alive.  Each rollout runs for 2100 steps, task is solved if average survival time over 100 consecutive rollouts is greater than 750 steps.
+
+### Procedure
+
+![The final agent solving the *VizDoom: Take Cover* environment](../../assets/images/section_8/wm_fig4.png)
+
+Building a world model suitable for training requires predicting the done flag for a terminal state (one of the game rules).
+
+Model predicts the latent representation of the observation.  This means that this simulation doesn't need to encode any real pixel frames.  This has advantages (discussed later).  The dream environment has identical interface as the real environment, allowing policy to be transferred from the dream to real environment.
+
+TODO draw a picture of the dream env without the autoencoder 
+
+Result of '~900 time steps'.  RNN is able to simulate key aspects of the game (game logic, enemy behaviour, physics and the 3D graphics rendering).
+
+Possible to add noise into the dream environment using a temperature parameter during the sampling process.  **Agents that perform well in the higher temperature settings perform better in the normal setting**.  The temperature parameter prevents agent taking advantages of imperfections in the world model.  An agent that is able to survive in the noisier virtual environment will thrive in the original, cleaner environment.
+
+Agent that learned in dream environment has a score of ~1100 time steps over 100 consecutive random trials.  
+
+## Cheating the world model
+
+Initial experiments the agent discovered a way to use an adversarial policy that prevented the memory model generating fireballs.  World model is exploitable by the controller, in a way that the real environment might not be.  
+
+Controller has access to all hidden states of M - this grants the controller access to the internal states and memory of the game engine - rather than being limited to observations.
+
+MDN-RNN models the distribution of possible next states to make it more difficult for the controller to exploit deficiencies of M.  If actual env is deterministic, then this could be approximated.  Also allows the temperature parameter to be used to control randomness (the tradeoff between realism and exploitability).
+
+Latent space is a single dimension Gaussian distribution.  The use of mixed density model is useful for envs with random discrete events.  A single dimension Gaussian is sufficient to encode individual frames, but a mixed density Gaussian makes it eaiser to model the logic behind random discrete states.
+
+Temperature at 0.1 is effectively training C with a deterministic LSTM - this M is not able to shoot fireballs.  M is not able to jump to another mode in the mixture Gaussian model where fireballs are formed and shot.  The policy inside the dream will achieve perfect score (2100), but will fail in the real environment.
+
+```
+reviewed up until
+
+Note again, however, that the simpler and more robust approach in Learning to Think [27] does not insist on using M for step by step planning. Instead, C can learn to use M’s subroutines (parts of M’s weight matrix) for arbitrary computational purposes but can also learn to ignore M when M is useless and when ignoring M yields better performance. Nevertheless, at least in our present C—M variant, M’s predictions are essential for teaching C, more like in some of the early C—M systems [20, 21, 22], but combined with evolution or black box optimization.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Model based RL
 

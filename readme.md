@@ -43,6 +43,41 @@ For everything else (linear models, random forests etc) - [Elements of Statistic
 
 [2017 NIPS David Silver Keynote - AlphaZero](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
 
+## Deep RL Bootcamp lectures
+
+[Lecture 1 - Motivation + Overview + Exact Solution Methods
+- Pieter Abbeel](https://www.youtube.com/watch?v=qaMdN6LS9rA)
+
+[Lecture 2 - Sampling-based Approximations and Function Fitting
+- Yan (Rocky) Duan](https://www.youtube.com/watch?v=qO-HUo0LsO4)
+
+[Lecture 3 - Deep Q-Networks - Vlad Mnih](https://www.youtube.com/watch?v=fevMOp5TDQs)
+
+[Lecture 4a - Policy Gradients - John Schulman](https://www.youtube.com/watch?v=S_gwYj1Q-44)
+
+[Lecture 4b - Policy Gradients Revisited - Andrej Karpathy](https://www.youtube.com/watch?v=tqrcjHuNdmQ)
+
+[Lecture 5 - Natural Policy Gradients, TRPO, PPO - John
+Schulman](https://www.youtube.com/watch?v=tqrcjHuNdm://www.youtube.com/watch?v=xvRrgxcpaHY)
+
+[Lecture 6 - Nuts and Bolts of Deep RL Experimentation - John
+Schulman](https://www.youtube.com/watch?v=8EcdaCk9KaQ)
+
+[Lecture 7 - SVG, DDPG, and Stochastic Computation Graphs - John Schulman](https://www.youtube.com/watch?v=jmMsNQ2eug4)
+
+[Lecture 8 - Derivative Free Methods - Xi (Peter) Chen](https://www.youtube.com/watch?v=SQtOI9jsrJ0)
+
+[Lecture 9 - Model-based Reinforcement Learning - Chelsea Finn](https://www.youtube.com/watch?v=iC2a7M9voYU)
+
+[Lecture 10a - Utlities - Pieter Abbeel](https://www.youtube.com/watch?v=yA6wXERug70)
+
+[Lecture 10b - Inverse Reinforcement Learning - Chelsea Finn](https://www.youtube.com/watch?v=d9DlQSJQAoI)
+
+[Frontiers Lecture I - Recent Advances, Frontiers and Future of Deep
+RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
+
+[Frontiers Lecture II: Recent Advances, Frontiers and Future of Deep RL - Sergey Levine](https://www.youtube.com/watch?v=lYU5nq0dAQQ)
+
 ## blog posts
 
 [Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/)

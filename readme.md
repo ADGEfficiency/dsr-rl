@@ -45,11 +45,9 @@ For everything else (linear models, random forests etc) - [Elements of Statistic
 
 ## Deep RL Bootcamp lectures
 
-[Lecture 1 - Motivation + Overview + Exact Solution Methods
-- Pieter Abbeel](https://www.youtube.com/watch?v=qaMdN6LS9rA)
+[Lecture 1 - Motivation + Overview + Exact Solution Methods - Pieter Abbeel](https://www.youtube.com/watch?v=qaMdN6LS9rA)
 
-[Lecture 2 - Sampling-based Approximations and Function Fitting
-- Yan (Rocky) Duan](https://www.youtube.com/watch?v=qO-HUo0LsO4)
+[Lecture 2 - Sampling-based Approximations and Function Fitting - Yan (Rocky) Duan](https://www.youtube.com/watch?v=qO-HUo0LsO4)
 
 [Lecture 3 - Deep Q-Networks - Vlad Mnih](https://www.youtube.com/watch?v=fevMOp5TDQs)
 

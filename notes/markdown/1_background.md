@@ -383,9 +383,9 @@ Vanilla batch norm. struggles with small or non-IID batches
 
 Context - AlphaGo Zero uses residual blocks in the value function and policy networkk
 
-![Residual blocks](../..assets/images/section_6/res_block.png){ width=30%, height=30% }
+![Residual blocks](../../assets/images/section_6/res_block.png){ width=30%, height=30% }
 
-![He et. al (2015) Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+[He et. al (2015) Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 
 Convolutional network with skip connections
 

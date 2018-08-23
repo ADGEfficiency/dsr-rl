@@ -86,7 +86,9 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
 
 [World Models](https://worldmodels.github.io/)
 
-### open source RL projects
+## open source projects
+
+### notable 
 
 [gym](https://github.com/openai/gym/tree/master/gym) - Open AI
 
@@ -94,7 +96,7 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
 
 [rllab](https://github.com/rll/rllab) - Berkley
 
-### less well known projects
+### less well known 
 
 [Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)
 

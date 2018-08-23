@@ -96,6 +96,8 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
 
 [rllab](https://github.com/rll/rllab) - Berkley
 
-### less well known open source projects
+### less well known projects
 
 [Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)
+
+[RLenv.directory](https://rlenv.directory/)

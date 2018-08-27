@@ -76,11 +76,11 @@ Outputs probability density function instead of a deterministic prediction.  Mod
 
 ### Mixed density networks
 
-TODO review
-
 Bishop (1994) - Mixture Density Networks [paper](https://publications.aston.ac.uk/373/1/NCRG_94_004.pdf)
 
 Mixture Density Networks with TensorFlow [blog post](http://blog.otoro.net/2015/11/24/mixture-density-networks-with-tensorflow/) - [pytorch implementation](https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb)
+
+The mixed density network uses the log-likelihood of the distribution versus the training data as the loss function.  This is also used in logistic regression and in the cross entropy minimization of a softmax.
 
 ### Controller (C)
 
@@ -237,7 +237,7 @@ TODO
 
 Blog post - [Deep Reinforcment Learning Doesn't Work Yet](https://www.alexirpan.com/2018/02/14/rl-hard.html)
 
-![fig](../../assets/images/section_8/work_bender.jpg){ width=30%, height=30% }
+![](../../assets/images/section_8/work_bender.jpg){ width=30%, height=30% }
 
 State of the art reinforcement learning is **sample inefficient** - we need lots of experience to learn
 
@@ -265,7 +265,7 @@ RL solution doesn’t have to achieve a global optima, as long as its local opti
 
 ### Modern RL is sample inefficient
 
-![fig](../../assets/images/section_4/rainbow_fig1.png){ width=30%, height=30% }
+![](../../assets/images/section_4/rainbow_fig1.png){ width=30%, height=30% }
 
 To pass the 100% median performance
 
@@ -286,7 +286,7 @@ Many problems are better solved by other methods
 - allowing the agent access to a ground truth model (i.e. simulator)
 - model based RL with a perfect model
 
-![fig](../../assets/images/section_8/work_atari.png){ width=30%, height=30% }
+![](../../assets/images/section_8/work_atari.png){ width=30%, height=30% }
 
 The generalizability of RL means that except in rare cases, domain specific algorithms work faster and better
 
@@ -300,7 +300,7 @@ Shaping rewards to help learning can change behaviour
 
 ### Unstable and hard to reproduce results
 
-![fig](../../assets/images/section_8/work_seeds.png){ width=30%, height=30% }
+![](../../assets/images/section_8/work_seeds.png){ width=30%, height=30% }
 
 Only difference is the random seed!
 
@@ -308,17 +308,17 @@ Only difference is the random seed!
 
 Machine learning adds more dimensions to your space of failure cases
 
-![fig](../../assets/images/section_8/work_ml.png){ width=30%, height=30% }
+![](../../assets/images/section_8/work_ml.png){ width=30%, height=30% }
 
 RL adds an additional dimension - random change
 
 **A sample inefficient and unstable training algorithm heavily slows down your rate of productive research**
 
-![fig](../../assets/images/section_8/work_karpathy.png){ width=30%, height=30% }
+![](../../assets/images/section_8/work_karpathy.png){ width=30%, height=30% }
 
 ### Going forward & the future
 
-![fig](../../assets/images/section_8/work_research.png){ width=30%, height=30% }
+![](../../assets/images/section_8/work_research.png){ width=30%, height=30% }
 
 Make learning eaiser
 

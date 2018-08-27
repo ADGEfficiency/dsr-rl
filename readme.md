@@ -43,6 +43,8 @@ For everything else (linear models, random forests etc) - [Elements of Statistic
 
 [2017 NIPS David Silver Keynote - AlphaZero](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
 
+[A History of Reinforcement Learning - Prof. A.G. Barto](https://www.youtube.com/watch?v=ul6B2oFPNDM)
+
 ## Deep RL Bootcamp lectures
 
 [Lecture 1 - Motivation + Overview + Exact Solution Methods - Pieter Abbeel](https://www.youtube.com/watch?v=qaMdN6LS9rA)
@@ -100,4 +102,4 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
 
 [Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)
 
-[RLenv.directory](https://rlenv.directory/)
+[RLenv.directory](https://rlenv.directory/) - directory of reinforcement learning environments

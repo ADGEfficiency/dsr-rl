@@ -5,7 +5,10 @@ Materials for the reinforcement learning course at [Data Science Retreat.](https
 The course covers Markov Decision processes, value function methods (with a focus on DQN), policy gradient methods,
 AlphaGo, practical advice for experiments and takes a look at the current state of the art.
 
-The course materials are
+The course materials are currently being reworked - [a copy of the old slides can be found
+here](https://github.com/ADGEfficiency/dsr_rl/blob/master/old_slides.pdf).
+
+The new course materials are:
 
 - [lightweight slides used for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf)
 

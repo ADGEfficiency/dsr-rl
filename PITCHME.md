@@ -6,6 +6,8 @@ email - [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
 
 ---
 
+## Zero - Introduction
+
 agenda
 
 about me
@@ -16,62 +18,124 @@ where to go next
 
 ---
 
-expectations & conditionals
+## One - Background
 
-variance & bias
+Expectations
 
-bootstrapping
+Conditionals
 
-function approximation
+Variance & bias
 
-iid
+Bootstrapping
 
----
+IID
 
-learning rate
-
-batch size
-
-scaling / preprocessing
-
-batch norm
+Function approximation
 
 ---
 
-applications (maybe should go before context)
+## One - Few things about neural networks
 
-context
+Learning rate
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+Batch size
 
-markov decision processes 
-
-four central challenges 
+Scaling / preprocessing
 
 ---
 
-value functions 
+### Two - Introduction to reinforcement learning
+
+Context within machine learning
+
+Markov Decision Processes
+
+Four central challenges 
 
 ---
 
-DQN 
+### Three - Value functions
+
+$V(s)$ vs $Q(s,a)$
+
+Using a value function
+
+Bellman Equation
+
+Dynamic programming
+
+Monte Carlo
+
+Temporal difference
 
 ---
 
-DQN extensions
+### Three - Value functions
+
+SARSA
+
+Q-Learning
+
+DQN
 
 ---
 
-policy gradients
+### Four - DQN extensions
+
+Eligibiliy traces
+
+Prioritized experience replay
+
+DDQN
+
+Distributional Q-Learning
+
+Rainbow
 
 ---
 
-AlphaGo
+### Five - Policy gradients
+
+Motivations
+
+Discrete & continuous action spaces
+
+The score function
+
+Actor-critic
+
+DPG
+
+A3C
 
 ---
 
-practical concerns
+### Six - AlphaGo
+
+Comparison with DeepBlue
+
+MCTS
+
+AlphaGo Zero
 
 ---
 
-state of the art
+### Seven - Practical concerns
+
+Should I use RL for my problem?
+
+Mistakes and lessons
+
+Best practices
+
+---
+
+### Eight - State of the art
+
+Open AI DOTA
+
+World Models
+
+Deep RL doesn't work yet
+
+Inverse reinforcement learning

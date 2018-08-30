@@ -27,6 +27,10 @@ TODO
 
 (https://s3-us-west-2.amazonaws.com/openai-assets/dota_benchmark_results/network_diagram_08_06_2018.pdf)
 
+## Learning Montezuma's Revenge
+
+https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/
+
 ## Ha & Schmidhuber (2018) World Models
 
 [paper](https://arxiv.org/pdf/1803.10122.pdf) - [blog post](https://worldmodels.github.io/) - [blog post appendix](https://worldmodels.github.io/#appendix)

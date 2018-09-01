@@ -31,6 +31,8 @@ TODO
 
 https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/
 
+\newpage
+
 ## Ha & Schmidhuber (2018) World Models
 
 [paper](https://arxiv.org/pdf/1803.10122.pdf) - [blog post](https://worldmodels.github.io/) - [blog post appendix](https://worldmodels.github.io/#appendix)

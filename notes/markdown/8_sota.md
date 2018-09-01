@@ -41,13 +41,18 @@ We use low dimensional mental models to represent the world around us.
 
 Our brain learns abstract representations of spatial and temporal infomation.  Evidence also suggests that perception itself is governed by an internal prediction of the future, using our mental models.
 
-This predictive model can be used to perform fast reflexive behaviours when we face danger
+This predictive model can be used to perform fast reflexive behaviours when we face danger.
 
 ### The agent
 
-Solves a car racing task that hasn't been solved using traditional methods
+Solves a car racing task that previously hadn't been solved.
 
-Uses a generative environment model to train an agent.  Agent can be trained entirely within the 'dream environment', with the policy being transferred into the actual environment.  Very cool!
+Unsupervised learning is used to train a generative environment model.  This environment model is then used by the agent to learn a policy.  Policy is then transferred back to the real environment.
+
+Key idea is **compression**
+
+- V compresses the dimensionality of the observation
+- M compresses the observation over time
 
 Agent has
 
@@ -55,23 +60,19 @@ Agent has
 - memory component (M) that makes predictions based on past sequences
 - decision making component (C) decides what action to take based on vision and memory
 
-First use unsupervised learning to learn model.  Then controller to perform task using the model.  A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
+![The agent consists of three components - Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png){ width=60%, height=60% }
 
-Most model based RL trains on the actual env.  World models trains only inside of generated environment, transferring the policy back to the actual environment
+V is a Variational Auto Encoder - a network that compresses and reproduces the observation of the environment.  The reconstructed observation is not used - what is valuable is the compressed version of the observation (aka the **latent representation**).  This lower dimensional representation is more useful (TODO).
 
 Uses a temperature parameter to control amount of uncertainty in generated environments.  Show that noisier environments help prevent agent from taking advantage of imperfections of its internal world model.
 
-![The agent consists of three components - Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png)
+The latent representation (i.e. middle layer) of V ) is used in two ways
+- by the memory M to predict the next latent representation of the observation
+- by the controller C to select actions
 
-### Variational Auto Encoder (V) 
+The memory (M) is a Mixed Density Recurret Network.  It predicts the latent representation of the observation - not the raw observation.  Compresses over time.  A predictive model of the future vectors that V is expected to produce.
 
-Creates a compressed representation that can be used to reconstruct the original image.  
-
-### Mixed Density Recurret Network (M) 
-
-Compresses over time.  A predictive model of the future vectors that V is expected to produce.
-
-Outputs probability density function instead of a deterministic prediction.  Modeled as a mixture of Gaussians.  Known as a Mixture Density Network.
+Outputs probability density function instead of a deterministic prediction.  Modeled as a mixture of Gaussians - Mixture Density Network.
 
 ### Mixed density networks
 
@@ -86,6 +87,8 @@ The mixed density network uses the log-likelihood of the distribution versus the
 Many model free RL algos use small networks with few parameters.  The algo is often bottlenecked by the credit assignment problem - making it hard to learn millions of weights.  Smaller networks are used as they iterate faster to a good policy
 
 High compact policy (it is a linear function!).
+
+A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
 
 Simple as possible - trained separately from V and M.  Single linear layer that maps the MDN-RNN hidden state and latent representation of the observation to action
 

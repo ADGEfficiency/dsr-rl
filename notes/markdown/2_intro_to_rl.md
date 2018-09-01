@@ -32,6 +32,14 @@ Variable rewards
 - variability multiplies the effect
 - focused state where judgment and reason are suppressed
 
+### Schultz 1990 experiments
+
+**Dopamine** - connection between TD error and dopamine in the brain.  Dopamine signal can be modelled as a TD error.  Phasic activity of dopamine is trigged by a reward.  With continued trials, the dopamine signal moves back towards the time of the prediction (which is the same that the TD error does - a  backup). (https://www.youtube.com/watch?v=ul6B2oFPNDM)
+
+The phasic activity of mesencephalic dopamine neurons signals the error between and old and new estimate of expected future reward
+
+![Theory around how the actor-critic model might work in the brain](../../assets/images/section_2/ac_brain.png){ width=50%, height=50% }
+
 ## Applications
 
 ![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png){ width=50%, height=50% }

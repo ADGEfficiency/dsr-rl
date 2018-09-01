@@ -35,30 +35,19 @@ https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/
 
 [paper](https://arxiv.org/pdf/1803.10122.pdf) - [blog post](https://worldmodels.github.io/) - [blog post appendix](https://worldmodels.github.io/#appendix)
 
-Uses a generative environment model to train an agent.  Agent can be trained entirely within the 'dream environment', with the policy being transferred into the actual environment.  Very cool!
+## Inspiration from humans
 
-The mental models humans use are low dimensional representations of the world around us - using selected concepts to represent the real system.
+We use low dimensional mental models to represent the world around us.
 
-Our brain learns abstract representations of spatial and temporal infomation.  Evidence also suggests that perception itself is governed by an internal prediction of the future, using our mental models
+Our brain learns abstract representations of spatial and temporal infomation.  Evidence also suggests that perception itself is governed by an internal prediction of the future, using our mental models.
 
 This predictive model can be used to perform fast reflexive behaviours when we face danger
 
-Many model free RL algos use small networks with few parameters.  The algo is often bottlenecked by the credit assignment problem - making it hard to learn millions of weights.  Smaller networks are used as they iterate faster to a good policy
+### The agent
 
-Agent is divided into a 
+Solves a car racing task that hasn't been solved using traditional methods
 
-- large world model
-- small controller model
-
-First use unsupervised learning to learn model.  Then controller to perform task using the model.  A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
-
-Possible to learn highly compact policies
-
-Solve a task that hasn't been solved using traditional methods
-
-Most model based RL trains on the actual env.  World models trains only inside of generated environment, transferring the policy back to the actual environment
-
-Uses a temperature parameter to control amount of uncertainty in generated environments.  Show that noisier environments help prevent agent from taking advantage of imperfections of its internal world model.
+Uses a generative environment model to train an agent.  Agent can be trained entirely within the 'dream environment', with the policy being transferred into the actual environment.  Very cool!
 
 Agent has
 
@@ -66,7 +55,13 @@ Agent has
 - memory component (M) that makes predictions based on past sequences
 - decision making component (C) decides what action to take based on vision and memory
 
-![The agent consists of three components that work closely together: Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png)
+First use unsupervised learning to learn model.  Then controller to perform task using the model.  A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
+
+Most model based RL trains on the actual env.  World models trains only inside of generated environment, transferring the policy back to the actual environment
+
+Uses a temperature parameter to control amount of uncertainty in generated environments.  Show that noisier environments help prevent agent from taking advantage of imperfections of its internal world model.
+
+![The agent consists of three components - Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png)
 
 ### Variational Auto Encoder (V) 
 
@@ -88,9 +83,13 @@ The mixed density network uses the log-likelihood of the distribution versus the
 
 ### Controller (C)
 
+Many model free RL algos use small networks with few parameters.  The algo is often bottlenecked by the credit assignment problem - making it hard to learn millions of weights.  Smaller networks are used as they iterate faster to a good policy
+
+High compact policy (it is a linear function!).
+
 Simple as possible - trained separately from V and M.  Single linear layer that maps the MDN-RNN hidden state and latent representation of the observation to action
 
-![Flow diagram of the agent model](../../assets/images/section_8/wm_fig2.png)
+![Flow diagram of the agent model](../../assets/images/section_8/wm_fig2.png){ width=80%, height=80% }
 
 ```python
 def rollout(controller):
@@ -131,7 +130,7 @@ Now can use the trained autoencoder to train the memory model.  The MDN-RNN is t
 
 ## Procedure
 
-![Actual and reconstructed observations.  Note the reconstructed observation is not used by the controller - it is shown here to compare the quality with the actual observation.](../../assets/images/section_8/wm_fig25.png)
+![Actual and reconstructed observations.  Note the reconstructed observation is not used by the controller - it is shown here to compare the quality with the actual observation.](../../assets/images/section_8/wm_fig25.png){ width=80%, height=80% }
 
 1. 10,000 random rollouts
 2. train VAE to encode observation into latent vector
@@ -156,7 +155,7 @@ First test is on the agent that can only access the latent representation of the
 
 Combining with M gives good representation of both current observation and what to expect in the future.  **Agent doesn't need to plan** - all of the infomation about the future is represented in the RRN hidden state.  
 
-![Experiment results](../../assets/images/section_8/wm_fig3.png)
+![Experiment results](../../assets/images/section_8/wm_fig3.png){ width=80%, height=80% }
 
 Traditional Deep RL requires pre-processing of frame (i.e. edge detection) or stacking of trajectories.  World models directly learns a spatial-temporal representation.
 
@@ -166,7 +165,7 @@ Use the *VizDoom: Take Cover* environment - reward is number of timesteps alive.
 
 ### Procedure
 
-![The final agent solving the *VizDoom: Take Cover* environment](../../assets/images/section_8/wm_fig4.png)
+![The final agent solving the *VizDoom: Take Cover* environment](../../assets/images/section_8/wm_fig4.png){ width=80%, height=80% }
 
 Building a world model suitable for training requires predicting the done flag for a terminal state (one of the game rules).
 

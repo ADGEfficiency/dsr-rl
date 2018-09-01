@@ -217,3 +217,11 @@ TensorFlow
 - `sess.run()` can have a large overhead.  Try to group session calls
 - use the `allow_growth` option to avoid TF reserving memory it doesn't need
 - don't get addicted to TensorBoard - let your expts run!
+
+## Reward engineering
+
+Important for any optimization system!
+
+> Be careful what you wish for, you might just get it - Nick Bostrom
+
+

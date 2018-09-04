@@ -1,4 +1,4 @@
-## Where is modern RL at today
+# Where is modern RL at today
 
 Success of deep RL = in domains that aren’t similar to the real world (Go is structured, with few unexpected situations)
 
@@ -15,9 +15,115 @@ rl tasks = small, uniform, goal=master, test identical to train
 
 real world = huge, highly varied, goal=dont screw up too much, test set = unmitigated disaster of complexity
 
-## Open AI Dota
+# Deep Reinforcment Learning Doesn't Work Yet - [blog post](https://www.alexirpan.com/2018/02/14/rl-hard.html)
 
-TODO
+![Bender's take on the stability of reinforcement learning](../../assets/images/section_8/work_bender.jpg){ width=30%, height=30% }
+
+State of the art reinforcement learning is **sample inefficient** - we need lots of experience to learn
+
+Tackling any problem where we don't have access to a simulator remain beyond modern RL
+
+**Domain specific algorithms often work faster & better**.  This is especially true if you have access to a good environment model to plan with
+
+Requirement of a reward function - or the requirement to design one
+
+Results can be unstable and hard to produce (this applies to a lot of scientific literature).  Different random seeds can lead to dramatically different results
+
+
+>>[Supervised learning] wants to work. Even if you screw something up you’ll usually get something non-random back. RL must be forced to work. If you screw something up or don’t tune something well enough you’re exceedingly likely to get a policy that is even worse than random. And even if it’s all well tuned you’ll get a bad policy 30% of the time, just because - Andrej Karpathy (when he was at OpenAI)
+
+Still immature in real world production systems - examples are rare
+
+Requirements and/or nice to haves for learning
+
+- easy to generate experience
+- simple problem
+- ability to introduce self play
+- well defined rewards and dense
+
+RL solution doesn’t have to achieve a global optima, as long as its local optima is better than the human baseline
+
+## Modern RL is sample inefficient
+
+![](../../assets/images/section_4/rainbow_fig1.png){ width=30%, height=30% }
+
+To pass the 100% median performance
+
+- Rainbow = 18 million frames = 83 hours of play
+- Distributional DQN = 70 million
+- DQN = never (even after 200 million frames!)
+
+We can ignore sample efficiency if sampling is cheap
+
+In the real world it can be hard or expensive to generate experience
+
+It's not about learning time - it's about the ability to sample
+
+## Other methods often work better 
+
+Many problems are better solved by other methods
+
+- allowing the agent access to a ground truth model (i.e. simulator)
+- model based RL with a perfect model
+
+![](../../assets/images/section_8/work_atari.png){ width=30%, height=30% }
+
+The generalizability of RL means that except in rare cases, domain specific algorithms work faster and better
+
+## Requirement of a reward function 
+
+Reward function design is difficult
+- need to encourage behaviour
+- need to be learnable
+
+Shaping rewards to help learning can change behaviour
+
+## Unstable and hard to reproduce results
+
+![](../../assets/images/section_8/work_seeds.png){ width=30%, height=30% }
+
+Only difference is the random seed!
+
+30% failure rate counts as working
+
+Machine learning adds more dimensions to your space of failure cases
+
+![](../../assets/images/section_8/work_ml.png){ width=30%, height=30% }
+
+RL adds an additional dimension - random change
+
+**A sample inefficient and unstable training algorithm heavily slows down your rate of productive research**
+
+![](../../assets/images/section_8/work_karpathy.png){ width=30%, height=30% }
+
+## Going forward & the future
+
+![](../../assets/images/section_8/work_research.png){ width=30%, height=30% }
+
+Make learning eaiser
+
+- ability to generate near unbounded amounts of experience
+- problem is simplified into an eaiser form
+- you can introduce self-play into learning
+- learnable reward signal
+- any reward shaping should be rich
+
+The future
+
+- local optima are good enough (is any human behaviour globally optimal)
+- improvements in hardware help with sample inefficiency
+- more learning signal - hallucinating rewards, auxillary tasks, model learning
+- model learning fixes a bunch of problems - difficulty is learning one
+
+Many things need to go right for RL to work - success stories are the exception, not the rule
+
+\newpage
+
+# Inverse reinforcement learning
+
+![Chelsea Finn – Berkley Deep RL Bootcamp 2017](../../assets/images/section_8/inverse_1.png){ width=30%, height=30% }
+
+# Open AI Dota
 
 (https://www.reddit.com/r/MachineLearning/comments/99ix2d/d_openai_five_loses_against_first_professional/)
 
@@ -27,17 +133,26 @@ TODO
 
 (https://s3-us-west-2.amazonaws.com/openai-assets/dota_benchmark_results/network_diagram_08_06_2018.pdf)
 
-## Learning Montezuma's Revenge
+# Learning Montezuma's Revenge
 
 https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/
 
 \newpage
 
-## Ha & Schmidhuber (2018) World Models
+# Ha & Schmidhuber (2018) World Models
 
 [paper](https://arxiv.org/pdf/1803.10122.pdf) - [blog post](https://worldmodels.github.io/) - [blog post appendix](https://worldmodels.github.io/#appendix)
 
-## Inspiration from humans
+Unsupervised + reinforcement learning agent learns from it's own generative model of the environment.
+
+One key idea is **compression**
+
+- compresses the dimensionality of the observation into a latent representation
+- compresses the latent representation over time
+
+This allows a compact linear policy to be used for control - the policy parameters are learnt using an evolutionary algorithm.
+
+## Inspiration 
 
 We use low dimensional mental models to represent the world around us.
 
@@ -45,16 +160,15 @@ Our brain learns abstract representations of spatial and temporal infomation.  E
 
 This predictive model can be used to perform fast reflexive behaviours when we face danger.
 
-### The agent
+## The agent
+
+![The agent consists of three components - Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png){ width=60%, height=60% }
 
 Solves a car racing task that previously hadn't been solved.
 
 Unsupervised learning is used to train a generative environment model.  This environment model is then used by the agent to learn a policy.  Policy is then transferred back to the real environment.
 
-Key idea is **compression**
-
-- V compresses the dimensionality of the observation
-- M compresses the observation over time
+\newpage
 
 Agent has
 
@@ -62,19 +176,33 @@ Agent has
 - memory component (M) that makes predictions based on past sequences
 - decision making component (C) decides what action to take based on vision and memory
 
-![The agent consists of three components - Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png){ width=60%, height=60% }
+| Model | Parameter Count |
+|---|---|
+|VAE|4,348,547|
+|MDN-RNN|422,368|
+|Controller|867|
 
 V is a Variational Auto Encoder - a network that compresses and reproduces the observation of the environment.  The reconstructed observation is not used - what is valuable is the compressed version of the observation (aka the **latent representation**).  This lower dimensional representation is more useful (TODO).
 
+VAE is trained using dataset of 10,000 random rollouts.  Minimize the different between a frame and the reconstructed version.  **How is this distance measured????**
+
+![Actual and reconstructed observations produced by the autoencoder.  Note the reconstructed observation is not used by the controller - it is shown here to compare the quality with the actual observation.](../../assets/images/section_8/wm_fig25.png){ width=30%, height=30% }
+
 Uses a temperature parameter to control amount of uncertainty in generated environments.  Show that noisier environments help prevent agent from taking advantage of imperfections of its internal world model.
 
-The latent representation (i.e. middle layer) of V ) is used in two ways
+The latent representation (i.e. middle layer of V) is used in two ways
 - by the memory M to predict the next latent representation of the observation
 - by the controller C to select actions
 
 The memory (M) is a Mixed Density Recurret Network.  It predicts the latent representation of the observation - not the raw observation.  Compresses over time.  A predictive model of the future vectors that V is expected to produce.
 
-Outputs probability density function instead of a deterministic prediction.  Modeled as a mixture of Gaussians - Mixture Density Network.
+Outputs probability density function instead of a deterministic prediction.  Modeled as a mixture of Gaussians (Mixture Density Network).
+
+![RNN with a Mixture Density Network output layer. The MDN outputs the parameters of a mixture of Gaussian distribution used to sample a prediction of the next latent vector zz.](../../assets/images/section_8/wm_fig5.png){ width=30%, height=30% }
+
+ Now can use the trained autoencoder to train the memory model.  The MDN-RNN is trained to model $P(z_{t+1} | a_t, z_t, h_t)$ using a mixture of Gaussians.  The MDN-RNN is predicting the next state (generating a probability distribution over next states as function of the action taken, the latent representation of the observation and the hidden state of the MDN-RNN).
+
+![Flow diagram of the agent.  The latent representation $z$ is used both by the memory and by the controller.  The selected action is used by the memory.](../../assets/images/section_8/wm_fig2.png){ width=50%, height=50% }
 
 ### Mixed density networks
 
@@ -84,17 +212,37 @@ Mixture Density Networks with TensorFlow [blog post](http://blog.otoro.net/2015/
 
 The mixed density network uses the log-likelihood of the distribution versus the training data as the loss function.  This is also used in logistic regression and in the cross entropy minimization of a softmax.
 
-### Controller (C)
+## Simple controller 
 
-Many model free RL algos use small networks with few parameters.  The algo is often bottlenecked by the credit assignment problem - making it hard to learn millions of weights.  Smaller networks are used as they iterate faster to a good policy
-
-High compact policy (it is a linear function!).
-
-A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
+The controller is a linear function. 
 
 Simple as possible - trained separately from V and M.  Single linear layer that maps the MDN-RNN hidden state and latent representation of the observation to action
 
-![Flow diagram of the agent model](../../assets/images/section_8/wm_fig2.png){ width=80%, height=80% }
+A smaller controller allows the learner to focus on credit assignment on a smaller search space, without sacrifing capacity and expressiveness via the world model
+
+In model free RL, the algo is often bottlenecked by the credit assignment problem - making it hard to learn millions of weights.  Smaller networks are used as they iterate faster to a good policy.
+
+The simplicity of C allows using unconventional ways to train C - Ha et. al use Covariance-Matrix Adaptation Evolution Stragety (CMA-ES).  This algorithm works well for solution spaces of up to a few thousand parameters.
+
+### CMA-ES - [wikipedia](https://en.wikipedia.org/wiki/CMA-ES)
+
+Stochastic and derivative free.  
+
+Evolutionary algo = repeated interplay of variation (recombination and mutuation) + selection based on some objective function.
+
+New candidates are sampled according to a mulitvariate normal distribution.  Recombination is selecting a new mean for this distribution.  Mutation is adding a zero mean random vector.  
+
+Pairwise dependencies are represented by a covariance matrix - CMA is a method to update this covariance matrix.  Adapting this covariance matrix amounts to learning a second order model of the objective function.  Only the ranking between candidates is used for learning the sample distribution.
+
+## Environment & experiments
+
+Action space is continuous - steering left/right, acceleration and brake.
+
+Tracks are randomly generated for each trial, agent rewarded for visiting as many tiles in the least amount of time.
+
+\newpage
+
+## Procedure
 
 ```python
 def rollout(controller):
@@ -113,46 +261,18 @@ def rollout(controller):
     return cumulative_reward
 ```
 
-The simplicity of C allows using unconventional ways to train C - Ha et. al use Covariance-Matrix Adaptation Evolution Stragety (CMA-ES).  This algorithm works well for solution spaces of up to a few thousand parameters.
-
-### CMA-ES - [wikipedia](https://en.wikipedia.org/wiki/CMA-ES)
-
-Stochastic and derivative free.  
-
-Evolutionary algo = repeated interplay of variation (recombination and mutuation) + selection based on some objective function.
-
-New candidates are sampled according to a mulitvariate normal distribution.  Recombination is selecting a new mean for this distribution.  Mutation is adding a zero mean random vector.  
-
-Pairwise dependencies are represented by a covariance matrix - CMA is a method to update this covariance matrix.  Adapting this covariance matrix amounts to learning a second order model of the objective function.  Only the ranking between candidates is used for learning the sample distribution.
-
-## Environment & experiments
-
-First agent to solve this car racing task.  Tracks are randomly generated for each trial, agent rewarded for visiting as many tiles in the least amount of time.  Action space is continuous - steering left/right, acceleration and brake.
-
-VAE is trained using dataset of 10,000 random rollouts.  Minimize the different between a frame and the reconstructed version.  **How is this distance measured????**
-
-Now can use the trained autoencoder to train the memory model.  The MDN-RNN is trained to model $P(z_{t+1} | a_t, z_t, h_t)$ using a mixture of Gaussians.  The MDN-RNN is predicting the next state (generating a probability distribution over next states as function of the action taken, the latent representation of the observation and the hidden state of the MDN-RNN).
-
-## Procedure
-
-![Actual and reconstructed observations.  Note the reconstructed observation is not used by the controller - it is shown here to compare the quality with the actual observation.](../../assets/images/section_8/wm_fig25.png){ width=80%, height=80% }
-
 1. 10,000 random rollouts
 2. train VAE to encode observation into latent vector
 3. train MDN-RNN to predict probability distribution of next state 
 4. use CMA-ES to solve for the parameters of the linear controller
 
-| Model | Parameter Count |
-|---|---|
-|VAE|4,348,547|
-|MDN-RNN|422,368|
-|Controller|867|
+\newpage
 
 ## Experiment results
 
 ### V only
 
-Learning to drive from good features is not difficult - easy to train small feed-forward network to map hand engineered features to policy.  
+Learning to drive from good features is not difficult - it easy to train small feed-forward network to map hand engineered features to policy.  
 
 First test is on the agent that can only access the latent representation of the observation.  Achieved 632 +/- 251 over 100 trials.  Same performance as A3C.  Adding a hidden layer improves it to 788 +/- 141 (still not solved)
 
@@ -160,7 +280,7 @@ First test is on the agent that can only access the latent representation of the
 
 Combining with M gives good representation of both current observation and what to expect in the future.  **Agent doesn't need to plan** - all of the infomation about the future is represented in the RRN hidden state.  
 
-![Experiment results](../../assets/images/section_8/wm_fig3.png){ width=80%, height=80% }
+![Experiment results](../../assets/images/section_8/wm_fig3.png){ width=20%, height=20% }
 
 Traditional Deep RL requires pre-processing of frame (i.e. edge detection) or stacking of trajectories.  World models directly learns a spatial-temporal representation.
 
@@ -168,9 +288,9 @@ Traditional Deep RL requires pre-processing of frame (i.e. edge detection) or st
 
 Use the *VizDoom: Take Cover* environment - reward is number of timesteps alive.  Each rollout runs for 2100 steps, task is solved if average survival time over 100 consecutive rollouts is greater than 750 steps.
 
-### Procedure
+## VizDoom Procedure
 
-![The final agent solving the *VizDoom: Take Cover* environment](../../assets/images/section_8/wm_fig4.png){ width=80%, height=80% }
+![The final agent solving the *VizDoom: Take Cover* environment](../../assets/images/section_8/wm_fig4.png){ width=30%, height=30% }
 
 Building a world model suitable for training requires predicting the done flag for a terminal state (one of the game rules).
 
@@ -206,150 +326,7 @@ Note again, however, that the simpler and more robust approach in Learning to Th
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Model based RL
-
-TODO
-
-## Deep RL doesn't work yet
-
-Blog post - [Deep Reinforcment Learning Doesn't Work Yet](https://www.alexirpan.com/2018/02/14/rl-hard.html)
-
-![](../../assets/images/section_8/work_bender.jpg){ width=30%, height=30% }
-
-State of the art reinforcement learning is **sample inefficient** - we need lots of experience to learn
-
-Tackling any problem where we don't have access to a simulator remain beyond modern RL
-
-**Domain specific algorithms often work faster & better**.  This is especially true if you have access to a good environment model to plan with
-
-Requirement of a reward function - or the requirement to design one
-
-Results can be unstable and hard to produce (this applies to a lot of scientific literature).  Different random seeds can lead to dramatically different results
-
-
->>[Supervised learning] wants to work. Even if you screw something up you’ll usually get something non-random back. RL must be forced to work. If you screw something up or don’t tune something well enough you’re exceedingly likely to get a policy that is even worse than random. And even if it’s all well tuned you’ll get a bad policy 30% of the time, just because - Andrej Karpathy (when he was at OpenAI)
-
-Still immature in real world production systems - examples are rare
-
-Requirements and/or nice to haves for learning
-
-- easy to generate experience
-- simple problem
-- ability to introduce self play
-- well defined rewards and dense
-
-RL solution doesn’t have to achieve a global optima, as long as its local optima is better than the human baseline
-
-### Modern RL is sample inefficient
-
-![](../../assets/images/section_4/rainbow_fig1.png){ width=30%, height=30% }
-
-To pass the 100% median performance
-
-- Rainbow = 18 million frames = 83 hours of play
-- Distributional DQN = 70 million
-- DQN = never (even after 200 million frames!)
-
-We can ignore sample efficiency if sampling is cheap
-
-In the real world it can be hard or expensive to generate experience
-
-It's not about learning time - it's about the ability to sample
-
-### Other methods often work better 
-
-Many problems are better solved by other methods
-
-- allowing the agent access to a ground truth model (i.e. simulator)
-- model based RL with a perfect model
-
-![](../../assets/images/section_8/work_atari.png){ width=30%, height=30% }
-
-The generalizability of RL means that except in rare cases, domain specific algorithms work faster and better
-
-### Requirement of a reward function 
-
-Reward function design is difficult
-- need to encourage behaviour
-- need to be learnable
-
-Shaping rewards to help learning can change behaviour
-
-### Unstable and hard to reproduce results
-
-![](../../assets/images/section_8/work_seeds.png){ width=30%, height=30% }
-
-Only difference is the random seed!
-
-30% failure rate counts as working
-
-Machine learning adds more dimensions to your space of failure cases
-
-![](../../assets/images/section_8/work_ml.png){ width=30%, height=30% }
-
-RL adds an additional dimension - random change
-
-**A sample inefficient and unstable training algorithm heavily slows down your rate of productive research**
-
-![](../../assets/images/section_8/work_karpathy.png){ width=30%, height=30% }
-
-### Going forward & the future
-
-![](../../assets/images/section_8/work_research.png){ width=30%, height=30% }
-
-Make learning eaiser
-
-- ability to generate near unbounded amounts of experience
-- problem is simplified into an eaiser form
-- you can introduce self-play into learning
-- learnable reward signal
-- any reward shaping should be rich
-
-The future
-
-- local optima are good enough (is any human behaviour globally optimal)
-- improvements in hardware help with sample inefficiency
-- more learning signal - hallucinating rewards, auxillary tasks, model learning
-- model learning fixes a bunch of problems - difficulty is learning one
-
-Many things need to go right for RL to work - success stories are the exception, not the rule
-
-## Inverse reinforcement learning
-
-![Chelsea Finn – Berkley Deep RL Bootcamp 2017](../../assets/images/section_8/inverse_1.png){ width=30%, height=30% }
-
-## Closing thoughts
+# Closing thoughts
 
 Exploration versus exploitation
 

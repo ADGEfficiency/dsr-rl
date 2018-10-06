@@ -1,18 +1,20 @@
 ## A glance at reinforcement learning
 
-Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)  This course is aimed at people with a grasp of supervised learning but no understanding of reinforcement learning.
+Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
 
-The course covers 
+This course is aimed at people with a grasp of supervised learning but no understanding of reinforcement learning.
+
+### Cource content
 
 - introduces key statistical concepts
-- Markov Decision processes 
-- value function methods (with a focus on DQN) 
+- Markov Decision processes
+- value function methods (with a focus on DQN)
 - policy gradient methods
-- AlphaGo 
+- AlphaGo
 - practical advice for experiments
 - current state of the art
 
-The course materials are
+### Course materials
 
 - [lightweight slides used for lectures (in development)](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf)
 - [medium weight slides for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/old_slides.pdf)
@@ -22,7 +24,7 @@ This project is built and maintained by Adam Green - [adam.green@adgefficiency.c
 
 This repo contains useful [machine learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.  Further resources (video lectures, blog posts etc) are listed in [dsr-rl/resources.md](https://github.com/ADGEfficiency/dsr-rl/blob/master/readme.md).
 
-## where to go next
+### Where to go next
 
 [Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition (in progress)](http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf)
 

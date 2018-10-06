@@ -1,6 +1,6 @@
-Materials developed for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
+Materials for the reinforcement learning course at [Data Science Retreat](https://www.datascienceretreat.com/).
 
-This course is aimed at people with a grasp of supervised learning but no understanding of reinforcement learning.
+This course is aimed at students with a grasp of supervised learning - no prior understanding of reinforcement learning required.  The notes are also deep enough to support those who want to really learn the topic.
 
 ### Content
 

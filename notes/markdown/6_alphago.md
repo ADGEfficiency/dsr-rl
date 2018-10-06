@@ -86,7 +86,7 @@ Planning algorithm
 
 DeepMind take advantage of properties of Go that will not be available in real world applications of reinforcement learning.
 
-/newpage
+\newpage
 
 ## AlphaGo Zero
 

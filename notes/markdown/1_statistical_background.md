@@ -1,6 +1,6 @@
 # One - Statistical Background
 
-A review of reinforcement learning relevant statistical concepts.
+Variance and bias, IID, function approximation.
 
 ---
 

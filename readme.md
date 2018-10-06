@@ -115,7 +115,7 @@ unity - [github](https://github.com/Unity-Technologies/ml-agents) - [paper](http
 
 Dopamine - [github](https://github.com/google/dopamine) - [blog post](https://github.com/google/dopamine)
 
-### less well known 
+Holodeck - [github](https://github.com/byu-pccl/holodeck-engine)
 
 [Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)
 

@@ -1,4 +1,4 @@
-TODO
+PPO - add in to policy gradients section
 
 ## todos on the conversion
 

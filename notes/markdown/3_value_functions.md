@@ -752,6 +752,13 @@ Stable training
 
 ![The Huber Loss function is used as a form of gradient clipping - for large errors the gradient is kept constant.  The normal squared error used in regression doesn't have the property](../../assets/images/section_3/huber_loss.png){ width=50%, height=50% }
 
+## Why is everyone not using DQN
+
+- not easy to get convergence - q learning with nonlinear function approximation is not guaranteed to converge either in theory or practice
+- doesn’t in general converge
+- sensitive to hyper parameters
+- lots of local optima
+
 \newpage
 
 ## Timeline

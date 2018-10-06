@@ -18,7 +18,7 @@ $$ a \sim \pi(a_t|s_t;\theta) $$
 
 ### Stochastic policies
 
-![A determinstic policy (i.e. always rock) is eaisly exploited](../../assets/images/section_5/rock_paper.png){ width=30%, height=30% }
+![A determinstic policy (i.e. always rock) is eaisly exploited](../../assets/images/section_5/rock_paper.png){ width=20%, height=20% }
 
 A stochastic policy means exploration is built into the policy -> exploration can be controlled by the agent by changing parameters.  A common example of this is for the agent to be able to learn the standard deviation of an action.
 
@@ -32,7 +32,7 @@ This corresponds to approx. 750,000 actions a Q-Learner would need to argmax acr
 
 We also lose shape of the action space by discretization.  By this I mean that the agent now has an action space of discrete actions with no understanding of how they relate to each other
 
-![fig](../../assets/images/section_5/disc_cont_act.png){ width=80%, height=80% }
+![An example of the exponential blowup in action space complexity - aka the Curse of Dimensionality](../../assets/images/section_5/disc_cont_act.png){ width=80%, height=80% }
 
 ### Optimize return directly
 
@@ -68,15 +68,17 @@ More compatible with recurrent neural networks.  Policy gradient methods are oft
 - exploration
 - better sample efficiency
 
-![fig](../../assets/images/section_5/motivation_simple.png){ width=30%, height=30% }
+![Sometimes it's just eaiser to go the shorter route (than to estimate times for all possible actions)](../../assets/images/section_5/motivation_simple.png){ width=20%, height=20% }
+
+\newpage
 
 ## Parameterizing policies
 
 The type of policy you parameterize depends on the **action space**
 
-![Parameterizing a discrete policy](../../assets/images/section_5/discrete_policy.png){ width=30%, height=30% }
+![Parameterizing a discrete policy](../../assets/images/section_5/discrete_policy.png){ width=20%, height=20% }
 
-![Parameterizing a continous policy](../../assets/images/section_5/cont_policy.png){ width=30%, height=30% }
+![Parameterizing a continous policy](../../assets/images/section_5/cont_policy.png){ width=20%, height=20% }
 
 ## Policy gradients without equations
 
@@ -97,7 +99,7 @@ Reward function is not known
 
 Our policy $\pi(a_t|s_t;\theta)$ is a **probability distribution over actions**
 
-How do we improve it?  
+How do we improve it?
 
 - change parameters to take actions that get more reward
 - change parameters to favour probable actions
@@ -105,7 +107,7 @@ How do we improve it?
 Reward function is not known
 - but we can calculate the *gradient of the expectation of reward*
 
-$$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
+$$\nabla_{\theta} \mathbf{E}[G_t] = \mathbf{E}[\nabla_{\theta} \log \pi(a|s) \cdot G_t]$$
 
 We can figure out how to change our parameters without actually knowing the reward function itself
 
@@ -115,12 +117,12 @@ The **score function** comes from using the log-likelihood ratio trick
 
 The score function allows us to get the gradient of a function by **taking an expectation**
 
-Expectataions are averages 
+Expectataions are averages
 - use sample based methods to approximate them
 
 $$\nabla_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla_{\theta} \log P(x) \cdot f(x)]$$
 
-![[Derivation of the score function](http://karpathy.github.io/2016/05/31/rl/)](../../assets/images/section_5/score_derivation.png){ width=30%, height=30% }
+![[Derivation of the score function](http://karpathy.github.io/2016/05/31/rl/)](../../assets/images/section_5/score_derivation.png){ width=20%, height=20% }
 
 ## The score function in reinforcement learning
 
@@ -132,35 +134,35 @@ The RHS is an expectation - we can estimate it by sampling
 
 The expectation is made up of things we can sample from
 
-- we can sample from our policy 
+- we can sample from our policy
 - we can sample the return (from experience)
 
 ## Training a policy
 
-We use the score function to get the gradient, then follow the gradient 
+We use the score function to get the gradient, then follow the gradient
 
 `gradient = log(probability of action) * return`
 
 `gradient = log(policy) * return`
 
-The score function limits us to on-policy learning 
+The score function limits us to on-policy learning
 - we need to calculate the log probability of the action taken by the policy
 
 ## Policy gradient intuition
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-$\log \pi(a_t|s_t;\theta)$ 
+$\log \pi(a_t|s_t;\theta)$
 - how probable was the action we picked
 - we want to reinforce actions we thought were good
 
-$ G_t $ 
+$ G_t $
 - how good was that action
 - we want to reinforce actions that were actually good
 
 Different methods to approximate the return $G_t$
 
-We can use a Monte Carlo estimate - this is known as REINFORCE 
+We can use a Monte Carlo estimate - this is known as REINFORCE
 
 Using a Monte Carlo approach comes with all the problems we saw earlier
 - high variance
@@ -171,17 +173,16 @@ How can we get some the advantages of Temporal Difference methods?
 
 ## Baseline
 
-We can introduce a baseline function 
+We can introduce a baseline function
 
 - this reduces variance without introducing bias
-- a natural baseline is the value function (weights $w$).  
+- a natural baseline is the value function (weights $w$).
 
-$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w))$ 
+$$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w))$$
 
-This also gives rise to the concept of **advantage**
-- how much better this action is than the average action (policy & env dependent)
+This also gives rise to the concept of **advantage** - how much better this action is than the average action (policy & env dependent)
 
-$$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
+$$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
 
 ### Actor-Critic
 
@@ -190,20 +191,21 @@ $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 Actor-Critic brings together value functions and policy gradients
 
 We parameterize two functions
+
 - **actor** = policy
 - **critic** = value function
 
 We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
 
-![Sutton & Barto](../../assets/images/section_5/ac_arch.png){ width=30%, height=30% }
+![Actor-Critic acrchitecture - Sutton & Barto](../../assets/images/section_5/ac_arch.png){ width=30%, height=30% }
 
-### Actor-Critic Algorithm
+### 
 
-![Sutton & Barto](../../assets/images/section_5/ac_algo.png){ width=30%, height=30% }
+![Actor-Critic algorithm - Sutton & Barto](../../assets/images/section_5/ac_algo.png){ width=30%, height=30% }
+
+\newpage
 
 ## Deterministic Policy Gradient
-
-![fig](../../assets/images/section_5/dpg_lit.png){ width=30%, height=30% }
 
 Actor Critic
 
@@ -257,11 +259,13 @@ Deterministic integrates over only the state space -> leading to better sample e
 
 [DPG results - the difference between stochastic (green) and deterministic (red) increases with the dimensionality of the action space](../../assets/images/section_5/DPG_results.png){ width=30%, height=30% }
 
+\newpage
+
 ## A3C
 
 ![fig](../../assets/images/section_5/A3C_lit.png){ width=30%, height=30% }
 
-Asynchronous Advantage Actor-Critic 
+Asynchronous Advantage Actor-Critic
 
 We saw earlier that experience replay is used to make learning more stable & decorrelate updates
 - but can only be used with off-policy learners
@@ -275,9 +279,9 @@ We saw earlier that experience replay is used to make learning more stable & dec
 - runs on single multi-core CPU
 - learns faster than many GPU methods
 
-**Advantage** 
+**Advantage**
 
-- the advantage function 
+- the advantage function
 
 $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 
@@ -289,7 +293,7 @@ How much better an action is than the average action followed by the policy
 
 https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
 
----
+\newpage
 
 ### Proximal Policy Optimization (PPO)
 

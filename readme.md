@@ -22,6 +22,10 @@ This project is built and maintained by Adam Green - [adam.green@adgefficiency.c
 
 This repo contains useful [machine learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.  Further resources (video lectures, blog posts etc) are listed in [dsr-rl/resources.md](https://github.com/ADGEfficiency/dsr-rl/blob/master/readme.md).
 
+## Goals for the course
+
+Introduction to **concepts, ideas and terminology**.  Familiarity with important literature.  Understanding of the state of the field today.  Practical strageties to run reinforcement learning experiments.
+
 ### Where to go next
 
 - The Holy Book of reinforcement learning - [Sutton & Barto - Reinforcement Learning: An Introduction - 2nd Edition](http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf)

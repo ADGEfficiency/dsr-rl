@@ -1,7 +1,3 @@
-pandoc 0_introduction.md -o ../0_introduction.pdf -V geometry:margin=1in --variable urlcolor=cyan
-
-echo '0 done'
-
 pandoc 1_statistical_background.md -o ../1_statistical_background.pdf -V geometry:margin=1in --variable urlcolor=cyan
 
 echo '1 done'

@@ -1,10 +1,8 @@
-## A glance at reinforcement learning
-
-Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
+Materials developed for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)
 
 This course is aimed at people with a grasp of supervised learning but no understanding of reinforcement learning.
 
-### Cource content
+### Course content
 
 - introduces key statistical concepts
 - Markov Decision processes

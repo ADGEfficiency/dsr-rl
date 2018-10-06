@@ -6,9 +6,11 @@ Context, the Markov Decision and four central challenges in reinforcement learni
 
 ## What is reinforcement learning
 
-The goal in reinforcement learning is to develop agents that can learn to tale actions that maximize a scalar reward signal.  Reinforcement learning is fundamentally about **decision making**
+The goal in reinforcement learning is to develop agents that can learn to take actions that maximize a scalar reward signal.  Reinforcement learning is fundamentally about **decision making**
 
 > Goal at DeepMind is to try to use reinforcement learning to solve some of the bigger visions of AI ... it is the paradigm of artificial intelligence ... RL is the paradigm that describes how to learn optimal decisions in any environment - [David Silver](https://www.youtube.com/watch?v=M5a6HasTHs4)
+
+Reinforcement learning is all about **decision making**.  Internally, agents are involved in **data generation** and **target generation**.  There are multiple moving parts in an agent (often supervised learning makes up some of these parts).
 
 ##  Biological inspiration
 
@@ -93,7 +95,9 @@ A **domain specific** algorithm for your problem - if you have one, use it!
 
 ![Three areas of machine learning that differ based on the feedback signal available to the learner](../../assets/images/section_2/sl_unsl_rl.png)
 
-Supervised learning - feedback is the target (one per sample)
+### Supervised learning 
+
+Feedback is the target (one per sample).
 
 - are given a dataset with labels
 - we are constrained by this dataset
@@ -104,30 +108,34 @@ Supervised learning - feedback is the target (one per sample)
 |$(2.0, 1.5)$| $25$ |
 |$(1.2, 0.3)$| $7.2$|
 
-Unsupervised learning - feedback from data structures, adversarial training
+### Unsupervised learning 
+
+Feedback from data structures, adversarial training.
 
 |features|
 |---|
 |$(2.0, 1.5)$|
 |$(1.2, 0.3)$|
 
-Reinforcement learning - feedback from state transitions and a scalar reward signal 
+### Reinforcement learning 
+
+Feedback from state transitions and a scalar reward signal.
 
 - are given no dataset and no labels
 - we can generate more data by acting
 - test using the same environment
 
-Reinforcement learning is a **data generation** process.  The dataset we generate is the agent's memory.  The agent's experience $(s,a,r,s')$ is sampled from the environment by taking actions.  **It's not clear what we should do with this data - there is no implicit target**.
+Reinforcement learning has more to do that supervised learning.  In reinforcement learning we need to **generate our own data**.  The data we generate is experience tuples $(s,a,r,s')$, which are sampled from the environment by taking actions.  How we generate that data (i.e. what actions we take) is up to the agent.
+
+Once we store a list of these experience tuples in our agents memory, we then need to learn.  In supervised learning all our samples have targets (i.e. the class of that sample).  The reinforcement learning dataset is just a list of tuples!
+
+This is the second task that agents need to do - **label their experience**.  Once the experience is labelled, supervised learning techniques (such as stochastic gradient descent) can be used to fit a function that predicts the target.  Reinforcement learning uses supervised learning as a tool to learn functions.
 
 $$[experience, experience, ..., experience]$$
 
 $$[(s_0, a_0, r_1, s_1), (s_1, a_1, r_2, s_2), ..., (s_n, a_n, r_n, s_n)] $$
 
-This data generation attribute of reinforcement learning makes it more democratic than supervised learning - access to environments may fairer than access to the titanic supervised learning datasets at Google.
-
-**Reinforcement learning uses supervised learning as a tool to learn functions**.  Reinforcement learning can be seen as a way to **create targets** for supervised learning.
-
-Success in modern reinforcement learning (2013 onwards) is in part due to making use of deep learning to create powerful function approximators.
+Success in modern reinforcement learning (2013 onwards) is in part due to making use of advances in supervised learning (deep neural networks) to better approximate functions the agent chooses to learn.
 
 ### Reinforcement learning is not
 

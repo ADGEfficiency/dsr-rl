@@ -8,6 +8,8 @@ email - [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
 
 ## Zero - Introduction
 
+---
+
 agenda
 
 about me
@@ -18,7 +20,9 @@ where to go next
 
 ---
 
-## One - Background
+## One - Statistical Background
+
+---
 
 Expectations
 
@@ -36,6 +40,8 @@ Function approximation
 
 ## One - Few things about neural networks
 
+---
+
 Learning rate
 
 Batch size
@@ -46,13 +52,13 @@ Scaling / preprocessing
 
 ### Two - Introduction to Reinforcement Learning
 
+---
+
 Context within machine learning
 
 ---
 
-### Markov Decision Processes
-
-![The Markov Decision Process showing the agent and environment internals](assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
+![The Markov Decision Process showing the agent and environment internals](assets/images/section_2/mdp_schema_complex.png){ width=30%, height=30% }
 
 ---
 

@@ -2,9 +2,9 @@ Materials developed for the reinforcement learning course at [Data Science Retre
 
 This course is aimed at people with a grasp of supervised learning but no understanding of reinforcement learning.
 
-### Course content
+### Content
 
-- introduces key statistical concepts
+- background statistical concepts
 - Markov Decision processes
 - value function methods (with a focus on DQN)
 - policy gradient methods
@@ -12,7 +12,7 @@ This course is aimed at people with a grasp of supervised learning but no unders
 - practical advice for experiments
 - current state of the art
 
-### Course materials
+### Materials
 
 - [lightweight slides used for lectures (in development)](https://github.com/ADGEfficiency/dsr_rl/blob/master/light_slides.pdf)
 - [medium weight slides for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/medium_slides.pdf)

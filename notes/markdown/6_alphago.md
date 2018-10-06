@@ -33,6 +33,8 @@ Difficult to evaluate positions
 - chess you can evaluate positions by summing the value of all the peices
 - go - it's just stones on the board, equal numbers each side
 
+\newpage
+
 ## Components of the AlphaGo agent
 
 Three policy networks $\pi(s)$ 
@@ -47,6 +49,8 @@ One value function $V(s)$
 Combined together using Monte Carlo tree search
 
 ![Learning of AlphaGo](../../assets/images/section_6/AG_learning.png){ width=30%, height=30% }
+
+\newpage
 
 ## Monte Carlo Tree Search
 
@@ -82,9 +86,9 @@ Planning algorithm
 
 DeepMind take advantage of properties of Go that will not be available in real world applications of reinforcement learning.
 
-## AlphaGo Zero
+/newpage
 
-![fig](../../assets/images/section_6/Zero_lit.png)
+## AlphaGo Zero
 
 Key ideas
 
@@ -115,8 +119,7 @@ Learns using only self play
 - no feature engineering
 - learn purely from board positions
 
-Single neural network
-- combine the policy & value networks
+Single neural network - combine the policy & value networks
 
 MCTS only during acting (not during learning)
 

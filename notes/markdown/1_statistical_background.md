@@ -154,17 +154,19 @@ This is an unbiased approximation, and can also be lower variance than using the
 
 Shannon entropy in the context of machine learning and AI - [blog post](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
 
-Entropy is a measurement of how much information is contained in a distribution.
+Entropy is a measurement of how much information is contained in a distribution.  Entropy gives us the theoretical lower bound on the number of bits we would need to encode our infomation.  Knowing this lower bound allows us to quantify how much infomation is in our data.
 
-Some policy graident based agents will have an entropy maximization term in the loss function - to make the policy as random as possible.
+$$H=-\sum{i=1}{N} p(x_i) \cdot \log p(x_i)$$
+
+Some policy gradient based agents will have an entropy maximization term in the loss function - to make the policy as random as possible.
 
 ## Kullback–Leibler divergence - [Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
 
 *Reinforcement learning context - L divergence is used in [Trust Region Policy Optimization (TRPO)](https://arxiv.org/pdf/1502.05477.pdf) and [Proximal Policy Optimization (PPO)](https://arxiv.org/pdf/1707.06347.pdf) to constrain how much a policy changes during learning.  Also used in [C51 - A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) uses the KL divergence, and suggests that the Wassertien metric might be a fruitful next step.*
 
-Also known as relative entropy or information gain.  Measures the difference between probability distributions - often used in reinforcement learning to measure/constrain/penalize the distance between policy upates.
+Also known as relative entropy or information gain.  Measures the difference between probability distributions - often used in reinforcement learning to measure/constrain/penalize the distance between policy updates.
 
-$$D_{KL}(P|Q) = \mathbb{E}_{x} \frac{P(x)}{Q(x)}$$
+$$D_{KL}(P|Q) = \mathbb{E}_{x} \cdot \log \frac{P(x)}{Q(x)}$$
 
 \newpage
 

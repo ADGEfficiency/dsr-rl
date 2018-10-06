@@ -2,19 +2,21 @@
 
 Materials for the reinforcement learning course at [Data Science Retreat.](https://www.datascienceretreat.com/)  This course is aimed at people with a grasp of supervised learning but no understanding of reinforcement learning.
 
-The course covers Markov Decision processes, value function methods (with a focus on DQN), policy gradient methods,
-AlphaGo, practical advice for experiments and takes a look at the current state of the art.
+The course covers 
 
-The course materials are currently being reworked - [a copy of the old slides can be found
-here](https://github.com/ADGEfficiency/dsr_rl/blob/master/old_slides.pdf).
+- introduces key statistical concepts
+- Markov Decision processes 
+- value function methods (with a focus on DQN) 
+- policy gradient methods
+- AlphaGo 
+- practical advice for experiments
+- current state of the art
 
-The new course materials are:
+The new course materials are
 
-- [lightweight slides used for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf)
-
-- [detailed notes used to support lectures and for future study](https://github.com/ADGEfficiency/dsr_rl/blob/master/notes/)
-
-- [practical work](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/)
+- [lightweight slides used for lectures (in development)](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf)
+- [medium weight slides for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/old_slides.pdf)
+- [detailed notes to support lectures and for future study](https://github.com/ADGEfficiency/dsr_rl/blob/master/notes/)
 
 This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@aadgefficiency.com).
 
@@ -54,7 +56,10 @@ A (Long) Peek into Reinforcement Learning - [blog post](https://lilianweng.githu
 
 ## courses & long form blog posts
 
+CS 294: Deep Reinforcement Learning, Fall 2017 - Sergey Levine - Berkley - [course materials](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/index.html) - [lecture videos](https://www.youtube.com/playlist?list=PLkFD6_40KJIznC9CDbVTjAF2oyt8_VAe3)
+
 Practical RL - course in reinforcement learning in the wild - [repo](https://github.com/yandexdataschool/Practical_RL)
+
 
 ## Deep RL Bootcamp lectures
 
@@ -103,19 +108,19 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
 
 ### notable 
 
-Open AI gym - [repo](https://github.com/openai/gym/tree/master/gym) - [paper](https://arxiv.org/abs/1606.01540)
+Open AI gym - environments - [repo](https://github.com/openai/gym/tree/master/gym) - [paper](https://arxiv.org/abs/1606.01540)
 
-Open AI baselines - [repo](https://github.com/openai/baselines)
+Open AI baselines - agents - [repo](https://github.com/openai/baselines)
 
-Berkley's rllab - [repo](https://github.com/rll/rllab)
+Berkley's rllab - agents & environments - [repo](https://github.com/rll/rllab)
 
-Intel's coach - [repo](https://github.com/NervanaSystems/coach) - [blog post](https://ai.intel.com/introducing-reinforcement-learning-coach-0-10-0/)
+Intel's coach - agents & environments - [repo](https://github.com/NervanaSystems/coach) - [blog post](https://ai.intel.com/introducing-reinforcement-learning-coach-0-10-0/)
 
-unity - [github](https://github.com/Unity-Technologies/ml-agents) - [paper](https://arxiv.org/pdf/1809.02627.pdf)
+unity - 3D environments - [github](https://github.com/Unity-Technologies/ml-agents) - [paper](https://arxiv.org/pdf/1809.02627.pdf)
 
-Dopamine - [github](https://github.com/google/dopamine) - [blog post](https://github.com/google/dopamine)
+Dopamine - Rainbow implementation - [github](https://github.com/google/dopamine) - [blog post](https://github.com/google/dopamine)
 
-Holodeck - [github](https://github.com/byu-pccl/holodeck-engine)
+Holodeck - Unity 3D environments - [github](https://github.com/byu-pccl/holodeck-engine) - [blog post](https://pcc.cs.byu.edu/2018/10/04/introducing-holodeck/)
 
 [Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)
 

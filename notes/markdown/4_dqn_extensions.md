@@ -170,7 +170,7 @@ All the various improvements to DQN address different issues
 
 Rainbow combines these improvements
 
-![fig](../../assets/images/section_4/rainbow_fig1.png){ width=100%, height=100% }
+![Median human-normalized performance across 57 Atari games. We compare our integrated agent (rainbowcolored) to DQN (grey) and six published baselines. Note that we match DQN’s best performance after 7M frames, surpass any baseline within 44M frames, and reach substantially improved final performance. Curves are smoothed with a moving average over 5 points.](../../assets/images/section_4/rainbow_fig1.png){ width=80%, height=80% }
 
 ![fig](../../assets/images/section_4/rainbow_expt.png){ width=20%, height=20% }
 

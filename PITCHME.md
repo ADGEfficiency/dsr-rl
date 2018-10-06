@@ -52,7 +52,7 @@ Context within machine learning
 
 ### Markov Decision Processes
 
-![The Markov Decision Process showing the agent and environment internals](../../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
+![The Markov Decision Process showing the agent and environment internals](assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
 
 ---
 

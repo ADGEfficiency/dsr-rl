@@ -1,4 +1,10 @@
-## Value functions
+# Three - Value functions
+
+Using a value function, Bellman equation, approximation versus improvement, dynamic programming, Monte Carlo, temporal difference, SARSA, Q-Learning, DQN.
+
+---
+
+## The value and action-value functions
 
 There are two value functions - the value function $V_\pi(s)$ and the action-value function $Q_\pi(s,a)$.  Both are defined to equal the future expected discounted reward (i.e. the return).  For an MDP where $$t$$ denotes the step number, and $$k$$ is a counter from this step to the end of the episode.
 

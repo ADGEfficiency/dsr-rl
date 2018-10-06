@@ -1,6 +1,6 @@
 # Two - Introduction to Reinforcement Learning
 
-Context, the Markov Decision and four central challenges in reinforcement learning.
+Context, the Markov Decision Process, four central challenges in reinforcement learning.
 
 ---
 

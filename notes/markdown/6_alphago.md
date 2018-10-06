@@ -64,13 +64,13 @@ Planning algorithm
 
 ![fig](../../assets/images/section_6/MCTS_one.png){ width=30%, height=30% }
 
-![MCTS in AlphaGo](../../assets/images/section_6/MCTS_two.png)
+![MCTS in AlphaGo](../../assets/images/section_6/MCTS_two.png){ width=30%, height=30% }
 
-![fig](../../assets/images/section_6/MCTS_AG_one.png)
+![fig](../../assets/images/section_6/MCTS_AG_one.png){ width=30%, height=30% }
 
-![fig](../../assets/images/section_6/MCTS_AG_two.png)
+![fig](../../assets/images/section_6/MCTS_AG_two.png){ width=30%, height=30% }
 
-![fig](../../assets/images/section_6/MCTS_AG_three.png)
+![fig](../../assets/images/section_6/MCTS_AG_three.png){ width=30%, height=30% }
 
 ## AlphaGo, in context – Andrej Karpathy
 
@@ -107,9 +107,13 @@ Computational efficiency
 - AG Lee = distributed w/ 48 TPU
 - AG Zero = single machine w/ 4 TPU
 
-![fig](../../assets/images/section_6/Zero_learning_curve.png)
+![**Performance of AlphaGo Zero. Learning curve for AlphaGo Zero using a larger 40-block residual network over 40 days**. The plot shows the performance of each player $\alpha_{\theta_{i}}$ from each iteration $i$ of our reinforcement learning algorithm. Elo ratings were computed from evaluation games between different players, using 0.4 s per search (see Methods).](../../assets/images/section_6/Zero_learning_curve.png){ width=30%, height=30% }
 
-![fig](../../assets/images/section_6/Zero_learning_curves.png)
+![**Empirical evaluation of AlphaGo Zero. a, Performance of self play reinforcement learning**. The plot shows the performance of each MCTS player $\alpha_{\theta_{i}}$ from each iteration $i$ of reinforcement learning in AlphaGo Zero. Elo ratings were computed from evaluation games between different players, using 0.4 s of thinking time per move (see Methods). For comparison, a similar player trained by supervised learning from 
+
+human data, using the KGS dataset, is also shown. **b, Prediction accuracy on human professional moves**. The plot shows the accuracy of the neural network $\theta f i$, at each iteration of self-play $i$, in predicting human professional moves from the GoKifu dataset. The accuracy measures the percentage of positions in which the neural network assigns the highest probability to the human move. The accuracy of 
+
+a neural network trained by supervised learning is also shown. **c, Mean-squared error (MSE) of human professional game outcomes**. The plot shows the MSE of the neural network $\theta f i$, at each iteration of self-play $i$, in predicting the outcome of human professional games from the GoKifu dataset. The MSE is between the actual outcome $z \in {-1, +1}$ and the neural network value $v$, scaled by a factor of $\frac{1}{4}$ to the range of $0–1$. The MSE of a neural network trained by supervised learning is also shown.](../../assets/images/section_6/Zero_learning_curves.png){ width=30%, height=30% }
 
 ### AlphaGo Zero innovations
 
@@ -141,12 +145,12 @@ MCTS is used during acting to create the improved policy
 
 The improved policy generated during acting becomes the target policy during training
 
-[Keynote David Silver NIPS 2017 Deep Reinforcement Learning Symposium AlphaZero
-](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
+[Keynote David Silver NIPS 2017 Deep Reinforcement Learning Symposium AlphaZero](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
 
+\newpage
 
 ## DeepMind AlphaGo AMA
 
-![fig](../../assets/images/section_6/Reddit_AMA.png){ width=30%, height=30% }
+![fig](../../assets/images/section_6/Reddit_AMA.png){ width=20%, height=20% }
 
-![fig](../../assets/images/section_6/Reddit_AMA_posts.png){ width=30%, height=30% }
+![fig](../../assets/images/section_6/Reddit_AMA_posts.png){ width=40%, height=40% }

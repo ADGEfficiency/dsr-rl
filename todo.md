@@ -1,3 +1,4 @@
+TODO
 
 ## todos on the conversion
 
@@ -15,3 +16,9 @@ for PG section
 - alpha beta search - [wiki](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)
 
 ---
+
+separate out literature into
+
+value function based
+
+policy gradient based etc

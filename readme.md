@@ -48,6 +48,14 @@ For everything else (linear models, random forests etc) - [Elements of Statistic
 
 [A History of Reinforcement Learning - Prof. A.G. Barto](https://www.youtube.com/watch?v=ul6B2oFPNDM)
 
+## entire field overviews
+
+A (Long) Peek into Reinforcement Learning - [blog post](https://lilianweng.github.io/lil-log/2018/02/19/a-long-peek-into-reinforcement-learning.html)
+
+## courses & long form blog posts
+
+Practical RL - course in reinforcement learning in the wild - [repo](https://github.com/yandexdataschool/Practical_RL)
+
 ## Deep RL Bootcamp lectures
 
 [Lecture 1 - Motivation + Overview + Exact Solution Methods - Pieter Abbeel](https://www.youtube.com/watch?v=qaMdN6LS9rA)
@@ -95,13 +103,17 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)
 
 ### notable 
 
-[gym](https://github.com/openai/gym/tree/master/gym) - Open AI
+Open AI gym - [repo](https://github.com/openai/gym/tree/master/gym) - [paper](https://arxiv.org/abs/1606.01540)
 
-[baselines](https://github.com/openai/baselines) - Open AI
+Open AI baselines - [repo](https://github.com/openai/baselines)
 
-[rllab](https://github.com/rll/rllab) - Berkley
+Berkley's rllab - [repo](https://github.com/rll/rllab)
 
-[coach](https://github.com/NervanaSystems/coach)
+Intel's coach - [repo](https://github.com/NervanaSystems/coach) - [blog post](https://ai.intel.com/introducing-reinforcement-learning-coach-0-10-0/)
+
+unity - [github](https://github.com/Unity-Technologies/ml-agents) - [paper](https://arxiv.org/pdf/1809.02627.pdf)
+
+Dopamine - [github](https://github.com/google/dopamine) - [blog post](https://github.com/google/dopamine)
 
 ### less well known 
 

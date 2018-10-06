@@ -134,6 +134,8 @@ Many things need to go right for RL to work - success stories are the exception,
 
 # Learning Montezuma's Revenge
 
+[Kaplan et. al 2017 Beating Atari with Natural Language Guided Reinforcement Learning](https://arxiv.org/abs/1704.05539)
+
 https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/
 
 \newpage

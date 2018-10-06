@@ -181,6 +181,7 @@ $$ G_{\pi}(s) = r + \gamma G_{\pi}(s') $$
 The Bellman equation relates the expected discounted return of the **current state** to the discounted value of the **next state**.  The Bellman equation is a recursive definition - it is bootstrapped.  We can apply it to value functions
 
 $$ V_{\pi}(s) = r + \gamma V_{\pi}(s') $$
+
 $$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
 
 The magic of the value function is how it allows us to use experience (i.e. data)

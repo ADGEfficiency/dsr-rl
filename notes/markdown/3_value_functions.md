@@ -1,10 +1,10 @@
 ## Value functions
 
-There are two value functions - the value function $V_\pi(s)$ and the action-value function $Q_\pi(s,a)$.  Both are defined to equal the future expected discounted reward (i.e. the return)
+There are two value functions - the value function $V_\pi(s)$ and the action-value function $Q_\pi(s,a)$.  Both are defined to equal the future expected discounted reward (i.e. the return).  For an MDP where $$t$$ denotes the step number, and $$k$$ is a counter from this step to the end of the episode.
 
-$$ V_{\pi}(s) = \mathbf{E}[G_t | s_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{t=0}^{\infty} \gamma^{t} r_{t} $$
+$$ V_{\pi}(s) = \mathbf{E}_{\pi} [G_t | s_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} $$
 
-$$ Q_{\pi}(s, a) = \mathbf{E}[G_t | s_t, a_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{t=0}^{\infty} \gamma^{t} r_{t} $$
+$$ Q_{\pi}(s, a) = \mathbf{E}_{\pi} [G_t | s_t, a_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} $$
 
 Expected total reward from state $s$ and action $a$ under policy $\pi$
 
@@ -191,7 +191,7 @@ The magic of the value function is how it allows us to use experience (i.e. data
 - the reward is used in the approximation
 - the next state is used as the input to a neural network
 
-$$ (s, a, r, s' $$
+$$ (s, a, r, s') $$
 
 $$ Q_{\pi}(s,a) = r + \gamma Q_{\pi}(s', a') $$
 

@@ -1,4 +1,4 @@
-# Where is modern reinforcement learning today
+## Where is modern reinforcement learning today
 
 The material for this section comes primarily from
 
@@ -19,7 +19,7 @@ Andrew Ng estimated that supervised learning provides the vast majority of machi
 
 The defining feature of modern reinforcement learning is **sample inefficiency**.
 
-## Sample inefficient
+### Sample inefficient
 
 Modern reinforcement learning is **sample inefficient**.  This sample inefficiency means that reinforcement learning **requires simulation**.  All of modern reinforcement learning's achievements have been on easily simulateable environments (games).
 
@@ -35,17 +35,17 @@ We can ignore sample efficiency if sampling is cheap.  In the real world it can 
 
 It's not about learning time - it's about the ability to sample experience (i.e. to go around the MDP loop).
 
-## Generalization to the real world
+### Generalization to the real world
 
 The tasks typically solved by modern reinforcement learning agents are small and uniform. The goal is mastery, with test and training being the same environment.
 
 The real world is huge, highly varied.  The goal is to not screw up too much, and the test set is an unmitigated disaster of complexity.  The real world also presents more unexpected situations than the simulations used for learning in reinforcement learning.
 
-## How good is good enough
+### How good is good enough
 
 RL solution doesn’t have to achieve a global optima, as long as its local optima is better than the human baseline
 
-## Importance of simulation design
+### Importance of simulation design
 
 The generalization challenge between the simulation for learning and acting in the real world
 
@@ -57,7 +57,7 @@ Reward function design is difficult
 
 Shaping rewards to help learning can change behaviour
 
-## Model based planning using simulation
+### Model based planning using simulation
 
 The simulation can be used with model based methods (i.e. Monte Carlo Tree Search).  With a good model, model based methods can outperform model based methods in sample efficiency.  See [Guo et. al (2014) Deep Learning for Real-Time Atari Game Play Using Offline Monte-Carlo Tree Search Planning](https://papers.nips.cc/paper/5421-deep-learning-for-real-time-atari-game-play-using-offline-monte-carlo-tree-search-planning).
 
@@ -69,7 +69,7 @@ Domain specific algorithms can work faster & better.  The generalizability of RL
 
 AlphaGo is model based (policy + rules = an environment model)
 
-## Instability
+### Instability
 
 > [Supervised learning] wants to work. Even if you screw something up you’ll usually get something non-random back. RL must be forced to work. If you screw something up or don’t tune something well enough you’re exceedingly likely to get a policy that is even worse than random. And even if it’s all well tuned you’ll get a bad policy 30% of the time, just because.
 >
@@ -85,7 +85,7 @@ Results can be unstable and hard to produce (this applies to a lot of scientific
 
 \newpage
 
-## Going forward & the future
+### Going forward & the future
 
 > The way I see it, either deep RL is still a research topic that isn’t robust enough for widespread use, or it’s usable and the people who’ve gotten it to work aren’t publicizing it. I think the former is more likely - Alex Irpan
 
@@ -108,7 +108,7 @@ Many things need to go right for RL to work - success stories are the exception,
 
 \newpage
 
-# Inverse reinforcement learning
+## Inverse reinforcement learning
 
 The basic idea in inverse reinforcement is to learn a reward function from rollouts of high quality (i.e. human) demonstrations.  Sometimes it is eaiser to sample a rollout that to design the reward function.
 
@@ -116,7 +116,7 @@ The basic idea in inverse reinforcement is to learn a reward function from rollo
 
 \newpage
 
-# Open AI Dota - [blog post](https://blog.openai.com/openai-five/)
+## Open AI Dota - [blog post](https://blog.openai.com/openai-five/)
 
 180 years worth of games per day.  Self play.  Using Proximal Policy Optimization (PPO).  256 GPU, 128,000 CPU cores.  Separate LSTM for each hero, no human data.
 
@@ -138,7 +138,7 @@ Agent has instant access to infomation (positions, healths, inventories etc) tha
 
 Binary rewards give good performance - shaped reward better than the sparser winning or losing reward function.
 
-## Challenges of DOTA
+### Challenges of DOTA
 
 - long time horizions
 - partially-observed state
@@ -151,13 +151,13 @@ Binary rewards give good performance - shaped reward better than the sparser win
 
 \newpage
 
-## [Model architecture](https://s3-us-west-2.amazonaws.com/openai-assets/dota_benchmark_results/network_diagram_08_06_2018.pdf)
+### [Model architecture](https://s3-us-west-2.amazonaws.com/openai-assets/dota_benchmark_results/network_diagram_08_06_2018.pdf)
 
 ![](../../assets/images/section_8/dota_arch.png){ width=100%, height=100% }
 
 \newpage
 
-# Learning Montezuma's Revenge
+## Learning Montezuma's Revenge
 
 Kaplan et. al 2017 Beating Atari with Natural Language Guided Reinforcement Learning - [paper](https://arxiv.org/abs/1704.05539)
 
@@ -167,7 +167,7 @@ On “solving” Montezuma’s Revenge - Arthur Juliani - [Medium](https://mediu
 
 \newpage
 
-# Ha & Schmidhuber (2018) World Models
+## Ha & Schmidhuber (2018) World Models
 
 [paper](https://arxiv.org/pdf/1803.10122.pdf) - [blog post](https://worldmodels.github.io/) - [blog post appendix](https://worldmodels.github.io/#appendix)
 
@@ -180,7 +180,7 @@ One key idea is **compression**
 
 This allows a compact linear policy to be used for control - the policy parameters are learnt using an evolutionary algorithm.
 
-## Inspiration
+### Inspiration
 
 We use low dimensional mental models to represent the world around us.
 
@@ -188,7 +188,7 @@ Our brain learns abstract representations of spatial and temporal infomation.  E
 
 This predictive model can be used to perform fast reflexive behaviours when we face danger.
 
-## The agent
+### The agent
 
 ![The agent consists of three components - Vision (V), Memory (M), and Controller (C)](../../assets/images/section_8/wm_fig1.png){ width=60%, height=60% }
 
@@ -230,7 +230,7 @@ Outputs probability density function instead of a deterministic prediction.  Mod
 
 ![Flow diagram of the agent.  The latent representation $z$ is used both by the memory and by the controller.  The selected action is used by the memory.](../../assets/images/section_8/wm_fig2.png){ width=30%, height=30% }
 
-### Mixed density networks
+#### Mixed density networks
 
 Bishop (1994) - Mixture Density Networks [paper](https://publications.aston.ac.uk/373/1/NCRG_94_004.pdf)
 
@@ -238,7 +238,7 @@ Mixture Density Networks with TensorFlow [blog post](http://blog.otoro.net/2015/
 
 The mixed density network uses the log-likelihood of the distribution versus the training data as the loss function.  This is also used in logistic regression and in the cross entropy minimization of a softmax.
 
-## Simple controller
+### Simple controller
 
 The controller is a linear function.
 
@@ -250,7 +250,7 @@ In model free RL, the algo is often bottlenecked by the credit assignment proble
 
 The simplicity of C allows using unconventional ways to train C - Ha et. al use Covariance-Matrix Adaptation Evolution Stragety (CMA-ES).  This algorithm works well for solution spaces of up to a few thousand parameters.
 
-### CMA-ES - [wikipedia](https://en.wikipedia.org/wiki/CMA-ES)
+#### CMA-ES - [wikipedia](https://en.wikipedia.org/wiki/CMA-ES)
 
 Stochastic and derivative free.
 
@@ -260,15 +260,13 @@ New candidates are sampled according to a mulitvariate normal distribution.  Rec
 
 Pairwise dependencies are represented by a covariance matrix - CMA is a method to update this covariance matrix.  Adapting this covariance matrix amounts to learning a second order model of the objective function.  Only the ranking between candidates is used for learning the sample distribution.
 
-## Environment & experiments
+### Environment & experiments
 
 Action space is continuous - steering left/right, acceleration and brake.
 
 Tracks are randomly generated for each trial, agent rewarded for visiting as many tiles in the least amount of time.
 
-\newpage
-
-## Procedure
+### Procedure
 
 ```python
 def rollout(controller):
@@ -294,15 +292,15 @@ def rollout(controller):
 
 \newpage
 
-## Experiment results
+### Experiment results
 
-### V only
+#### V only
 
 Learning to drive from good features is not difficult - it easy to train small feed-forward network to map hand engineered features to policy.
 
 First test is on the agent that can only access the latent representation of the observation.  Achieved 632 +/- 251 over 100 trials.  Same performance as A3C.  Adding a hidden layer improves it to 788 +/- 141 (still not solved)
 
-### V and M - full world model
+#### V and M - full world model
 
 Combining with M gives good representation of both current observation and what to expect in the future.  **Agent doesn't need to plan** - all of the infomation about the future is represented in the RRN hidden state.
 
@@ -310,11 +308,11 @@ Combining with M gives good representation of both current observation and what 
 
 Traditional Deep RL requires pre-processing of frame (i.e. edge detection) or stacking of trajectories.  World models directly learns a spatial-temporal representation.
 
-## Learning inside of a dream
+### Learning inside of a dream
 
 Use the *VizDoom: Take Cover* environment - reward is number of timesteps alive.  Each rollout runs for 2100 steps, task is solved if average survival time over 100 consecutive rollouts is greater than 750 steps.
 
-## VizDoom Procedure
+### VizDoom Procedure
 
 ![The final agent solving the *VizDoom: Take Cover* environment](../../assets/images/section_8/wm_fig4.png){ width=30%, height=30% }
 
@@ -330,7 +328,7 @@ Possible to add noise into the dream environment using a temperature parameter d
 
 Agent that learned in dream environment has a score of ~1100 time steps over 100 consecutive random trials.
 
-## Cheating the world model
+### Cheating the world model
 
 Initial experiments the agent discovered a way to use an adversarial policy that prevented the memory model generating fireballs.  World model is exploitable by the controller, in a way that the real environment might not be.
 

@@ -1,5 +1,7 @@
 PPO - add in to policy gradients section
 
+run find_patterns on the notes
+
 ## todos on the conversion
 
 examples for everything

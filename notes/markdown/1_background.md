@@ -1,3 +1,9 @@
+# One - Statistical Background
+
+A review of reinforcement learning relevant statistical concepts.
+
+---
+
 ## Nomenclature
 
 Nomenclature in RL can be inconsistent.  Modern literature has largely settled on nomenclature as given below.  Historically some policy gradient methods would use `u` for action - this is also common in *optimal control* (a related field - see the notes for Section 2).
@@ -76,7 +82,7 @@ Bias = expected deviation vs true value
 - approximations or bootstrapping tend to introduce bias
 - biased away from an optimal agent / policy
 
-![Variance = consistency, bias = error versus the truth](../../assets/images/section_1/variance_bias.png){ width=55%, height=55% }
+![Variance = consistency, bias = error versus the truth](../../assets/images/section_1/variance_bias.png){ width=30%, height=30% }
 
 \newpage
 
@@ -120,45 +126,37 @@ Rule of thumb - 5 training examples for each dimension in the representation
 
 ## Importance sampling - [Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
 
-Context - importance sampling is used in prioritized experience replay
+*Reinforcement learning context - importance sampling is used in prioritized experience replay*
 
-Estimate the properties of a distribution we can't sample from (the unknown distribution) using samples from another distribution
+Importance sampling - introduction - [youtube](https://www.youtube.com/watch?v=S3LAOZxGcnk)
 
-Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution 
+Estimate the properties of a distribution we can't sample from (the unknown distribution) using samples from another distribution.  Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution.
 
 Trying to approximate the expected value of a random variable $X$ under a distribution $P$ - $\mathbf{E}[X;P]$ 
 
-Not a sampling method 
-- it's a method of Monte Carlo approximation
-
-Monte Carlo approximates using the sample mean
-- assuming that the sampling distribution $x\_p$ 
-- is the same as the true distribution $(x~p)$ 
+Not a sampling method  - it's a method of Monte Carlo approximation.  Monte Carlo approximates using the sample mean, assuming that the sampling distribution $x\_p$ is the same as the true distribution $(x~p)$ 
 
 $$ \mathbb{E}[f(x)] = 1/n \sum f(x\_{i}) $$
 
-Could we use infomation about another distribution $q$ to learn the distribution of $p$
-- correct for the fact that we are using another distribution
+Could we use infomation about another distribution $q$ to learn the distribution of $p$ and, correct for the fact that we are using another distribution
 
-*https://www.youtube.com/watch?v=S3LAOZxGcnk*
-
-The importance weight function
+The importance weight function is the ratio of the two distributions
 
 $$ w(x) = \frac{p(x)}{q(x)}$$
 
+We can then calculate our expected value of $$f(x)$$ using this importance weight
+
 $$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
 
-This is an unbiased approximation
-
-- can also be lower variance than using the sample distribution $p$
+This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$
 
 ## Entropy - [Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
 
-[Shannon entropy in the context of machine learning and AI](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
+Shannon entropy in the context of machine learning and AI - [blog post](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
 
 Entropy is a measurement of how much information is contained in a distribution.
 
-Some policy graident based agents will have an entropy maximization term in the loss function - to make the policy as random as possible
+Some policy graident based agents will have an entropy maximization term in the loss function - to make the policy as random as possible.
 
 ## Kullback–Leibler divergence - [Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
 
@@ -205,7 +203,6 @@ $$ V(s) = 3s_1 + 4s_2 $$
 Advantages
 
 - Less parameters than a table
-
 - Can generalize across states
 
 Disadvantages
@@ -219,15 +216,12 @@ Most commonly neural networks
 Advantages
 
 - Model complex dynamics
-
 - Convolution for vision
-
 - Recurrency for memory / temporal dependencies
 
 Disadvantages
 
 - Instability
-
 - Difficult to train
 
 \newpage
@@ -248,11 +242,9 @@ $$ \theta^{t+1} = \theta^{t} - \alpha \frac{\partial E(x, \theta^{t})}{\partial 
 
 where $E(x, \theta^{t})$ is the error backpropagated from sample $x$
 
-Small learning rate 
-- slow training
+Small learning rate = slow training
 
-High learning rate 
-- overshoot or divergence
+High learning rate = overshoot or divergence
 
 ### Always intentionally set learning rate
 
@@ -313,7 +305,7 @@ Larger batch size -> larger learning rate
 - more accurate estimation of the gradient (better distribution across batch)
 - we can take larger steps
 
-![Relationship between learning rate error plotted using batches from 64 to 4 - [Visualizing Learning rate vs Batch size](https://miguel-data-sc.github.io/2017-11-05-first/)](../../assets/images/section_1/lr_batch.png){ width=60%, height=60% }
+![Relationship between learning rate error plotted using batches from 64 to 4 - [Visualizing Learning rate vs Batch size](https://miguel-data-sc.github.io/2017-11-05-first/)](../../assets/images/section_1/lr_batch.png){ width=30%, height=30% }
 
 Larger batch size -> larger optimal learning rate
 
@@ -348,9 +340,9 @@ Our data now has mean of 0, variance of 1
 
 **Normalization** = min/max scaling
 
-$$ \phi(x) = \frac{x - x\_{min}}{x\_{max} - x\_{min}} $$
+$$ \phi(x) = \frac{x - x_{min}}{x_{max} - x_{min}} $$
 
-Our data is now between 0 and 1
+Our data is now between 0 and 1.
 
 ## Batch normalization
 
@@ -379,9 +371,11 @@ Vanilla batch norm. struggles with small or non-IID batches
 
 - batch renormalization uses a single algorithm for both training & testing
 
+\newpage
+
 ## Residual networks
 
-Context - AlphaGo Zero uses residual blocks in the value function and policy networkk
+*Reinforcement learning context - AlphaGo Zero uses residual blocks in the value function and policy network*
 
 ![Residual blocks](../../assets/images/section_6/res_block.png){ width=30%, height=30% }
 

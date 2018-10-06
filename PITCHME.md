@@ -44,13 +44,35 @@ Scaling / preprocessing
 
 ---
 
-### Two - Introduction to reinforcement learning
+### Two - Introduction to Reinforcement Learning
 
 Context within machine learning
 
-Markov Decision Processes
+---
 
-Four central challenges 
+### Markov Decision Processes
+
+![The Markov Decision Process showing the agent and environment internals](../../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
+
+---
+
+### Four challenges
+
+**one - exploration vs exploitation**
+
+how good is my understanding of the range of options
+
+**two - data quality**
+
+biased sampling, non-stationary distribution
+
+**three - credit assignment**
+
+which action gave me this reward
+
+**four - sample efficiency**
+
+learning quickly, squeezing information from data
 
 ---
 

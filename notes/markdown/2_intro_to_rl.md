@@ -1,8 +1,12 @@
+# Two - Introduction to Reinforcement Learning
+
+Context, the Markov Decision and four central challenges in reinforcement learning.
+
+---
+
 ## What is reinforcement learning
 
-Training agents that can learn how to interact with environments and maximize reward signals
-
-Reinforcement learning is fundamentally about **decision making**
+The goal in reinforcement learning is to develop agents that can learn to tale actions that maximize a scalar reward signal.  Reinforcement learning is fundamentally about **decision making**
 
 > Goal at DeepMind is to try to use reinforcement learning to solve some of the bigger visions of AI ... it is the paradigm of artificial intelligence ... RL is the paradigm that describes how to learn optimal decisions in any environment - [David Silver](https://www.youtube.com/watch?v=M5a6HasTHs4)
 
@@ -42,13 +46,19 @@ The phasic activity of mesencephalic dopamine neurons signals the error between 
 
 ## Applications
 
-![David Silver – Deep Reinforcement Learning Lecture 1](../../assets/images/section_2/applications_silver.png){ width=50%, height=50% }
+David Silver gives the following
+
+- control physical systems
+- interact with users - customer retention, personalization
+- solve logistical problems - scheduling, bandwidth allocation, power optimization
+- play games
+- learn sequential algorithms - attention, memory, conditional computation, activations
 
 \newpage
 
 ## Related methods 
 
-![Faces of RL - David Silver Lecture 1](../../assets/images/section_2/faces_rl.png){ width=50%, height=50% }
+![Faces of RL - David Silver Lecture 1](../../assets/images/section_2/faces_rl.png){ width=35%, height=35% }
 
 **Evolutionary methods** - [wikipedia](https://en.wikipedia.org/wiki/Evolutionary_algorithm)
 
@@ -107,46 +117,34 @@ Reinforcement learning - feedback from state transitions and a scalar reward sig
 - we can generate more data by acting
 - test using the same environment
 
-Reinforcement learning is a **data generation** process.  The dataset we generate is the agent's memory
+Reinforcement learning is a **data generation** process.  The dataset we generate is the agent's memory.  The agent's experience $(s,a,r,s')$ is sampled from the environment by taking actions.  **It's not clear what we should do with this data - there is no implicit target**.
 
-The agent's experience $(s,a,r,s')$ is sampled from the environment by taking actions.
+$$[experience, experience, ..., experience]$$
 
-It's not clear what we should do with this data - there is no implicit target.
-
-$$[experience,$$
-$$experience,$$
-$$...$$
-$$experience]$$
-
-$$[(s_0, a_0, r_1, s_1), $$ 
-$$(s_1, a_1, r_2, s_2), $$
-$$...$$
-$$(s_n, a_n, r_n, s_n)] $$
+$$[(s_0, a_0, r_1, s_1), (s_1, a_1, r_2, s_2), ..., (s_n, a_n, r_n, s_n)] $$
 
 This data generation attribute of reinforcement learning makes it more democratic than supervised learning - access to environments may fairer than access to the titanic supervised learning datasets at Google.
 
-Reinforcment learning uses supervised learning as a tool to learn functions.  RL can be seen as a way to create targets for supervised learning.
+**Reinforcement learning uses supervised learning as a tool to learn functions**.  Reinforcement learning can be seen as a way to **create targets** for supervised learning.
 
-Success in modern reinforcement learning (2013 onwards) is largely due to making use of deep learning to create powerful function approximators.
+Success in modern reinforcement learning (2013 onwards) is in part due to making use of deep learning to create powerful function approximators.
 
 ### Reinforcement learning is not
 
-NOT an alternative method to use instead of a random forest, neural network etc
-
-“I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**
+NOT an alternative method to use instead of a random forest, neural network etc.  “I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**.
 
 Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
 
 - classifier learns the function of image -> cat
 - regressor learns the function of market_data -> stock_price
 
+In reinforcement learning a common function we want to learn is a policy - a function of state -> action.  Another is a value function, which maps state -> return.
+
 ### Deep reinforcement learning
 
-**Deep learning** 
-- neural networks with multiple layers
+**Deep learning** = neural networks with multiple layers
 
-**Deep reinforcement learning** 
-- using multiple layer networks to approximate policies or value functions
+**Deep reinforcement learning** = using multiple layer networks to approximate policies or value functions
 
 - feedforward 
 - convolutional 
@@ -156,16 +154,13 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 
 ### Model free reinforcement learning
 
-![fig](../../assets/images/section_2/summary.png){ width=30%, height=30% }
-
-Model based reinforcement learning is outside the scope of this course.
-
+![Model based reinforcement learning is outside the scope of this course.](../../assets/images/section_2/summary.png){ width=30%, height=30% }
 
 \newpage
 
 ## Markov Decision Processes
 
-Mathematical framework for reinforcement learning 
+The mathematical framework for reinforcement learning.
 
 ![The basic Markov Decision Process framework for reinforcement learning](../../assets/images/section_2/mdp_schema_simple.png){ width=40%, height=40% }
 
@@ -187,7 +182,7 @@ $$ P(s\_{t+1} | s\_{t}, a\_{t}) = P(s\_{t+1}|s\_t,a\_t...s\_0,a\_0)$$
 
 An MDP can be defined as a tuple
 
-$$ (\mathcal{S}, \mathcal{A}, \mathcal{R}, P, R, d_0, \gamma) $$
+$$(\mathcal{S}, \mathcal{A}, \mathcal{R}, P, R, d_0, \gamma)$$
 
 Set of states $\mathcal{S}$
 
@@ -195,9 +190,9 @@ Set of actions $\mathcal{A}$
 
 Set of rewards $\mathcal{R}$
 
-State transition function $ P(s'|s,a) $
+State transition function $P(s'|s,a)$
 
-Reward transition function $ R(r|s,a,s') $  
+Reward transition function $R(r|s,a,s')$
 
 Distribution over initial states $d_0$
 
@@ -287,27 +282,23 @@ An agent always has a policy
 
 ### Reward
 
-Scalar
+The reward is a scalar signal sent at each step (it can be zero).  The reward for an action can often be **delayed** - making assigning credit to the correct action difficult.
 
-Delayed
+The reward signal can also be **sparse** - the most extreme cases being environments where all rewards are zero except the terminal state (such as Go or Chess).
 
-Sparse
+A well defined reward signal is a limit for applying reinforcement learning.  Autonomous driving is a good example - the reward function for driving has to be designed to balance safety, speed etc.
 
-A well defined reward signal is a limit for applying RL 
+> The Reward Engineering Principle = As reinforcement learning based AI systems become more general and more autonomous, the design of reward mechanisms that elicit desired behaviours becomes both more important and more difficult - [Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf){ width=50%, height=50% }
 
-Maximising expected return is making an assumption about the nature of our goals
+Maximising expected return is also making an assumption about the nature of our goals
 
-*Goals can be described by the maximization of expected cumulative reward*
-
-Do you agree with this?
+*Goals can be described by the maximization of expected cumulative reward* - do you agree with this?  Think about
 
 - happiness
 - status
 - reputation
 
-Think about the role of emotion in human decision making.  Is there a place for this in RL?
-
-> The Reward Engineering Principle = As reinforcement learning based AI systems become more general and more autonomous, the design of reward mechanisms that elicit desired behaviours becomes both more important and more difficult - [Reinforcement Learning and the Reward Engineering Principle](http://www.danieldewey.net/reward-engineering-principle.pdf){ width=50%, height=50% }
+Think about the role of emotion in human decision making.  Is there a place for this in reinforcement learning
 
 ### Policy $\pi(s)$
 
@@ -315,18 +306,20 @@ $$\pi(s)$$
 $$\pi(s,a|\theta)$$
 $$\pi_\theta(s|a)$$
 
-A policy is rules to select actions
+A policy is
 
-- act randomly
+- rules to select actions (in this state, go left etc)
+- a function that maps state -> action
+- a probability distribution over actions
+
+Some example policies are
+
+- always act randomly
 - always pick a specific action
 - the optimal policy - the policy that maximizes future reward
 
-Policy can be
-
-- parameterized directly (policy gradient methods)
-- generated from a value function (value function methods)
-
-Deterministic or stochastic
+Policies can be parameterized directly (policy gradient methods)
+or generated from a value function (value function methods).  They can also be either deterministic or stochastic.
 
 ### On versus off policy learning
 
@@ -336,6 +329,8 @@ Off policy - evaluate or improve one policy while using another to make decision
 
 Control can be on or off policy - use general policy iteration to improve a policy using an on-policy approximation.  On to off-policyness is a scale (agents vary in degrees).
 
+> Maybe the less we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
+
 Why would we want to learn off-policy?
 
 - we can learn about policies that we don't have
@@ -343,11 +338,9 @@ Why would we want to learn off-policy?
 - we can reuse data
 - on-policy algorithms have to throw away experience after the policy is improved
 
-> Maybe the less we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
-
 Learning from diverse datasets = requires off-policy learning.
 
-![Two policies that generate datasets of experience by acting in the environment.  One policy can only learn from it's own experience - the second policy can learn from both datasets](../../assets/images/section_2/on_off_policy.png){ width=50%, height=50% }
+![Two policies that generate datasets of experience by acting in the environment.  One policy can only learn from it's own experience - the second policy can learn from both datasets](../../assets/images/section_2/on_off_policy.png){ width=40%, height=40% }
 
 Remember that as soon as the weights of any neural networks used by the agent changes, the policy changes.  On-policy agents must throw away experience after they have improved the policy.
 
@@ -379,45 +372,38 @@ A good environment model is very valuable - it allows planning.  Planning is the
 
 A key challenge in model based reinforcement learning is to learn the model. If a good model can be learnt then it's likely to be very valuable.  Dynamic programming (which is introduced in Section 3) uses an environment model to perfectly solve environments.
 
-![Relationships amoung learning, planning and action - Sutton & Barto - Reinforcement Learning: An Introduction](../../assets/images/section_2/learn_plan_act.png){ width=40%, height=40% }
+![Relationships amoung learning, planning and action - Sutton & Barto - Reinforcement Learning: An Introduction](../../assets/images/section_2/learn_plan_act.png){ width=30%, height=30% }
+
+\newpage
 
 ![The Markov Decision Process showing the agent and environment internals](../../assets/images/section_2/mdp_schema_complex.png){ width=50%, height=50% }
 
+\newpage
+
 ## Return
 
-Goal of our agent is to maximize reward
-
-Return ($G_t$) is the total discounted future reward
+Goal of our agent is to maximize total reward - not just the next step but.  Return ($G_t$) is the total discounted future reward
 
 $$ G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^k r_{t+k+1} $$
 
-The discount factor is exponential
+The discount factor is exponential (usually set around 1.0 - 0.9) - rewards in the future become much less valuable than reward sooner.
 
 ### Why discount 
 
-Future is uncertain 
+Future is uncertain = stochastic environment (or maybe even a stochastic policy!).
 
-- stochastic environment
+Matches human thinking - we use hyperbolic discounting in our decision making.  Our discount rates are also variable (based on environmentalstimulus).
 
-Matches human thinking 
+Finance = time value of money.  Money is more valuable today than in a years time because I can invest that money today and earn one years interest on it.
 
-- hyperbolic discounting
-
-Finance 
-
-- time value of money
-
-Makes the maths works
+Makes the maths work = the discount rate allows the finite and infinite horizion problems to be united in the same framework.
 
 - return for infinite horizon problems finite
 - discount rate is $[0,1)$ 
 - can make the sum of an infinite series finite 
-- geometric series
+- this is a geometric series
 
-Can use discount = 1 for
-
-- games with tree-like structures (without cycles)
-- when time to solve is irrelevant (i.e. a board game)
+Can use discount = 1 for games with tree-like structures (without cycles), or when time to solve is irrelevant (i.e. a board game).
 
 \newpage
 

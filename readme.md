@@ -14,8 +14,8 @@ This course is aimed at people with a grasp of supervised learning but no unders
 
 ### Course materials
 
-- [lightweight slides used for lectures (in development)](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf)
-- [medium weight slides for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/old_slides.pdf)
+- [lightweight slides used for lectures (in development)](https://github.com/ADGEfficiency/dsr_rl/blob/master/light_slides.pdf)
+- [medium weight slides for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/medium_slides.pdf)
 - [detailed notes to support lectures and for future study](https://github.com/ADGEfficiency/dsr_rl/blob/master/notes/)
 
 This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@aadgefficiency.com).

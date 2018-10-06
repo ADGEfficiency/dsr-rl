@@ -124,6 +124,8 @@ Each additional dimension doubles the effort to consider all of the combinations
 
 Rule of thumb - 5 training examples for each dimension in the representation
 
+\newpage
+
 ## Importance sampling - [Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
 
 *Reinforcement learning context - importance sampling is used in prioritized experience replay*
@@ -136,7 +138,7 @@ Trying to approximate the expected value of a random variable $X$ under a distri
 
 Not a sampling method  - it's a method of Monte Carlo approximation.  Monte Carlo approximates using the sample mean, assuming that the sampling distribution $x\_p$ is the same as the true distribution $(x~p)$ 
 
-$$ \mathbb{E}[f(x)] = 1/n \sum f(x\_{i}) $$
+$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum f(x_{i}) $$
 
 Could we use infomation about another distribution $q$ to learn the distribution of $p$ and, correct for the fact that we are using another distribution
 
@@ -144,15 +146,15 @@ The importance weight function is the ratio of the two distributions
 
 $$ w(x) = \frac{p(x)}{q(x)}$$
 
-We can then calculate our expected value of $$f(x)$$ using this importance weight
+We can then calculate our expected value of $f(x)$ using this importance weight
 
 $$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
 
 This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$
 
-## Entropy - [Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
+\newpage
 
-Shannon entropy in the context of machine learning and AI - [blog post](https://medium.com/swlh/shannon-entropy-in-the-context-of-machine-learning-and-ai-24aee2709e32)
+## Entropy - [Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
 
 Entropy is a measurement of how much information is contained in a distribution.  Entropy gives us the theoretical lower bound on the number of bits we would need to encode our infomation.  Knowing this lower bound allows us to quantify how much infomation is in our data.
 
@@ -166,7 +168,7 @@ Some policy gradient based agents will have an entropy maximization term in the 
 
 Also known as relative entropy or information gain.  Measures the difference between probability distributions - often used in reinforcement learning to measure/constrain/penalize the distance between policy updates.
 
-$$D_{KL}(P|Q) = \mathbb{E}_{x} \cdot \log \frac{P(x)}{Q(x)}$$
+$$D_{KL}(P||Q) = \mathbb{E}_{x} \cdot \log \frac{P(x)}{Q(x)}$$
 
 \newpage
 
@@ -377,7 +379,7 @@ Vanilla batch norm. struggles with small or non-IID batches
 
 *Reinforcement learning context - AlphaGo Zero uses residual blocks in the value function and policy network*
 
-![Residual blocks](../../assets/images/section_6/res_block.png){ width=30%, height=30% }
+![Residual blocks](../../assets/images/section_6/res_block.png){ width=20%, height=20% }
 
 [He et. al (2015) Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 

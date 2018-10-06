@@ -1,3 +1,9 @@
+# Four - DQN Extensions
+
+Placing the blame, not all experience is made equal, the space between bias and variance.
+
+---
+
 ## Eligibility Traces
 
 ![A unified view - [The Long-term of AI & Temporal-Difference Learning – Rich Sutton](https://www.youtube.com/watch?v=EeMCEQa85tw)](../../assets/images/section_4/unified_view.png){ width=30%, height=30% }

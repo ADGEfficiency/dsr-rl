@@ -1,4 +1,8 @@
-## AlphaGo
+# Six - AlphaGo
+
+A landmark achievement in artificial intelligence.
+
+---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8tq1C8spV_g?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 

@@ -1,34 +1,36 @@
+# Seven - Practical Concerns
+
+Is reinforcement learning right for me?  Best practices in experimenting skillfully.
+
+---
+
 https://gist.github.com/zeyademam/0f60821a0d36ea44eef496633b4430fc
 
 ## Should I use reinforcement learning for my problem?
 
 What is the action space
+
 - what can the agent choose to do
 - does the action change the environment
 - continuous or discrete
 
-What is the reward function
-- does it incentivize behaviour
+What is the reward function - does it incentivize behaviour?
 
-It is a complex problem
-- classical optimization techniques such as linear programming or cross entropy may offer a simpler solution
+It is a complex problem - classical optimization techniques such as linear programming or cross entropy may offer a simpler solution
 
-Can I sample efficiently / cheaply
-- do you have a simulator
+Can I sample efficiently / cheaply - do you have a simulator?
 
 ## Reinforcement learning is hard
 
-Debugging implementations is hard
-- very easy to have subtle bugs that don't break your code
+Debugging implementations is hard - very easy to have subtle bugs that don't break your code.
 
-Tuning hyperparameters is hard
-- tuning hyperparameters can also cover over bugs!
+Tuning hyperparameters is hard - tuning hyperparameters can also cover over bugs!
 
-Results will succeed and fail over different random seeds (same hyperparameters!)
+Results will succeed and fail over different random seeds (same hyperparameters!).
 
-Machine learning is an empirical science, where the ability to do more experiments directly correlates with progress
+**Machine learning is an empirical science, where the ability to do more experiments directly correlates with progress.**
 
-Modern reinforcement learning suffers from sample inefficiency - agents often consume multiple lifetimes of human experience.  This is required.  
+Modern reinforcement learning suffers from sample inefficiency - agents often consume multiple lifetimes of human experience.  This is required.
 
 ## Mistakes and lessons
 
@@ -49,13 +51,12 @@ Not gradient clipping
 
 ### Mistakes of DSR students
 
-Saving agent brain 
-- not saving the optimizer state
+Saving agent brain - not saving the optimizer state
 
 Using too high a learning rate 
 - learning rate is always important!!!
 
-Building both an agent and environment
+**Building both an agent and environment**
 
 Building a state of the art agent (A3C)
 
@@ -89,6 +90,7 @@ Lowering discount rate helps to reduce the magnitude of $Q(s,a)$.
 ## Best practices 
 
 Quick experiments on small test problems
+
 - CartPole for discrete action spaces
 - Pendulum for continuous action spaces
 
@@ -143,11 +145,13 @@ determines initial state visitation (i.e. exploration)
 DQN converges slowly
 
 Compute useful statistics 
+
 - explained variance (for seeing if your value functions are overfitting), 
 - computing KL divergence of policy before and after update (a spike in KL usually means degradation of policy)
 - entropy of your policy
 
 Visualize statistics
+
 - running min, mean, max of episode returns
 - KL of policy update
 - explained variance of value function fitting
@@ -194,6 +198,7 @@ In RL (and supervised learning with long run times) gathering evidence is expens
 ## Get more out of runs
 
 Recommends keeping a detailed work log
+
 - what output am I working on now
 - think out loud - what are the hypotheses, what to do next
 - record of current runs with reminder about what each run is susposed to answer
@@ -207,15 +212,18 @@ Log all the metrics you can
 Try to predict future failures
 
 RL specific
+
 - end to end tests of training
 - gym envs: -v0 environments mean 25% of the time action is ignored and previous action is repeated.  Use -v4 to get rid of the randomness
 
 General ML
+
 - for weight sharing, be careful with both dropout and batchnorm - you need to match additional variables
 - spikes in memory usages suggest validation batch size is too big
 - if you are struggling with the Adam optimizer, try an optimizer without momentum (i.e. RMSprop)
 
 TensorFlow
+
 - `sess.run()` can have a large overhead.  Try to group session calls
 - use the `allow_growth` option to avoid TF reserving memory it doesn't need
 - don't get addicted to TensorBoard - let your expts run!
@@ -225,5 +233,3 @@ TensorFlow
 Important for any optimization system!
 
 > Be careful what you wish for, you might just get it - Nick Bostrom
-
-

@@ -1,10 +1,16 @@
-## Policy gradients
+# Five - Policy Gradients
 
-Previously we generated a policy from a value function 
+Motivations for using policies, how to use a policy, the score function, Actor-Critic, DPG, PPO.
+
+---
+
+## Contrast with value function methods
+
+Previously we generated a policy from a value function.
 
 $$ a = \underset{a}{argmax} Q(s,a) $$
 
-In policy gradients we **parameterize a policy directly**
+In policy gradients we **parameterize a policy directly**.  This policy is a probability distribution over actions.
 
 $$ a \sim \pi(a_t|s_t;\theta) $$
 
@@ -282,3 +288,19 @@ How much better an action is than the average action followed by the policy
 ![fig](../../assets/images/section_5/A3C_algo.png){ width=30%, height=30% }
 
 https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
+
+---
+
+### Proximal Policy Optimization (PPO)
+
+Schulman et. al (2017) Proximal Policy Optimization Algorithms - [paper](https://arxiv.org/pdf/1707.06347.pdf)
+
+(https://medium.com/@jonathan_hui/rl-proximal-policy-optimization-ppo-explained-77f014ec3f12)
+
+*Context - used in Open AI DOTA work (single 1024 node LSTM layer).*
+
+Natural policy gradient (TODO) addresses the convergence problem of policy gradient methods.  The natural policy gradient requires an unscalable calculation of a second-order derivative.  PPO imposes a constraint as a penalty in the objective function.
+
+This soft constraint attempts to make the first order solution closer to the second order solution.  Sometimes this constraint won't work, but the benefit of simplcity outweighs the occasional bad updates.
+
+PPO limits how much we change our policy using the Kullback–Leibler divergence (KLD).  The KLD measures the distance between two distributions - we use it to penalize the distance between policy updates.

@@ -160,13 +160,11 @@ Some policy graident based agents will have an entropy maximization term in the 
 
 ## Kullback–Leibler divergence - [Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
 
-Also known as relative entropy or information gain.
+*Reinforcement learning context - L divergence is used in [Trust Region Policy Optimization (TRPO)](https://arxiv.org/pdf/1502.05477.pdf) and [Proximal Policy Optimization (PPO)](https://arxiv.org/pdf/1707.06347.pdf) to constrain how much a policy changes during learning.  Also used in [C51 - A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) uses the KL divergence, and suggests that the Wassertien metric might be a fruitful next step.*
 
-Measures the difference between probability distributions.
+Also known as relative entropy or information gain.  Measures the difference between probability distributions - often used in reinforcement learning to measure/constrain/penalize the distance between policy upates.
 
-KL divergence is used in [Trust Region Policy Optimization](https://arxiv.org/pdf/1502.05477.pdf) to constrain how much a policy changes during learning. 
-
-Also used in [C51 - A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) uses the KL divergence, and suggests that the Wassertien metric might be a fruitful next step.
+$$D_{KL}(P|Q) = \mathbb{E}_{x} \frac{P(x)}{Q(x)}$$
 
 \newpage
 

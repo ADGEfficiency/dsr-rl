@@ -4,20 +4,11 @@ A landmark achievement in artificial intelligence.
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8tq1C8spV_g?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
 ## IBM Deep Blue
 
 ![First defeat of a world chess champion by a machine in 1997](../../assets/images/section_6/DeepBlue.png){ width=30%, height=30% }
 
-Deep Blue was handcrafted by programmers & chess grandmasters
-
-AlphaGo *learnt* from human moves & self play
-
-AlphaGo evaluated fewer positions 
-
-- **width** - policy network select states more intelligently
-- **depth** - value function evaluate states more precisely
+Deep Blue was handcrafted by programmers & chess grandmasters.  AlphaGo *learnt* from human moves & self play.
 
 ## Why Go?
 
@@ -31,7 +22,9 @@ Long held as the most challenging classic game for artificial intelligence
 Difficult to evaluate positions
 
 - chess you can evaluate positions by summing the value of all the peices
-- go - it's just stones on the board, equal numbers each side
+- Go - it's just stones on the board, equal numbers each side
+
+The width of the search is reduced by the policy network.  The depth of the search is reduced by the value network.
 
 \newpage
 
@@ -62,7 +55,11 @@ Planning algorithm
 - simulated (not actual experience)
 - roll out to end of game (a simulated Monte Carlo return)
 
-![fig](../../assets/images/section_6/MCTS_one.png){ width=30%, height=30% }
+![**MCTS in AlphaGo Zero**. a, Each simulation traverses the tree by selecting the edge with maximum action value $Q$, plus an upper confidence bound $U$ that depends on a stored prior probability $P$ and visit count $N$ for that edge (which is incremented once traversed). b, The leaf node is expanded and the associated position $s$ is evaluated by the
+neural network P     
+
+
+](../../assets/images/section_6/MCTS_one.png){ width=30%, height=30% }
 
 ![MCTS in AlphaGo](../../assets/images/section_6/MCTS_two.png){ width=30%, height=30% }
 

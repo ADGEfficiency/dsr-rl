@@ -1912,7 +1912,7 @@ What is the benefit of a target network?
 
 ---?image=assets/images/section_4/unified_view.png&size=auto 70% 
 
----?image=assets/images/section_4/effect_bootstrap.png&size=auto 70% 
+---?image=assets/images/section_4/effect_bootstrap.png&size=auto 90% 
 
 ---
 
@@ -1932,11 +1932,7 @@ Allow us to tradeoff between bias and variance
 
 In between TD and MC exist a family of approximation methods known as **n-step returns**
 
-![fig](assts/images/section_4/bias_var.png)
-
----?image=assets/images/section_4/bias_var.png&size=auto 90%
-
-*Sutton & Barto*
+![fig](assets/images/section_4/bias_var.png)
 
 ---
 ### Forward and backward view

@@ -1835,13 +1835,9 @@ Stable training
 
 2010 - Tabular Double Q-Learning 
 
-...
-
 2010's - GPUs used for neural networks
 
 2013 - DQN
-
-2015 - DQN (Nature)
 
 2015 - Prioritized experience replay
 
@@ -1850,8 +1846,6 @@ Stable training
 2017 - Distributional Q-Learning
 
 2018 - Rainbow
-
-We will cover these improvements tomorrow 
 
 ---
 ### Recap 

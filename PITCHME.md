@@ -1818,7 +1818,7 @@ Stable training
 - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
 - reduces correlation between the target created for the network and the network itself 
 
----?image=assets/images/section_3/stability.png&size=auto 70% 
+---?image=assets/images/section_3/stability.png&size=auto 40% 
 
 ---?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
 

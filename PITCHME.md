@@ -1955,7 +1955,6 @@ $$R\_t = \frac{1}{2} R\_{t}^{2} + \frac{1}{2} R\_{t}^{4} $$
 $$R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
 
 ![fig](assets/images/section_4/forward_view.png)
-*Sutton & Barto*
 
 ---
 ### The backward view
@@ -1978,13 +1977,11 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 ### The backward view
 
 ![fig](assets/images/section_4/backward_view.png)
-*Sutton & Barto*
 
 ---
 ### Traces in a grid world
 
-![fig](assets/images/section_4/traces_grid.png)
-*Sutton & Barto*
+<img src="assets/images/section_4/traces_grid.png" height="80%" width="80%" align="center">
 
 - one step method would only update the last $Q(s,a)$
 - n-step method would update all $Q(s,a)$ equally

@@ -1910,9 +1910,11 @@ What is the benefit of a target network?
 ### Distributional Q-Learning 
 ### Rainbow
 
----?image=assets/images/section_4/unified_view.png&size=auto 90% 
+---?image=assets/images/section_4/unified_view.png&size=auto 70% 
 
----?image=assets/images/section_4/effect_bootstrap.png&size=auto 90% 
+---?image=assets/images/section_4/effect_bootstrap.png&size=auto 70% 
+
+---
 
 ### Eligibility traces
 

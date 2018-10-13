@@ -7,35 +7,13 @@ adam green
 [adgefficiency.com](http://adgefficiency.com)
 
 ---
-### Course Materials
-
-https://github.com/ADGEfficiency/dsr_rl 
-
-google `dsr_rl`
-
-- lecture notes hosted on GitPages (`PITCHME.md`)
-- practical work - using an existing reinforcement learning library to run experiments.
-- [introducton to tensorflow](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/intro_to_tensorflow.ipynb) and [python tricks](https://github.com/ADGEfficiency/dsr_rl/blob/master/practical/generic_lessons/python_tricks.ipynb) notebooks
-
----
-### Agenda - Today
-
-**today - morning**
+### Course
 
 [one - background & terminology](#section-one)
 
 [two - introduction to reinforcement learning](#section-two)
 
 [three - value functions & DQN](#section-three)
-
-**today - afternoon**
-
-[DQN practical](#section-practical)
-
----
-### Agenda - Tomorrow
-
-**tomorrow - morning**
 
 [four - improvements to DQN](#section-four)
 
@@ -46,10 +24,6 @@ google `dsr_rl`
 [seven - practical concerns](#section-seven)
 
 [eight - a quick look at the state of the art](#section-eight)
-
-**tomorrow - afternoon**
-
-Misc advice + portfolio projects
 
 ---
 ### About Me

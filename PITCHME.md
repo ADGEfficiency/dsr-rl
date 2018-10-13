@@ -1751,7 +1751,8 @@ Ability to **generalize**
 - Joystick buttons (a discrete action space)
 
 ---
-![fig](assets/images/section_3/atari_results.png)
+
+---?image=assets/images/section_3/atari_results.png&size=auto 80% 
 
 ---?image=assets/images/section_3/atari_func.png&size=auto 80% 
 
@@ -1817,13 +1818,7 @@ Stable training
 - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
 - reduces correlation between the target created for the network and the network itself 
 
----
-### Stability techniques
-
-![fig](assets/images/section_3/stability.png)
-
-*Minh – Deep Q-Networks – Deep RL Bootcamp 2017*
-
+---?image=assets/images/section_3/stability.png&size=auto 90% 
 
 ---?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
 

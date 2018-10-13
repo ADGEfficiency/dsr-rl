@@ -33,6 +33,8 @@ For everything else (linear models, random forests etc)
 
 CS 294: Deep Reinforcement Learning, Fall 2017 - Sergey Levine - Berkley - [course materials](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/index.html) - [lecture videos](https://www.youtube.com/playlist?list=PLkFD6_40KJIznC9CDbVTjAF2oyt8_VAe3)
 
+CS 598: Statistical Reinforcement Learning - Nan Jiang - Illinois - [course materials](http://nanjiang.cs.illinois.edu/cs598/)
+
 A (Long) Peek into Reinforcement Learning - [blog post](https://lilianweng.github.io/lil-log/2018/02/19/a-long-peek-into-reinforcement-learning.html)
 
 Practical RL - course in reinforcement learning in the wild - [repo](https://github.com/yandexdataschool/Practical_RL)

@@ -24,7 +24,7 @@ These notes follow [Thomas & Okal (2016) A Notation for Markov Decision Processe
 |$V\ {\pi} (s)$| value function |
 |$Q\ {\pi} (s,a)$| value function |
 |$\theta, \omega$ | function parameters (weights) |
-|$\mathbf{E}[f(x)]$  | expectation of f(x) |
+|$\mathbb{E}[f(x)]$  | expectation of f(x) |
 
 ## Expectations 
 
@@ -114,33 +114,31 @@ In the context of image classification
 
 ## Curse of dimensionality
 
-Refers to phenomena that occur in high dimensional spaces
+Refers to phenomena that occur in high dimensional spaces.  High dimensional spaces means we need more data to support these dimensions.  This is known as the **combinatorial explosion**
 
-High dimensional spaces means we need more data to support these dimensions
+Often we need to consider every possible combination of actions. A high dimensional action space (say a robot with multiple arms) means we need to consider a large number of potential actions.  Each additional dimension doubles the effort to consider all of the combinations.
 
-Often we need to consider every possible combination of actions - a high dimensional action space (say a robot with multiple arms) means we need to consider a large number of potential actions - this is known as the **combinatorial explosion**
-
-Each additional dimension doubles the effort to consider all of the combinations
-
-Rule of thumb - 5 training examples for each dimension in the representation
+Rule of thumb - 5 training examples for each dimension in the representation (for supervised learning).
 
 \newpage
 
-## Importance sampling - [Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling)
+## Importance sampling 
+
+[Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling) - [Introduction video on Youtube](https://www.youtube.com/watch?v=S3LAOZxGcnk)
 
 *Reinforcement learning context - importance sampling is used in prioritized experience replay*
 
-Importance sampling - introduction - [youtube](https://www.youtube.com/watch?v=S3LAOZxGcnk)
+- estimate an unknown distribution using samples from another distribution
 
-Estimate the properties of a distribution we can't sample from (the unknown distribution) using samples from another distribution.  Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution.
+Trying to approximate the expected value of a random variable $X$ under a distribution $P$ 
 
-Trying to approximate the expected value of a random variable $X$ under a distribution $P$ - $\mathbf{E}[X;P]$ 
+$\mathbb{E}[X;P]$ 
 
-Not a sampling method  - it's a method of Monte Carlo approximation.  Monte Carlo approximates using the sample mean, assuming that the sampling distribution $x\_p$ is the same as the true distribution $(x~p)$ 
+Not a sampling method  - it's a method of Monte Carlo approximation.  Monte Carlo approximates using the sample mean, assuming that the sampling distribution $x_{p}$ is the same as the true distribution $(x \sim p)$.
 
 $$ \mathbb{E}[f(x)] = \frac{1}{n} \sum f(x_{i}) $$
 
-Could we use infomation about another distribution $q$ to learn the distribution of $p$ and, correct for the fact that we are using another distribution
+Could we use infomation about another distribution $q$ to learn the distribution of $p$ and, correct for the fact that we are using another distribution.
 
 The importance weight function is the ratio of the two distributions
 
@@ -148,27 +146,74 @@ $$ w(x) = \frac{p(x)}{q(x)}$$
 
 We can then calculate our expected value of $f(x)$ using this importance weight
 
-$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x\_i)}{w(x\_i)} $$
+$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x_i)}{w(x_i)} $$
 
-This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$
+This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$!  Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution.
 
-\newpage
+## Entropy 
 
-## Entropy - [Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
+[Wikipedia](https://en.wikipedia.org/wiki/Entropy_(information_theory)) - [Must know Information Theory concepts in Deep Learning (blog post)](https://towardsdatascience.com/must-know-information-theory-concepts-in-deep-learning-ai-e54a5da9769d)
+
+*Context - entropy used for decision tree construction*
+
+Like it's thermodynamic counterpart, entropy has a number of interpretations
+
+- measure of uncertainty - more uncertainty is higher entropy
+- measure of predictability - less predictable (more random) is higher entropy
+- average infomation gain from observing an experiment - this is a function of the probability of an outcome.  More infomation gained from rarer observations
+
+Deterministic experiment (completely predictable, i.e. a coin with one side) has zero entropy.
 
 Entropy is a measurement of how much information is contained in a distribution.  Entropy gives us the theoretical lower bound on the number of bits we would need to encode our infomation.  Knowing this lower bound allows us to quantify how much infomation is in our data.
 
-$$H=-\sum{i=1}{N} p(x_i) \cdot \log p(x_i)$$
+Taking $log_{2}$ means we can interpret the entropy as measured in bits (i.e. 0 or 1)
+
+$$H(x)=-\sum{i=1}{N} p(x_i) \cdot \log_{2} p(x_i)$$
 
 Some policy gradient based agents will have an entropy maximization term in the loss function - to make the policy as random as possible.
 
-## Kullback–Leibler divergence - [Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
+## Cross-entropy 
 
-*Reinforcement learning context - L divergence is used in [Trust Region Policy Optimization (TRPO)](https://arxiv.org/pdf/1502.05477.pdf) and [Proximal Policy Optimization (PPO)](https://arxiv.org/pdf/1707.06347.pdf) to constrain how much a policy changes during learning.  Also used in [C51 - A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) uses the KL divergence, and suggests that the Wassertien metric might be a fruitful next step.*
+[Wikipedia](https://en.wikipedia.org/wiki/Cross_entropy) - [Must know Information Theory concepts in Deep Learning (blog post)](https://towardsdatascience.com/must-know-information-theory-concepts-in-deep-learning-ai-e54a5da9769d)
 
-Also known as relative entropy or information gain.  Measures the difference between probability distributions - often used in reinforcement learning to measure/constrain/penalize the distance between policy updates.
+*Context - cross entropy is used as a loss function in classification neural networks - minimizing the distance between the output softmax and the true classes*
+
+- measures the distance between or similarity of two probability distributions
+
+For the discrete case the cross entropy is given by
+
+$$H(p,q) = - \sum{x} \cdot log q(x)$$
+
+## Mutual infomation 
+
+[Wikipedia](https://en.wikipedia.org/wiki/Mutual_information) - [Must know Information Theory concepts in Deep Learning (blog post)](https://towardsdatascience.com/must-know-information-theory-concepts-in-deep-learning-ai-e54a5da9769d)
+
+- dependency between two distributions
+- how much infomation about one variable is carried by another
+- measures how much knowing one of these variables reduces uncertainty about the other
+- Quantifies the bits (ie amount of infomation) obtained about one variable through the other
+
+More generalized version of the linear correlation coefficient.  Mutual dependence = 0 guarantees that random variables are independent, zero correlation doesn't.
+
+$$I(X;Y) = \sum{y \in Y} \sum{x \in X} p(x,y) log(\frac{p(x,y)}{p(x)p(y)})$$
+
+Note that for continuous variables, the sums are replaced by integrals.  If $log_{2}$ is used, the units are bits.
+
+- for independent variables, the mutual infomation is zero.
+- for deterministic functions, all infomation is shared -> mutual infomation is the entropy or Y (or X)
+
+## Kullback–Leibler divergence 
+
+[Wikipedia](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) - [Must know Information Theory concepts in Deep Learning (blog post)](https://towardsdatascience.com/must-know-information-theory-concepts-in-deep-learning-ai-e54a5da9769d)
+
+*Reinforcement learning context - L divergence is used in [Trust Region Policy Optimization (TRPO)](https://arxiv.org/pdf/1502.05477.pdf) and [Proximal Policy Optimization (PPO)](https://arxiv.org/pdf/1707.06347.pdf) to constrain how much a policy changes during learning.  Also used in [C51 - A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) uses the KL divergence, and suggests that the Wasserstein metric might be a fruitful next step.*
+
+- measures the difference between probability distributions 
+- KL divergence between $P$ and $Q$ tells us how much infomation we lose when we try to approximate data given by $P$ with $Q$
 
 $$D_{KL}(P||Q) = \mathbb{E}_{x} \cdot \log \frac{P(x)}{Q(x)}$$
+
+Often used in reinforcement learning to measure/constrain/penalize the distance between policy updates.  Also known as relative entropy or information gain. 
 
 \newpage
 

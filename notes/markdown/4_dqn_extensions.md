@@ -151,7 +151,7 @@ ref = TODO
 
 All the reinforcement learning we have seen focuses on the expectation (i.e. the mean)
 
-$$Q(s,a) = \mathbf{E}[G_t] = \mathbf{E}[r + \gamma Q(s',a)] $$
+$$Q(s,a) = \mathbb{E}[G_t] = \mathbb{E}[r + \gamma Q(s',a)]$$
 
 In 2017 DeepMind introduced the idea of the value distribution
 

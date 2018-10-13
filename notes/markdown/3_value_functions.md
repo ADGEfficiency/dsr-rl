@@ -6,15 +6,18 @@ Using a value function, Bellman equation, approximation versus improvement, dyna
 
 ## The value and action-value functions
 
-There are two value functions - the value function $V_\pi(s)$ and the action-value function $Q_\pi(s,a)$.  Both are defined to equal the future expected discounted reward (i.e. the return).  For an MDP where $$t$$ denotes the step number, and $$k$$ is a counter from this step to the end of the episode.
+There are two value functions 
+
+- the value function $V_\pi(s)$ 
+- the action-value function $Q_\pi(s,a)$
+
+Both are defined to equal the future expected discounted reward (i.e. the return), **conditioned on a policy**.
+
+For an MDP where $t$ denotes the step number, and $k$ is a counter from this step to the end of the episode
 
 $$ V_{\pi}(s) = \mathbf{E}_{\pi} [G_t | s_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} $$
 
 $$ Q_{\pi}(s, a) = \mathbf{E}_{\pi} [G_t | s_t, a_t] = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... = \sum_{k=0}^{\infty} \gamma^{k} r_{t+k+1} $$
-
-Expected total reward from state $s$ and action $a$ under policy $\pi$
-
-How good is action $a$ in state $s$
 
 The key difference is that the value function $V_{\pi}(s)$ tells us how good a state is, the action-value function $Q_{\pi}(s,a)$ tells us how good an action is.
 
@@ -24,17 +27,19 @@ This is true even for the same state and action. Both policies take the same act
 
 The difference is that after this transition, the optimal policy will select higher quality actions from that next state until the end of the episode. 
 
-## Using a value function
+\newpage
 
-Imagine you are given the optimal value function for free.  How would you use it?  Assume that
+## Using the optimal value function to take optimal actions
+
+Agents are not often given value functions for free - they must learn them.  This learning process is covered in the section on the Bellman Equation.
+
+Lets imagine that you are given the optimal value function for free.  How would you use it?  Assume that
 
 - given the optimal value function $Q_*(s,a)$
 - we are in state $s$
 - our set of actions $\mathcal{A} = \{a_1, a_2, a_3\}$
 
 How can we act - use the value function to determine which action has the highest expected return.  This is known as a *greedy policy*.
-
-Note that agents are not often given value functions for free - they must learn them.  This learning process is covered in the section on the Bellman Equation.
 
 ![Generating a policy from a value function - the argmax operation selects action $a3$ as the optimal action](../../assets/images/section_3/gen_policy.png){ width=30%, height=30% }
 
@@ -46,6 +51,8 @@ def greedy_policy(state):
     # select action with highest Q
     return np.argmax(q_values)
 ```
+
+The optimal value function removes the need to reason over multiple steps in the MDP - we just take the action that maximizes $Q$ over the next step (because $Q$ contains the expected reward into the future, not just over the next step).
 
 \newpage
 

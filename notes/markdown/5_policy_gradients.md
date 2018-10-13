@@ -60,6 +60,8 @@ More compatible with recurrent neural networks.  Policy gradient methods are oft
 - optimize return directly
 - work in continuous and discrete action spaces
 - works better in high-dimensional action spaces
+- usually on-policy - meaning it is hard to escape the bias of a bad initial policy
+-
 
 **Value functions**
 
@@ -107,7 +109,7 @@ How do we improve it?
 Reward function is not known
 - but we can calculate the *gradient of the expectation of reward*
 
-$$\nabla_{\theta} \mathbf{E}[G_t] = \mathbf{E}[\nabla_{\theta} \log \pi(a|s) \cdot G_t]$$
+$$\nabla_{\theta} \mathbb{E}[G_t] = \mathbb{E}[\nabla_{\theta} \log \pi(a|s) \cdot G_t]$$
 
 We can figure out how to change our parameters without actually knowing the reward function itself
 
@@ -120,13 +122,13 @@ The score function allows us to get the gradient of a function by **taking an ex
 Expectataions are averages
 - use sample based methods to approximate them
 
-$$\nabla_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla_{\theta} \log P(x) \cdot f(x)]$$
+$$\nabla_{\theta} \mathbb{E}[f(x)] = \mathbb{E}[\nabla_{\theta} \log P(x) \cdot f(x)]$$
 
 ![[Derivation of the score function](http://karpathy.github.io/2016/05/31/rl/)](../../assets/images/section_5/score_derivation.png){ width=20%, height=20% }
 
 ## The score function in reinforcement learning
 
-$$\nabla_{\theta} \mathbf{E}[G_t] = \mathbf{E}[\nabla_{\theta} \log \pi(a|s) \cdot G\_t]$$
+$$\nabla_{\theta} \mathbb{E}[G_t] = \mathbb{E}[\nabla_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
 ` gradient of return = expectation of the gradient of the policy * return`
 
@@ -150,7 +152,7 @@ The score function limits us to on-policy learning
 
 ## Policy gradient intuition
 
-$$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
+$$\nabla\_{\theta} \mathbb{E}[G\_t] = \mathbb{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
 $\log \pi(a_t|s_t;\theta)$
 - how probable was the action we picked
@@ -175,8 +177,9 @@ How can we get some the advantages of Temporal Difference methods?
 
 We can introduce a baseline function
 
-- this reduces variance without introducing bias
-- a natural baseline is the value function (weights $w$).
+- this reduces **variance without introducing bias**
+- a natural baseline is the value function (weights $w$)
+- baseline should not be dependent on our policy parameters $\theta$
 
 $$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w))$$
 
@@ -283,7 +286,7 @@ We saw earlier that experience replay is used to make learning more stable & dec
 
 - the advantage function
 
-$$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
+$$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
 
 How much better an action is than the average action followed by the policy
 
@@ -295,16 +298,89 @@ https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow
 
 \newpage
 
-### Proximal Policy Optimization (PPO)
+## Natural Policy Gradients, TRPO and PPO
 
-Schulman et. al (2017) Proximal Policy Optimization Algorithms - [paper](https://arxiv.org/pdf/1707.06347.pdf)
+These three pieces of work can be understood in order.  The maths can get pretty heavy - a high level summary is given below.  The central idea behind all three is that **we want to constrain and limit how much we change a policy each time we do a gradient update**.
 
-(https://medium.com/@jonathan_hui/rl-proximal-policy-optimization-ppo-explained-77f014ec3f12)
+- natural policy gradients - rely on a compuationally intense second order derivative method (inverse of the Fisher infomation matrix)
+- TRPO - 
+- PPO - 
+
+## Natural Policy Gradient
+
+- Kakde (2002) A Natural Policy Gradient - [paper](https://papers.nips.cc/paper/2073-a-natural-policy-gradient.pdf)
+- Natural Policy Gradient Explained - Jonathan Hui - [Medium blog post](https://medium.com/@jonathan_hui/rl-natural-policy-gradient-actor-critic-using-kronecker-factored-trust-region-acktr-58f3798a4a93)
+- Policy gradient methods - Scholarpedia - (http://www.scholarpedia.org/article/Policy_gradient_methods#Natural_Policy_Gradients)
+
+Standard gradient descent will follow the direction of steepest descent.  This is a metric that is defined based on the choice of co-ordinates of the parameters - it is non-covariant.  Ideally we want updates that find gradients no matter the parameterization of our policy.
+
+The exact gradient of the average reward of a policy parameterized by $\theta$:
+
+$$ \nabla \eta(\theta) = \sum \rho^{\pi}(s) \nabla \pi(a;s,\theta)Q^{\pi}(s,a) $$
+
+Regular policy gradients can point towards plateaus.  The natural gradient instead points towards the optimal solution - and finds the greedy action that would be chosen under one step of policy iteration.  **The natural policy gradient helps with convergence**.
+
+The natural gradient is an alternative gradient which is based on the structure of the parameter space.  The natural gradient makes use of the Fisher infomation matrix, which is a matrix to measure the distance between distributions, regardless of the co-ordinates.
+
+Calculating the gradient requires us to take the inverse of the Fisher infomation matrix $F(\theta)$, which is computationally expensive (second order derivative):
+
+$$ {\tilde{\nabla}} \equiv F(\theta)^{-1} \nabla \eta (\theta) $$
+
+The update rule for the natural policy gradient is then:
+
+$$ f \leftarrow f + \nabla log \pi(a_t;s_t,\theta) \nabla log \pi(a_t; s_t, \theta)^T $$
+
+## Trust Region Policy Optimization (TRPO)
+
+- Schulman et. al (2015)  Trust Region Policy Optimization - [paper](https://arxiv.org/pdf/1502.05477.pdf)
+
+Trust region = finding an optimal solution within a certain distance (contrast with line search algorithms which follow graidents wherever they go).
+
+In TRPO we optimize the objective function with a hard constraint
+
+$$ maximize \mathbb{E} \frac{\pi_{\theta}(a_t | s_t)}{\pi_{\theta_old}(a_t | s_t)} A_t ] $$
+
+$$ \text{subject to} \beta \mathbb{E} [KL[\pi_{\theta_old}(\cdot|s_t), \pi_{\theta}(\cdot | s_t)]] \leq \delta $$
+
+This problem is solved by making a linear approximation of the objective, and a quadratic approximation of the constraint.
+
+TODO
+
+## Proximal Policy Optimization (PPO)
+
+- Schulman et. al (2017) Proximal Policy Optimization Algorithms - [paper](https://arxiv.org/pdf/1707.06347.pdf)
+- Proximal Policy Optimization (PPO) Explained - [blog post](https://medium.com/@jonathan_hui/rl-proximal-policy-optimization-ppo-explained-77f014ec3f12)
 
 *Context - used in Open AI DOTA work (single 1024 node LSTM layer).*
 
-Natural policy gradient (TODO) addresses the convergence problem of policy gradient methods.  The natural policy gradient requires an unscalable calculation of a second-order derivative.  PPO imposes a constraint as a penalty in the objective function.
+> Q-learning (with function approximation) fails on many simple problems and is poorly understood, vanilla policy gradient methods have poor data efficiency and robustness; and trust region policy optimization (TRPO) is relatively complicated, and is not compatible with architectures that include noise (such as dropout) or parameter sharing (between the policy and value function, or with auxiliary tasks).
 
-This soft constraint attempts to make the first order solution closer to the second order solution.  Sometimes this constraint won't work, but the benefit of simplcity outweighs the occasional bad updates.
+PPO
 
-PPO limits how much we change our policy using the Kullback–Leibler divergence (KLD).  The KLD measures the distance between two distributions - we use it to penalize the distance between policy updates.
+- shares some of the benefits of TRPO, but is simpler (only first order derivatives) & more sample efficient
+- multiple epochs of batch updates (rather than a single gradient update per sample)
+
+Policy optimization is alternating between sampling data from the policy (i.e. acting) and performing several epochs of optimization.
+
+Natural policy gradient (TODO) addresses the convergence problem of policy gradient methods.  The natural policy gradient requires an unscalable calculation of a second-order derivative and its inverse.  There are two solutions to this problem
+
+1. approximate calculations of the second order derivative & its inverse (computationally expensive) - this is what TRPO & ACKTR do
+2. use a first order solution with soft constraints to approximate the second order solution - this is what PPO does
+
+PPO imposes a constraint as a penalty in the objective function.  This soft constraint attempts to make the first order solution closer to the second order solution.  Sometimes this constraint won't work, but the benefit of simplicity outweighs the occasional bad updates.
+
+PPO limits how much we change our policy using the **Kullback–Leibler divergence (KLD)**.  The KLD measures the distance between two distributions - we use it to penalize the distance between policy updates.
+
+
+We can adjust the size of the trust region dynamically, based on the divergence of the policy (measured using the KLD).  This is controlled using a hyperparamter $\beta$.
+
+The objective function for PPO with an adaptive KLD penalty:
+
+TODO
+
+**We can dynamically adjust $\beta$ based on the value of the KLD**.  For low KLD we can expand the size of the trust region (by increasing $\beta$).
+
+```python
+algorithm TODO
+```
+

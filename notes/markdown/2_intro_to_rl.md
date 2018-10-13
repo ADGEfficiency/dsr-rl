@@ -6,21 +6,22 @@ Context, the Markov Decision Process, four central challenges in reinforcement l
 
 ## What is reinforcement learning
 
-The goal in reinforcement learning is to develop agents that can learn to take actions that maximize a scalar reward signal.  Reinforcement learning is fundamentally about **decision making**
-
-> Goal at DeepMind is to try to use reinforcement learning to solve some of the bigger visions of AI ... it is the paradigm of artificial intelligence ... RL is the paradigm that describes how to learn optimal decisions in any environment - [David Silver](https://www.youtube.com/watch?v=M5a6HasTHs4)
-
-Reinforcement learning is all about **decision making**.  Internally, agents are involved in **data generation** and **target generation**.  There are multiple moving parts in an agent (often supervised learning makes up some of these parts).
-
-##  Biological inspiration
+> Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems - Sutton & Barto - Reinforcement Learning: An Introduction
 
 The reinforcement learning approach is one that is familiar to any human being.  It is learning through action.
 
-To learn chess in a supervised manner, we would learn moves from textbooks of the games of grandmasters.
+- to learn chess in a supervised manner, we would learn moves from textbooks of the games of grandmasters.
+- to learn chess in a reinforcement learning manner, we would learn chess by playing ourselves.
 
-To learn chess in a reinforcement learning manner, we would learn chess by playing ourselves.
+Reinforcement learning is fundamentally about **decision making**.  An agent learns to act in sequential decision making problem.
 
-> Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems - Sutton & Barto - Reinforcement Learning: An Introduction
+The goal in reinforcement learning is to develop agents that can learn to take actions that maximize a scalar reward signal.
+
+> Goal at DeepMind is to try to use reinforcement learning to solve some of the bigger visions of AI ... it is the paradigm of artificial intelligence ... RL is the paradigm that describes how to learn optimal decisions in any environment - [David Silver](https://www.youtube.com/watch?v=M5a6HasTHs4)
+
+Agents **generate data through action**.  They also create **targets for supervised learning**.  There are multiple moving parts in an agent, which makes reinforcement learning non-IID and non-stationary.
+
+##  Biological inspiration
 
 > Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex - Mnih et. al (2015) Human-level control through deep reinforcement learning
 
@@ -40,11 +41,13 @@ Variable rewards
 
 ### Schultz 1990 experiments
 
+[A History of Reinforcement Learning - Prof. A.G. Barto](https://www.youtube.com/watch?v=ul6B2oFPNDM) - [Schultz (1997) - A Neural Substrate of Prediction and Reward](https://github.com/ADGEfficiency/dsr-rl/blob/master/literature/classic_rl/1997_Schultz_neural_substrate_reward.pdf)
+
 **Dopamine** - connection between TD error and dopamine in the brain.  Dopamine signal can be modelled as a TD error.  Phasic activity of dopamine is trigged by a reward.  With continued trials, the dopamine signal moves back towards the time of the prediction (which is the same that the TD error does - a  backup). (https://www.youtube.com/watch?v=ul6B2oFPNDM)
 
 The phasic activity of mesencephalic dopamine neurons signals the error between and old and new estimate of expected future reward
 
-![Theory around how the actor-critic model might work in the brain](../../assets/images/section_2/ac_brain.png){ width=50%, height=50% }
+![Theory around how the actor-critic model might work in the brain](../../assets/images/section_2/ac_brain.png){ width=30%, height=30% }
 
 ## Applications
 
@@ -56,11 +59,15 @@ David Silver gives the following
 - play games
 - learn sequential algorithms - attention, memory, conditional computation, activations
 
+All of these problems involve **decision making**.
+
 \newpage
 
 ## Related methods 
 
 ![Faces of RL - David Silver Lecture 1](../../assets/images/section_2/faces_rl.png){ width=35%, height=35% }
+
+A **domain specific** algorithm for your problem - if you have one, use it!  Reinforcement learning is about generalization - but this generalization comes at a cost (that domain specific problems don't have).
 
 **Evolutionary methods** - [wikipedia](https://en.wikipedia.org/wiki/Evolutionary_algorithm)
 
@@ -76,6 +83,7 @@ David Silver gives the following
 - generate a random sampling of data (i.e. an episode)
 - update parameters of the model to produce a better sample in the next iteration
 - this involves minimizing the KL-divergence
+- also see **Covariance Matrix Adaptation (CMA)**
 
 **Linear programming** [wikipedia](https://en.wikipedia.org/wiki/Linear_programming)
 
@@ -87,15 +95,15 @@ David Silver gives the following
 - primarily concerned with control of linear systems
 - commonly used in electrical engineering
 
-A **domain specific** algorithm for your problem - if you have one, use it!
-
 \newpage
 
 ## Context within machine learning
 
-![Three areas of machine learning that differ based on the feedback signal available to the learner](../../assets/images/section_2/sl_unsl_rl.png)
+![Three areas of machine learning.  The difference is the feedback signal available to the learner.](../../assets/images/section_2/sl_unsl_rl.png){ width=30%, height=30% }
 
 ### Supervised learning 
+
+Dataset and labels.
 
 Feedback is the target (one per sample).
 
@@ -110,6 +118,8 @@ Feedback is the target (one per sample).
 
 ### Unsupervised learning 
 
+Dataset, no labels.
+
 Feedback from data structures, adversarial training.
 
 |features|
@@ -118,6 +128,8 @@ Feedback from data structures, adversarial training.
 |$(1.2, 0.3)$|
 
 ### Reinforcement learning 
+
+No dataset, no labels.
 
 Feedback from state transitions and a scalar reward signal.
 
@@ -132,14 +144,13 @@ Once we store a list of these experience tuples in our agents memory, we then ne
 This is the second task that agents need to do - **label their experience**.  Once the experience is labelled, supervised learning techniques (such as stochastic gradient descent) can be used to fit a function that predicts the target.  Reinforcement learning uses supervised learning as a tool to learn functions.
 
 $$[experience, experience, ..., experience]$$
-
 $$[(s_0, a_0, r_1, s_1), (s_1, a_1, r_2, s_2), ..., (s_n, a_n, r_n, s_n)] $$
 
 Success in modern reinforcement learning (2013 onwards) is in part due to making use of advances in supervised learning (deep neural networks) to better approximate functions the agent chooses to learn.
 
 ### Reinforcement learning is not
 
-NOT an alternative method to use instead of a random forest, neural network etc.  “I’ll try to solve this problem using a convolutional nn or RL” **this is nonsensical**.
+NOT an alternative method to use instead of a random forest, neural network etc.  “I’ll try to solve this problem using a convolutional nn or RL” - **this is nonsensical**.
 
 Neural networks (supervised techniques in general) are a tool that reinforcement learners can use to learn or approximate functions
 
@@ -170,13 +181,7 @@ In reinforcement learning a common function we want to learn is a policy - a fun
 
 The mathematical framework for reinforcement learning.
 
-![The basic Markov Decision Process framework for reinforcement learning](../../assets/images/section_2/mdp_schema_simple.png){ width=40%, height=40% }
-
-![The MDP generates data which an agent uses to learn](../../assets/images/section_2/rl_process.png){ width=40%, height=40% }
-
 ### Markov property
-
-Can be a requirement to guarantee convergence
 
 Future is conditional only on the present
 
@@ -184,7 +189,15 @@ Can make prediction or decisions using only the current state
 
 Any additional information about the history of the process will not improve our decision
 
-$$ P(s\_{t+1} | s\_{t}, a\_{t}) = P(s\_{t+1}|s\_t,a\_t...s\_0,a\_0)$$
+$$ P(s_{t+1} | s_{t}, a_{t}) = P(s_{t+1}|s_t, a_t...s_0, a_0)$$
+
+Can be a requirement to guarantee convergence (often also require tables or linear function approximators).
+
+![The basic Markov Decision Process framework for reinforcement learning](../../assets/images/section_2/mdp_schema_simple.png){ width=20%, height=20% }
+
+![The MDP generates data which an agent uses to learn](../../assets/images/section_2/rl_process.png){ width=20%, height=20% }
+
+\newpage
 
 ### Formal definition of a MDP
 

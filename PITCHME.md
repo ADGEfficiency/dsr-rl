@@ -23,7 +23,7 @@ six - AlphaGo & AlphaGo Zero
 
 seven - practical concerns
 
-eight - a quick look at the state of the art
+eight - deep reinforcement learning doesn't work yet
 
 ---
 ### About Me
@@ -2106,9 +2106,9 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 
 ![fig](assets/images/section_8/beyond_ex.png)
 
----?image=assets/images/section_8/value_dist.png&size=auto 90% 
+---?image=assets/images/section_8/value_dist.png&size=auto 70% 
 
----?image=assets/images/section_8/value_dist_results.png&size=auto 90% 
+---?image=assets/images/section_8/value_dist_results.png&size=auto 70% 
 
 ---
 ## four
@@ -2209,8 +2209,7 @@ This corresponds to approx. 750,000 actions a Q-Learner would need to argmax acr
 
 We also lose shape of the action space by discretization
 
----
-![fig](assets/images/section_5/disc_cont_act.png)
+---?image=assets/images/section_5/disc_cont_act.png&size=auto 70% 
 
 ---
 ### Motivation - optimize return directly
@@ -2406,17 +2405,12 @@ We parameterize two functions
 
 We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
 
----
-
-![fig](assets/images/section_5/ac_arch.png)
-
-*Sutton & Barto*
+---?image=assets/images/section_5/ac_arch.png&size=auto 70% 
 
 ---
 ### Actor-Critic Algorithm
 
 ![fig](assets/images/section_5/ac_algo.png)
-*Sutton & Barto*
 
 ---
 ## five 
@@ -2495,8 +2489,6 @@ Deterministic integrates over only the state space -> leading to better sample e
 
 ![fig](assets/images/section_5/DPG_results.png)
 
-The difference between stochastic (green) and deterministic (red) increases with the dimensionality of the action space
-
 ---
 ## five 
 ### motivations for policy gradients
@@ -2539,11 +2531,8 @@ $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 How much better an action is than the average action followed by the policy
 
 ---
-### A3C algorithm
 
-![fig](assets/images/section_5/A3C_algo.png)
-
-https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
+---?image=assets/images/section_5/A3C_algo.png&size=auto 70% 
 
 ---
 ### Recap
@@ -2569,10 +2558,6 @@ What is the motivation behind asynchronous learning in A3C?
 ### <span style="color:#66ff66">AlphaGo</span>
 ### AlphaGo Zero
 ### Residual networks
-
----
-
-![fig](assets/images/section_6/AG_lit.png)
 
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8tq1C8spV_g?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -2680,9 +2665,6 @@ Convenient properties of Go
 ### Residual networks
 
 ---
-![fig](assets/images/section_6/Zero_lit.png)
-
----
 ### Key ideas in AlphaGo Zero
 
 #### Simpler
@@ -2777,6 +2759,8 @@ Instead of learning $ F(x) = H(x) $
 We learn the residual $ F(x) = H(x) - x $ 
 
 And can get $ H(x) = F(x) + x $ 
+
+---
 
 ![fig](assets/images/section_6/res_block.png)
 
@@ -3061,10 +3045,7 @@ Deep RL is hard and sample inefficient
 
 ---
 ## eight <a id="section-eight"></a>
-### <span style="color:#66ff66">Deep RL doesn't work yet</span>
-### auxillary loss functions 
-### inverse reinforcement learning 
-### world models
+### <span style="color:#66ff66">Deep reinforcement learning doesn't work yet</span>
 
 ---
 
@@ -3075,7 +3056,11 @@ Deep RL is hard and sample inefficient
 ---
 ### Modern RL is sample inefficient
 
+---
+
 ![fig](assets/images/section_4/rainbow_fig1.png)
+
+---
 
 To pass the 100% median performance
 - Rainbow = 18 million frames = 83 hours of play
@@ -3148,25 +3133,6 @@ The future
 - model learning fixes a bunch of problems - difficulty is learning one
 
 Many things need to go right for RL to work - success stories are the exception, not the rule
-
----
-![fig](assets/images/section_8/lit_aux.png)
-
-*https://www.youtube.com/watch?v=mckulxKWyoc*
-
----
-
-![fig](assets/images/section_8/aux_results.png)
-
----
-
-![fig](assets/images/section_8/inverse_rl_lit.png)
-
----
-
-![fig](assets/images/section_8/inverse_1.png)
-
-*Chelsea Finn – Berkley Deep RL Bootcamp 2017*
 
 ---
 

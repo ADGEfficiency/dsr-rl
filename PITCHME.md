@@ -548,13 +548,6 @@ Sutton & Barto - Reinforcment Learning: An Introduction
 Mnih et. al (2015) Human-level control through deep reinforcement learning
 >Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
 
-### Habit formation
-
-Cue -> Routine -> Reward
-
-State -> Action -> Reward
-
-
 ---
 ###  A new level of intelligence
 
@@ -954,9 +947,7 @@ Model can be used to simulate trajectories for **planning**
 
 ---
 
-![fig](assets/images/section_2/learn_plan_act.png)
-
-*Sutton & Barto - Reinforcement Learning: An Introduction*
+<img src="assets/images/section_2/learn_plan_act.png" height="80%" width="80%" alt=" Sutton & Barto - Reinforcement Learning: An Introduction" align="center">
 
 ---
 

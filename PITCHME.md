@@ -358,7 +358,7 @@ Larger batch size -> larger learning rate
 
 ---
 
-<img src="assets/images/section_1/lr_batch.png" height="100%" width="100%" alt="https://miguel-data-sc.github.io/2017-11-05-first/" align="center">
+<img src="assets/images/section_1/lr_batch.png" height="80%" width="80%" alt="https://miguel-data-sc.github.io/2017-11-05-first/" align="center">
 
 ---
 ### Batch size

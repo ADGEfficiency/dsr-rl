@@ -6,8 +6,7 @@ This project is built and maintained by Adam Green - [adam.green@adgefficiency.c
 
 ### Materials
 
-- [lightweight slides used for lectures (in development)](https://github.com/ADGEfficiency/dsr_rl/blob/master/light_slides.pdf)
-- [medium weight slides for lectures](https://github.com/ADGEfficiency/dsr_rl/blob/master/medium_slides.pdf)
+- slides for lectures - [pdf](https://github.com/ADGEfficiency/dsr_rl/blob/master/medium_slides.pdf) - [GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master?grs=github&t=simple#/)
 - [detailed notes to support lectures and for future study](https://github.com/ADGEfficiency/dsr_rl/blob/master/notes/)
 
 This repo also has [machine learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.  Further resources (video lectures, blog posts etc) are listed in [dsr-rl/resources.md](https://github.com/ADGEfficiency/dsr-rl/blob/master/readme.md).

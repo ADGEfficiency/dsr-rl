@@ -1,6 +1,6 @@
 ## a glance at reinforcement learning
 
-adam green  
+Adam Green  
 
 [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
 
@@ -9,21 +9,21 @@ adam green
 ---
 ### Course
 
-[one - background & terminology](#section-one)
+one - background & terminology
 
-[two - introduction to reinforcement learning](#section-two)
+two - introduction to reinforcement learning
 
-[three - value functions & DQN](#section-three)
+three - value functions & DQN
 
-[four - improvements to DQN](#section-four)
+four - improvements to DQN
 
-[five - policy gradients & Actor Critic](#section-five)
+five - policy gradients & Actor Critic
 
-[six - AlphaGo & AlphaGo Zero](#section-six)
+six - AlphaGo & AlphaGo Zero
 
-[seven - practical concerns](#section-seven)
+seven - practical concerns
 
-[eight - a quick look at the state of the art](#section-eight)
+eight - a quick look at the state of the art
 
 ---
 ### About Me
@@ -357,7 +357,7 @@ Larger batch size -> larger learning rate
 - we can take larger steps
 
 ---
-![lr_batch](assets/images/section_1/lr_batch.png)
+![lr_batch](assets/images/section_1/lr_batch.png){ width=10%, height=10% }
 
 Larger batch size -> larger optimal learning rate
 

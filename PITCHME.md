@@ -2106,9 +2106,9 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 
 ![fig](assets/images/section_8/beyond_ex.png)
 
----?image=assets/images/section_4/value_dist.png&size=auto 90% 
+---?image=assets/images/section_8/value_dist.png&size=auto 90% 
 
----?image=assets/images/section_4/value_dist_results.png&size=auto 90% 
+---?image=assets/images/section_8/value_dist_results.png&size=auto 90% 
 
 ---
 ## four

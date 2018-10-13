@@ -65,8 +65,7 @@ These slides are designed as both a **future reference** and slides for today
 ### Where to go next 
 
 Textbook
-[Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in
-  progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
+[Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
 
 Video lectures
 [David Silver's 10 lecture series on YouTube](https://www.youtube.com/watch?v=2pWv7GOvuf0)
@@ -3106,9 +3105,11 @@ Only difference is the random seed!
 
 Machine learning adds more dimensions to your space of failure cases
 
-![fig](assets/images/section_8/work_ml.png)
+RL adds an additional dimension - **random change**
 
-RL adds an additional dimension - random change
+---?image=assets/images/section_8/work_ml.png&size=auto 70% 
+
+---
 
 **A sample inefficient and unstable training algorithm heavily slows down your rate of productive research**
 
@@ -3120,6 +3121,7 @@ RL adds an additional dimension - random change
 ![fig](assets/images/section_8/work_research.png)
 
 Make learning eaiser
+
 - ability to generate near unbounded amounts of experience
 - problem is simplified into an eaiser form
 - you can introduce self-play into learning

@@ -295,11 +295,12 @@ High learning rate
 
 Always intentionally set it
 
-`from keras.models import Sequential`
+```python
+from keras.models import Sequential
 
-`#  don't do this!`
-
-`model.compile(optimizer='rmsprop', loss='mse')`
+#  don't do this!
+model.compile(optimizer='rmsprop', loss='mse')
+```
 
 `#  do this`
 

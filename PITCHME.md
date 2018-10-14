@@ -7,23 +7,22 @@ Adam Green
 [adgefficiency.com](http://adgefficiency.com)
 
 ---
-### Course
 
-one - background & terminology
+*one* - background & terminology
 
-two - introduction to reinforcement learning
+*two* - introduction to reinforcement learning
 
-three - value functions & DQN
+*three* - value functions & DQN
 
-four - improvements to DQN
+*four* - improvements to DQN
 
-five - policy gradients & Actor Critic
+*five* - policy gradients & Actor Critic
 
-six - AlphaGo & AlphaGo Zero
+*six* - AlphaGo & AlphaZero
 
-seven - practical concerns
+*seven* - practical concerns
 
-eight - deep reinforcement learning doesn't work yet
+*eight* - deep reinforcement learning doesn't work yet
 
 ---
 ### About Me
@@ -43,23 +42,15 @@ Energy Engineer at ENGIE UK
 Energy Data Scientist at Tempus Energy
 
 ---
-### Goals for today and tomorrow
+### Goals for the course
 
 Introduction to **concepts, ideas and terminology** 
 
 Familiarity with important literature
 
-Experience with running reinforcement learning experiments
-
-Guidance on reinforcement learning project ideas
-
-Working with existing code bases
-
----
-### Goals for today and tomorrow
 To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
 
-These slides are designed as both a **future reference** and slides for today
+These slides are designed as both a **future reference** and slides for today.  The pdf notes provided in `dsr-rl/notes` are a more detailed look
 
 ---
 ### Where to go next 

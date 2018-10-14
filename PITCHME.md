@@ -48,9 +48,9 @@ Introduction to **concepts, ideas and terminology**
 
 Familiarity with important literature
 
-To really learn RL, you will need to dedicate significiant amount of time (same as if you want to learn NLP, convolution, GANs etc)
-
-These slides are designed as both a **future reference** and slides for today.  The pdf notes provided in `dsr-rl/notes` are a more detailed look
+Course material
+- slides
+- detailed notes at `dsr-rl/notes`
 
 ---
 ### Where to go next 

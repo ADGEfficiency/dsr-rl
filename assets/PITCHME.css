@@ -20,11 +20,20 @@
   list-style: none;
 }
 
-/*  */
+/* tables */
+.reveal table {
+  display: block;
+  text-align: left;
+  font-size: 26px;
+  list-style: none;
+}
+
+/* slide headers */
 h3 {
   font-size: 30px;
 }
 
+/* custom class for references to images */
 .image_footer {
   position: fixed;
   text-align: center;

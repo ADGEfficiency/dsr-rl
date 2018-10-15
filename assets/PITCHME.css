@@ -14,7 +14,6 @@
 
 /* unordered lists */
 .reveal ul {
-  display: block;
   font-size: 26px;
   list-style: none;
 }

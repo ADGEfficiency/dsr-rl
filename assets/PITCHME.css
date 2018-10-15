@@ -32,14 +32,13 @@
 /* code */
 .reveal code {
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 26px;
-  list-style: none;
 }
 
 /* slide headers */
 h3 {
-  font-size: 28pt;
+  font-size: 26pt;
 }
 
 /* custom class for references to images */

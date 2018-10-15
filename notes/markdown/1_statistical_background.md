@@ -32,7 +32,7 @@ These notes follow [Thomas & Okal (2016) A Notation for Markov Decision Processe
 
 ` expectation = probability * magnitude `
 
-$$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
+$$ \mathbf{E} [f(x)] = \sum_{x} p(x) \cdot f(x) $$
 
 Expectations allow us to **approximate by sampling**
 
@@ -124,31 +124,39 @@ Rule of thumb - 5 training examples for each dimension in the representation (fo
 
 ## Importance sampling 
 
-[Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling) - [Introduction video on Youtube](https://www.youtube.com/watch?v=S3LAOZxGcnk)
+[Wikipedia](https://en.wikipedia.org/wiki/Importance_sampling) - [Introduction video on Youtube](https://www.youtube.com/watch?v=S3LAOZxGcnk) - 
 
 *Reinforcement learning context - importance sampling is used in prioritized experience replay*
 
-- estimate an unknown distribution using samples from another distribution
+Importance sampling = a variant of Monte Carlo approximation - it's a method of approximating expectations.
 
-Trying to approximate the expected value of a random variable $X$ under a distribution $P$ 
+If we had access to a probability distribution we can approximate the expectation analytically.  We sum across all the possible values of the function $f(x)$ and multiply by the probability of that value occurring:
 
-$\mathbb{E}[X;P]$ 
+$$ \mathbf{E}[f(x)] = \sum_{x} p(x) \cdot f(x) $$
 
-Not a sampling method  - it's a method of Monte Carlo approximation.  Monte Carlo approximates using the sample mean, assuming that the sampling distribution $x_{p}$ is the same as the true distribution $(x \sim p)$.
+If we don't have access to the distribution we could instead approximate the expectation using Monte Carlo, by looking at the sample mean across $n$ samples.  Here are sampling from the true distribution $x \sim p$.  This means our sample expectation will converge to the true exepcation of the distribution $p(x)$:
 
-$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum f(x_{i}) $$
+$$ \mathbf{E}[f(x)] = \frac{1}{n} \sum_{i=1}^{n} f(x_i) $$
 
-Could we use infomation about another distribution $q$ to learn the distribution of $p$ and, correct for the fact that we are using another distribution.
+Now lets imagine that we could only take samples from a different distribution $x \sim q$.  This will have a different expectation (because the probabilities of drawing a sample $x$ are different):
 
-The importance weight function is the ratio of the two distributions
+$$ \mathbf{E}[f(x)] = \sum_{x} q(x) \cdot f(x) $$
 
-$$ w(x) = \frac{p(x)}{q(x)}$$
+The magic of importance sampling is that we can use these samples $q(x)$ to improve our approximation of the distribution we can't sample from $p(x)$.  If we multiply our true distribution by the probabilities of our sample distribution:
 
-We can then calculate our expected value of $f(x)$ using this importance weight
+$$ \mathbf{E}[f(x)] = \sum_{x} p(x) \cdot f(x) \cdot \frac{q(x)}{q(x)} $$
 
-$$ \mathbb{E}[f(x)] = \frac{1}{n} \sum \frac{f(x_i)}{w(x_i)} $$
+We end up being able to take a sample expectation according to the sampling distribution $q(x)$:
 
-This is an unbiased approximation, and can also be lower variance than using the sample distribution $p$!  Sampling from one distribution allows to lower the variance of our estimate of the expectation of our unknown distribution.
+$$ \mathbf{E}[f(x)] = \frac{1}{n} \sum_{i=1}^{n} f(x_i) \frac{p(x_i)}{q(x_i)} $$
+
+The ratio of the two probabilities is called the importance weight:
+
+$$ w(x) = \frac{p(x)}{q(x)} $$
+
+$$ \mathbf{E}[f(x)] = \frac{1}{n} \sum_{i=1}^{n} \cdot f(x_i) \cdot w(x_i) $$
+
+Note that we do need to know the probabilities for both $p(x_i)$ and $q(x_i)$ - i.e. how likely the samples were.  But we only need to know $f(x)$ as sampled from the distribution $q(x)$ - i.e. we don't need to know what the function was under the true distribution $p(x)$.
 
 ## Entropy 
 

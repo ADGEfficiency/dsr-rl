@@ -250,7 +250,7 @@ Instability
 Difficult to train
 
 ---
-### iid
+### IID
 
 Fundamental assumption in statistical learning
 
@@ -259,6 +259,7 @@ Fundamental assumption in statistical learning
 In statistical learning one always assumes the training set is independently drawn from a fixed distribution
 
 ---
+
 ## one 
 ### nomenclature & statistics background
 ### a few things about training neural networks
@@ -413,64 +414,14 @@ We use the mean and variance of the batch to normalize activations
 ### Batch renormalization
 
 Vanilla batch norm. struggles with small or non-iid batches 
+
 - the estimated statistics are worse
-
 - vanilla batch norm. uses two different methods for normalization during training & testing
-
 - batch renormalization uses a single algorithm for both training & testing
 
 ---
-### Recap
-
-Three sources of generalization error
-- ?
-- ?
-- ?
-
-Missing relevant patterns in data = ?
-
-Seeing patterns that aren't there = ? 
-
-One advantage & disadvantage of lookup tables
-- advantage = ?
-- disadvantage = ? 
-
-iid = ? and ? distributed 
-
-Larger batches -> ? learning rate
-
-Why do we pass in `None` for the first dimension in TensorFlow
-`tf.placeholder(shape=(None, 14, 2))`
-
----
-### Recap
-
-Three sources of generalization error
-- bias
-- variance
-- noise
-
-Missing relevant patterns in data = bias
-
-Seeing patterns that aren't there = variance 
-
-One advantage & disadvantage of lookup tables
-- advantage = stability
-- disadvantage = no aliasing between states, curse of dimensionality
-
-iid = independent and identically distributed 
-
-Larger batches -> larger learning rate
-- better estimation of the gradient
-
-Why do we pass in `None` for the first dimension in TensorFlow
-`tf.placeholder(shape=(None, 14, 2))`
-
-- first dimension is the batch dimension
-
----
-## two <a id="section-two"></a>
-### <span style="color:#66ff66">introduction to reinforcement learning</span>
+## two 
+### introduction to reinforcement learning
 ### four central challenges
 ### Markov Decision Processes
 
@@ -595,9 +546,9 @@ $$(s_n, a_n, r_n, s_n)] $$
 What should we do with this dataset?
 
 ---
-## two <a id="section-two"></a>
+## two 
 ### introduction to reinforcement learning
-### <span style="color:#66ff66">four central challenges</span>
+### four central challenges
 ### Markov Decision Processes
 
 ---
@@ -701,10 +652,10 @@ which action gave me this reward
 learning quickly, squeezing information from data
 
 ---
-## two <a id="section-two"></a>
+## two
 ### introduction to reinforcement learning
 ### four central challenges
-### <span style="color:#66ff66">Markov Decision Processes</span>
+### Markov Decision Processes
 
 ---
 ### Markov Decision Processes

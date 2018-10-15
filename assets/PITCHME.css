@@ -14,11 +14,13 @@
 
 /* unordered lists */
 .reveal ul {
+  display: block;
+  text-align: left;
   font-size: 26px;
   list-style: none;
 }
 
-/* unordered lists */
+/*  */
 h3 {
-  font-size: 30px;
+  font-size: 32px;
 }

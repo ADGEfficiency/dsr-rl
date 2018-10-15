@@ -1,19 +1,5 @@
-.reveal .slides {
-  height: 100%;
-  top: 0;
-  margin-top:0;
-  box-shadow: none;
-}
-
 /* images */
 .reveal section img {
-  border: 0;
-  box-shadow: none;
-}
-
-/* quotes  */
-.reveal blockquote {
-  width: 100%;
   border: 0;
   box-shadow: none;
 }
@@ -24,26 +10,5 @@
   font-size: 34px;
   margin-left: 0;
   margin-right: 0;
-  box-shadow: none;
-}
-
-/* unordered lists */
-.reveal ul {
-  display: block;
-  font-size: 30px;
-}
-
-/* ordered lists */
-.reveal ol {
-  display: block;
-  font-size: 30px;
-}
-
-/* tables */
-.reveal table {
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-  font-size: 30px;
   box-shadow: none;
 }

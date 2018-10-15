@@ -101,7 +101,9 @@ Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https:
 
 Weighted average of all possible values (the mean)
 
-`expected_value = probability * magnitude`
+```python
+expected_value = probability * magnitude
+```
 
 $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 

@@ -17,7 +17,7 @@
 }
 
 /* lists */
-.reveal ul ol {
+.reveal ul, ol {
   display: block;
   text-align: left;
   font-size: 26px;

@@ -505,10 +505,11 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 ### learning through action
 
 ---
-![fig](assets/images/section_2/mdp_schema_simple.png)
+
+<img src="assets/images/section_2/mdp_schema_simple.png" height="80%" width="80%" align="top">
 
 ---
-![fig](assets/images/section_2/rl_process.png)
+<img src="assets/images/section_2/rl_process.png" height="80%" width="80%" align="top">
 
 ---
 ### Contrast with supervised learning 

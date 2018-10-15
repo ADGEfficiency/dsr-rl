@@ -259,9 +259,9 @@ Fundamental assumption in statistical learning
 In statistical learning one always assumes the training set is independently drawn from a fixed distribution
 
 ---
-## one <a id="section-one"></a>
+## one 
 ### nomenclature & statistics background
-### <span style="color:#66ff66">a few things about training neural networks</span>
+### a few things about training neural networks
 
 ---
 ### A few things about training neural networks
@@ -348,7 +348,7 @@ Larger batch size -> larger learning rate
 
 ---
 
-<img src="assets/images/section_1/lr_batch.png" height="80%" width="80%" align="center">
+<img src="assets/images/section_1/lr_batch.png" height="80%" width="80%" align="top">
 
 <div class="image_footer">https://miguel-data-sc.github.io/2017-11-05-first/</div>
 

@@ -25,7 +25,8 @@
   display: block;
   text-align: center;
   font-size: 26px;
-  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* code */

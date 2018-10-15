@@ -1,13 +1,13 @@
-/* /1* images *1/ */
-/* .reveal section img { */
-/*   border: 0; */
-/*   box-shadow: none; */
-/* } */
+/* images */
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}
 
-/* /1* adjust body text *1/ */
-/* .reveal p { */
-/*   text-align: left; */
-/*   font-size: 32px; */
-/*   margin-left: 0; */
-/*   margin-right: 0; */
-/* } */
+/* adjust body text */
+.reveal p {
+  text-align: left;
+  font-size: 32px;
+  margin-left: 0;
+  margin-right: 0;
+}

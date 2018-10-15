@@ -1066,9 +1066,9 @@ Linear functions are appropriate with some agents or environments
 Modern reinforcement learning is based on using neural networks 
 
 ---
-## three <a id="section-three"></a> 
+## three 
 ### value functions
-### <span style="color:#66ff66">Bellman Equation </span>
+### Bellman Equation
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN

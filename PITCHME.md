@@ -8,21 +8,21 @@ Adam Green
 
 ---
 
-*one* - background & terminology
+**one** - background & terminology
 
-*two* - introduction to reinforcement learning
+**two** - introduction to reinforcement learning
 
-*three* - value functions & DQN
+**three** - value functions & DQN
 
-*four* - improvements to DQN
+**four** - improvements to DQN
 
-*five* - policy gradients & Actor Critic
+**five** - policy gradients & Actor Critic
 
-*six* - AlphaGo & AlphaZero
+**six** - AlphaGo & AlphaZero
 
-*seven* - practical concerns
+**seven** - practical concerns
 
-*eight* - deep reinforcement learning doesn't work yet
+**eight** - deep reinforcement learning doesn't work yet
 
 ---
 ### About Me
@@ -300,15 +300,12 @@ from keras.models import Sequential
 
 #  don't do this!
 model.compile(optimizer='rmsprop', loss='mse')
+
+#  do this
+from keras.optimizers import RMSprop
+opt = RMSprop(lr=0.001)
+model.compile(optimizer=opt, loss='mse')
 ```
-
-`#  do this`
-
-`from keras.optimizers import RMSprop`
-
-`opt = RMSprop(lr=0.001)`
-
-`model.compile(optimizer=opt, loss='mse')`
 
 ---
 ### Batch size

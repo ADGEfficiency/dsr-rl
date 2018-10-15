@@ -40,8 +40,6 @@
   font-size: 26px;
   border: 0;
   box-shadow: none;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* code */
@@ -51,6 +49,9 @@
   font-size: 26px;
   border: 0;
   box-shadow: none;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: gray;
 }
 
 /* slide headers */

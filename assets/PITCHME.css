@@ -24,3 +24,10 @@
 h3 {
   font-size: 32px;
 }
+
+.image_footer {
+  position: fixed;
+  text-align: center;
+  bottom: 0px;
+  width: 100%;
+}

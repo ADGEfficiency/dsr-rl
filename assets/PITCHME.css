@@ -7,7 +7,7 @@
 }
 
 /* adjust body text */
-.reveal p body {
+.reveal body {
   text-align: left;
   font-size: 30px;
   margin-left: 0;

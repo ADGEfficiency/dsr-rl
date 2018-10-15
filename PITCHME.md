@@ -505,7 +505,9 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 ### learning through action
 
 ---?image=assets/images/section_2/mdp_schema_simple.png&size-80%
+
 ---
+
 ---?image=assets/images/section_2/rl_process.png&size-80%
 
 ---

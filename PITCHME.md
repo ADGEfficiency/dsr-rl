@@ -1376,14 +1376,14 @@ We take into account the transition probabilities, which gives us the **certanit
 
 ![fig](assets/images/section_3/recap.png)
 
-*Sutton & Barto - Reinforcement Learning: An Introduction*
+<div class="image_footer">Sutton & Barto</div>
 
 ---
-## three <a id="section-three"></a> 
+## three 
 ### value functions
 ### Bellman Equation 
 ### approximation methods
-### <span style="color:#66ff66">SARSA & Q-Learning</span>
+### SARSA & Q-Learning
 ### DQN
 
 ---
@@ -1477,9 +1477,8 @@ $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q
 Don't learn $Q_{\pi}$ - learn $Q^*$ (the optimal policy)
 
 ---
-### SARSA & Q-Learning
 
-![fig](assets/images/section_3/sarsa_ql.png)
+<img src="assets/images/section_3/sarsa_ql.png" height="80%" width="80%" align="top">
 
 ---
 ### Q-Learning
@@ -1531,7 +1530,7 @@ Parameter noise
 
 [Plappert et al. (2018) Paramter Space Noise for Exploration](https://arxiv.org/pdf/1706.01905.pdf)
 
----?image=assets/images/section_3/action_selection_exploration.png&size=80%
+---?image=assets/images/section_3/action_selection_exploration.png&size=60%
 
 ---
 ### Problems with vanilla Q-Learning
@@ -1568,23 +1567,23 @@ Three mechanisms that combine to produce instability and divergence
 ### Deadly triad
 
 It's not clear what causes instability
-- dynamic programming can diverge with function approximation (so even on-policy learing can diverge)
+- dynamic programming can diverge with function approximation (so even on-policy learning can diverge)
 - prediction can diverge
 - linear functions can be unstable
 
 Divergence is an emergent phenomenon
 
-Up until 2013 the deadly traid caused instability when using Q-Learning with complex function approximators (i.e. neural networks)
+Up until 2013 the deadly triad caused instability when using Q-Learning with complex function approximators (i.e. neural networks)
 
 Then came DeepMind & DQN
 
 ---
-## three <a id="section-three"></a> 
+## three 
 ### value functions
 ### Bellman Equation 
 ### approximation methods
 ### SARSA & Q-Learning
-### <span style="color:#66ff66">DQN</span>
+### DQN
 
 ---
 ### DQN
@@ -1635,8 +1634,6 @@ Ability to **generalize**
 **Actions**
 
 - Joystick buttons (a discrete action space)
-
----
 
 ---?image=assets/images/section_3/atari_results.png&size=auto 80% 
 
@@ -1704,7 +1701,7 @@ Stable training
 - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
 - reduces correlation between the target created for the network and the network itself 
 
----?image=assets/images/section_3/stability.png&size=auto 20% 
+---?image=assets/images/section_3/stability.png&size=auto 80% 
 
 ---?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
 

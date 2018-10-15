@@ -16,8 +16,8 @@
   margin-right: 0;
 }
 
-/* unordered lists */
-.reveal ul {
+/* lists */
+.reveal ul ol {
   display: block;
   text-align: left;
   font-size: 26px;
@@ -51,7 +51,6 @@
   box-shadow: none;
   margin-left: auto;
   margin-right: auto;
-  background-color: gray;
 }
 
 /* slide headers */

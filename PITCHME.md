@@ -44,13 +44,14 @@ Energy Data Scientist at Tempus Energy
 ---
 ### Goals for the course
 
-Introduction to **concepts, ideas and terminology** 
-
-Familiarity with important literature
+Introduction to **concepts, ideas and terminology**, and familiarity with important literature.  
 
 Course material
+
 - slides
 - detailed notes at `dsr-rl/notes`
+
+These slides cover **model free reinforcement learning**.
 
 ---
 ### Where to go next 

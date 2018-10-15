@@ -116,7 +116,10 @@ The basic idea in inverse reinforcement is to learn a reward function from rollo
 
 \newpage
 
-## Open AI Dota - [blog post](https://blog.openai.com/openai-five/)
+## Open AI Dota 
+
+- [blog post](https://blog.openai.com/openai-five/)
+- [benchmark review video](https://www.youtube.com/watch?v=80pm62J9kto)
 
 180 years worth of games per day.  Self play.  Using Proximal Policy Optimization (PPO).  256 GPU, 128,000 CPU cores.  Separate LSTM for each hero, no human data.
 

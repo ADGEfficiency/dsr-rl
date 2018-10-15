@@ -504,11 +504,13 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 
 ### learning through action
 
----?image=assets/images/section_2/mdp_schema_simple.png&size-80%
+---
+
+<img src="assets/images/section_2/mdp_schema_simple.png" height="80%" width="80%" alt=" Sutton & Barto - Reinforcement Learning: An Introduction" align="center">
 
 ---
 
----?image=assets/images/section_2/rl_process.png&size-80%
+<img src="assets/images/section_2/rl_process.png" height="80%" width="80%" alt=" Sutton & Barto - Reinforcement Learning: An Introduction" align="center">
 
 ---
 ### Contrast with supervised learning 

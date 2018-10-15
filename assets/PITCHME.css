@@ -2,13 +2,12 @@
 .reveal section img {
   border: 0;
   box-shadow: none;
-  margin-left: 0;
-  margin-right: 0;
   text-align: center;
+  display: block;
 }
 
 /* adjust body text */
-.reveal p {
+.reveal p body {
   text-align: left;
   font-size: 30px;
   margin-left: 0;

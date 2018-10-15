@@ -65,8 +65,8 @@ Literature review
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
 
 ---
-## one <a name="section-one"></a>
-### <span style="color:#66ff66">nomenclature & statistics background</span>
+## one 
+### nomenclature & statistics background
 ### a few things about training neural networks
 
 ---
@@ -358,12 +358,11 @@ Larger batch size -> larger learning rate
 Observed that larger batch sizes decrease generalization performance 
 
 Poor generalization  due to large batches converging to *sharp minimizers* 
+
 - areas with large positive eigenvalues $ \nabla^{2} f(x) $
 - Hessian matrix (matrix of second derivatives) where all eigenvalues positive = positive definite = local minima
 
 Batch size is a **hyperparameter that should be tuned**
-
-*https://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network*
 
 ---
 ### Scaling aka pre-processing

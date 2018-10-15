@@ -2,8 +2,8 @@
 .reveal section img {
   border: 0;
   box-shadow: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   text-align: center;
 }
 

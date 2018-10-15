@@ -1190,12 +1190,8 @@ Our value function approximation depends on
 - the environment (where our actions take us and what rewards we get)
 - our current estimate of $V(s')$
 
-<br></br>
-
 A dynamic programming update is expensive 
 - our new estimate $V(s)$ depends on the value of all other states (even if the probability is zero)
-
-<br></br>
 
 Asynchronous dynamic programming addresses this by updating states in an arbitrary order
 

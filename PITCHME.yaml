@@ -1,4 +1,4 @@
 mathjax : TeX-MML-AM_HTMLorMML-full
 theme : simple
-highlight : tomorrow
+highlight : tomorrow-night
 theme-override : assets/PITCHME.css

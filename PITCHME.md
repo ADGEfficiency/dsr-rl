@@ -1822,13 +1822,15 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 <img src="assets/images/section_4/traces_grid.png" height="80%" width="80%" align="center">
 
 - one step method would only update the last $Q(s,a)$
+
 - n-step method would update all $Q(s,a)$ equally
+
 - eligibility traces updates based on how recently each $Q(s,a)$ was experienced
 
 ---
 ## four
 ### eligibility traces
-### <span style="color:#66ff66">prioritized experience replay</span>
+### prioritized experience replay
 ### DDQN
 ### Distributional Q-Learning 
 ### Rainbow
@@ -1922,7 +1924,7 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### <span style="color:#66ff66">Distributional Q-Learning </span>
+### Distributional Q-Learning 
 ### Rainbow
 ---
 
@@ -1954,7 +1956,7 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 ### prioritized experience replay
 ### DDQN
 ### Distributional Q-Learning 
-### <span style="color:#66ff66">Rainbow</span>
+### Rainbow
 
 ---
 ![fig](assets/images/section_4/rainbow_lit.png)
@@ -1965,10 +1967,15 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 All the various improvements to DQN address different issues
 
 - DDQN - overestimation bias
+
 - prioritized experience replay - sample efficiency
+
 - dueling - generalize across actions
+
 - multi-step bootstrap targets - bias variance tradeoff
+
 - distributional Q-learning - learn categorical distribution of $Q(s,a)$
+    
 - noisy DQN - stochastic layers for exploration
 
 Rainbow combines these improvements
@@ -1983,25 +1990,12 @@ Rainbow combines these improvements
 ![fig](assets/images/section_4/rainbow_hyper.png)
 
 ---
-![fig](assets/images/section_4/rainbow_results.png)
+
+<img src="assets/images/section_4/rainbow_results.png" height="80%" width="80%" align="top">
 
 ---
-### Recap
-
-Elgibility traces allow us to trade bias and variance
-
-Elgibility traces assign the temporal difference to different states
-
-What two problems does prioritized experience replay introduce?
-- lack of diversity, solved by making sampling stochastic
-- introduces bias, solved using importance sampling
-
-What problem does DDQN address?
-- maximization bias
-
----
-## five <a id="section-five"></a>
-### <span style="color:#66ff66">motivations for policy gradients</span>
+## five 
+### motivations for policy gradients
 ### introduction 
 ### the score function
 ### REINFORCE
@@ -2072,6 +2066,9 @@ Policy gradients are more general and versatile
 More compataible with recurrent neural networks
 
 ---
+![fig](assets/images/section_5/motivation_simple.png)
+
+---
 ### Policy gradients versus value functions
 
 **Policy gradients**
@@ -2086,13 +2083,10 @@ More compataible with recurrent neural networks
 - better sample efficiency
 
 ---
-![fig](assets/images/section_5/motivation_simple.png)
-
----
 
 ## five 
 ### motivations for policy gradients
-### <span style="color:#66ff66">introduction</span>
+### introduction
 ### the score function
 ### REINFORCE
 ### Actor-Critic
@@ -2228,7 +2222,6 @@ This also gives rise to the concept of **advantage**
 $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 
 ---
-### Actor-Critic
 
 ![fig](assets/images/section_5/ac_sum.png)
 
@@ -2257,7 +2250,7 @@ We update our actor (i.e. the behaviour policy) in the direction suggested by th
 ### the score function
 ### REINFORCE
 ### Actor-Critic
-### <span style="color:#66ff66">Deterministic Policy Gradient</span>
+### Deterministic Policy Gradient
 ### A3C
 
 ---
@@ -2369,31 +2362,19 @@ $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 How much better an action is than the average action followed by the policy
 
 ---
+### Natural Policy Gradients, TRPO and PPO
 
----?image=assets/images/section_5/A3C_algo.png&size=auto 70% 
+All three of these papers build on the same idea - that we **want to constrain policy updates** to get more stable learning
+
+Natural Policy Gradients uses an expensive second order derivative method
+
+Trust Region Policy Optimization (TRPO) uses
+
+Proximal Policy Optimization (PPO) uses the KL-divergence with an adaptive penatly
 
 ---
-### Recap
-
-Motivations for policy gradients
-- optimize what we care about directly
-- high dimensional spaces
-
-How do we parameterize a continuous action
-- output of network is the mean & variance of a Gaussian
-
-What does the log-likelihood trick allow us to do
-- get the gradient of an unknown function
-
-Two intuitions behind the score function
-- make probable actions more probable
-- make high return actions more probable
-
-What is the motivation behind asynchronous learning in A3C?
-- decorrelating experience
----
-## six <a id="section-six"></a>
-### <span style="color:#66ff66">AlphaGo</span>
+## six 
+### AlphaGo
 ### AlphaGo Zero
 ### Residual networks
 
@@ -2497,21 +2478,21 @@ Convenient properties of Go
 *https://medium.com/@karpathy/alphago-in-context-c47718cb95a5*
 
 ---
-## six <a id="section-six"></a>
+## six 
 ### AlphaGo
-### <span style="color:#66ff66">AlphaGo Zero</span>
+### AlphaGo Zero
 ### Residual networks
 
 ---
 ### Key ideas in AlphaGo Zero
 
-#### Simpler
+Simpler
 
-#### Search
+Search
 
-#### Adverserial
+Adversarial
 
-#### Machine knowledge only
+Machine knowledge only
 
 --- 
 ### AlphaGo Zero Results
@@ -2573,10 +2554,10 @@ The improved policy generated during acting becomes the target policy during tra
 ](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
 
 ---
-## six <a id="section-six"></a>
+## six 
 ### AlphaGo
 ### AlphaGo Zero
-### <span style="color:#66ff66">Residual networks</span>
+### Residual networks
 
 ---
 ### Residual networks
@@ -2613,24 +2594,8 @@ And can get $ H(x) = F(x) + x $
 ![fig](assets/images/section_6/Reddit_AMA_posts.png)
 
 ---
-### Recap
-
-How does AlphaGo reduce search width
-- policy network to focus on high probability states
-
-How does AlphaGo reduce search depth
-- a value network
-
-MCTS is a planning algorithm - what does AlphaGo use for an environment model?
-- the linear fast rollout policy + game rules
-
-Innovations in AlphaGo Zero
-- combining the policy and value network
-- using MCTS during acting to create targets to learn from
-
----
-## seven <a id="section-seven"></a>
-### <span style="color:#66ff66">practical concerns</span>
+## seven 
+### practical concerns
 
 ---
 ### Should I use reinforcement learning for my problem?
@@ -2641,13 +2606,13 @@ What is the action space
 - continuous or discrete
 
 What is the reward function
-- does it incentivize behaviour
+- does it incentive behaviour
 
 It is a complex problem
 - classical optimization techniques such as linear programming or cross entropy may offer a simpler solution
 
 Can I sample efficiently / cheaply
-- do you have a simulator
+- **do you have a simulator**
 
 ---
 ### Reinforcement learning is hard
@@ -2855,35 +2820,10 @@ TensorFlow
 - use the `allow_growth` option to avoid TF reserving memory it doesn't need
 - don't get addicted to TensorBoard - let your expts run!
 
----
-### Cool open source RL projects
-
-[gym](https://github.com/openai/gym/tree/master/gym) - Open AI
-
-[baselines](https://github.com/openai/baselines) - Open AI
-
-[rllab](https://github.com/rll/rllab) - Berkley
-
-[Tensorforce](https://github.com/reinforceio/tensorforce) - reinforce.io
 
 ---
-### Recap
-
-Quick experiments on small test problems
-- make learning easy 
-- automate experiments
-
-Visualize the learning process
-
-Multiple random seeds
-
-Preprocess/scale observations/targets etc
-
-Deep RL is hard and sample inefficient
-
----
-## eight <a id="section-eight"></a>
-### <span style="color:#66ff66">Deep reinforcement learning doesn't work yet</span>
+## eight 
+### deep reinforcement learning doesn't work yet
 
 ---
 
@@ -2946,7 +2886,7 @@ Machine learning adds more dimensions to your space of failure cases
 
 RL adds an additional dimension - **random change**
 
----?image=assets/images/section_8/work_ml.png&size=auto 70% 
+<img src="assets/images/section_8/work_ml.png" height="80%" width="80%" align="top">
 
 ---
 

@@ -1702,11 +1702,15 @@ Stable training
 - no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
 - reduces correlation between the target created for the network and the network itself 
 
----?image=assets/images/section_3/stability.png&size=auto 80% 
+---?image=assets/images/section_3/stability.png&size=auto 40% 
 
 ---?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
 
----?image=assets/images/section_3/huber_loss.png&size=auto 90% 
+---
+
+### Huber loss
+
+<img src="assets/images/section_3/huber_loss.png" height="80%" width="80%" align="top">
 
 ---
 ### Timeline
@@ -1732,71 +1736,22 @@ Stable training
 2018 - Rainbow
 
 ---
-### Recap 
-
-What does a value function predict?
-
-What is general policy iteration?
-
-How does the Bellman Equation help us learn?
-
-For each of the three approximation methods (DP, MC, TD)
-- needs an environment model?
-- bootstrapped?
-- 
-
-If we wanted to control using $V(s)$, what else would we need?
-
-What makes Q-Learning off-policy?
-
-What is the deadly triad?
-
-What is the benefit of experience replay?
-
-What is the benefit of a target network?
-
----
-### Recap 
-
-What does a value function predict?
-- future expected discounted reward
-
-What is general policy iteration?
-- process of letting policy evaluation and policy improvement interact 
-
-How does the Bellman Equation help us learn?
-- allows us to create bootstrapped targets
-
-If we wanted to control using $V(s)$, what else would we need?
-- the state transition function
-
-What makes Q-Learning off-policy?
-- maximization over all possible next actions
-
-What is the deadly triad?
-- function approximation
-- off-policy learning
-- bootstrapping
-
-What is the benefit of experience replay?
-- decorrelating experience
-- data efficiency
-
-What is the benefit of a target network?
-- stability
-- decorrelating the target used to train the network from the network output
-
----
-## four <a id="section-four"></a>
-### <span style="color:#66ff66">eligibility traces</span>
+## four 
+### eligibility traces
 ### prioritized experience replay
 ### DDQN
 ### Distributional Q-Learning 
 ### Rainbow
 
----?image=assets/images/section_4/unified_view.png&size=auto 70% 
+---
 
----?image=assets/images/section_4/effect_bootstrap.png&size=auto 90% 
+<img src="assets/images/section_4/unified_view.png" height="80%" width="80%" align="top">
+<div class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</div>
+
+---
+
+<img src="assets/images/section_4/effect_bootstrap.png" height="80%" width="80%" align="top">
+<div class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</div>
 
 ---
 

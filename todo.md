@@ -2,6 +2,12 @@
 
 PPO 
 
+https://www.reddit.com/r/reinforcementlearning/comments/7s8px9/deep_reinforcement_learning_practical_tips/
+
+---
+
+turn the TODOs into a RL quiz!!!!
+
 ---
 
 run find_patterns on the notes
@@ -27,9 +33,8 @@ value function based
 
 policy gradient based etc
 
-# Review before next course
+---
 
-https://www.reddit.com/r/reinforcementlearning/comments/7s8px9/deep_reinforcement_learning_practical_tips/
 
 # Post course
 

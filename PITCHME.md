@@ -1767,11 +1767,10 @@ Eligibility traces allow us to **assign TD errors** to different states
 Allow us to tradeoff between bias and variance
 
 ---
-### The space between TD and MC
 
 In between TD and MC exist a family of approximation methods known as **n-step returns**
 
-![fig](assets/images/section_4/bias_var.png)
+<img src="assets/images/section_4/bias_var.png" height="80%" width="80%" align="top">
 
 ---
 ### Forward and backward view

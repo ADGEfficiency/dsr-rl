@@ -4,7 +4,7 @@ This course is aimed at students with a grasp of supervised learning - no prior 
 
 The course materials are:
 
-- slides for two days of lectures - [pdf](https://github.com/ADGEfficiency/dsr_rl/blob/master/medium_slides.pdf) - [GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master?grs=github&t=simple#/)
+- slides for two days of lectures - [pdf](https://github.com/ADGEfficiency/dsr_rl/blob/master/slides.pdf) - [GitPitch](https://gitpitch.com/adgefficiency/DSR_RL/master)
 - [detailed notes to support lectures and for future study](https://github.com/ADGEfficiency/dsr_rl/blob/master/notes/)
 
 This repo also has [machine learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.  Further resources (video lectures, blog posts etc) are listed in [dsr-rl/resources.md](https://github.com/ADGEfficiency/dsr-rl/blob/master/readme.md).

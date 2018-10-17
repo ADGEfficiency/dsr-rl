@@ -2919,15 +2919,11 @@ Many things need to go right for RL to work - success stories are the exception,
 
 ## Closing thoughts
 
-Exploration versus exploitation
+Exploration versus exploitation - this is useful in daily life
 
 Test your models on simple problems
 
 Reinforcement learning is sample inefficient
-
-Deep RL is hard
-
-Reward engineering is key
 
 ## Thank you
 

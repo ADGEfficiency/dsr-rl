@@ -290,27 +290,21 @@ $$A_{\pi}(s_t, a_t) = Q_{\pi}(s_t, a_t) - V_{\pi}(s_t)$$
 
 How much better an action is than the average action followed by the policy
 
-### A3C algorithm
-
-![fig](../../assets/images/section_5/A3C_algo.png){ width=30%, height=30% }
-
-https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2
-
 \newpage
 
 ## Natural Policy Gradients, TRPO and PPO
 
-These three pieces of work can be understood in order.  The maths can get pretty heavy - a high level summary is given below.  The central idea behind all three is that **we want to constrain and limit how much we change a policy each time we do a gradient update**.
+These three pieces of work can be understood in order.  The maths can get pretty heavy!  The central idea behind all three is that **we want to constrain and limit how much we change a policy each time we do a gradient update**.
 
-- natural policy gradients - rely on a compuationally intense second order derivative method (inverse of the Fisher infomation matrix)
-- TRPO - 
-- PPO - 
+- natural policy gradients - rely on a computationally intense second order derivative method (inverse of the Fisher Infomation matrix)
+- TRPO - uses the KL-divergence to hard constrain policy updates (avoids calculating the Fisher Infomation matrix, but uses Conjugate Gradient to solve a constrained optimization problem)
+- PPO - uses the KL-divergence with a soft constraint (avoids using Conjugate Gradeint)
 
 ## Natural Policy Gradient
 
 - Kakde (2002) A Natural Policy Gradient - [paper](https://papers.nips.cc/paper/2073-a-natural-policy-gradient.pdf)
 - Natural Policy Gradient Explained - Jonathan Hui - [Medium blog post](https://medium.com/@jonathan_hui/rl-natural-policy-gradient-actor-critic-using-kronecker-factored-trust-region-acktr-58f3798a4a93)
-- Policy gradient methods - Scholarpedia - (http://www.scholarpedia.org/article/Policy_gradient_methods#Natural_Policy_Gradients)
+- Policy gradient methods - [Scholarpedia](http://www.scholarpedia.org/article/Policy_gradient_methods#Natural_Policy_Gradients)
 
 Standard gradient descent will follow the direction of steepest descent.  This is a metric that is defined based on the choice of co-ordinates of the parameters - it is non-covariant.  Ideally we want updates that find gradients no matter the parameterization of our policy.
 
@@ -330,21 +324,24 @@ The update rule for the natural policy gradient is then:
 
 $$ f \leftarrow f + \nabla log \pi(a_t;s_t,\theta) \nabla log \pi(a_t; s_t, \theta)^T $$
 
+\newpage
+
 ## Trust Region Policy Optimization (TRPO)
 
 - Schulman et. al (2015)  Trust Region Policy Optimization - [paper](https://arxiv.org/pdf/1502.05477.pdf)
+- [Towards Data Science](https://towardsdatascience.com/introduction-to-various-reinforcement-learning-algorithms-part-ii-trpo-ppo-87f2c5919bb9)
 
-Trust region = finding an optimal solution within a certain distance (contrast with line search algorithms which follow graidents wherever they go).
+Trust region = finding an optimal solution within a certain distance (contrast with line search algorithms which follow gradients wherever they go). 
 
-In TRPO we optimize the objective function with a hard constraint
+In TRPO we optimize the objective function with a hard constraint:
 
-$$ maximize \mathbb{E} \frac{\pi_{\theta}(a_t | s_t)}{\pi_{\theta_old}(a_t | s_t)} A_t ] $$
+$$ \textrm{maximize} \quad \mathbb{E} [\frac{\pi_{\theta}(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)} A_t ] $$
 
-$$ \text{subject to} \beta \mathbb{E} [KL[\pi_{\theta_old}(\cdot|s_t), \pi_{\theta}(\cdot | s_t)]] \leq \delta $$
+$$ \textrm{subject to} \beta \mathbb{E} [KL[\pi_{\theta_old}(\cdot|s_t), \pi_{\theta}(\cdot | s_t)]] \leq \delta $$
 
-This problem is solved by making a linear approximation of the objective, and a quadratic approximation of the constraint.
+The constraint is the trust region - which improves the stability of learning by constraining the policy updates.  
 
-TODO
+TRPO uses the Conjugate Gradient algorithm to avoid explicitly calculating the Fisher Infomation Matrix (as we do in Natural Gradients) - this is complicated, and is a constrained optimization problem.
 
 ## Proximal Policy Optimization (PPO)
 
@@ -364,7 +361,7 @@ Policy optimization is alternating between sampling data from the policy (i.e. a
 
 Natural policy gradient (TODO) addresses the convergence problem of policy gradient methods.  The natural policy gradient requires an unscalable calculation of a second-order derivative and its inverse.  There are two solutions to this problem
 
-1. approximate calculations of the second order derivative & its inverse (computationally expensive) - this is what TRPO & ACKTR do
+1. approximate calculations of the Fisher Infomation Matrix - this is what TRPO & ACKTR do via a Conjugate Gradient algorithm, which is a constrained optimization problem
 2. use a first order solution with soft constraints to approximate the second order solution - this is what PPO does
 
 PPO imposes a constraint as a penalty in the objective function.  This soft constraint attempts to make the first order solution closer to the second order solution.  Sometimes this constraint won't work, but the benefit of simplicity outweighs the occasional bad updates.

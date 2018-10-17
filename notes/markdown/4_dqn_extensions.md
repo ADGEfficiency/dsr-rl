@@ -90,16 +90,13 @@ Reference = Schaul et. al (2016) Prioritized Experience Replay TODO link
 
 ![fig](../../assets/images/section_3/exp_replay.png){ width=30%, height=30% }
 
-Naive experience replay randomly samples experience
-- learning occurs at the same frequency as experience
+Experience replay liberates agents from learning from experience as sampled.  Prioritized experience replay liberates agents from learning from experience in the same frequency as experienced.
 
-But some experience is more useful for learning than others
-- we can measure how useful experience is by the temporal difference error
+But some experience is more useful for learning than others.  Prioritized experience replay quantifies the value of experience using the temporal difference error.  Evidence of more frequent replay of high temporal difference error experiences has been found in the hippocampus of rodents.
 
 $$ error = r + \gamma Q(s', a) - Q(s,a) $$
 
-TD error measures suprise 
-- this transition gave a higher or lower reward than our value function expected
+The temporal difference error can be thought of a measure of surprise - a high temporal difference error means that the experienced transition gave a different reward than the value function expected.
 
 Non-random sampling introduces two problems
 
@@ -110,6 +107,33 @@ Schaul et. al (2016) solves these problems by
 
 1. loss of diversity -> make the prioritization stochastic
 2. correct bias -> use importance sampling
+
+## Stochastic prioritization
+
+Greedy sampling of experience from memory is simply taking the highest priority samples from memory.  New experiences are given the maximal priority in order to guarantee replay.
+
+A binary heap structure is used for the priority queue, which is $\mathcal{O}(1)$ to find the highest priority sample and $\mathcal{O}(log N)$ to update priorities after learning.
+
+Greedy sampling has the following problems
+
+- low TD errors on the first visit mean experience will not be replayed
+- noise in the environment rewards effects the rate of sampling (which compounds with noise in the value function approximation)
+- focus on a small subset of experience, making the value function prone to overfitting
+
+These problems are overcome using a stochastic sampling procedure.  The probability of sampling experience $P(i)$ is based on the probabilities:
+
+$$ P(i) = \frac{p_{i}^{\alpha}}{\sum_k p_k^{\alpha}} $$
+
+Where $\alpha$ controls the strength of prioritization.  Schaul et. al propose two methods for how we assign the priorities $p_i$:
+
+1. directly based on the temporal difference error - $p_i = \delta + \epsilon$, where $\epsilon$ is a small constant to incentive revisiting with zero error experience
+2. rank based - $p_i = \frac{1}{rank(i)}$, where the rank is based on the temporal difference error $\delta$
+
+The rank based will be more robust and less sensitive to outliers.
+
+TODO - at the bottom of page 4
+
+
 
 ## DDQN
 

@@ -1019,7 +1019,6 @@ Control
 - the optimal policy
 - the policy that maximizes expected future discounted reward
 
----
 
 ---
 ### Value function approximation

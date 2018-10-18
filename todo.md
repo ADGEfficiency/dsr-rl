@@ -1,8 +1,12 @@
 # before october course
 
-PPO 
-
 https://www.reddit.com/r/reinforcementlearning/comments/7s8px9/deep_reinforcement_learning_practical_tips/
+
+---
+
+after october course
+
+redo the equations for DPG in notes and slides
 
 ---
 
@@ -17,6 +21,8 @@ run find_patterns on the notes
 examples for everything
 
 rewrite all algorithms into pseudo code
+
+rewrite all the equations into code
 
 for PG section
 
@@ -38,15 +44,9 @@ policy gradient based etc
 
 # Post course
 
-Blog the practical concerns section
-
-Redo notes
-
-Maybe have notes (detail) and slides (simple)
+Blog the practical concerns section - include more detail on the methods for individual papers (ie DQN did this, DDQN did this etc)
 
 Incl
-- PPO
-- TRPO
 - classic control theory
 
 Reivew

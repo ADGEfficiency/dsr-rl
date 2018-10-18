@@ -19,7 +19,11 @@ For everything else (linear models, random forests etc)
 
 [The Long-term of AI & Temporal-Difference Learning (Richard Sutton - DeepMind)](https://www.youtube.com/watch?v=EeMCEQa85tw)
 
-[Deep Reinforcement Learning (John Schulman - OpenAI) -  policy gradients](https://www.youtube.com/watch?v=PtAIh9KSnjo)
+[Deep Reinforcement Learning (John Schulman - Open AI & Berkley)](https://www.youtube.com/watch?v=PtAIh9KSnjo)
+
+[Deep Reinforcement Learning (Pieter Abbeel - Open AI & Berkley)](https://www.youtube.com/watch?v=ID150Tl-MMw)
+
+[Deep Reinforcement Learning (David Silver - DeepMind & UCL)](https://www.youtube.com/watch?v=M5a6HasTHs4)
 
 [Deep Reinforcement Learning and Real World Challenges (Raia Hadsell - DeepMind)](https://www.youtube.com/watch?v=0e_uGa7ic74)
 

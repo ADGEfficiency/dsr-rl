@@ -25,6 +25,10 @@ These notes follow [Thomas & Okal (2016) A Notation for Markov Decision Processe
 |$Q\ {\pi} (s,a)$| value function |
 |$\theta, \omega$ | function parameters (weights) |
 |$\mathbb{E}[f(x)]$  | expectation of f(x) |
+|$X$ | a random variable |
+|$f(x;\theta)$| density of $X$ at point $x$, parameterized by $\theta$ |
+|$f(x,y)$ | joint density of $X$ and $Y$ at the point $(x,y)$ |
+|$f(x|y)$ | conditional distribution of $X$ given $Y$ |
 
 ## Expectations 
 
@@ -49,6 +53,14 @@ Probability of next state and reward given state & action $P(s'|s,a)$
 Reward received from a state & action $R(r|s,a,s')$
 
 Sampling an action from a stochastic policy $a \sim \pi (s|a)$
+
+Note the difference in notation for paramertizations, joint densities and conditional distributions.
+
+|symbol | variable  |
+|---| ---|
+|$f(x;\theta)$| density of $X$ at point $x$, parameterized by $\theta$ |
+|$f(x,y)$ | joint density of $X$ and $Y$ at the point $(x,y) $ |
+|$f(x|y)$ | conditional distribution of $X$ given $Y$ |
 
 \newpage
 

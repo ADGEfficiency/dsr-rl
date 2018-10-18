@@ -1,6 +1,6 @@
 ## a glance at reinforcement learning
 
-Adam Green  
+Adam Green
 
 [adam.green@adgefficiency.com](adam.green@adgefficiency.com)
 
@@ -35,7 +35,7 @@ MSc Advanced Process Design for Energy
 
 DSR Batch 9
 
-**Industry**  
+**Industry**
 
 Energy Engineer at ENGIE UK
 
@@ -44,7 +44,7 @@ Energy Data Scientist at Tempus Energy
 ---
 ### Goals for the course
 
-Introduction to **concepts, ideas and terminology**, and familiarity with important literature.  
+Introduction to **concepts, ideas and terminology**, and familiarity with important literature.
 
 Course material
 
@@ -54,7 +54,7 @@ Course material
 These slides cover **model free reinforcement learning**.
 
 ---
-### Where to go next 
+### Where to go next
 
 Textbook
 [Sutton & Barto - An Introduction to Reinforcement Learning (2nd Edition is in progress)](http://incompleteideas.net/book/bookdraft2017nov5.pdf)
@@ -66,7 +66,7 @@ Literature review
 [Li (2017) Deep Reinforcement Learning: An Overview](https://arxiv.org/abs/1701.07274)
 
 ---
-## one 
+## one
 ### nomenclature & statistics background
 ### a few things about training neural networks
 
@@ -110,7 +110,7 @@ $$ \mathbf{E} [f(x)] = \sum p(x) \cdot f(x) $$
 
 Expectations **allow us to approximate by sampling**
 
-- if we want to approximate the average time it takes us to get to work 
+- if we want to approximate the average time it takes us to get to work
 
 - we can measure how long it takes us for a week and get an approximation by averaging each of those days
 
@@ -121,11 +121,11 @@ Expectations **allow us to approximate by sampling**
 
 probability of next state and reward given state & action
 
-$$ P(s'|s,a) $$  
+$$ P(s'|s,a) $$
 
 reward received from a state & action
 
-$$ R(r|s,a,s') $$  
+$$ R(r|s,a,s') $$
 
 sampling an action from a stochastic policy conditioned on being in state $s$
 
@@ -147,7 +147,7 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 - missing relevant patterns -> underfitting
 
 ---
-### Variance & bias in RL 
+### Variance & bias in RL
 
 **Variance** = deviation from expected value
 
@@ -167,7 +167,7 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 ---
 ### Bootstrapping
 
-Doing something on your own 
+Doing something on your own
 - i.e. funding a startup with your own capital
 - using a function to improve / estimate itself
 
@@ -177,8 +177,8 @@ $$ V(s) = r + \gamma V(s') $$
 
 $$ Q(s,a) = r + \gamma Q(s', a') $$
 
-Bootstrapping often introduces bias 
-- the agent has a chance to fool itself 
+Bootstrapping often introduces bias
+- the agent has a chance to fool itself
 
 ---
 ### Function approximation
@@ -211,7 +211,7 @@ Each estimate is independent of every other estimate
 
 No sharing of knowledge between similar states/actions
 
-Curse of dimensionality 
+Curse of dimensionality
 
 High dimensional state/action spaces means lots of entries
 
@@ -261,7 +261,7 @@ In statistical learning one always assumes the training set is independently dra
 
 ---
 
-## one 
+## one
 ### nomenclature & statistics background
 ### a few things about training neural networks
 
@@ -274,7 +274,7 @@ Batch size
 
 Scaling / preprocessing
 
-Larger batch size 
+Larger batch size
 - larger learning rate
 - decrease in generalization
 - increase in batch normalization performance
@@ -288,10 +288,10 @@ $$ \theta^{t+1} = \theta^{t} - \alpha \frac{\partial E(x, \theta^{t})}{\partial 
 
 where $E(x, \theta^{t})$ is the error backpropagated from sample $x$
 
-Small learning rate 
+Small learning rate
 - slow training
 
-High learning rate 
+High learning rate
 - overshoot or divergence
 
 ---
@@ -326,11 +326,11 @@ Below we have a dataset with four samples, of shape (14, 2)
 
 `(4, 14, 2)`
 
-The first dimension is the batch dimension - this is foundational in TensorFlow 
+The first dimension is the batch dimension - this is foundational in TensorFlow
 
 `tf.placeholder(shape=(None, 14, 2))`
 
-Passing in `None` allows us to use whatever batch size we want 
+Passing in `None` allows us to use whatever batch size we want
 
 ---
 ### Batch size
@@ -341,7 +341,7 @@ Smaller batches can fit onto smaller GPUs
 Batches allow us to learn faster
 - weights are updated more often during each epoch
 
-Batches give a less accurate estimate of the gradient 
+Batches give a less accurate estimate of the gradient
 - this noise can be useful to escape local minima
 
 Larger batch size -> larger learning rate
@@ -357,9 +357,9 @@ Larger batch size -> larger learning rate
 ---
 ### Batch size
 
-Observed that larger batch sizes decrease generalization performance 
+Observed that larger batch sizes decrease generalization performance
 
-Poor generalization  due to large batches converging to *sharp minimizers* 
+Poor generalization  due to large batches converging to *sharp minimizers*
 
 - areas with large positive eigenvalues $ \nabla^{2} f(x) $
 - Hessian matrix (matrix of second derivatives) where all eigenvalues positive = positive definite = local minima
@@ -369,7 +369,7 @@ Batch size is a **hyperparameter that should be tuned**
 ---
 ### Scaling aka pre-processing
 
-Neural networks don't like numbers on different scales  
+Neural networks don't like numbers on different scales
 - improperly scaled inputs or outputs can cause issues with gradients
 - anything that touches a neural network needs to be within a reasonable range
 
@@ -401,7 +401,7 @@ Our data is now between 0 and 1
 Batch norm. is additional preprocessing of data as it moves between network layers
 - used in very deep convolutional/residual nets
 
-We use the mean and variance of the batch to normalize activations 
+We use the mean and variance of the batch to normalize activations
 - standardization is actually used!
 - reduces sensitivty to weight & bias initialization
 - allows higher learning rates
@@ -414,29 +414,29 @@ We use the mean and variance of the batch to normalize activations
 ---
 ### Batch renormalization
 
-Vanilla batch norm. struggles with small or non-iid batches 
+Vanilla batch norm. struggles with small or non-iid batches
 
 - the estimated statistics are worse
 - vanilla batch norm. uses two different methods for normalization during training & testing
 - batch renormalization uses a single algorithm for both training & testing
 
 ---
-## two 
+## two
 ### introduction to reinforcement learning
 ### four central challenges
 ### Markov Decision Processes
 
 ---
-### Related methods 
+### Related methods
 
-**Evolutionary methods** 
-- better able to deal with sparse error signals 
+**Evolutionary methods**
+- better able to deal with sparse error signals
 - eaisly parallelizable
 - tend to perform better that RL if state variable is hidden
 
-**Cross entropy method** is often reccomended as an alternative 
+**Cross entropy method** is often reccomended as an alternative
 
-Constrained optimization such as **linear programming** 
+Constrained optimization such as **linear programming**
 
 Any other **domain specific** algorithm for your problem
 
@@ -459,14 +459,14 @@ Neural networks (supervised techniques in general) are a tool that reinforcement
 ---
 ###  Deep reinforcement learning
 
-**Deep learning** 
+**Deep learning**
 - neural networks with multiple layers
 
-**Deep reinforcement learning** 
+**Deep reinforcement learning**
 - using multiple layer networks to approximate policies or value functions
-- feedforward 
-- convolutional 
-- recurrent 
+- feedforward
+- convolutional
+- recurrent
 
 ---
 ### Model free reinforcment learning
@@ -486,10 +486,10 @@ RL is **decision making**
 ###  Biological inspiration
 
 Sutton & Barto - Reinforcment Learning: An Introduction
->Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems 
+>Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems
 
 Mnih et. al (2015) Human-level control through deep reinforcement learning
->Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex 
+>Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex
 
 ---
 ###  A new level of intelligence
@@ -514,21 +514,21 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 <img src="assets/images/section_2/rl_process.png" height="80%" width="80%" alt=" Sutton & Barto - Reinforcement Learning: An Introduction" align="center">
 
 ---
-### Contrast with supervised learning 
+### Contrast with supervised learning
 
 Supervised learning
 - are given a dataset with labels
 - we are constrained by this dataset
 - test on unseen data
 
-Reinforcement learning 
+Reinforcement learning
 - are given no dataset and no labels
 - we can generate more data by acting
 - test using the same environment
 
 Data in RL
 - the agent's experience $(s,a,r,s')$
-- it's not clear what we should do with this data 
+- it's not clear what we should do with this data
 - no implicit target
 
 ---
@@ -541,7 +541,7 @@ $$experience,$$
 $$...$$
 $$experience]$$
 
-$$[(s\_{0}, a_0, r_1, s_1), $$ 
+$$[(s\_{0}, a_0, r_1, s_1), $$
 $$(s_1, a_1, r_2, s_2), $$
 $$...$$
 $$(s_n, a_n, r_n, s_n)] $$
@@ -549,13 +549,13 @@ $$(s_n, a_n, r_n, s_n)] $$
 What should we do with this dataset?
 
 ---
-## two 
+## two
 ### introduction to reinforcement learning
 ### four central challenges
 ### Markov Decision Processes
 
 ---
-### Four central challenges 
+### Four central challenges
 
 one - exploration vs exploitation
 
@@ -579,7 +579,7 @@ Agent needs to balance between the two
 ---
 ### Exploration vs exploitation
 
-How stationary are the environment state transition and reward functions?  
+How stationary are the environment state transition and reward functions?
 
 How stochastic is my policy?
 
@@ -587,7 +587,7 @@ Design of reward signal vs. exploration required
 
 Time step matters
 - too small = rewards are delayed = credit assignment harder
-- too large = coarser control 
+- too large = coarser control
 
 ---
 ### Data quality
@@ -602,7 +602,7 @@ RL breaks both in multiple ways
 
 **Identically distributed**
 - learning changes the data distribution
-- exploration changes the data distribution 
+- exploration changes the data distribution
 - environment can be non-stationary
 
 ---
@@ -613,8 +613,8 @@ RL breaks both in multiple ways
 
 The reward we see now might not be because of the action we just took
 
-Reward signal can be 
-- **delayed** - benefit/penalty of action only seen much later  
+Reward signal can be
+- **delayed** - benefit/penalty of action only seen much later
 - **sparse** - experience with reward = 0
 
 Can design a more dense reward signal for a given environment
@@ -663,7 +663,7 @@ learning quickly, squeezing information from data
 ---
 ### Markov Decision Processes
 
-Mathematical framework for reinforcement learning 
+Mathematical framework for reinforcement learning
 
 ### Markov property
 
@@ -692,7 +692,7 @@ Set of rewards $\mathcal{R}$
 
 State transition function $ P(s'|s,a) $
 
-Reward transition function $ R(r|s,a,s') $  
+Reward transition function $ R(r|s,a,s') $
 
 Distribution over initial states $d_0$
 
@@ -718,13 +718,13 @@ Three signals - state, action & reward
 ---
 ### Environment
 
-Real or virtual 
+Real or virtual
 - modern RL uses virtual environments to generate lots of experience
 
 Each environment has a state space and an action space
 - these spaces can be discrete or continuous
 
-Environments can be 
+Environments can be
 - episodic (finite length, can be variable or fixed length)
 - non-episodic (infinite length)
 
@@ -733,11 +733,11 @@ The MDP framework unites both in the same way by using the idea of a final absor
 ---
 ### Discretiziation
 
-Too coarse 
+Too coarse
 - non-smooth control output
 
-Too fine 
-- curse of dimensionality 
+Too fine
+- curse of dimensionality
 - computational expense
 
 Requires some prior knowledge
@@ -778,7 +778,7 @@ Our agent is the **learner and decision maker**
 
 It's goal is to maximize total discounted reward
 
-An agent always has a policy 
+An agent always has a policy
 
 ### Reward
 
@@ -788,7 +788,7 @@ Delayed
 
 Sparse
 
-A well defined reward signal is a limit for applying RL 
+A well defined reward signal is a limit for applying RL
 
 ---
 ### Reward hypothesis
@@ -837,7 +837,7 @@ Deterministic or stochastic
 Prediction / approximation
 - predicting return for given policy
 
-Control 
+Control
 - the optimal policy
 - the policy that maximizes expected future discounted reward
 
@@ -845,13 +845,13 @@ Control
 
 ### On versus off policy learning
 
-On policy 
-- learn about the policy we are using to make decisions 
+On policy
+- learn about the policy we are using to make decisions
 
-Off policy 
+Off policy
 - evaluate or improve one policy while using another to make decisions
 
-Control can be on or off policy 
+Control can be on or off policy
 - use general policy iteration to improve a policy using an on-policy approximation
 ---
 
@@ -913,19 +913,19 @@ $$G\_t = r\_{t+1} + \gamma r\_{t+2} + \gamma^2 r\_{t+3} + ... = \sum\_{k=0}^{\in
 ---
 ### Discounting
 
-Future is uncertain 
+Future is uncertain
 - stochastic environment
 
-Matches human thinking 
+Matches human thinking
 - hyperbolic discounting
 
-Finance 
+Finance
 - time value of money
 
 Makes the maths works
 - return for infinite horizon problems finite
-- discount rate is $[0,1)$ 
-- can make the sum of an infinite series finite 
+- discount rate is $[0,1)$
+- can make the sum of an infinite series finite
 - geometric series
 
 ---
@@ -936,9 +936,9 @@ Can use discount = 1 for
 - when time to solve is irrelevant (i.e. a board game)
 
 ---
-## three 
+## three
 ### value functions
-### Bellman Equation 
+### Bellman Equation
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
@@ -976,12 +976,12 @@ Can use discount = 1 for
 ---
 ### Value functions are oracles
 
-Prediction of the future 
+Prediction of the future
 - predict expected future discounted reward
 - always conditioned on a policy
 
-We don’t know this function 
-- agent must learn it 
+We don’t know this function
+- agent must learn it
 - once we learn it – how will it help us to act?
 
 ---
@@ -1002,7 +1002,7 @@ How can we act?
 This is known as a *greedy policy*
 
 ---
-### Using a value function 
+### Using a value function
 
 ![fig](assets/images/section_3/gen_policy.png)
 ---
@@ -1025,22 +1025,22 @@ $$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
 
 These two steps are done sequentially in a process known as **policy iteration**
 - approximate our policy (i.e. $V_{\pi}(s)$)
-- act greedy wrt value function 
+- act greedy wrt value function
 - approximate our (better) policy
-- act greedy 
+- act greedy
 - etc etc
 
 ---
 ### Generalized policy iteration
-Letting policy evaluation and improvement processes interact  
+Letting policy evaluation and improvement processes interact
 
-Policy iteration 
+Policy iteration
 - sequence of approximating value function then making policy greedy wrt value function
 
-Value iteration 
+Value iteration
 - single iteration of policy evaluation done inbetween each policy improvement
 
-Both of these can achieve the same result 
+Both of these can achieve the same result
 
 The policy and value functions interact to move both towards their optimal values - this is one souce of non-stationary learning in RL
 
@@ -1064,10 +1064,10 @@ To approximate a value function we can use one of the methods we looked at in th
 
 Linear functions are appropriate with some agents or environments
 
-Modern reinforcement learning is based on using neural networks 
+Modern reinforcement learning is based on using neural networks
 
 ---
-## three 
+## three
 ### value functions
 ### Bellman Equation
 ### approximation methods
@@ -1081,7 +1081,7 @@ Modern reinforcement learning is based on using neural networks
 
 Invented dynamic programming in 1953.
 
-Also introduced the curse of dimensionality 
+Also introduced the curse of dimensionality
 - number of states $\mathcal{S}$ increases exponentially with number of dimensions in the state
 
 ---
@@ -1108,7 +1108,7 @@ $$ V\_{\pi}(s) = r + \gamma V\_{\pi}(s') $$
 $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 
 ---
-### How do we use the Bellman Equation? 
+### How do we use the Bellman Equation?
 
 Create **targets for learning**
 - train a neural network by minimizing the difference between the network output and the correct target
@@ -1126,9 +1126,9 @@ $$ loss = r + Q(s',a) - Q(s,a) $$
 This is also known as the **temporal difference error**
 
 ---
-## three 
+## three
 ### value functions
-### Bellman Equation 
+### Bellman Equation
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
@@ -1151,8 +1151,8 @@ Policy improvement can be done by either policy iteration or value iteration for
 
 Imagine you had a perfect environment model
 
-- the state transition function $ P(s'|s,a) $ 
-- the reward transition function $ R(r|s,a,s') $  
+- the state transition function $ P(s'|s,a) $
+- the reward transition function $ R(r|s,a,s') $
 
 Can we use our perfect environment model for value function approximation?
 
@@ -1191,7 +1191,7 @@ Our value function approximation depends on
 - the environment (where our actions take us and what rewards we get)
 - our current estimate of $V(s')$
 
-A dynamic programming update is expensive 
+A dynamic programming update is expensive
 - our new estimate $V(s)$ depends on the value of all other states (even if the probability is zero)
 
 Asynchronous dynamic programming addresses this by updating states in an arbitrary order
@@ -1199,17 +1199,17 @@ Asynchronous dynamic programming addresses this by updating states in an arbitra
 ---
 ### Dynamic programming summary
 
-Requries a **perfect environment model** 
-- we don't need to sample experience at all 
+Requries a **perfect environment model**
+- we don't need to sample experience at all
 - we don't ever actually take actions)
 
-We make **full backups** 
+We make **full backups**
 - the update to the value function is based on the probability distribution over all possible next states
 
-**Bootstrapped** 
+**Bootstrapped**
 - we use the recursive Bellman Equation to update our value function
 
-Limited utility in practice but they provide an **essential foundation** for understanding reinforcement learning 
+Limited utility in practice but they provide an **essential foundation** for understanding reinforcement learning
 - all RL can be thought of as attempts to achieve what DP can but without a model and with less computation
 
 ---
@@ -1217,17 +1217,17 @@ Limited utility in practice but they provide an **essential foundation** for und
 
 Monte Carlo methods = finding the expected value of a function of a random variable
 
-**No model** 
-- we learn from actual experience 
+**No model**
+- we learn from actual experience
 
-We can also learn from **simulated experience** 
-- we don't need to know the whole proability distribution 
+We can also learn from **simulated experience**
+- we don't need to know the whole proability distribution
 - just be able to generate sample trajectories
 
-**No boostrapping** 
+**No boostrapping**
 - we take the average of the true discounted return
 
-**Episodic only** 
+**Episodic only**
 - because we need to calcuate the true discounted return
 
 ---
@@ -1259,7 +1259,7 @@ Algorithm for a lookup table based Monte Carlo approximation
 ---
 ###  Interesting feature of Monte Carlo
 
-Computational expense of estimating the value of state $s$ is independent of the number of states $\mathcal{S}$ 
+Computational expense of estimating the value of state $s$ is independent of the number of states $\mathcal{S}$
 
 This is because we use experienced state transitions
 
@@ -1268,13 +1268,13 @@ This is because we use experienced state transitions
 ---
 ### Monte Carlo
 
-Learn from **actual or simulated experience** 
+Learn from **actual or simulated experience**
 - no environment model
 
-**No bootstrapping** 
+**No bootstrapping**
 - use true discounted returns sampled from the environment
 
-**Episodic problems only** 
+**Episodic problems only**
 - no learning online
 
 Ability to **focus** on interesting states and ignore others
@@ -1282,13 +1282,13 @@ Ability to **focus** on interesting states and ignore others
 High variance & low bias
 
 ---
-### Temporal difference 
+### Temporal difference
 
-Learn from **actual experience** 
+Learn from **actual experience**
 - like Monte Carlo
 - no environment model
 
-**Bootstrap** 
+**Bootstrap**
 - like dynamic programming
 - learn online
 
@@ -1297,7 +1297,7 @@ Episodic & non-episodic problems
 ---
 ### Temporal difference
 
-Use the Bellman Equation to approximate $V(s)$ using $V(s')$ 
+Use the Bellman Equation to approximate $V(s)$ using $V(s')$
 
 **Temporal difference error**
 
@@ -1323,7 +1323,7 @@ $$ V(s\_1) \leftarrow V(s\_1) + \alpha [ r\_{23} + \gamma V(s\_3) - V(s\_1) ] $$
 
 Example 6.4 from Sutton & Barto
 
-Imagine you observe the following episodes 
+Imagine you observe the following episodes
 - format of (State Reward, State Reward)
 - i.e. A 0 B 0 = state A, reward 0, state B, reward 0
 
@@ -1342,14 +1342,14 @@ We can estimate the expected return from state $B$ by averaging the rewards
 
 $$V(B) = 6/8 \cdot 1 + 2/6 \cdot 0 = 3/4 $$
 
-What about $V(A)$?  
+What about $V(A)$?
 
 - We observed that every time we were in $A$ we got $0$ reward and ended up in $B$
 - Therefore $V(A) = 0 + V(B) = 3/4$
 
 or
 
-- We observed a discounted return of $0$ each time we saw $A$ 
+- We observed a discounted return of $0$ each time we saw $A$
 - therefore $V(A) = 0$
 
 Which is the Monte Carlo approach, which is the TD approach?
@@ -1380,9 +1380,9 @@ We take into account the transition probabilities, which gives us the **certanit
 <div class="image_footer">Sutton & Barto</div>
 
 ---
-## three 
+## three
 ### value functions
-### Bellman Equation 
+### Bellman Equation
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
@@ -1400,7 +1400,7 @@ The practical today is based on DQN - the DeepMind implementation of Q-Learning
 Why might we want to learn $Q(s,a)$ rather than $V(s)$?
 
 ---
-### $V(s)$ versus $Q(s,a)$ 
+### $V(s)$ versus $Q(s,a)$
 
 Imagine a simple MDP
 
@@ -1410,16 +1410,16 @@ $$ \mathcal{A} = \{a_1, a_2\} $$
 
 Our agent finds itself in state $s_2$
 
-We use our value function $V(s)$ to calculate 
+We use our value function $V(s)$ to calculate
 
 $$V(s_1) = 10$$
 $$V(s_2) = 5$$
 $$V(s_3) = 20$$
 
-Which action should we take?  
+Which action should we take?
 
---- 
-### $V(s)$ versus $Q(s,a)$ 
+---
+### $V(s)$ versus $Q(s,a)$
 
 Now imagine we had
 
@@ -1438,9 +1438,9 @@ $Q(s,a)$ tells us how good an **action** is
 
 SARSA is an **on-policy** control method
 - we approximate the policy we are following
-- we improve the policy by being greedy wrt to our approximation 
+- we improve the policy by being greedy wrt to our approximation
 
-We use every element from our experience tuple $(s,a,r,s')$ 
+We use every element from our experience tuple $(s,a,r,s')$
 - and also $a'$ - the next action selected by our agent
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma Q(s', a') - Q(s,a)] $$
@@ -1450,12 +1450,12 @@ Why is SARSA on-policy?
 ---
 ### SARSA
 
-SARSA is on-policy because we learn about the action $a'$ that our agent choose to take 
+SARSA is on-policy because we learn about the action $a'$ that our agent choose to take
 
-Our value function is always for the policy we are following 
+Our value function is always for the policy we are following
 - the state transition probabilities depend on the policy
 
-But we can improve it using general policy iteration (GPI) 
+But we can improve it using general policy iteration (GPI)
 - approximate $Q(s,a)$ for our current policy
 - act greedily towards this approximation of $Q(s,a)$
 - approximate $Q(s,a)$ for our new experience
@@ -1465,13 +1465,13 @@ But we can improve it using general policy iteration (GPI)
 ---
 ### Q-Learning
 
-Q-Learning allows **off-policy control** 
+Q-Learning allows **off-policy control**
 - use every element from our experience tuple $(s,a,r,s')$
 
 We take the **maximum over all possible next actions**
-- we don't need to know what action our agent took next (i.e. $a'$) 
+- we don't need to know what action our agent took next (i.e. $a'$)
 
-This allows us to learn the optimal value function while following a sub-optimal policy 
+This allows us to learn the optimal value function while following a sub-optimal policy
 
 $$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$
 
@@ -1517,15 +1517,15 @@ $\epsilon$ is decayed during experiments to explore less as our agent learns (i.
 ---
 ### Exploration strageties
 
-Boltzmann (a softmax) 
+Boltzmann (a softmax)
 - temperature being annealed as learning progresses
 
-Bayesian Neural Network 
-- a network that maintains distributions over weights -> distribution over actions  
+Bayesian Neural Network
+- a network that maintains distributions over weights -> distribution over actions
 - this can also be performed using dropout to simulate a probabilistic network
 
 Parameter noise
-- adding adaptive noise to weights of network 
+- adding adaptive noise to weights of network
 
 [Action-Selection Strategies for Exploration](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf)
 
@@ -1539,7 +1539,7 @@ Parameter noise
 Correlations in our dataset (the list of experience tuples)
 - combine this with bootstrapping and instability occurs
 
-Small changes $Q(s,a)$ estimates can drastically change the policy 
+Small changes $Q(s,a)$ estimates can drastically change the policy
 
 $$Q(s_1, a_1) = 10 $$
 $$Q(s_1, a_2) = 11 $$
@@ -1549,12 +1549,12 @@ Then we do some learning and our estimates change
 $$Q(s_1, a_1) = 12 $$
 $$Q(s_1, a_2) = 11 $$
 
-Now our policy is completely different!  
+Now our policy is completely different!
 
 ---
 ### Deadly triad
 
-Sutton & Barto discuss the concept of the **deadly triad** 
+Sutton & Barto discuss the concept of the **deadly triad**
 
 Three mechanisms that combine to produce instability and divergence
 
@@ -1579,9 +1579,9 @@ Up until 2013 the deadly triad caused instability when using Q-Learning with com
 Then came DeepMind & DQN
 
 ---
-## three 
+## three
 ### value functions
-### Bellman Equation 
+### Bellman Equation
 ### approximation methods
 ### SARSA & Q-Learning
 ### DQN
@@ -1589,16 +1589,16 @@ Then came DeepMind & DQN
 ---
 ### DQN
 
-In 2013 a small London startup published a paper 
-- an agent based on Q-Learning 
+In 2013 a small London startup published a paper
+- an agent based on Q-Learning
 - superhuman level of performance in three Atari games
 
 In 2014 Google purchased DeepMind for around £400M
 
-This is for a company with 
+This is for a company with
 - no product
 - no revenue
-- no customers 
+- no customers
 - a few world class employees
 
 ---
@@ -1612,7 +1612,7 @@ This is for a company with
 End to end deep reinforcement learning
 - Q-Learning with neural networks was historically unstable
 
-Learning from high dimensional input 
+Learning from high dimensional input
 - raw pixels
 
 Ability to **generalize**
@@ -1636,11 +1636,11 @@ Ability to **generalize**
 
 - Joystick buttons (a discrete action space)
 
----?image=assets/images/section_3/atari_results.png&size=auto 80% 
+---?image=assets/images/section_3/atari_results.png&size=auto 80%
 
----?image=assets/images/section_3/atari_func.png&size=auto 80% 
+---?image=assets/images/section_3/atari_func.png&size=auto 80%
 
----?image=assets/images/section_3/atari_sea.png&size=auto 90% 
+---?image=assets/images/section_3/atari_sea.png&size=auto 90%
 
 ---
 ### Two key innovations in DQN
@@ -1659,11 +1659,11 @@ Both improve learning **stability**
 ---
 ### Experience replay
 
-Experience replay helps to deal with our non-iid dataset 
+Experience replay helps to deal with our non-iid dataset
 - randomizing the sampling of experience -> more independent
-- brings the batch distribution closer to the true distribution -> more identical 
+- brings the batch distribution closer to the true distribution -> more identical
 
-Data efficiency 
+Data efficiency
 - we can learn from experience multiple times
 
 Allows seeding of the memory with high quality experience
@@ -1695,16 +1695,16 @@ Can also use a small factor tau ($\tau$) to smoothly update weights at each step
 ---
 ### Target network
 
-Changing value of one action changes value of all actions & similar states 
+Changing value of one action changes value of all actions & similar states
 - bigger networks less prone (less aliasing aka weight sharing)
- 
-Stable training 
-- no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$ 
-- reduces correlation between the target created for the network and the network itself 
 
----?image=assets/images/section_3/stability.png&size=auto 40% 
+Stable training
+- no longer bootstrapping from the same function, but from an old & fixed version of $Q(s,a)$
+- reduces correlation between the target created for the network and the network itself
 
----?image=assets/images/section_3/DQN_algo.png&size=auto 90% 
+---?image=assets/images/section_3/stability.png&size=auto 40%
+
+---?image=assets/images/section_3/DQN_algo.png&size=auto 90%
 
 ---
 
@@ -1721,7 +1721,7 @@ Stable training
 
 1992 - Experience replay (Lin)
 
-2010 - Tabular Double Q-Learning 
+2010 - Tabular Double Q-Learning
 
 2010's - GPUs used for neural networks
 
@@ -1736,11 +1736,11 @@ Stable training
 2018 - Rainbow
 
 ---
-## four 
+## four
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Distributional Q-Learning 
+### Distributional Q-Learning
 ### Rainbow
 
 ---
@@ -1759,9 +1759,9 @@ Stable training
 
 Family of methods between Temporal Difference & Monte Carlo
 
-Eligibility traces allow us to **assign TD errors** to different states 
+Eligibility traces allow us to **assign TD errors** to different states
 - can be useful with delayed rewards or non-Markov environments
-- requires more computation 
+- requires more computation
 - squeezes more out of data
 
 Allow us to tradeoff between bias and variance
@@ -1785,8 +1785,8 @@ The **backward** view can be put into practice
 ### The forward view
 
 We can decompose return into **complex backups**
-- looking forward to future returns 
-- can use a combination of experience based and model based backups 
+- looking forward to future returns
+- can use a combination of experience based and model based backups
 
 $$R\_t = \frac{1}{2} R\_{t}^{2} + \frac{1}{2} R\_{t}^{4} $$
 
@@ -1800,7 +1800,7 @@ $$R\_t = \frac{1}{2} TD + \frac{1}{2} MC $$
 The backward view approximates the forward view
 - forward view is not practical (requires knowledge of the future)
 
-It requires an additional variable in our agents memory 
+It requires an additional variable in our agents memory
 - **eligibility trace $e_{t}(s)$**
 
 At each step we decay the trace according to
@@ -1832,7 +1832,7 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Distributional Q-Learning 
+### Distributional Q-Learning
 ### Rainbow
 
 ---
@@ -1855,7 +1855,7 @@ Some experience is more useful for learning than others
 
 $$ error = r + \gamma Q(s', a) - Q(s,a) $$
 
-TD error measures suprise 
+TD error measures suprise
 - this transition gave a higher or lower reward than our value function expected
 
 ---
@@ -1863,8 +1863,8 @@ TD error measures suprise
 
 Non-random sampling introduces two problems
 
-1. loss of diversity - we will only sample from high TD error experiences 
-2. introduce bias - non-independent sampling 
+1. loss of diversity - we will only sample from high TD error experiences
+2. introduce bias - non-independent sampling
 
 Schaul et. al (2016) solves these problems by
 
@@ -1876,7 +1876,7 @@ Schaul et. al (2016) solves these problems by
 ### eligibility traces
 ### prioritized experience replay
 ### <span style="color:#66ff66">DDQN</span>
-### Distributional Q-Learing 
+### Distributional Q-Learing
 ### Rainbow
 
 ---
@@ -1889,7 +1889,7 @@ DDQN = Double Deep Q-Network
 - first introducued in a tabular setting in 2010
 - reintroduced in the content of DQN in 2016
 
-DDQN aims to overcome the **maximization bias** of Q-Learning 
+DDQN aims to overcome the **maximization bias** of Q-Learning
 
 ---
 ### Maximization bias
@@ -1909,7 +1909,7 @@ The DDQN modification to DQN makes use of the target network as a different func
 $$ r + \gamma \underset{a}{\max} Q(s,a;\theta^{-}) $$
 
 **DDQN target**
-$$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$ 
+$$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 
 - select the action according to the online network
 
@@ -1924,7 +1924,7 @@ $$ r + \gamma Q(s', \underset{a}{argmax}Q(s',a; \theta); \theta^{-}) $$
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Distributional Q-Learning 
+### Distributional Q-Learning
 ### Rainbow
 ---
 
@@ -1946,16 +1946,16 @@ State of the art results on Atari (at the time - Rainbow is currently SOTA)
 
 ![fig](assets/images/section_8/beyond_ex.png)
 
----?image=assets/images/section_8/value_dist.png&size=auto 70% 
+---?image=assets/images/section_8/value_dist.png&size=auto 70%
 
----?image=assets/images/section_8/value_dist_results.png&size=auto 70% 
+---?image=assets/images/section_8/value_dist_results.png&size=auto 70%
 
 ---
 ## four
 ### eligibility traces
 ### prioritized experience replay
 ### DDQN
-### Distributional Q-Learning 
+### Distributional Q-Learning
 ### Rainbow
 
 ---
@@ -1975,7 +1975,7 @@ All the various improvements to DQN address different issues
 - multi-step bootstrap targets - bias variance tradeoff
 
 - distributional Q-learning - learn categorical distribution of $Q(s,a)$
-    
+
 - noisy DQN - stochastic layers for exploration
 
 Rainbow combines these improvements
@@ -1994,9 +1994,9 @@ Rainbow combines these improvements
 <img src="assets/images/section_4/rainbow_results.png" height="80%" width="80%" align="top">
 
 ---
-## five 
+## five
 ### motivations for policy gradients
-### introduction 
+### introduction
 ### the score function
 ### REINFORCE
 ### Actor-Critic
@@ -2007,7 +2007,7 @@ Rainbow combines these improvements
 ---
 ### Policy gradients
 
-Previously we generated a policy from a value function 
+Previously we generated a policy from a value function
 
 $$ a = \underset{a}{argmax} Q(s,a) $$
 
@@ -2041,7 +2041,7 @@ This corresponds to approx. 750,000 actions a Q-Learner would need to argmax acr
 
 We also lose shape of the action space by discretization
 
----?image=assets/images/section_5/disc_cont_act.png&size=auto 70% 
+---?image=assets/images/section_5/disc_cont_act.png&size=auto 70%
 
 ---
 ### Motivation - optimize return directly
@@ -2084,7 +2084,7 @@ More compataible with recurrent neural networks
 
 ---
 
-## five 
+## five
 ### motivations for policy gradients
 ### introduction
 ### the score function
@@ -2125,7 +2125,7 @@ Reward function is not known
 
 Our policy $\pi(a_t|s_t;\theta)$ is a **probability distribution over actions**
 
-How do we improve it?  
+How do we improve it?
 - change parameters to take actions that get more reward
 - change parameters to favour probable actions
 
@@ -2143,7 +2143,7 @@ The **score function** comes from using the log-likelihood ratio trick
 
 The score function allows us to get the gradient of a function by **taking an expectation**
 
-Expectataions are averages 
+Expectataions are averages
 - use sample based methods to approximate them
 
 $$\nabla\_{\theta} \mathbf{E}[f(x)] = \mathbf{E}[\nabla\_{\theta} \log P(x) \cdot f(x)]$$
@@ -2165,40 +2165,40 @@ $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) 
 The RHS is an expectation - we can estimate it by sampling
 
 The expectation is made up of things we can sample from
-- we can sample from our policy 
+- we can sample from our policy
 - we can sample the return (from experience)
 
 ---
 ### Training a policy
 
-We use the score function to get the gradient, then follow the gradient 
+We use the score function to get the gradient, then follow the gradient
 
 `gradient = log(probability of action) * return`
 
 `gradient = log(policy) * return`
 
-The score function limits us to on-policy learning 
+The score function limits us to on-policy learning
 - we need to calculate the log probability of the action taken by the policy
 
---- 
+---
 ### Policy gradient intuition
 
 $$\nabla\_{\theta} \mathbf{E}[G\_t] = \mathbf{E}[\nabla\_{\theta} \log \pi(a|s) \cdot G\_t]$$
 
-$\log \pi(a_t|s_t;\theta)$ 
+$\log \pi(a_t|s_t;\theta)$
 - how probable was the action we picked
 - we want to reinforce actions we thought were good
 
-$ G_t $ 
+$ G_t $
 - how good was that action
 - we want to reinforce actions that were actually good
 
 ---
-### REINFORCE 
+### REINFORCE
 
 Different methods to approximate the return $G_t$
 
-We can use a Monte Carlo estimate - this is known as REINFORCE 
+We can use a Monte Carlo estimate - this is known as REINFORCE
 
 Using a Monte Carlo approach comes with all the problems we saw earlier
 - high variance
@@ -2210,11 +2210,11 @@ How can we get some the advantages of Temporal Difference methods?
 ---
 ### Baseline
 
-We can introduce a baseline function 
+We can introduce a baseline function
 - this reduces variance without introducing bias
-- a natural baseline is the value function (weights $w$).  
+- a natural baseline is the value function (weights $w$).
 
-$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w))$ 
+$\log \pi(a_t|s_t;\theta) \cdot (G_t - B(s_t; w))$
 
 This also gives rise to the concept of **advantage**
 - how much better this action is than the average action (policy & env dependent)
@@ -2236,7 +2236,7 @@ We parameterize two functions
 
 We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
 
----?image=assets/images/section_5/ac_arch.png&size=auto 70% 
+---?image=assets/images/section_5/ac_arch.png&size=auto 70%
 
 ---
 ### Actor-Critic Algorithm
@@ -2244,9 +2244,9 @@ We update our actor (i.e. the behaviour policy) in the direction suggested by th
 ![fig](assets/images/section_5/ac_algo.png)
 
 ---
-## five 
+## five
 ### motivations for policy gradients
-### introduction 
+### introduction
 ### the score function
 ### REINFORCE
 ### Actor-Critic
@@ -2262,7 +2262,7 @@ We update our actor (i.e. the behaviour policy) in the direction suggested by th
 
 Actor Critic
 
-Determinstic policy 
+Determinstic policy
 - more efficient than stochastic
 
 Continuous action spaces
@@ -2321,9 +2321,9 @@ Deterministic integrates over only the state space -> leading to better sample e
 ![fig](assets/images/section_5/DPG_results.png)
 
 ---
-## five 
+## five
 ### motivations for policy gradients
-### introduction 
+### introduction
 ### the score function
 ### REINFORCE
 ### Actor-Critic
@@ -2336,13 +2336,13 @@ Deterministic integrates over only the state space -> leading to better sample e
 ---
 ### A3C
 
-Asynchronous Advantage Actor-Critic 
+Asynchronous Advantage Actor-Critic
 
 We saw earlier that experience replay is used to make learning more stable & decorrelate updates
 - but can only be used with off-policy learners
 
 ---
-### **Asynchronous** Advantage Actor-Critic 
+### **Asynchronous** Advantage Actor-Critic
 
 Asynchronous
 - multiple agents learning separately
@@ -2353,9 +2353,9 @@ Asynchronous
 - learns faster than many GPU methods
 
 ---
-### Asynchronous **Advantage** Actor-Critic 
+### Asynchronous **Advantage** Actor-Critic
 
-Advantage = the advantage function 
+Advantage = the advantage function
 
 $$A\_{\pi}(s\_t, a\_t) = Q\_{\pi}(s\_t, a\_t) - V\_{\pi}(s\_t)$$
 
@@ -2366,14 +2366,14 @@ How much better an action is than the average action followed by the policy
 
 All three of these papers build on the same idea - that we **want to constrain policy updates** to get more stable learning
 
-Natural Policy Gradients uses an expensive second order derivative method
+- Natural Policy gradients - rely on a computationally intense second order derivative method (inverse of the Fisher Infomation matrix)
+- TRPO - uses the KL-divergence to hard constrain policy updates (avoids calculating the Fisher Infomation matrix, but uses Conjugate Gradient to solve a constrained optimization problem)
+- PPO - uses clipped probability ratios to constrain policy updates
 
-Trust Region Policy Optimization (TRPO) uses
-
-Proximal Policy Optimization (PPO) uses the KL-divergence with an adaptive penatly
+PPO is the algorithm used by Open AI in their work on DOTA.
 
 ---
-## six 
+## six
 ### AlphaGo
 ### AlphaGo Zero
 ### Residual networks
@@ -2395,7 +2395,7 @@ Deep Blue was handcrafted by programmers & chess grandmasters
 
 AlphaGo *learnt* from human moves & self play
 
-AlphaGo evaluated fewer positions 
+AlphaGo evaluated fewer positions
 -  **width** - policy network select states more intelligently
 -  **depth** - value function evaluate states more precisely
 
@@ -2408,10 +2408,10 @@ Long held as the most challenging classic game for artificial intelligence
 - difficult to evaluate positions & moves
 - sparse & delayed reward
 
---- 
+---
 ### Components of the AlphaGo agent
 
-Three policy networks $\pi(s)$ 
+Three policy networks $\pi(s)$
 - fast rollout policy network – linear function
 - supervised learning policy – 13 layer convolutional NN
 - reinforcement learning policy – 13 layer convolutional NN
@@ -2470,7 +2470,7 @@ Convenient properties of Go
 - fully observed
 - discrete action space
 - access to perfect simulator
-- relatively short episodes 
+- relatively short episodes
 - evaluation is clear
 - huge datasets of human play
 - energy consumption (human ≈ 50 W) 1080 ti = 250 W
@@ -2478,7 +2478,7 @@ Convenient properties of Go
 *https://medium.com/@karpathy/alphago-in-context-c47718cb95a5*
 
 ---
-## six 
+## six
 ### AlphaGo
 ### AlphaGo Zero
 ### Residual networks
@@ -2494,7 +2494,7 @@ Adversarial
 
 Machine knowledge only
 
---- 
+---
 ### AlphaGo Zero Results
 
 Training time & performance
@@ -2528,7 +2528,7 @@ Single neural network
 
 MCTS only during acting (not during learning)
 
-Use of residual networks 
+Use of residual networks
 
 ---
 ### AlphaGo Zero acting & learning
@@ -2554,7 +2554,7 @@ The improved policy generated during acting becomes the target policy during tra
 ](https://www.youtube.com/watch?v=A3ekFcZ3KNw)
 
 ---
-## six 
+## six
 ### AlphaGo
 ### AlphaGo Zero
 ### Residual networks
@@ -2571,13 +2571,13 @@ Layers are reformulated as residuals of the input
 ---
 ### Residual networks
 
-Trying to learn $ H(x) $ 
+Trying to learn $ H(x) $
 
-Instead of learning $ F(x) = H(x) $ 
+Instead of learning $ F(x) = H(x) $
 
-We learn the residual $ F(x) = H(x) - x $ 
+We learn the residual $ F(x) = H(x) - x $
 
-And can get $ H(x) = F(x) + x $ 
+And can get $ H(x) = F(x) + x $
 
 ---
 
@@ -2594,7 +2594,7 @@ And can get $ H(x) = F(x) + x $
 ![fig](assets/images/section_6/Reddit_AMA_posts.png)
 
 ---
-## seven 
+## seven
 ### practical concerns
 
 ---
@@ -2648,10 +2648,10 @@ Not gradient clipping
 
 Since I started teaching in Batch 10 we have had three RL projects
 
-Saving agent brain 
+Saving agent brain
 - not saving the optimizer state
 
-Using too high a learning rate 
+Using too high a learning rate
 - learning rate is always important!!!
 
 Building both an agent and environment
@@ -2685,7 +2685,7 @@ Building both an agent and environment
 https://www.quora.com/How-can-I-test-if-the-training-process-of-a-reinforcement-learning-algorithm-work-correctly
 
 ---
-### Best practices 
+### Best practices
 
 Quick experiments on small test problems
 - CartPole for discrete action spaces
@@ -2707,7 +2707,7 @@ Always use multiple random seeds
 Automate experiments - don't waste time watching them run!
 
 ---
-### Best practices 
+### Best practices
 
 In reinforcement learning we often don't know the true min/max/mean/standard deviation of observations/actions/rewards/returns
 
@@ -2727,10 +2727,10 @@ determines initial state visitation (i.e. exploration)
 DQN converges slowly
 
 ---
-### Best practices 
+### Best practices
 
-Compute useful statistics 
-- explained variance (for seeing if your value functions are overfitting), 
+Compute useful statistics
+- explained variance (for seeing if your value functions are overfitting),
 - computing KL divergence of policy before and after update (a spike in KL usually means degradation of policy)
 - entropy of your policy
 
@@ -2765,12 +2765,12 @@ Gradient clipping is helpful - dropout & batchnorm not so much
 ---
 ### Matthew Rahtz of Amid Fish
 
-> It’s not like my experience of programming in general so far where you get stuck but there’s usually a clear trail to follow and you can get unstuck within a couple of days at most. 
+> It’s not like my experience of programming in general so far where you get stuck but there’s usually a clear trail to follow and you can get unstuck within a couple of days at most.
 
 > It’s more like when you’re trying to solve a puzzle, there are no clear inroads into the problem, and the only way to proceed is to try things until you find the key piece of evidence or get the key spark that lets you figure it out.
 
 ---
-### Debugging 
+### Debugging
 
 Debugging in four steps
 1. evidence about what the problem might be
@@ -2778,7 +2778,7 @@ Debugging in four steps
 3. choose most likely hypothesis, fix
 4. repeat until problem goes away
 
-Most programming involves rapid feedback 
+Most programming involves rapid feedback
 - you can see the effects of changes very quickly
 - gathering evidence can be cheaper than forming hypotheses
 
@@ -2822,7 +2822,7 @@ TensorFlow
 
 
 ---
-## eight 
+## eight
 ### deep reinforcement learning doesn't work yet
 
 ---
@@ -2852,7 +2852,7 @@ In the real world it can be hard or expensive to generate experience
 It's not about learning time - it's about the ability to sample
 
 ---
-### Other methods often work better 
+### Other methods often work better
 
 Many problems are better solved by other methods
 - allowing the agent access to a ground truth model (i.e. simulator)
@@ -2863,7 +2863,7 @@ Many problems are better solved by other methods
 The generalizability of RL means that except in rare cases, domain specific algorithms work faster and better
 
 ---
-### Requirement of a reward function 
+### Requirement of a reward function
 
 Reward function design is difficult
 - need to encourage behaviour

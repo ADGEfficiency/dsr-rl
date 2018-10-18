@@ -1291,7 +1291,7 @@ Imagine you observe the following episodes
 - format of (State Reward, State Reward)
 - i.e. A 0 B 0 = state A, reward 0, state B, reward 0
 
-| Episode | Number times observed |
+| Episode | Count |
 |---|---|
 |A 0, B 0| 1 |
 |B 1 | 6 |

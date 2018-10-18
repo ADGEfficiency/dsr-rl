@@ -1269,11 +1269,7 @@ Use the Bellman Equation to approximate $V(s)$ using $V(s')$
 
 **Temporal difference error**
 
-$$actual = r + \gamma V(s') $$
-$$predicted = V(s) $$
-
-$$error = actual - predicted $$
-$$error = r + \gamma V(s') - V(s) $$
+$$ \text{TD error} = r + \gamma V(s') - V(s) $$
 
 Update rule for a table TD(0) approximation
 

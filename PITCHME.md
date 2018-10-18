@@ -499,11 +499,12 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 <iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
+
 ### Reinforcement Learning
 
 ### is
 
-### learning through action
+### learning through action 
 
 ---
 
@@ -832,16 +833,6 @@ Policy can be
 Deterministic or stochastic
 
 ---
-### Prediction versus control
-
-Prediction / approximation
-- predicting return for given policy
-
-Control
-- the optimal policy
-- the policy that maximizes expected future discounted reward
-
----
 
 ### On versus off policy learning
 
@@ -1019,40 +1010,16 @@ def greedy_policy(state):
 ```
 
 ---
-### Policy iteration
+### Prediction versus control
 
-$$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
+Prediction / approximation
+- predicting return for given policy
 
-These two steps are done sequentially in a process known as **policy iteration**
-- approximate our policy (i.e. $V_{\pi}(s)$)
-- act greedy wrt value function
-- approximate our (better) policy
-- act greedy
-- etc etc
+Control
+- the optimal policy
+- the policy that maximizes expected future discounted reward
 
 ---
-### Generalized policy iteration
-Letting policy evaluation and improvement processes interact
-
-Policy iteration
-- sequence of approximating value function then making policy greedy wrt value function
-
-Value iteration
-- single iteration of policy evaluation done inbetween each policy improvement
-
-Both of these can achieve the same result
-
-The policy and value functions interact to move both towards their optimal values - this is one souce of non-stationary learning in RL
-
----
-![fig](assets/images/section_3/policy_iter.png)
-
-<div class="image_footer">Sutton & Barto</div>
-
----
-![fig](assets/images/section_3/value_iter.png)
-
-<div class="image_footer">Sutton & Barto</div>
 
 ---
 ### Value function approximation
@@ -1200,8 +1167,9 @@ Asynchronous dynamic programming addresses this by updating states in an arbitra
 ### Dynamic programming summary
 
 Requries a **perfect environment model**
+
 - we don't need to sample experience at all
-- we don't ever actually take actions)
+- we don't ever actually take actions - we just need the policy
 
 We make **full backups**
 - the update to the value function is based on the probability distribution over all possible next states
@@ -1373,7 +1341,43 @@ The maximum likelihood estimate of a parameter is the parameter value whose prob
 We take into account the transition probabilities, which gives us the **certanitiy equivilance estimate** - which is the estimate we get when assuming we know the underlying model (rather than approximating it)
 
 ---
-### Recap
+### Policy iteration
+
+$$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
+
+These two steps are done sequentially in a process known as **policy iteration**
+- approximate our policy (i.e. $V_{\pi}(s)$)
+- act greedy wrt value function
+- approximate our (better) policy
+- act greedy
+- etc etc
+
+---
+### Generalized policy iteration
+
+Letting policy evaluation and improvement processes interact
+
+Policy iteration
+- sequence of approximating value function then making policy greedy wrt value function
+
+Value iteration
+- single iteration of policy evaluation done inbetween each policy improvement
+
+Both of these can achieve the same result
+
+The policy and value functions interact to move both towards their optimal values - this is one souce of non-stationary learning in RL
+
+---
+![fig](assets/images/section_3/policy_iter.png)
+
+<div class="image_footer">Sutton & Barto</div>
+
+---
+![fig](assets/images/section_3/value_iter.png)
+
+<div class="image_footer">Sutton & Barto</div>
+
+---
 
 ![fig](assets/images/section_3/recap.png)
 

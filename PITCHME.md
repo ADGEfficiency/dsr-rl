@@ -1019,7 +1019,6 @@ Control
 - the optimal policy
 - the policy that maximizes expected future discounted reward
 
-
 ---
 ### Value function approximation
 
@@ -1206,6 +1205,8 @@ As we run more episodes, our estimate should converge to the true expectation
 
 Low bias & high variance - why?
 
+---
+
 ### Bias & variance of Monte Carlo
 
 High variance
@@ -1276,7 +1277,7 @@ $$error = r + \gamma V(s') - V(s) $$
 
 Update rule for a table TD(0) approximation
 
-![fig](assets/images/section_3/td_1.png)
+$$ V(s_t) \leftarrow V(s_t) + \alpha [R_{t+1} + \gamma \cdot V(s_{t+1}) - V(s_t)] $$
 
 ---
 ### Temporal difference backup
@@ -1339,17 +1340,6 @@ The maximum likelihood estimate of a parameter is the parameter value whose prob
 
 We take into account the transition probabilities, which gives us the **certanitiy equivilance estimate** - which is the estimate we get when assuming we know the underlying model (rather than approximating it)
 
----
-### Policy iteration
-
-$$V\_{k+1} (s) = \max\_a \sum\_{s',r} P(s',r|s,a) [r + \gamma V\_k(s')]$$
-
-These two steps are done sequentially in a process known as **policy iteration**
-- approximate our policy (i.e. $V_{\pi}(s)$)
-- act greedy wrt value function
-- approximate our (better) policy
-- act greedy
-- etc etc
 
 ---
 ### Generalized policy iteration
@@ -1364,7 +1354,7 @@ Value iteration
 
 Both of these can achieve the same result
 
-The policy and value functions interact to move both towards their optimal values - this is one souce of non-stationary learning in RL
+The policy and value functions interact to move both towards their optimal values - this is one source of non-stationary learning in RL
 
 ---
 ![fig](assets/images/section_3/policy_iter.png)

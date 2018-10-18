@@ -1288,6 +1288,7 @@ $$ V(s\_1) \leftarrow V(s\_1) + \alpha [ r\_{23} + \gamma V(s\_3) - V(s\_1) ] $$
 Example 6.4 from Sutton & Barto
 
 Imagine you observe the following episodes
+
 - format of (State Reward, State Reward)
 - i.e. A 0 B 0 = state A, reward 0, state B, reward 0
 

@@ -9,11 +9,13 @@
 }
 
 /* adjust body text */
-.reveal p {
+.reveal p pre {
   text-align: left;
   font-size: 30px;
   margin-left: 0;
   margin-right: 0;
+  border: 0;
+  box-shadow: none;
 }
 
 /* lists */
@@ -24,7 +26,7 @@
   list-style: none;
 }
 
-.reveal  ol {
+.reveal ol {
   display: block;
   text-align: left;
   font-size: 26px;

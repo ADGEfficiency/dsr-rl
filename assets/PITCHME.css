@@ -66,10 +66,10 @@ h3 {
 
 /* custom class for references to images */
 .image_footer {
+  font-size: 5px;
   position: fixed;
   text-align: center;
   bottom: 0px;
   width: 100%;
-  font-size: 10px;
   color: gray;
 }

@@ -2292,17 +2292,13 @@ Critic
 
 Stochastic integrates over both the state & action spaces:
 
-$$ \nabla\_{\theta} G(\pi\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\theta}}, a \sim \pi\_{\theta}} $$
-
-$$ \nabla\_{\theta} log \pi\_{\theta} (a|s) \cdot Q^{\pi} (s,a) $$
+$$ \nabla\_{\theta} G(\pi\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\theta}}, a \sim \pi\_{\theta}} \nabla\_{\theta} log \pi\_{\theta} (a|s) \cdot Q^{\pi} (s,a) $$
 
 The deterministic gradient integrates only over the state space:
 
 $$ \nabla\_{\theta} G(\mu\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\beta}}} $$
 
-$$ \nabla\_{\theta} \mu\_{\theta} (s) \nabla\_{a} Q^{\mu} (s,a)$$
-
-$$ |\_{a=\mu_\{theta}(s)} $$
+$$ \nabla\_{\theta} \mu\_{\theta} (s) \nabla\_{a} Q^{\mu} (s,a) |\_{a=\mu_\{theta}(s)} $$
 
 ---
 ### DPG results

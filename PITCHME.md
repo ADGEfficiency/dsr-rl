@@ -2583,12 +2583,10 @@ And can get $ H(x) = F(x) + x $
 <img src="assets/images/section_6/res_block.png" height="50%" width="50%" align="top">
 
 ---
-### DeepMind AlphaGo AMA
 
 ![fig](assets/images/section_6/Reddit_AMA.png)
 
 ---
-### DeepMind AlphaGo AMA
 
 ![fig](assets/images/section_6/Reddit_AMA_posts.png)
 
@@ -2640,7 +2638,7 @@ Not setting `next_observation = observation`
 Not setting online & target network variables the same at the start of an experiment
 
 Not gradient clipping
-- clip the norm of the gradient (I've seen between 1 - 5)
+- clip the norm of the gradient (I've seen between 0 - 5)
 
 ---
 ### Mistakes DSR students have made in RL projects

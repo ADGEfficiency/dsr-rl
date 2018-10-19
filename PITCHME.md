@@ -2363,7 +2363,7 @@ PPO is the algorithm used by Open AI in their work on DOTA
 
 The clipped loss function proposed in PPO is:
 
-$$ L^{\text{CLIP}}(\theta) = \mathbb{E} [ min(r_t{\theta} A_t, \text{clip}(r_t{\theta}, 1 - \epsilon, 1 + \epsilon) A_t)] $$
+$$ L^{\text{CLIP}}(\theta) = \mathbb{E} [ min(r_t({\theta}) A_t, \text{clip}(r_t({\theta}), 1 - \epsilon, 1 + \epsilon) A_t)] $$
 
 ```python
 clipped_loss = np.min(

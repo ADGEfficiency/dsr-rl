@@ -390,7 +390,7 @@ $$ \textrm{maximize} \quad \mathbb{E} [\frac{\pi_{\theta}(a_t | s_t)}{\pi_{\thet
 
 The clipped loss function proposed in PPO is:
 
-$$ L^{\text{CLIP}}(\theta) = \mathbb{E} [ min(r_t{\theta} A_t, \text{clip}(r_t{\theta}, 1 - \epsilon, 1 + \epsilon) A_t)] $$
+$$ L^{\text{CLIP}}(\theta) = \mathbb{E} [ min(r_t({\theta}) A_t, \text{clip}(r_t({\theta}), 1 - \epsilon, 1 + \epsilon) A_t)] $$
 
 Written out in code form:
 

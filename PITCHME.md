@@ -2292,7 +2292,7 @@ Critic
 
 Stochastic integrates over both the state & action spaces:
 
-$$ \nabla\_{\theta} G(\pi_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\theta}}, a \sim \pi\_{\theta}} $$
+$$ \nabla\_{\theta} G(\pi\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\theta}}, a \sim \pi\_{\theta}} $$
 
 $$ \nabla\_{\theta} log \pi\_{\theta} (a|s) \cdot Q^{\pi} (s,a) $$
 

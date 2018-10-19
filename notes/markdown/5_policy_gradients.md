@@ -263,7 +263,7 @@ $$ \nabla_{\theta} G(\pi_{\theta}) = \mathbf{E}_{s \sim p_{\pi{\theta}}, a \sim 
 
 The deterministic gradient integrates only over the state space:
 
-$$ \nabla_{\theta} G(\mu_{\theta}) = \mathbf{E}_{s \sim p_{\pi{\beta}}} \nabla_{\theta} \mu_{\theta} (s) \nabla_{a} Q^{\mu} (s,a) |_{a=\mu_\{theta}(s)} $$
+$$ \nabla_{\theta} G(\mu_{\theta}) = \mathbf{E}_{s \sim p_{\pi{\beta}}} \nabla_{\theta} \mu_{\theta} (s) \nabla_{a} Q^{\mu} (s,a) |_{a=\mu_{theta}(s)} $$
 
 ### Updating policy weights
 

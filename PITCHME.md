@@ -2353,7 +2353,20 @@ All three of these papers build on the same idea - that we **want to constrain p
 - TRPO - uses the KL-divergence to hard constrain policy updates (avoids calculating the Fisher Infomation matrix, but uses Conjugate Gradient to solve a constrained optimization problem)
 - PPO - uses clipped probability ratios to constrain policy updates
 
-PPO is the algorithm used by Open AI in their work on DOTA.
+---
+
+### PPO
+
+PPO is the algorithm used by Open AI in their work on DOTA
+The clipped loss function proposed in PPO is:
+
+$$ L^{\text{CLIP}}(\theta) = \mathbb{E} [ min(r_t{\theta} A_t, \text{clip}(r_t{\theta}, 1 - \epsilon, 1 + \epsilon) A_t)] $$
+
+Written out in code form:
+
+```python
+clipped_loss = np.min(prob_ratio * advantage, clip(prob_ratio, 1-epsilon, 1+epsilon) * advantage
+```
 
 ---
 ## six

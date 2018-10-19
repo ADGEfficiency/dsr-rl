@@ -2296,9 +2296,7 @@ $$ \nabla\_{\theta} G(\pi\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\theta}}, a \
 
 The deterministic gradient integrates only over the state space:
 
-$$ \nabla\_{\theta} G(\mu\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\beta}}} $$
-
-$$ \nabla\_{\theta} \mu\_{\theta} (s) \nabla\_{a} Q^{\mu} (s,a) |\_{a=\mu_\{theta}(s)} $$
+$$ \nabla\_{\theta} G(\mu\_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\beta}}} \nabla\_{\theta} \mu\_{\theta} (s) \nabla\_{a} Q^{\mu} (s,a) |\_{a=\mu_\{theta}(s)} $$
 
 ---
 ### DPG results

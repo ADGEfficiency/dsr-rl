@@ -74,8 +74,8 @@ Literature review
 ### Nomenclature
 
 Nomenclature in RL can be inconsistent
-- value function methods, action = `a`
-- policy gradient methods, action = `u`
+- value function methods, action = $a$
+- policy gradient methods, action = $u$
 
 Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
 
@@ -500,11 +500,7 @@ Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 20
 
 ---
 
-### Reinforcement Learning
-
-### is
-
-### learning through action 
+Reinforcement learning is **learning through action to maximize reward**
 
 ---
 
@@ -598,16 +594,19 @@ iid = independent sampling & identical distribution
 RL breaks both in multiple ways
 
 **Independent sampling**
+
 - all the samples collected on a given episode are correlated (along the state trajectory)
 - our agent will likely be following a policy that is biased (towards good states)
 
 **Identically distributed**
+
 - learning changes the data distribution
 - exploration changes the data distribution
 - environment can be non-stationary
 
 ---
-## Reinforcement learning will **always** break supervised learning assumptions about data quality
+
+Reinforcement learning will **always** break supervised learning assumptions about data quality
 
 ---
 ###  Credit assignment
@@ -1463,7 +1462,7 @@ We take the **maximum over all possible next actions**
 
 This allows us to learn the optimal value function while following a sub-optimal policy
 
-$$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a') - Q(s,a)] $$
+$$Q(s,a) \leftarrow Q(s,a) + \alpha [r + \gamma \underset{a}{\max} Q(s', a) - Q(s,a)] $$
 
 Don't learn $Q_{\pi}$ - learn $Q^*$ (the optimal policy)
 
@@ -1736,7 +1735,7 @@ Stable training
 ---
 
 <img src="assets/images/section_4/unified_view.png" height="80%" width="80%" align="top">
-<div class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</div>
+<body class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</body>
 
 ---
 

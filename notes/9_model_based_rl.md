@@ -1,6 +1,10 @@
+# These notes are under development!
+
 https://www.youtube.com/watch?v=8a7wBLg5Q8U - microsoft keynote model based rl
 
 [Deep Reinforcement Learning in a Handful of Trials using Probabilistic Dynamics Models](https://sites.google.com/view/drl-in-a-handful-of-trials)
+
+Jonathan Hui - Model-based Reinforcement Learning - [blog post](https://medium.com/@jonathan_hui/rl-model-based-reinforcement-learning-3c2b6f0aa323)
 
 # Investigating Model Based RL for Continuous Control | Alex Botev - [youtube](https://www.youtube.com/watch?v=1_sYif82CtY)
 

@@ -2292,7 +2292,7 @@ Critic
 
 Stochastic integrates over both the state & action spaces
 
-$$ \nabla_{\theta}G(\pi_{\theta}) = \mathbb{E}_{s \sim p^{\pi}, a \sim \pi_{\theta}} \nabla_{\theta} log \pi_{\theta}(a|s) \cdot Q^{\pi}(s,a) $$
+$$ \nabla_{\theta} G(\pi_{\theta}) = \mathbb{E}_{s \sim p^{\pi}, a \sim \pi_{\theta}} \nabla_{\theta} log \pi_{\theta}(a|s) \cdot Q^{\pi}(s,a) $$
 
 Deterministic integrates over only the state space -> leading to better sample efficiency
 

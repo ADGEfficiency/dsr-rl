@@ -2580,9 +2580,7 @@ We learn the residual $ F(x) = H(x) - x $
 
 And can get $ H(x) = F(x) + x $
 
----
-
-<img src="assets/images/section_6/res_block.png" height="80%" width="80%" align="top">
+<img src="assets/images/section_6/res_block.png" height="50%" width="50%" align="top">
 
 ---
 ### DeepMind AlphaGo AMA

@@ -2298,10 +2298,7 @@ $$ \nabla\_{\theta} log \pi\_{\theta} (a|s) \cdot Q^{\pi} (s,a) $$
 
 The deterministic gradient integrates only over the state space:
 
-$$ \nabla\_{\theta} G(\mu_{\theta}) $$
-
-
-$$ \mathbf{E}\_{s \sim p\_{\pi{\beta}}} $$
+$$ \nabla\_{\theta} G(\mu_{\theta}) = \mathbf{E}\_{s \sim p\_{\pi{\beta}}} $$
 
 $$ \nabla\_{\theta} \mu\_{\theta} (s) \nabla\_{a} Q^{\mu} (s,a)$$
 

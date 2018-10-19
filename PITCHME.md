@@ -2294,7 +2294,7 @@ Stochastic integrates over both the state & action spaces
 
 $$ \nabla G(\pi_{\theta}) $$
 
-$$ \mathbf{E}\_{s \sim p^{\pi{\theta}}, a \sim \pi_{\theta}} $$
+$$ \mathbf{E}\_{s \sim p_{\pi{\theta}}, a \sim \pi_{\theta}} $$
 
 
 ---

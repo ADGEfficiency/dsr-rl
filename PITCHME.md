@@ -2292,9 +2292,9 @@ Critic
 
 Stochastic integrates over both the state & action spaces
 
-$$ \nabla_{\theta} G (\pi_{\theta}) = $$
+$$ \nabla_{\theta} G ( \pi_{\theta} ) = $$
 
-$$\mathbf{E}$$
+$$ \mathbf{E} $$
 
 $${s \sim p^{\pi}, a \sim \pi_{\theta}} $$
 

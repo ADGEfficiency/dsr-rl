@@ -1735,7 +1735,8 @@ Stable training
 ---
 
 <img src="assets/images/section_4/unified_view.png" height="80%" width="80%" align="top">
-<body class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</body>
+
+<pre class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</pre>
 
 ---
 

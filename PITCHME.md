@@ -1736,13 +1736,13 @@ Stable training
 
 <img src="assets/images/section_4/unified_view.png" height="80%" width="80%" align="top">
 
-<pre class="image_footer">Richard Sutton - The Long-term of AI & Temporal-Difference Learning</pre>
+<pre class="image_footer">Sutton - The Long-term of AI & Temporal-Difference Learning</pre>
 
 ---
 
 <img src="assets/images/section_4/effect_bootstrap.png" height="80%" width="80%" align="top">
 
-<pre class="image_footer">DeepMind's Richard Sutton - The Long-term of AI & Temporal-Difference Learning</pre>
+<pre class="image_footer">Sutton - The Long-term of AI & Temporal-Difference Learning</pre>
 
 ---
 
@@ -1866,7 +1866,7 @@ Schaul et. al (2016) solves these problems by
 ## four
 ### eligibility traces
 ### prioritized experience replay
-### <span style="color:#66ff66">DDQN</span>
+### DDQN
 ### Distributional Q-Learing
 ### Rainbow
 
@@ -1973,9 +1973,6 @@ Rainbow combines these improvements
 
 ---
 ![fig](assets/images/section_4/rainbow_fig1.png)
-
----
-![fig](assets/images/section_4/rainbow_expt.png)
 
 ---
 ![fig](assets/images/section_4/rainbow_hyper.png)
@@ -2227,8 +2224,6 @@ We parameterize two functions
 
 We update our actor (i.e. the behaviour policy) in the direction suggested by the critic
 
----?image=assets/images/section_5/ac_arch.png&size=auto 70%
-
 ---
 ### Actor-Critic Algorithm
 
@@ -2295,16 +2290,13 @@ Critic
 ---
 ### Gradients
 
-![fig](assets/images/section_5/DPG_grads.png)
-
 Stochastic integrates over both the state & action spaces
+
+$$ \nabla_{\theta}G(\pi_{\theta}) = \mathbb{E}_{s \sim p^{\pi}, a \sim \pi_{\theta}} \nabla_{\theta} log \pi_{\theta}(a|s) \cdot Q^{\pi}(s,a) $$
 
 Deterministic integrates over only the state space -> leading to better sample efficiency
 
----
-### Updating policy weights
-
-![fig](assets/images/section_5/DPG_update.png)
+$$ \nabla_{\theta}G(\pi_{\theta}) = \mathbb{E}_{s \sim p^{\pi}} \nabla_{\theta} \mu_{\theta}(s) \nabla_{a} Q^{\mu}(s,a) |_{a=\mu_{\theta}(s) $$
 
 ---
 ### DPG results

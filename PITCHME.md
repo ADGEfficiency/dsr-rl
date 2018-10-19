@@ -2363,7 +2363,7 @@ PPO is the algorithm used by Open AI in their work on DOTA
 
 The clipped loss function proposed in PPO is:
 
-$$ L^{\text{CLIP}}(\theta) = \mathbb{E} [ min(r_t({\theta}) A_t, \text{clip}(r_t({\theta}), 1 - \epsilon, 1 + \epsilon) A_t)] $$
+$$ L^{\text{CLIP}}(\theta) = \mathbf{E} [ min(r_t({\theta}) A_t, \text{clip}(r_t({\theta}), 1 - \epsilon, 1 + \epsilon) \cdot A_t)] $$
 
 ```python
 clipped_loss = np.min(
@@ -2392,11 +2392,13 @@ First defeat of a world chess champion by a machine in 1997
 
 Deep Blue was handcrafted by programmers & chess grandmasters
 
-AlphaGo *learnt* from human moves & self play
+AlphaGo **learnt** from human moves & self play
 
-AlphaGo evaluated fewer positions
--  **width** - policy network select states more intelligently
--  **depth** - value function evaluate states more precisely
+AlphaGo **evaluated fewer positions**
+
+- reduce the width using a policy network 
+
+- reduce the depth using a value function
 
 ---
 ### Why Go?
@@ -2580,7 +2582,7 @@ And can get $ H(x) = F(x) + x $
 
 ---
 
-![fig](assets/images/section_6/res_block.png)
+<img src="assets/images/section_6/res_block.png" height="80%" width="80%" align="top">
 
 ---
 ### DeepMind AlphaGo AMA

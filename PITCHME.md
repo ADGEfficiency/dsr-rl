@@ -2292,11 +2292,11 @@ Critic
 
 Stochastic integrates over both the state & action spaces
 
-$$ \nabla_{\theta} G $$
+$$ \nabla_{\theta} G (\pi_{\theta}) = $$
 
-$$(\pi_{\theta}) = $$
+$$\mathbf{E}$$
 
-$$\mathbf{E}_{s \sim p^{\pi}, a \sim \pi_{\theta}} $$
+$${s \sim p^{\pi}, a \sim \pi_{\theta}} $$
 
 $$ \nabla_{\theta} log \pi_{\theta}(a|s) \cdot Q^{\pi}(s,a) $$
 
@@ -2317,7 +2317,7 @@ $$ \nabla_{\theta}G(\pi_{\theta}) = \mathbf{E}_{s \sim p^{\pi}} \nabla_{\theta} 
 ### REINFORCE
 ### Actor-Critic
 ### Deterministic Policy Gradient
-### <span style="color:#66ff66">A3C</span>
+### A3C
 
 ---
 ![fig](assets/images/section_5/A3C_lit.png)

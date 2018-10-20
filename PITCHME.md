@@ -1098,7 +1098,7 @@ $$ \text{TD error} = r + \gamma V(s') - V(s) $$
 
 Update rule for a table TD(0) approximation
 
-$$ V(s_t) \leftarrow V(s_t) + \alpha [R_{t+1} + \gamma \cdot V(s_{t+1}) - V(s_t)] $$
+$$ V(s_t) \leftarrow V(s\_{t}) + \alpha [R\_{t+1} + \gamma \cdot V(s\_{t+1}) - V(s_t)] $$
 
 ---
 ### Temporal difference backup

@@ -40,14 +40,14 @@
 
 }
 
-/* /1* code *1/ */
-/* .reveal code { */
-/*   display: block; */
-/*   text-align: left; */
-/*   font-size: 26px; */
-/*   border: 0; */
-/*   box-shadow: none; */
-/* } */
+/* code */
+.reveal code {
+  display: block;
+  text-align: left;
+  font-size: 26px;
+  border: 0;
+  box-shadow: none;
+}
 
 /* quote */
 .reveal blockquote {

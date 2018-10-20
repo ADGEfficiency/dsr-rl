@@ -117,7 +117,7 @@ Expectations **allow us to approximate by sampling**
 
 - we can measure how long it takes us for a week and get an approximation by averaging each of those days
 
-$$ \mathbb{E} [f(x)] = \frac{1}{N} \sum\_{i=0}^{N} f(x\_{i}) $$
+$$ \mathbf{E} [f(x)] = \frac{1}{N} \sum\_{i=0}^{N} f(x\_{i}) $$
 
 ---
 ### Conditionals
@@ -167,7 +167,8 @@ Model generalization error = <span style="color:red">bias + variance + noise</sp
 - biased away from an optimal agent / policy
 
 ---
-![fig](assets/images/section_1/variance_bias.png)
+
+<img src="assets/images/section_1/variance_bias.png" height="80%" width="80%" align="top">
 
 ---
 ### Bootstrapping

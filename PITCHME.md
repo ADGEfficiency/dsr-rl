@@ -820,25 +820,9 @@ We don’t know this function
 ---
 ### Using a value function
 
-- given the optimal value function $Q_*(s,a)$
-
-- we are in state $s$
-
-- our set of actions $\mathcal{A} = \{a_1, a_2, a_3\}$
-
-How can we act?
-
-- use the value function to determine which action has the highest expected return
-
-- select the action with the largest $Q(s,a)$ - ie take the $\underset{a}{\arg\max} Q(s,a)$
-
-This is known as a *greedy policy*
-
----
-### Using a value function
-
 ![fig](assets/images/section_3/gen_policy.png)
 ---
+
 ``` python
 def greedy_policy(state):
 

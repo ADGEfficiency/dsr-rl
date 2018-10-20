@@ -547,14 +547,13 @@ Three signals - state, action & reward
 ```python
 class Agent
 
-`class Environment`
+class Environment
 
-`state = env.reset()`
+state = env.reset()
 
-`action = agent.act(state)`
+action = agent.act(state)
 
-`reward, next_state = env.step(action)`
-
+reward, next_state = env.step(action)
 ```
 
 ---
@@ -593,9 +592,11 @@ Infomation for the agent to **choose next action** and to **learn from**
 
 State is a flexible concept - it's a n-d array
 
-`state = np.array([temperature, pressure])`
+```python
+state = np.array([temperature, pressure])
 
-`state = np.array(pixels).reshape(height, width)`
+state = np.array(pixels).reshape(height, width)
+```
 
 ---
 ### Observation
@@ -643,8 +644,6 @@ Do you agree with this?
 - happiness
 - status
 - reputation
-
-Think about the role of emotion in human decision making.  Is there a place for this in RL?
 
 ---
 ### Reward engineering
@@ -696,6 +695,8 @@ We can reuse data
 - on-policy algorithms have to throw away experience after the policy is improved
 
 > Maybe the lesson we need to learn from deep learning is large capacity learners with large and diverse datasets - Sergey Levine
+
+Off policy learning increases the diversity of the datasets we can learn from
 
 ---
 ![fig](assets/images/section_2/on_off_policy.png)

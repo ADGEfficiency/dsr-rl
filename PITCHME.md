@@ -845,8 +845,10 @@ Control
 - the optimal policy
 - the policy that maximizes expected future discounted reward
 
+What we will see is that **prediction helps us to do control**
+
 ---
-### Value function approximation
+### Approximation
 
 To approximate a value function we can use one of the methods we looked at in the first section
 - lookup table
@@ -870,7 +872,7 @@ Modern reinforcement learning is based on using neural networks
 
 ![fig](assets/images/section_3/bellman.png)
 
-Invented dynamic programming in 1953.
+Invented dynamic programming in 1953
 
 Also introduced the curse of dimensionality
 - number of states $\mathcal{S}$ increases exponentially with number of dimensions in the state
@@ -902,10 +904,9 @@ $$ Q\_{\pi}(s,a) = r + \gamma Q\_{\pi}(s', a') $$
 ### How do we use the Bellman Equation?
 
 Create **targets for learning**
+
 - train a neural network by minimizing the difference between the network output and the correct target
-
 - improve our approximation of a value function we need to create a targets for each sample of experience
-
 - minimize a loss function
 
 $$ loss = target - approximation $$
@@ -933,9 +934,7 @@ Look at three different methods for approximation
 2. Monte Carlo
 3. temporal difference
 
-We are **creating targets** to learn from
-
-Policy improvement can be done by either policy iteration or value iteration for all of these different approximation methods
+We are **creating targets** to learn from - we are labelling our data
 
 ---
 ### Dynamic programming

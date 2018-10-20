@@ -117,7 +117,7 @@ Expectations **allow us to approximate by sampling**
 
 - we can measure how long it takes us for a week and get an approximation by averaging each of those days
 
-$$ \mathbb{E} [f(x)] = \frac{1}{N} \sum_{i=0}^{N} f(x_{i}) $$
+$$ \mathbb{E} [f(x)] = \frac{1}{N} \sum\_{i=0}^{N} f(x\_{i}) $$
 
 ---
 ### Conditionals

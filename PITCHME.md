@@ -74,10 +74,13 @@ Literature review
 ### Nomenclature
 
 Nomenclature in RL can be inconsistent
+
 - value function methods, action = $a$
 - policy gradient methods, action = $u$
 
-Following [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
+You will also see various symbols used for return i.e. $G$ or $J$
+
+This course follows [Thomas & Okal (2016) A Notation for Markov Decision Processes](https://arxiv.org/pdf/1512.09075.pdf)
 
 ---
 
@@ -113,6 +116,8 @@ Expectations **allow us to approximate by sampling**
 - if we want to approximate the average time it takes us to get to work
 
 - we can measure how long it takes us for a week and get an approximation by averaging each of those days
+
+$$ \mathbb{E} [f(x)] = \frac{1}{N} \sum_{i=0}^{N} f(x_{i}) $$
 
 ---
 ### Conditionals

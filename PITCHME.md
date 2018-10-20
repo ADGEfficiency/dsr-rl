@@ -1,4 +1,4 @@
-## a glance at reinforcement learning
+# a glance at reinforcement learning
 
 Adam Green
 
@@ -277,9 +277,18 @@ Constrained optimization such as **linear programming**
 Any other **domain specific** algorithm for your problem
 
 ---
-### Machine learning
 
 ![fig](assets/images/section_2/sl_unsl_rl.png)
+
+---
+
+## Reinforcement learning is 
+
+**learning through action** 
+
+to 
+
+**maximize reward**
 
 ---
 ###  Reinforcement learning is not
@@ -322,10 +331,8 @@ RL is **decision making**
 ###  Biological inspiration
 
 Sutton & Barto - Reinforcment Learning: An Introduction
->Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems
 
-Mnih et. al (2015) Human-level control through deep reinforcement learning
->Neurobiological evidence that reward signals during perceptual learning may influence the characteristics of representations within the primate visual cortex
+> Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems
 
 ---
 ###  A new level of intelligence
@@ -333,10 +340,6 @@ Mnih et. al (2015) Human-level control through deep reinforcement learning
 Founder & CEO of DeepMind Demis Hassabis on the brilliance of AlphaGo in it's 2015 series
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/i3lEG6aRGm8?start=1632" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
----
-
-Reinforcement learning is **learning through action to maximize reward**
 
 ---
 
@@ -541,7 +544,8 @@ Two objects - the agent and environment
 
 Three signals - state, action & reward
 
-`class Agent`
+```python
+class Agent
 
 `class Environment`
 
@@ -550,6 +554,8 @@ Three signals - state, action & reward
 `action = agent.act(state)`
 
 `reward, next_state = env.step(action)`
+
+```
 
 ---
 ### Environment

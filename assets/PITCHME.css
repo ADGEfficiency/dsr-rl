@@ -32,11 +32,13 @@
 
 /* tables */
 .reveal table {
+
   display: block;
   text-align: center;
   font-size: 26px;
-  margin-left: auto;
-  margin-right: auto;
+  border: 0;
+  box-shadow: none;
+
 }
 
 /* code */
@@ -48,7 +50,7 @@
   box-shadow: none;
 }
 
-/* code */
+/* quote */
 .reveal blockquote {
   display: block;
   text-align: left;

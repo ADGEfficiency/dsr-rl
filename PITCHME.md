@@ -282,13 +282,13 @@ Any other **domain specific** algorithm for your problem
 
 ---
 
-## Reinforcement learning is 
+### Reinforcement learning is 
 
-**learning through action** 
+### **learning through action** 
 
-to 
+### to 
 
-**maximize reward**
+### **maximize reward**
 
 ---
 ###  Reinforcement learning is not
@@ -445,7 +445,7 @@ RL breaks both in multiple ways
 
 ---
 
-Reinforcement learning will **always** break supervised learning assumptions about data quality
+### Reinforcement learning will **always** break supervised learning assumptions about data quality
 
 ---
 ###  Credit assignment
@@ -762,13 +762,6 @@ Makes the maths works
 - geometric series
 
 ---
-### Discounting
-
-Can use discount = 1 for
-- games with tree-like structures (without cycles)
-- when time to solve is irrelevant (i.e. a board game)
-
----
 ## three
 ### value functions
 ### Bellman Equation
@@ -1043,11 +1036,20 @@ Low bias
 - no chance for a bootstrapped function to mislead us
 
 ---
-### Monte Carlo algorithm
 
-Algorithm for a lookup table based Monte Carlo approximation
+```python
+#  pseudocode for lookup table Monte Carlo
+returns = defaultdict(list)
 
-![fig](assets/images/section_3/mc_1.png)
+episode = run_full_episode(env, policy)
+
+for experience in episode:
+    return = episode.calc_return(experience)
+
+    returns[experience.state].append(return)
+
+value_estimate = np.mean(returns[state])
+```
 
 ---
 ###  Interesting feature of Monte Carlo
@@ -1636,12 +1638,10 @@ $$ e\_{t}(s) = \gamma \lambda e\_{t-1}(s) + 1 $$
 ---
 ### Traces in a grid world
 
-<img src="assets/images/section_4/traces_grid.png" height="80%" width="80%" align="center">
+<img src="assets/images/section_4/traces_grid.png" height="70%" width="70%" align="center">
 
 - one step method would only update the last $Q(s,a)$
-
 - n-step method would update all $Q(s,a)$ equally
-
 - eligibility traces updates based on how recently each $Q(s,a)$ was experienced
 
 ---

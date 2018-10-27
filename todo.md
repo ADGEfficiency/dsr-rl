@@ -1,16 +1,15 @@
-# before october course
 
 https://www.reddit.com/r/reinforcementlearning/comments/7s8px9/deep_reinforcement_learning_practical_tips/
-
----
+Finis the tensorboard bit of the intro to tensorflow stuff
 
 after october course
 
 redo the equations for DPG in notes and slides
+Introduce first the bellman equn then the bellman optimality equation (on vs off policy)
 
 ---
 
-turn the TODOs into a RL quiz!!!!
+turn the recaps into a RL quiz!!!!
 
 ---
 

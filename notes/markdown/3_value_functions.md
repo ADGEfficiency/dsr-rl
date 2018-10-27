@@ -261,7 +261,6 @@ Monte Carlo methods = finding the expected value of a function of a random varia
 
 Estimate the value of a state by averaging the true discounted return observed after each visit to that state.  As we run more episodes, our estimate should converge to the true expectation.
 
-
 ```python
 #  pseudocode for lookup table Monte Carlo
 returns = defaultdict(list)

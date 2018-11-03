@@ -264,6 +264,20 @@ Discretiziation
 
 Losing the shape of the space = agent sees all actions as discrete options, and has no way to understand the relationship between each one (this is true for the DQN style neural network, with one output node per action).
 
+### Environment classification system
+
+[source - AI agents and their environments](https://en.wikibooks.org/wiki/Artificial_Intelligence/AI_Agents_and_their_Environments)
+
+Russell and Norvig (2009) introduced seven ways to classify AI environments:
+
+- deterministicness
+- staticness - aka stationary or nonstationary
+- observability
+- agency - how many agents there are in the environment
+- knowledge - how well the agent understands the laws that govern the environments behaviour
+- episodicness
+- discreteness - in both time and measurement
+
 ### State
 
 Infomation for the agent to **choose next action** and to **learn from**

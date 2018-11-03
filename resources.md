@@ -75,8 +75,6 @@ RL - Vlad Mnih](https://www.youtube.com/watch?v=bsuvM1jO-4w&t=1s)-
 
 ## open source projects
 
-### notable 
-
 Open AI gym - environments - [repo](https://github.com/openai/gym/tree/master/gym) - [paper](https://arxiv.org/abs/1606.01540)
 
 Open AI baselines - agents - [repo](https://github.com/openai/baselines)
@@ -94,3 +92,5 @@ Holodeck - Unity 3D environments - [github](https://github.com/byu-pccl/holodeck
 [Parallel Monte-Carlo tree search to tackle the problem of long-term path planning under uncertainty for offshore sailing](https://github.com/PBarde/IBoat-PMCTS)
 
 [RLenv.directory](https://rlenv.directory/) - directory of reinforcement learning environments
+
+Horizion - Facebook platform for applied RL - [github](https://github.com/facebookresearch/Horizon) - [paper](https://arxiv.org/abs/1811.00260)

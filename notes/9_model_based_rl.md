@@ -6,6 +6,10 @@ https://www.youtube.com/watch?v=8a7wBLg5Q8U - microsoft keynote model based rl
 
 Jonathan Hui - Model-based Reinforcement Learning - [blog post](https://medium.com/@jonathan_hui/rl-model-based-reinforcement-learning-3c2b6f0aa323)
 
+# Temporal difference model (Pong 2018) notes
+
+Convential wisdom is that model free is less efficient but with the best asymptotic performance, while model based are more efficient but less optimal policies.  This is due to bias in the dynamics model hurting the policy.
+
 # Investigating Model Based RL for Continuous Control | Alex Botev - [youtube](https://www.youtube.com/watch?v=1_sYif82CtY)
 
 Model based RL = we try to learn an environment dynamics model.  Usually assume we don't have access to the environment except through sampling.

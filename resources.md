@@ -93,4 +93,4 @@ Holodeck - Unity 3D environments - [github](https://github.com/byu-pccl/holodeck
 
 [RLenv.directory](https://rlenv.directory/) - directory of reinforcement learning environments
 
-Horizion - Facebook platform for applied RL - [github](https://github.com/facebookresearch/Horizon) - [paper](https://arxiv.org/abs/1811.00260)
+Horizion - Facebook platform for applied RL - [github](https://github.com/facebookresearch/Horizon) - [paper](https://arxiv.org/abs/1811.00260) - [blog post](https://code.fb.com/ml-applications/horizon/)

@@ -1,3 +1,7 @@
+**This repo is no longer maintained - my reinforcement learning course now lives at [ADGEfficiency/rl-course](https://github.com/ADGEfficiency/rl-course)**
+
+---
+
 Materials for the reinforcement learning course at [Data Science Retreat](https://www.datascienceretreat.com/).
 
 This course is aimed at students with a grasp of supervised learning - no prior understanding of reinforcement learning required.
@@ -8,8 +12,6 @@ The course materials are:
 - [detailed notes to support lectures and for future study](https://github.com/ADGEfficiency/dsr_rl/blob/master/notes/)
 
 This repo also has [machine learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/general_machine_learning) and [reinforcement learning](https://github.com/ADGEfficiency/dsr_rl/tree/master/literature/reinforcement_learning) literature.  Further resources (video lectures, blog posts etc) are listed in [dsr-rl/resources.md](https://github.com/ADGEfficiency/dsr-rl/blob/master/readme.md).
-
-This project is built and maintained by Adam Green - [adam.green@adgefficiency.com](adam.green@adgefficiency.com).
 
 ### Content
 
